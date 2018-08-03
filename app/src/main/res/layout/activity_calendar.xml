@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:elevation="2dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <include
+            android:id="@+id/DI_topbar"
+            layout="@layout/toolbar_black"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </android.support.design.widget.AppBarLayout>
+
+    <SearchView
+        android:id="@+id/calendar_search"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/appbarLayout"
+        android:layout_height="40dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/bg_gray_rounded"
+        android:queryHint="Search" />
+
+    <TextView
+        android:id="@+id/calendar_year_month"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_below="@+id/calendar_search"
+        android:layout_marginTop="5dp"
+        android:text="DEC-2017"
+        android:textAlignment="center"
+        android:textColor="@color/accent"
+        android:textSize="16sp"
+        android:textStyle="bold" android:layout_marginStart="0dp" />
+
+    <com.github.sundeepk.compactcalendarview.CompactCalendarView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/calendar_view"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@+id/calendar_year_month"
+        android:layout_marginTop="0dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        app:compactCalendarBackgroundColor="@color/md_white_1000"
+        app:compactCalendarCurrentDayBackgroundColor="#B71C1C"
+        app:compactCalendarCurrentSelectedDayBackgroundColor="#E57373"
+        app:compactCalendarMultiEventIndicatorColor="@color/baby_blue"
+        app:compactCalendarTargetHeight="150dp"
+        app:compactCalendarTextColor="@color/md_black_1000"
+        app:compactCalendarTextSize="12sp" />
+
+    <LinearLayout
+        android:id="@+id/divider1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/calendar_view"
+        android:background="@color/light_gray"
+        android:orientation="vertical"></LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/top_filter_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/divider1"
+        android:background="@color/white">
+
+        <com.gigamole.navigationtabstrip.NavigationTabStrip
+            android:id="@+id/calendar_top"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            app:nts_active_color="@color/accent"
+            app:nts_animation_duration="200"
+            app:nts_color="@color/accent"
+            app:nts_corners_radius="1.5dp"
+            app:nts_factor="2.8"
+            app:nts_inactive_color="@color/gray"
+            app:nts_titles="@array/calendar_top_filter_titles"
+            app:nts_weight="3dp" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/top_filter_wrapper"
+        android:background="@color/light_gray"
+        android:orientation="vertical"></LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/divider2"
+        android:layout_above="@+id/divider3"/>
+
+    <LinearLayout
+        android:id="@+id/divider3"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:orientation="vertical"
+        android:layout_above="@+id/bottom_filter"
+        android:background="@color/light_gray"></LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/bottom_filter"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white">
+
+        <com.gigamole.navigationtabstrip.NavigationTabStrip
+            android:id="@+id/calendar_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            app:nts_active_color="@color/accent"
+            app:nts_animation_duration="200"
+            app:nts_color="@color/accent"
+            app:nts_corners_radius="1.5dp"
+            app:nts_factor="2.8"
+            app:nts_gravity="top"
+            app:nts_inactive_color="@color/gray"
+            app:nts_titles="@array/calendar_bottom_filter_titles"
+            app:nts_weight="3dp" />
+
+    </FrameLayout>
+
+</RelativeLayout>

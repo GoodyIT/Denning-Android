@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.rockerhieu:rv-adapter-1.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.android/build-cache/efafbc4fded071b30997df8a7687b82a798be137/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/efafbc4fded071b30997df8a7687b82a798be137/output/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.rockerhieu/rv-adapter/1.0/378539c10e6828aa83db503e6ce3bf1872a1bbf/rv-adapter-1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

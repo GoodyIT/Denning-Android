@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:segmentedgroup="http://schemas.android.com/tools"
+    android:id="@+id/account_detail_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cardview_shadow_start_color"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        app:elevation="2dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <include
+            android:id="@+id/DI_topbar"
+            layout="@layout/toolbar_with_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        app:tabIndicatorColor="@android:color/holo_red_light"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@android:color/holo_red_light"
+        app:tabTextColor="@color/white">
+
+    </android.support.design.widget.TabLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:id="@+id/relativeLayout2">
+
+            <info.hoang8f.android.segmented.SegmentedGroup
+                android:id="@+id/account_detail_segmented"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                style="@style/SegmentedButtons"
+                segmentedgroup:sc_border_width="1dp"
+                segmentedgroup:sc_corner_radius="5dp"
+                segmentedgroup:sc_tint_color="#FF3B2F">
+
+                <RadioButton
+                    android:id="@+id/account_filter_all"
+                    style="@style/SegmentedButtons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:soundEffectsEnabled="false"
+                    android:text="All" />
+
+                <RadioButton
+                    android:id="@+id/account_filter_debit"
+                    style="@style/SegmentedButtons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Debit (-)" />
+
+                <RadioButton
+                    android:id="@+id/account_filter_credit"
+                    style="@style/SegmentedButtons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Credit (+)" />
+            </info.hoang8f.android.segmented.SegmentedGroup>
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/account_detail_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/account_detail_bottom_layout"
+            android:layout_below="@+id/relativeLayout2"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/white" />
+
+        <RelativeLayout
+            android:id="@+id/account_detail_bottom_layout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/white">
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:text="Ledger Balance:"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/account_ledger_balance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_toEndOf="@+id/textView17"
+                android:layout_toRightOf="@+id/textView17"
+                android:text="TextView"
+                android:textColor="@color/black" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+
+</LinearLayout>

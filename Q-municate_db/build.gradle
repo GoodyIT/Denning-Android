@@ -1,0 +1,24 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode rootProject.versionCode
+        versionName rootProject.versionName
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile "com.j256.ormlite:ormlite-android:${rootProject.ormliteAndroidVersion}"
+    compile "com.j256.ormlite:ormlite-core:${rootProject.ormliteCoreVersion}"
+    compile "com.quickblox:quickblox-android-sdk-chat:${rootProject.qbSdkVersion}"
+    compile project(path: ':q-municate_user_service')
+}

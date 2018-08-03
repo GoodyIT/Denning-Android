@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:tag="cards main container"
+    android:weightSum="1">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/search_cardview"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@android:color/white"
+        android:foreground="?android:attr/selectableItemBackground"
+        card_view:cardElevation="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/search_general_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/search_title"
+                    android:layout_alignStart="@+id/search_title"
+                    android:layout_below="@+id/search_title"
+                    android:layout_marginLeft="12dp"
+                    android:text="Title"
+                    android:textColor="@color/accent" />
+
+                <TextView
+                    android:id="@+id/search_general_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/search_general_name"
+                    android:layout_alignStart="@+id/search_general_name"
+                    android:layout_below="@+id/search_general_name"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_toLeftOf="@+id/search_last_rightBtn"
+                    android:layout_toStartOf="@+id/search_last_rightBtn"
+                    android:text="Description" />
+
+                <ImageButton
+                    android:id="@+id/search_last_rightBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:background="@android:drawable/screen_background_light_transparent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="3dp"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_phone_red" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="com.hannesdorfmann.smoothprogressbar:library-1.0.0">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.android/build-cache/4be9835434091e4873fdbc6c9f8825f155e0fa98/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/4be9835434091e4873fdbc6c9f8825f155e0fa98/output/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.hannesdorfmann.smoothprogressbar/library/1.0.0/b2edaf1accac1d98ab3e142110b9de792b4ea562/library-1.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

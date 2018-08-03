@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/release/raw/beep.wav",
+        "source": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/src/main/res/raw/beep.wav"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/release/raw/orm.properties",
+        "source": "/Users/denningit/MyWork/Denning-Android/Q-municate_db/build/intermediates/bundles/default/res/raw/orm.properties"
+    }
+]

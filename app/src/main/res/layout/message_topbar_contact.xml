@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:segmentedgroup="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    app:layout_collapseMode="pin"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/button_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.2"
+            android:background="@drawable/selector_button_general"
+            android:padding="5dp"
+            android:src="@mipmap/ic_message" />
+
+        <ImageButton
+            android:id="@+id/button_favorite"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/selector_button_general"
+            android:padding="5dp"
+            android:layout_weight="0.2"
+            android:src="@drawable/ic_favorite" />
+
+        <ImageButton
+            android:id="@+id/button_group"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/selector_button_general"
+            android:padding="5dp"
+            android:layout_weight="0.2"
+            android:src="@drawable/ic_group" />
+
+        <ImageButton
+            android:id="@+id/button_contact"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/selector_button_general"
+            android:padding="5dp"
+            android:layout_weight="0.2"
+            android:src="@drawable/ic_contact" />
+    </LinearLayout>
+
+
+    <android.support.v7.widget.SearchView
+        android:id="@+id/message_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray"
+        app:queryHint="Search" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <info.hoang8f.android.segmented.SegmentedGroup
+            android:id="@+id/message_segmented"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            style="@style/SegmentedButtons"
+            segmentedgroup:sc_border_width="1dp"
+            segmentedgroup:sc_corner_radius="5dp"
+            segmentedgroup:sc_tint_color="#FF3B2F">
+
+            <RadioButton
+                android:id="@+id/message_filter_all"
+                style="@style/SegmentedButtons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:soundEffectsEnabled="false"
+                android:text="All" />
+
+            <RadioButton
+                android:id="@+id/message_filter_colleagues"
+                style="@style/SegmentedButtons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Colleagues" />
+
+            <RadioButton
+                android:id="@+id/message_filter_clients"
+                style="@style/SegmentedButtons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Clients" />
+
+        </info.hoang8f.android.segmented.SegmentedGroup>
+    </RelativeLayout>
+
+</LinearLayout>
+
+

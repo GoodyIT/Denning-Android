@@ -1,0 +1,9 @@
+include ':app', ':lib',
+        ':q-municate_auth_service',
+        ':q-municate_user_service',
+        ':q-municate_user_cache',
+        ':q-municate_base_service',
+        ':q-municate_base_cache'
+include ':Q-municate_core'
+include ':Q-municate_db'
+project(':lib').projectDir = new File('library')

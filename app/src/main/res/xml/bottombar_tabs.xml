@@ -1,0 +1,18 @@
+<tabs>
+    <tab
+        id="@+id/nav_home"
+        icon="@drawable/icon_tab_home"
+        title="Home" />
+    <tab
+        id="@+id/nav_addcontact"
+        icon="@mipmap/ic_add"
+        title="Add"/>
+    <tab
+        id="@+id/nav_dashboard"
+        icon="@mipmap/ic_overview"
+        title="Dashboard"/>
+    <tab
+        id="@+id/nav_message"
+        icon="@mipmap/ic_message"
+        title="Message"/>
+</tabs>

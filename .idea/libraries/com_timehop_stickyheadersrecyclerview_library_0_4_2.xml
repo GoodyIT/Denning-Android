@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="com.timehop.stickyheadersrecyclerview:library-0.4.2">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.android/build-cache/5964de55eeec5bb467a84636e4da1ec75783ac84/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/5964de55eeec5bb467a84636e4da1ec75783ac84/output/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.timehop.stickyheadersrecyclerview/library/0.4.2/71c7de6e8da4c6e67c8a2de3ac81351ac57abbd9/library-0.4.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

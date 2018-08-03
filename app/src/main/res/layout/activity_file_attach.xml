@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:segmentedgroup="http://schemas.android.com/tools"
+    android:id="@+id/search_layout"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/search_appbar"
+        android:background="@color/navigationColor"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/searh_toolbar_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            app:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/back_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/search_type"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/colorPrimary"
+                    app:srcCompat="@drawable/ic_back" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <it.denning.search.utils.ClearableAutoCompleteTextView
+                    android:id="@+id/search_autoCompleteTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toLeftOf="@+id/search_type"
+                    android:layout_toStartOf="@+id/search_type"
+                    android:background="@drawable/bg_white_rounded"
+                    android:elevation="1dp"
+                    android:ems="10"
+                    android:hint="Denning Search"
+                    android:inputType="textNoSuggestions"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp"
+                    android:popupTheme="@color/cardview_light_background"
+                    android:textColor="@color/bb_darkBackgroundColor"
+                    android:textColorHint="@color/bb_tabletRightBorderDark"
+                    android:theme="@style/Autocomplete" />
+
+                <ImageButton
+                    android:id="@+id/search_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/search_autoCompleteTextView"
+                    android:layout_alignWithParentIfMissing="true"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/bb_bottom_bar_top_shadow"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_switch_branch" />
+
+                <android.support.design.widget.CoordinatorLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/snackbar_position_coordinatorlayout" />
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/relativeLayout2">
+
+            <info.hoang8f.android.segmented.SegmentedGroup
+                android:id="@+id/file_attach_segmented"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                style="@style/SegmentedButtons"
+                segmentedgroup:sc_border_width="1dp"
+                segmentedgroup:sc_corner_radius="5dp"
+                segmentedgroup:sc_tint_color="@color/white">
+
+                <RadioButton
+                    android:id="@+id/attach_all"
+                    style="@style/SegmentedButtons_Attach"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:soundEffectsEnabled="false"
+                    android:text="All" />
+
+                <RadioButton
+                    android:id="@+id/attach_file"
+                    style="@style/SegmentedButtons_Attach"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="File" />
+
+                <RadioButton
+                    android:id="@+id/attach_contact"
+                    style="@style/SegmentedButtons_Attach"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Contact" />
+            </info.hoang8f.android.segmented.SegmentedGroup>
+
+            <Button
+                android:id="@+id/transit_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:text="Transit"
+                android:textColor="@color/white" />
+
+        </RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/baby_blue" />
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/search_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/search_appbar"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

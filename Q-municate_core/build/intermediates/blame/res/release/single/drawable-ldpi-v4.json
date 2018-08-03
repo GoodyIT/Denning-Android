@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/release/drawable-ldpi-v4/exo_controls_next.png",
+        "source": "/Users/denningit/.android/build-cache/50e87067cdfc58c50d7f0361581620189f026f2b/output/res/drawable-ldpi-v4/exo_controls_next.png"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/release/drawable-ldpi-v4/exo_edit_mode_logo.png",
+        "source": "/Users/denningit/.android/build-cache/50e87067cdfc58c50d7f0361581620189f026f2b/output/res/drawable-ldpi-v4/exo_edit_mode_logo.png"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/release/drawable-ldpi-v4/exo_controls_rewind.png",
+        "source": "/Users/denningit/.android/build-cache/50e87067cdfc58c50d7f0361581620189f026f2b/output/res/drawable-ldpi-v4/exo_controls_rewind.png"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/release/drawable-ldpi-v4/exo_controls_previous.png",
+        "source": "/Users/denningit/.android/build-cache/50e87067cdfc58c50d7f0361581620189f026f2b/output/res/drawable-ldpi-v4/exo_controls_previous.png"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/release/drawable-ldpi-v4/exo_controls_fastforward.png",
+        "source": "/Users/denningit/.android/build-cache/50e87067cdfc58c50d7f0361581620189f026f2b/output/res/drawable-ldpi-v4/exo_controls_fastforward.png"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/release/drawable-ldpi-v4/exo_controls_repeat_all.png",
+        "source": "/Users/denningit/.android/build-cache/50e87067cdfc58c50d7f0361581620189f026f2b/output/res/drawable-ldpi-v4/exo_controls_repeat_all.png"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/release/drawable-ldpi-v4/exo_controls_repeat_off.png",
+        "source": "/Users/denningit/.android/build-cache/50e87067cdfc58c50d7f0361581620189f026f2b/output/res/drawable-ldpi-v4/exo_controls_repeat_off.png"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/release/drawable-ldpi-v4/exo_controls_pause.png",
+        "source": "/Users/denningit/.android/build-cache/50e87067cdfc58c50d7f0361581620189f026f2b/output/res/drawable-ldpi-v4/exo_controls_pause.png"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/release/drawable-ldpi-v4/exo_controls_play.png",
+        "source": "/Users/denningit/.android/build-cache/50e87067cdfc58c50d7f0361581620189f026f2b/output/res/drawable-ldpi-v4/exo_controls_play.png"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/release/drawable-ldpi-v4/exo_controls_repeat_one.png",
+        "source": "/Users/denningit/.android/build-cache/50e87067cdfc58c50d7f0361581620189f026f2b/output/res/drawable-ldpi-v4/exo_controls_repeat_one.png"
+    }
+]

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Denning-Android.iml" filepath="$PROJECT_DIR$/Denning-Android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Q-municate_core/Q-municate_core.iml" filepath="$PROJECT_DIR$/Q-municate_core/Q-municate_core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Q-municate_db/Q-municate_db.iml" filepath="$PROJECT_DIR$/Q-municate_db/Q-municate_db.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library/lib.iml" filepath="$PROJECT_DIR$/library/lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/q-municate_auth_service/q-municate_auth_service.iml" filepath="$PROJECT_DIR$/q-municate_auth_service/q-municate_auth_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/q-municate_base_cache/q-municate_base_cache.iml" filepath="$PROJECT_DIR$/q-municate_base_cache/q-municate_base_cache.iml" />
+      <module fileurl="file://$PROJECT_DIR$/q-municate_base_service/q-municate_base_service.iml" filepath="$PROJECT_DIR$/q-municate_base_service/q-municate_base_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/q-municate_user_cache/q-municate_user_cache.iml" filepath="$PROJECT_DIR$/q-municate_user_cache/q-municate_user_cache.iml" />
+      <module fileurl="file://$PROJECT_DIR$/q-municate_user_service/q-municate_user_service.iml" filepath="$PROJECT_DIR$/q-municate_user_service/q-municate_user_service.iml" />
+    </modules>
+  </component>
+</project>

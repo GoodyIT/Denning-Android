@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/release/layout-v21/notification_template_custom_big.xml",
+        "source": "/Users/denningit/.android/build-cache/7a8801187e04bb90d49066eb0d6f0e2d88f99add/output/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/release/layout-v21/notification_template_icon_group.xml",
+        "source": "/Users/denningit/.android/build-cache/7a8801187e04bb90d49066eb0d6f0e2d88f99add/output/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/release/layout-v21/notification_action_tombstone.xml",
+        "source": "/Users/denningit/.android/build-cache/7a8801187e04bb90d49066eb0d6f0e2d88f99add/output/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/release/layout-v21/notification_action.xml",
+        "source": "/Users/denningit/.android/build-cache/7a8801187e04bb90d49066eb0d6f0e2d88f99add/output/res/layout-v21/notification_action.xml"
+    }
+]

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.rockerhieu.emojicon:library-1.3.1">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.android/build-cache/ec0b40f2400923d4bf623a818daae31d912998ba/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/ec0b40f2400923d4bf623a818daae31d912998ba/output/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.rockerhieu.emojicon/library/1.3.1/b2e7667ee13ee44cac257593ce232f4417a03fc6/library-1.3.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

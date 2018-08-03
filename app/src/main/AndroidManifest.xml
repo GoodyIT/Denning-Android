@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="it.denning"
+    android:installLocation="preferExternal">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+
+    <supports-screens
+        android:largeScreens="true"
+        android:xlargeScreens="true" />
+
+    <application
+        android:name="it.denning.App"
+        tools:replace="android:label"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Denning"
+        android:supportsRtl="true"
+        android:largeHeap="true"
+        android:screenOrientation="portrait"
+        android:hardwareAccelerated="false"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".auth.SplashActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateHidden"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+
+        <activity android:label="@string/app_name" android:name=".auth.SignInActivity"
+            android:configChanges="orientation|screenSize"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name=".auth.NewDeviceLogin"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name=".auth.ChangePassword"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name=".auth.branch.FirmBranchActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name=".auth.ForgetPassword"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".search.SearchActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name=".search.contact.SearchContactActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".search.legal_firm.LegalFirmActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".search.matter.MatterActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".search.bank.BankActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".search.property.PropertyActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".search.govoffice.GovOfficesActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".search.document.DocumentActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name=".search.document.DocumentActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".search.accounts.AccountsActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".search.accounts.AccountsDetailActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".auth.SignUpActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".auth.LawfirmActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".navigation.dashboard.section1.MyDueTaskActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".navigation.dashboard.section1.FileListingActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".navigation.dashboard.section2.CollectionActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:theme="@style/AppTheme.NoActionBar"
+            android:name=".navigation.dashboard.section4.bankrecon.BankReconActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:theme="@style/AppTheme.NoActionBar"
+            android:name=".navigation.dashboard.section4.contacts.DashboardContactActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".navigation.dashboard.section4.taskchecklist.StaffDueTaskActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".navigation.dashboard.section4.profitloss.ProfitLossActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".navigation.dashboard.section4.fileledgers.FileLedgerActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".navigation.dashboard.section4.fileledgers.FileLedgerDetailActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".navigation.dashboard.section4.taxinvoice.TaxInvoiceActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".navigation.dashboard.section4.bankandcash.BankCashActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".navigation.dashboard.section4.profitloss.ProfitLossDetailActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".navigation.dashboard.section4.staffonline.StaffOnlineActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".navigation.dashboard.section4.graph.FeeAndGrowth"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".navigation.dashboard.section4.trialbalance.TrialBalanceActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".navigation.dashboard.section4.dashboardattendance.DashboardAttendanceActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".navigation.dashboard.section4.dashboard_attendance_detail.DashboardAttendanceDetailActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="it.denning.ui.activities.call.CallActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="it.denning.ui.activities.chats.NewMessageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="it.denning.ui.activities.chats.NewGroupDialogActivity"
+            android:noHistory="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="it.denning.ui.activities.chats.CreateGroupDialogActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="it.denning.ui.activities.chats.PrivateDialogActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="it.denning.ui.activities.chats.GroupDialogActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="it.denning.ui.activities.chats.GroupDialogDetailsActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="it.denning.ui.activities.profile.MyProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="it.denning.ui.activities.chats.AddFriendsToGroupActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="it.denning.ui.activities.changepassword.ChangePasswordActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="it.denning.ui.activities.forgotpassword.ForgotPasswordActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="it.denning.ui.activities.agreements.UserAgreementActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.soundcloud.android.crop.CropImageActivity" />
+        <activity
+            android:name="it.denning.ui.activities.about.AboutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="it.denning.ui.activities.others.PreviewImageActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name="it.denning.ui.activities.location.MapsActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name="com.quickblox.ui.kit.chatmessage.adapter.media.video.ui.VideoPlayerActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:launchMode="singleTop"
+            android:theme="@style/VideoPlayerTheme">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:scheme="content"/>
+                <data android:scheme="asset"/>
+                <data android:scheme="file"/>
+            </intent-filter>
+        </activity>
+	 <activity
+            android:name=".ui.activities.others.ExitActivity"
+            android:theme="@android:style/Theme.NoDisplay"
+            android:autoRemoveFromRecents="true"/>
+	    
+        <activity android:name=".navigation.home.util.AdsViwerActivity" />
+        <activity android:name=".navigation.home.upload.UploadActivity" />
+        <activity android:name=".search.MatterCode.MatterCodeActivity" />
+        <activity android:name=".navigation.home.calendar.CalendarActivity" />
+        <activity android:name=".navigation.home.attendance.AttendanceActivity" />
+        <activity android:name=".search.filenote.FileNoteActivity" />
+        <activity android:name=".search.filenote.NewFileNoteActivity" />
+        <activity android:name=".search.paymentrecord.PaymentRecordActivity" />
+        <activity android:name=".search.template.TemplateActivity" />
+        <activity android:name=".search.utils.codedesc.CodeDescActivity" />
+        <activity android:name=".search.utils.generallist.GeneralListActivity" />
+        <activity android:name=".search.utils.desc.GeneralDescActivity" />
+        <activity android:name=".auth.FirmPasswordConfirmActivity" />
+        <activity android:name=".search.document.PersonalDocumentActivity" />
+        <activity
+            android:name=".navigation.add.quotation.AddQuotationActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".navigation.add.utils.simplematter.SimpleMatterActivity" />
+        <activity android:name=".navigation.add.utils.listmatter.ListMatterActivity" />
+        <activity
+            android:name=".navigation.add.bill.AddBillActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".navigation.add.receipt.AddReceiptActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".navigation.add.utils.accounttype.AccountTypeActivity" />
+        <activity
+            android:name=".ui.activities.denningfile.DenningFileActivity" />
+        <activity
+            android:name=".navigation.add.leaveapplication.LeaveApplicationActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".navigation.dashboard.section1.staffleave.StaffLeaveActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".navigation.dashboard.section1.staffleave.leavependingapproval.LeavePendingApprovalActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".navigation.add.contact.AddContactActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".navigation.add.property.AddPropertyActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".navigation.add.matter.AddMatterActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".navigation.add.utils.stafflist.StaffListActivity" />
+        <activity android:name=".navigation.add.utils.contactlist.ContactListActivity" />
+        <activity android:name=".navigation.add.utils.branchlist.BranchListActivity" />
+        <activity android:name=".navigation.add.utils.solicitorlist.SolicitorListActivity" />
+        <activity android:name=".navigation.add.utils.propertylist.PropertyListActivity" />
+        <activity android:name=".navigation.add.utils.casetypelist.CaseTypeListActivity" />
+        <activity android:name=".navigation.add.utils.courtdiarycourtlist.CourtDiaryCourtListActivity" />
+        <activity android:name=".navigation.add.utils.coramlist.CoramListActivity" />
+        <activity android:name=".navigation.add.utils.billselection.TaxInvoiceSelectionActivity" />
+        <activity android:name=".navigation.add.diary.DiaryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".navigation.dashboard.section1.staffleave.leaverecords.LeaveRecordsActivity" />
+        <activity android:name=".navigation.add.utils.matterlitigation.MatterLitigationActivity" />
+        <activity android:name=".navigation.add.utils.projecthousing.ProjectHousingListActivity" />
+        <activity android:name=".navigation.add.utils.mattertitle.MasterTitleListActivity" />
+        <activity android:name=".navigation.dashboard.section3.CompletionDateActivity" />
+        <activity android:name=".navigation.dashboard.section4.feestransfer.FeesTransferActivity" />
+        <activity android:name=".navigation.dashboard.section4.dashboardquotation.DashboardQuotationActivity" />
+        <activity android:name=".navigation.dashboard.section4.viewquotation.ViewQuotationActivity" />
+        <activity android:name=".navigation.dashboard.section4.feestransferreddetail.FeesTransferDetailActivity" />
+        <activity android:name=".navigation.dashboard.section4.dashboardcontactfolder.DashboardContactFolderActivity" />
+        <activity android:name=".search.accounts.transaction.TransactionDetailActivity" />
+        <activity
+            android:name=".share.DenningShareActivity"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="*/*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="*/*" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".navigation.home.news.NewsActivity" />
+        <activity android:name=".navigation.home.comingsoon.ComingSoonActivity" />
+
+        <meta-data
+            tools:replace="android:value"
+            android:name="io.fabric.ApiKey"
+            android:value="c8c9ce069bbe1d055e363514286076d5786e848b"
+            />
+
+        <meta-data
+            android:name="com.quickblox.messages.TYPE"
+            android:value="FCM" />
+
+        <meta-data
+            android:name="com.quickblox.messages.SENDER_ID"
+            android:value="@string/sender_id" />
+        <meta-data
+            android:name="com.quickblox.messages.QB_ENVIRONMENT"
+            android:value="PRODUCTION" />
+
+        <service android:name=".network.services.DownloadService"/>
+
+        <service
+            android:name="com.quickblox.q_municate_core.service.QBService"
+            android:icon="@mipmap/ic_launcher"/>
+        <service
+            android:name="it.denning.fcm.FcmPushListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.quickblox.messages.services.fcm.QBFcmPushInstanceIDService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="it.denning.utils.broadcasts.NetworkChangeReceiver"
+            android:label="NetworkChangeReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="it.denning.utils.broadcasts.ChatMessageReceiver"
+            android:label="ChatMessageReceiver">
+            <intent-filter>
+                <action android:name="q_municate.got_chat_message" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.quickblox.q_municate_core.network.NetworkGCMTaskService"
+            android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>
+            </intent-filter>
+        </service>
+
+        <service android:name="it.denning.service.SessionJobService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
+            </intent-filter>
+        </service>
+        <service android:name=".service.CallService" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+    </application>
+
+</manifest>

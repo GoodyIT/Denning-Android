@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.mikepenz:materialize-1.1.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.android/build-cache/2a6ab87ebdd95a38df81359c29f6b54488d3d9ce/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/2a6ab87ebdd95a38df81359c29f6b54488d3d9ce/output/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mikepenz/materialize/1.1.2/90e5e1bf9320b6d855f052c1b4018802743b5120/materialize-1.1.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

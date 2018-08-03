@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_db/build/intermediates/res/merged/androidTest/debug/drawable-v21/notification_action_background.xml",
+        "source": "/Users/denningit/.android/build-cache/7a8801187e04bb90d49066eb0d6f0e2d88f99add/output/res/drawable-v21/notification_action_background.xml"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_db/build/intermediates/res/merged/androidTest/debug/drawable-v21/abc_btn_colored_material.xml",
+        "source": "/Users/denningit/.android/build-cache/5e44b43a9c0b3f900a77a79ffbe4ad711d64e26e/output/res/drawable-v21/abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_db/build/intermediates/res/merged/androidTest/debug/drawable-v21/abc_action_bar_item_background_material.xml",
+        "source": "/Users/denningit/.android/build-cache/5e44b43a9c0b3f900a77a79ffbe4ad711d64e26e/output/res/drawable-v21/abc_action_bar_item_background_material.xml"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_db/build/intermediates/res/merged/androidTest/debug/drawable-v21/abc_edit_text_material.xml",
+        "source": "/Users/denningit/.android/build-cache/5e44b43a9c0b3f900a77a79ffbe4ad711d64e26e/output/res/drawable-v21/abc_edit_text_material.xml"
+    }
+]

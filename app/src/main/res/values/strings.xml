@@ -1,0 +1,575 @@
+<resources>
+    <string name="app_name">Denning</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_auth">Sign in</string>
+    <string name="action_agree">Agree</string>
+    <string name="action_save">Save</string>
+    <string name="action_update">Update</string>
+    <string name="action_leave_records">Leave Records</string>
+
+    <!-- ActionBar -->
+    <string name="action_bar_chats">Chats</string>
+    <string name="action_bar_settings">Settings</string>
+    <string name="action_bar_invite_friends">Invite Friends</string>
+    <string name="action_bar_feedback">Feedback</string>
+    <string name="action_bar_about">About</string>
+    <string name="action_bar_search">Search</string>
+    <string name="action_bar_search_hint">Search</string>
+    <string name="action_bar_add_chat">Add Chat</string>
+    <string name="action_bar_delete_friend">Delete Friend</string>
+    <string name="action_bar_add_friend_to_chat">Add friend to Chat</string>
+    <string name="action_bar_leave_chat">Leave Chat</string>
+    <string name="action_bar_chat_details">Chat details</string>
+    <string name="action_bar_add_chat_attach">Add attach</string>
+
+
+    <!-- Landing -->
+    <string name="landing_connect_with_facebook">Connect with Facebook</string>
+    <string name="landing_connect_with_twitter_digits">Connect with phone number</string>
+    <string name="landing_already_have_account">Login by email or social</string>
+    <string name="landing_sign_up">Sign Up with Email</string>
+    <string name="landing_version">v. %1$s</string>
+
+
+    <!-- Authorization -->
+    <string name="auth_sign_up_title">Sign Up</string>
+    <string name="auth_login_title">Login</string>
+    <string name="auth_forgot_password">Forgot password?</string>
+    <string name="auth_or_text">or</string>
+    <string name="auth_hint_password">Password</string>
+    <string name="auth_log_in_with_facebook">Login with Facebook</string>
+    <string name="auth_hint_email">Email</string>
+    <string name="auth_remember_me">Remember Me</string>
+    <string name="auth_username_error">This username has not authenticated yet, please check your credentials</string>
+    <string name="auth_not_all_fields_entered">Please fill all empty input fields</string>
+    <string name="auth_email_field_is_incorrect">Please enter a valid email</string>
+    <string name="auth_email_field_not_entered">Please enter email</string>
+    <string name="auth_password_field_not_entered">Please enter password</string>
+    <string name="auth_password_field_is_too_short">Password is too short (minimum is 8 characters)</string>
+    <string name="auth_full_name_field_not_entered">Please enter Full Name</string>
+    <string name="auth_full_name_field_is_too_short">Full Name is too short (minimum is 3 characters)</string>
+    <string name="auth_full_name_field_is_too_long">Full Name is too long (maximum is 50 characters)</string>
+    <string name="auth_full_name_has_impossible_characters">Full Name has impossible characters (not allowed: \'&gt;\', \'&lt;\', \';\')</string>
+    <string name="auth_hint_full_name">Full Name</string>
+    <string name="auth_choose_user_picture">Choose user picture</string>
+
+
+    <!-- User Agreement -->
+    <string name="user_agreement_title">User Agreement</string>
+    <string name="user_agreement_label">By clicking Tick, you agree to Q-municate\n<b><u>User Agreement</u></b></string>
+
+
+    <!-- Forgot Password -->
+    <string name="forgot_password_title">Forgot Password</string>
+    <string name="forgot_password_email">Email</string>
+    <string name="forgot_password_email_field_not_entered">Please enter email</string>
+    <string name="forgot_password_email_field_is_incorrect">Please enter a valid email</string>
+    <string name="forgot_password_label">Enter your email and we\'ll send a link to reset your password</string>
+    <string name="forgot_password_massage_email_was_sent">Mail was sent to %1$s</string>
+    <string name="forgot_password_email_not_found_error">User with this email wasn\'t found</string>
+
+
+    <!-- User profile -->
+    <string name="user_profile_title">Info</string>
+    <string name="user_profile_mobile">Mobile</string>
+    <string name="user_profile_send_message">Send Message</string>
+    <string name="user_profile_audio_call">Audio Call</string>
+    <string name="user_profile_video_call">Video Call</string>
+    <string name="user_delete_chat_history">Delete Dialog</string>
+    <string name="user_remove_contact_and_chat_history">Remove Contact and Chat</string>
+    <string name="user_profile_remove_contact_and_chat_history">Do you really want to delete %1$s from your contact list with his chat?</string>
+    <string name="user_profile_delete_chat_history">Do you really want to delete chat history with %1$s?</string>
+    <string name="user_profile_success_contacts_deleting">You have deleted %1$s from your contacts</string>
+    <string name="user_profile_success_chat_history_deleting">You have deleted chat history with %1$s</string>
+    <string name="user_profile_chat_does_not_exists">Chat does not exists</string>
+
+
+    <!-- New Message -->
+    <string name="new_message_title">New Message</string>
+    <string name="new_message_create_group">Create group</string>
+    <string name="new_message_no_friends_for_new_message">You don\'t have any Friends for creating New Chat</string>
+
+
+    <!-- New Group Dialog -->
+    <string name="new_group_title">New Group</string>
+    <string name="new_group_no_friends_for_creating_group">No friends for creating group</string>
+    <string name="new_group_add_people">Add People</string>
+
+
+    <!-- Create Group Dialog -->
+    <string name="create_group_title">New Group</string>
+    <string name="create_group_group_name">Group Name</string>
+    <string name="create_group_empty_group_name">Group name can not be empty</string>
+    <string name="create_group_participants">%1d participants</string>
+    <string name="create_group_confirm_selecting_photo">Do you really want to load this photo?</string>
+
+
+    <!--- Add Friends To Group Dialog -->
+    <string name="add_friends_to_group_title">Add Friends</string>
+    <string name="add_friends_to_group_no_friends_for_adding">No Friends for adding</string>
+
+
+    <!-- Dialog -->
+    <string name="dialog_hint_message">Message</string>
+    <string name="dialog_no_chats">Oops…\nYou don\'t have any chats,\n tap \'Create\' button to create new group chat \nor go in private chat \nvia Friends Details page"</string>
+    <string name="dialog_reply">Reply</string>
+    <string name="dialog_user_is_not_friend">User is not your friend</string>
+    <string name="dialog_confirm_sending_attach">Do you really want to send %1$s?</string>
+    <string name="dialog_attach_image">attachment image</string>
+    <string name="dialog_attach_audio">attachment audio</string>
+    <string name="dialog_attach_video">attachment video</string>
+    <string name="dialog_location">location</string>
+    <string name="dialog_now_typing">Typing…</string>
+    <string name="dialog_message_reject_friend">Do you really want to reject contact request from %1$s?</string>
+    <string name="dialog_ctx_menu_reply">Reply</string>
+    <string name="dialog_ctx_menu_prv_message">Private Message</string>
+    <string name="dialog_ctx_menu_video_call">Video Call</string>
+    <string name="dialog_ctx_menu_profile">View Profile</string>
+    <string name="dialog_ctx_menu_remove">Leave and remove chat</string>
+    <string name="dialog_ctx_menu_delete">Delete dialog</string>
+    <string name="dialog_loading_dialogs">Updating dialogs list… Please wait</string>
+    <string name="dialog_record_cancel">slide to cancel</string>
+    <string name="dialog_record_canceled">Audio recording has been canceled</string>
+
+    <string-array name="dialog_attach_types_array">
+        <item>Take Photo</item>
+        <item>From Library</item>
+    </string-array>
+
+
+    <!-- Group Dialog Details -->
+    <string name="dialog_details_title">Group Details</string>
+    <string name="dialog_details_leave_group">Leave group</string>
+    <string name="dialog_details_participants">%1$d participants</string>
+    <string name="dialog_details_online_participants">%1$d/%2$d online</string>
+    <string name="dialog_details_name_not_entered">Please fill group name</string>
+    <string name="dialog_details_all_friends_is_in_group">You can\'t add new friend, because all existing friends are added in this group chat</string>
+    <string name="dialog_details_service_is_initializing">Please, wait, connection is setting up…</string>
+
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_profile">Profile</string>
+    <string name="settings_logout">Logout</string>
+    <string name="settings_change_password">Change Password</string>
+    <string name="settings_push_notifications">Push Notifications</string>
+    <string name="settings_version">Version %1$s</string>
+    <string name="settings_invite_friends">Invite Friends</string>
+    <string name="settings_give_feedback">Give Feedback</string>
+    <string name="settings_delete_my_account">Delete My Account</string>
+
+
+    <!-- Change Password -->
+    <string name="change_password_title">Change Password</string>
+    <string name="change_password_change">Change</string>
+    <string name="change_password_hint_old_password">Old Password</string>
+    <string name="change_password_hint_new_password">New Password</string>
+    <string name="change_password_all_fields_not_entered">Please fill all empty input fields</string>
+    <string name="change_password_old_password_not_entered">Please enter old password</string>
+    <string name="change_password_new_password_not_entered">Please enter new password</string>
+    <string name="change_password_old_password_wrong">Wrong old password</string>
+
+
+    <!-- Profile -->
+    <string name="profile_title">Edit</string>
+    <string name="profile_full_name">Full Name</string>
+    <string name="profile_change_photo">Change photo</string>
+    <string name="profile_full_name_not_entered">Please enter Full Name</string>
+    <string name="profile_full_name_not_changed">Full Name must be different</string>
+    <string name="profile_full_name_and_photo_not_changed">Full Name or Photo must be changed</string>
+
+
+    <!-- Feedback -->
+    <string name="feedback_title">Feedback Description</string>
+    <string name="feedback_label">
+        In your email please provide the steps of bug/error reproduction. Let us know how often it occurs and if it gives any error code.
+        This information will help us to find the source of the issue. Kindly give us as many details as possible. Thank you.
+    </string>
+    <string name="feedback_bug_type">Bug</string>
+    <string name="feedback_improvement_type">Improvement</string>
+    <string name="feedback_suggestion_type">Suggestion</string>
+    <string name="feedback_support_email">q-municate@quickblox.com</string>
+    <string name="feedback_choose_email_provider">Choose an email provider:</string>
+    <string name="feedback_write_email">Write an Email</string>
+
+
+    <!-- About -->
+    <string name="about_title">About</string>
+    <string name="about_version">Version %1$s</string>
+    <string name="about_vendor">&#169; 2017 QuickBlox</string>
+    <string name="about_user_agreement">User Agreement</string>
+
+
+    <!-- Preview Images -->
+    <string name="preview_image_title">Preview image</string>
+    <string name="preview_image_error">Image has not loaded</string>
+
+
+    <!-- Call -->
+    <string name="call_incoming_audio_call">Incoming Audio Call</string>
+    <string name="call_incoming_video_call">Incoming Video Call</string>
+    <string name="calling_to">Calling %1$s…</string>
+    <string name="call_accepted">Accepted</string>
+    <string name="call_rejected">Rejected</string>
+    <string name="call_no_answer">No answer</string>
+    <string name="call_hung_up">Hung up</string>
+    <string name="call_chat_service_is_initializing">Please, wait, connection is setting up…</string>
+    <string name="switch_speaker">Switch speaker</string>
+    <string name="switch_camera">Switch camera</string>
+    <string name="decline_call">Decline</string>
+    <string name="answer_call">Answer</string>
+    <string name="denied_permission_message">Call has been started without an access to %s</string>
+
+
+    <!-- Invite Friends -->
+    <string name="invite_friends_title">Invite Friends</string>
+    <string name="invite_friends_send">Send</string>
+    <string name="invite_friends_select_all">Select All</string>
+    <string name="invite_friends_choose_email_provider">Choose an email provider:</string>
+    <string name="invite_friends_subject_of_invitation">Q-municate</string>
+    <string name="invite_friends_body_of_invitation">Dear friend, use Q-municate application to reach me!\nDownload it here: http://q-municate.com/</string>
+    <string name="invite_friends_fb_request_canceled">Request cancelled</string>
+
+
+    <!-- Local/Global Search -->
+    <string name="search_users_not_found">Sorry… no users</string>
+    <string name="search_pending_request_status">Pending contact request</string>
+    <string name="search_local_list">Local</string>
+    <string name="search_global_list">Global</string>
+
+
+    <!-- Others -->
+    <string name="chat_service_is_initializing">Please, wait, connection is setting up…</string>
+    <string name="dlg_internet_connection_error">Something went wrong. Please, verify your internet connection and try again</string>
+    <string name="dlg_internet_connection_is_missing">Waiting for connection</string>
+    <string name="dlg_wait_please">Please, wait</string>
+    <string name="dlg_ok">OK</string>
+    <string name="dlg_cancel">Cancel</string>
+    <string name="dlg_open_app_settings">Settings</string>
+    <string name="dlg_done">Done</string>
+    <string name="dlg_logout">Logout</string>
+    <string name="dlg_confirm">Are you sure?</string>
+    <string name="dlg_need_permission">%1$s needs access to your %2$s so that you can finish this action</string>
+    <string name="dlg_permission_storage">External Storage</string>
+    <string name="dlg_permission_camera">Camera</string>
+    <string name="dlg_need_permission_read_contacts">To invite friends via email %s needs to have an access to Contacts</string>
+    <string name="dlg_password_changed">Password changed</string>
+    <string name="dlg_success_request_facebook">Request sent</string>
+    <string name="dlg_no_friends_selected">Please, select some Friends for invite!</string>
+    <string name="dlg_leave_group">Leave Group</string>
+    <string name="dlg_force_relogin_on_token_required">Token error is occurred in application. Relogin will be executed now</string>
+    <string name="dlg_refresh_session">QB Session expired. Update session will be executed now</string>
+    <string name="error_bad_timestamp">base Bad timestamp</string>
+    <string name="error_bad_timestamp_from_app">Please go to phone system settings, choose date and time and make sure, that auto synchronization is on.</string>
+    <string name="error_login_or_email_required">base Login or email required</string>
+    <string name="error_login_or_email_required_from_app">Login or email required, please make sure that your FB email is public (facebook.com/settings)</string>
+    <string name="error_email_already_taken">email has already been taken</string>
+    <string name="error_email_already_taken_from_app">Please go to Facebook app and make relogin. This email has already been taken</string>
+    <string name="error_unauthorized">Unauthorized</string>
+    <string name="error_unauthorized_from_app">Incorrect Email or Password</string>
+    <string name="error_disconnected">Disconnected… Please check your Internet connection!</string>
+    <string name="dlg_choose_image_from">Select image from…</string>
+    <string name="dlg_choose_media_from">Select media from…</string>
+    <string name="snackbar_new_message_title">%1$s\nMessage: %2$s</string>
+    <string name="snackbar_new_contact_request_title">%1$s\nNew Contacts request</string>
+    <string name="facebook_exception">Facebook exception: </string>
+    <string name="error_playing_ringtone">Error during playing ringtone</string>
+    <string name="coming_soon">Coming soon</string>
+    <string name="search_at_last_items">Enter more symbols, not less than 3</string>
+    <string name="deleted_user">DELETED USER</string>
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="days_short">%1$dd</string>
+    <string name="hours_short">%1$dh</string>
+    <string name="minutes_short">%1$dm</string>
+    <string name="date_ago">ago</string>
+    <string name="last_seen">Last seen %1$s at %2$s</string>
+    <string name="dlg_signal_error">Disconnected… Please check your Internet connection!</string>
+    <string name="also_on_call">Also on call:</string>
+    <string name="connect">Connect…</string>
+    <string name="checking">Checking…</string>
+    <string name="connected">Connected</string>
+    <string name="disconnected">Disconnected</string>
+    <string name="closed">Closed</string>
+    <string name="time_out">Time Out</string>
+    <string name="failed">Failed</string>
+    <string name="wifi_disabled">Call was stopped because connection was lost</string>
+    <string name="dlg_offline_call">%1$s is calling you!</string>
+    <string name="permission_unavailable">%s is not available now!</string>
+    <string name="permissions_unavailable">%s are not available now!</string>
+    <string name="permission_denied">Permission Denied, Please allow to proceed !</string>
+    <string name="error_cant_delete_chat">Sorry, chat can\'t be deleted. Please try later</string>
+    <string name="location_title">Location</string>
+    <string name="send_current_location">Send my location</string>
+    <string name="send_selected_location">Send selected location</string>
+    <string name="dlg_unsupported_file">This file format isn\'t supported</string>
+    <string name="dlg_filename_long">File name must be less than 100 characters</string>
+    <string name="dlg_image_big">File mustn\u0027t be more than 10 MB</string>
+    <string name="dlg_audio_video_big">File mustn\u0027t be more than 100 MB</string>
+    <string name="link_was_copied">Link was copied to clipboard</string>
+    <string name="map_navigation">Navigation</string>
+
+    <!--   Location Permissions   -->
+    <string name="permission_rationale_location">Access to the location service is required to show your current location on the map.</string>
+    <string name="location_permission_denied">This app requires location permission to enable the \'my location\' layer. Please try again and grant access to use the location.\nIf the permission has been permanently denied, it can be enabled from the System Settings &gt; Apps &gt; \'Google Maps API Demos\'.</string>
+    <string name="permission_required_toast">Location permission is required to share location.</string>
+    <string name="geo_data_required_toast">Geo data is required to share current location.</string>
+    <string name="geo_data_send_by_tapping">Geo data is required to share current location. You can chose any location by tapping</string>
+    <string name="gps_not_enabled">GPS is currently disabled</string>
+    <string name="open_location_settings">Open Location settings</string>
+    <string name="marker_title">Marker Position</string>
+
+    <string name="login_required">Please login first.</string>
+
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
+        AIzaSyD7UdDsB1Gv-9KOP_Phl7B_qwkXIFwuJH8
+    </string>
+
+    <string name="google_static_maps_key" templateMergeStrategy="preserve" translatable="false">
+        AIzaSyC68nhqEWQaXQJqr422kpimzR7XuJuRndg
+    </string>
+
+    <plurals name="days">
+        <item quantity="one">%1$d day</item>
+        <item quantity="other">%1$d days</item>
+    </plurals>
+
+    <plurals name="hours">
+        <item quantity="one">%1$d hour</item>
+        <item quantity="other">%1$d hours</item>
+    </plurals>
+
+    <plurals name="minutes">
+        <item quantity="one">%1$d minute</item>
+        <item quantity="other">%1$d minutes</item>
+    </plurals>
+
+    <string-array name="dlg_image_pick">
+        <item>Gallery</item>
+        <item>Take a Photo</item>
+        <item>Take a Video</item>
+        <item>Location</item>
+        <item>Denning Files</item>
+    </string-array>
+
+    <string name="alert_log_in">Please log in to use this function</string>
+    <string name="alert_shared_folder">You cannot access this folder. please subscribe dening user</string>
+    <string name="alert_client">Sorry, only client can use this function</string>
+    <string name="alert_no_access_to_firm">You have no access privilege to this firm.</string>
+    <string name="general_loading">Loading...</string>
+    <string name="general_success">Success</string>
+    <string name="success_upload">Successfully Uploaded</string>
+    <string name="alert_resend_passcode">Please call Law Firm if you forgot the passcode.</string>
+
+    <!--    Title      -->
+    <string name="alert_title">Denning</string>
+    <string name="alert_open_file_title">Open file</string>
+    <string name="warning_title">Warning</string>
+    <string name="matter_code_title">Matter</string>
+    <string name="matter_title">Matter</string>
+    <string name="contact_title">Contact</string>
+    <string name="property_title">Property</string>
+    <string name="document_title">Document</string>
+    <string name="legal_firm_title">Legal Frim</string>
+    <string name="bank_title">Bank</string>
+    <string name="gov_offices_title">Government Offices</string>
+    <string name="calendar_title">Calendar</string>
+    <string name="news_title">News</string>
+    <string name="updates_title">Updates</string>
+    <string name="upload_title">Upload</string>
+    <string name="attendance_title">Attendance</string>
+    <string name="file_note_title">File Note</string>
+    <string name="payment_record_title">Payment Record</string>
+    <string name="template_title">Template</string>
+    <string name="accounts_title">Accounts</string>
+    <string name="new_device_title">TAC Confirmation</string>
+    <string name="password_confirm_title">Password Confirmation</string>
+    <string name="client_upload_title">Upload to Contact Folder</string>
+    <string name="business_upload_title">Business User Upload</string>
+    <string name="branch_title">Select a Branch</string>
+    <string name="add_title">ADD</string>
+    <string name="add_quotation_title">Add Quotation</string>
+    <string name="quotation_title">Quotation</string>
+    <string name="add_receipt_title">Add Receipt</string>
+    <string name="add_bill_title">Add Bill</string>
+    <string name="select_matter_title">Select Matter</string>
+    <string name="issuer_title">Select Issuer</string>
+    <string name="transaction_title">Select Transaction</string>
+    <string name="account_type_title">Select Type</string>
+    <string name="tax_invoice_title">Tax Invoice</string>
+    <string name="preset_title">Select Preset Bill</string>
+    <string name="type_title">Select Type</string>
+    <string name="leave_type_title">Leave Type</string>
+    <string name="mode_title">Select Mode</string>
+    <string name="leave_application_title">Leave Application</string>
+    <string name="leave_records_title">Leave Records</string>
+    <string name="leave_pending_approval_title">Leave Pending Approval</string>
+    <string name="reject_reason_content">Please input the reason to reject.</string>
+    <string name="reject_title">Reject</string>
+    <string name="staff_leave_title">Staff Leave</string>
+    <string name="add_contact_title">Add Contact</string>
+    <string name="update_contact_title">Update Contact</string>
+    <string name="ID_type_title">Select ID Type</string>
+    <string name="title_title">Select Title</string>
+    <string name="postcode_title">Postcode</string>
+    <string name="city_title">Select City</string>
+    <string name="state_title">Select State</string>
+    <string name="country_title">Select Country</string>
+    <string name="citizenship_title">Citizenship</string>
+    <string name = "occupation_title">Occupation</string>
+    <string name="IRD_branch_title">Select IRD Branch</string>
+    <string name="matter_save_title">Add Matter</string>
+    <string name="matter_update_title">Update Matter</string>
+    <string name="select_contact_title">Select Contact</string>
+    <string name="select_LA_title">Select LA</string>
+    <string name="select_clerk_title">Select Clerk</string>
+    <string name="select_Partner_title">Select Partner</string>
+    <string name="select_file_status_title">Select File Status</string>
+    <string name="select_bank_branch_title">Select Bank Branch</string>
+    <string name="select_solicitor_title">Select Solicitor</string>
+    <string name="select_property_title">Select Property</string>
+    <string name="select_case_type_title">Select Case Type</string>
+    <string name="select_court_title">Select Court</string>
+    <string name="add_court_diary_title">Add Court Diary</string>
+    <string name="update_court_diary_title">Update Court Diary</string>
+    <string name="add_office_diary_title">Add Office Diary</string>
+    <string name="update_office_diary_title">Update Office Diary</string>
+    <string name="add_personal_diary_title">Add Personal Diary</string>
+    <string name="update_personal_diary_title">Update Personal Diary</string>
+    <string name="matter_litigation_title">Select Matter</string>
+    <string name="select_place">Select Place</string>
+    <string name="list_of_hearing_type_title">List of Hearing Type</string>
+    <string name="details_title">Select Details</string>
+    <string name="select_staff_title">Select Staff</string>
+    <string name="select_appointment">Select Appointment</string>
+    <string name="next_date_title_title">Next Date Type</string>
+    <string name="add_property_title">Add Property</string>
+    <string name="update_property_title">Update Property</string>
+    <string name="select_property_type_title">Select Property Type</string>
+    <string name="issued_title_of_property_title">Issued Title of Property</string>
+    <string name="title_type_title">Title Type</string>
+    <string name="lot_type_title">Lot Type</string>
+    <string name="mukim_type">Mukim Type</string>
+    <string name="select_mukim_value">Select Mukim Value</string>
+    <string name="select_area_type_title">Select Area Type</string>
+    <string name="tenure_type_title">Select Tenure Type</string>
+    <string name="restriction_in_interest_title">Restriction in Interest</string>
+    <string name="restriction_against_title">Restriction Against</string>
+    <string name="category_of_land_use">Category of Land Use</string>
+    <string name="parcel_type_title">Parcel Type</string>
+    <string name="measurement_type_of_property">Measurement Type of Property</string>
+    <string name="project_housing_title">Select Project Housing</string>
+    <string name="master_title">Select Matter</string>
+    <string name="completion_date_title">Completion Date Tracking</string>
+    <string name="fees_transfer_title">Fees Transfer</string>
+    <string name="due_task_title">Staff Due Task</string>
+    <string name="transaction_detail_title">Transaction Detail</string>
+
+    <!--    Alert Content   -->
+    <string name="please_wait">Please wait...</string>
+    <string name="agree">Ok</string>
+    <string name="access_restricted">Access Restricted.</string>
+    <string name="alert_file_not_load">Please select the file to upload.</string>
+    <string name="alert_filename_not_input">Please input the file name.</string>
+    <string name="alert_attendnace">This function is revserved for only Staff.</string>
+    <string name="alert_location">Couldn\'t get the location. Make sure location is enabled on the device.</string>
+    <string name="access_restricted_staff">The function is only accessible by registered Denning User, please register.</string>
+    <string name="access_restricted_client">This function is only available to public users invited by Denning Biz providers.</string>
+    <string name="alert_device_not_support">This device is not supported.</string>
+    <string name="alert_category_not_selected">Please select a category first.</string>
+    <string name="alert_session_expired">Session expired. Please log in again.</string>
+    <string name="alert_chat_expired">Please contact your business service provider.</string>
+    <string name="alert_preset_not_select">Please select the preset.</string>
+    <string name="alert_bill_no_not_select">Please select the Bill No.</string>
+    <string name="alert_file_no_not_select">Please select the File No.</string>
+    <string name="alert_save_quotation">Do you want save quotation.</string>
+    <string name="alert_save_receipt">Do you want save receipt.</string>
+    <string name="alert_update_receipt">Do you want update receipt.</string>
+    <string name="alert_save_bill">Do you want save bill.</string>
+    <string name="alert_should_save_quotation">Please save quotation first.</string>
+    <string name="alert_should_save_bill">Please save quotation first.</string>
+    <string name="alert_ID_wrong">ID is wrong</string>
+    <string name="alert_valid_ID">Please input valid ID No.</string>
+    <string name="alert_ID_duplicate">ID Duplication.</string>
+    <string name="alert_Old_ID_duplcate">Old ID Duplication.</string>
+    <string name="alert_Name_duplicate">Name Duplication.</string>
+    <string name="alert_save_contact">Do you want to save contact?</string>
+    <string name="alert_update_contact">Do you want to update contact?</string>
+    <string name="alert_ID_type_must">ID Type is must.</string>
+    <string name="alert_old_ID_must">Please input the Old ID.</string>
+    <string name="alert_name_must">Name is must.</string>
+    <string name="alert_ID_no_must">ID No is must.</string>
+    <string name="alert_save_matter">Do you want to save matter?</string>
+    <string name="alert_update_matter">Do you want to update matter?</string>
+    <string name="alert_save_diary">Do you want to save diary?</string>
+    <string name="alert_update_diary">Do you want to update diary?</string>
+    <string name="alert_property_type">Please Select Property Type.</string>
+    <string name="alert_individual_title">Please Select Individual/Strata Title.</string>
+    <string name="alert_title_type">Please Select Title Type.</string>
+    <string name="alert_title_no">Please Select Title No.</string>
+    <string name="alert_lot_type">Please Select Lot Type.</string>
+    <string name="alert_lot_no">Please Select Lot No.</string>
+    <string name="alert_parcel_type">Please Select Parcel Type.</string>
+    <string name="alert_parcel_no">Please Select Parcel No.</string>
+    <string name="alert_storey_no">Please Select Storey No.</string>
+    <string name="alert_primary_client">Please input primary client.</string>
+    <string name="alert_partner">Please input partner-in-charge.</string>
+    <string name="alert_clerk">Please input clerk-in-charge.</string>
+    <string name="alert_matter">Please input matter.</string>
+    <string name="alert_save_property">Do you want to save property?</string>
+    <string name="alert_update_property">Do you want to update property?</string>
+    <string name="alert_please_log_in">You cannot upload file. please login into Denning.</string>
+    
+    <!-- Calendar -->
+    <string-array name="calendar_top_filter_titles">
+        <item>Today</item>
+        <item>Next 7 days</item>
+        <item>Future</item>
+        <item>Past</item>
+    </string-array>
+
+    <string-array name="calendar_bottom_filter_titles">
+        <item>Court</item>
+        <item>Office</item>
+        <item>Personal</item>
+        <item>All</item>
+    </string-array>
+
+    <!-- Template -->
+    <string-array name="template">
+        <item>All</item>
+        <item>Online</item>
+        <item>user</item>
+    </string-array>
+
+    <string-array name="leave_application">
+        <item>Leave Application</item>
+        <item>Leave Record</item>
+    </string-array>
+
+
+    <!-- Accounts Details -->
+    <string-array name="accounts">
+        <item>Client </item>
+        <item>Disbursement</item>
+        <item>FD</item>
+        <item>Advance</item>
+        <item>Other</item>
+        <item>Receivable</item>
+    </string-array>
+
+
+    <!-- Navigation -->
+    <string-array name="navigation">
+        <item>Open in Google Maps</item>
+        <item>Open in Waze</item>
+    </string-array>
+
+</resources>

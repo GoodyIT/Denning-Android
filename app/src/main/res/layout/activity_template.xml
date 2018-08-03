@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/search_bank_layout"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <include
+            android:id="@+id/DI_topbar"
+            layout="@layout/toolbar_with_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </android.support.design.widget.AppBarLayout>
+
+    <FrameLayout
+        android:id="@+id/top_filter_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/appbarLayout"
+        android:background="@color/black">
+
+        <com.gigamole.navigationtabstrip.NavigationTabStrip
+            android:id="@+id/template_top"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            app:nts_active_color="@color/accent"
+            app:nts_animation_duration="200"
+            app:nts_color="@color/accent"
+            app:nts_corners_radius="1.5dp"
+            app:nts_factor="2.8"
+            app:nts_inactive_color="@color/gray"
+            app:nts_titles="@array/template"
+            app:nts_weight="3dp" />
+    </FrameLayout>
+
+    <com.beardedhen.androidbootstrap.BootstrapButtonGroup
+        android:id="@+id/bbutton_group_size_change"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/top_filter_wrapper"
+        app:bootstrapBrand="regular"
+        app:bootstrapSize="lg"
+        >
+
+        <com.beardedhen.androidbootstrap.BootstrapButton
+            android:id="@+id/category_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            app:bootstrapText="Category {fa-chevron-down}"
+            />
+
+        <com.beardedhen.androidbootstrap.BootstrapButton
+            android:id="@+id/type_btn"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_height="wrap_content"
+            app:bootstrapText="Type {fa-chevron-down}"
+            />
+    </com.beardedhen.androidbootstrap.BootstrapButtonGroup>
+
+    <SearchView
+        android:id="@+id/searchview"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/bbutton_group_size_change"
+        android:layout_height="40dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/bg_gray_rounded"
+        android:queryHint="Search" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_list"
+        android:layout_below="@+id/calendar_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

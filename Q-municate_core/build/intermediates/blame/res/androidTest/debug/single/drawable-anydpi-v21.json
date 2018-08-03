@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21/exo_controls_repeat_one.xml",
+        "source": "/Users/denningit/.android/build-cache/50e87067cdfc58c50d7f0361581620189f026f2b/output/res/drawable-anydpi-v21/exo_controls_repeat_one.xml"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21/exo_controls_rewind.xml",
+        "source": "/Users/denningit/.android/build-cache/50e87067cdfc58c50d7f0361581620189f026f2b/output/res/drawable-anydpi-v21/exo_controls_rewind.xml"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21/exo_controls_previous.xml",
+        "source": "/Users/denningit/.android/build-cache/50e87067cdfc58c50d7f0361581620189f026f2b/output/res/drawable-anydpi-v21/exo_controls_previous.xml"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21/exo_controls_repeat_off.xml",
+        "source": "/Users/denningit/.android/build-cache/50e87067cdfc58c50d7f0361581620189f026f2b/output/res/drawable-anydpi-v21/exo_controls_repeat_off.xml"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21/exo_edit_mode_logo.xml",
+        "source": "/Users/denningit/.android/build-cache/50e87067cdfc58c50d7f0361581620189f026f2b/output/res/drawable-anydpi-v21/exo_edit_mode_logo.xml"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21/exo_controls_repeat_all.xml",
+        "source": "/Users/denningit/.android/build-cache/50e87067cdfc58c50d7f0361581620189f026f2b/output/res/drawable-anydpi-v21/exo_controls_repeat_all.xml"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21/exo_controls_play.xml",
+        "source": "/Users/denningit/.android/build-cache/50e87067cdfc58c50d7f0361581620189f026f2b/output/res/drawable-anydpi-v21/exo_controls_play.xml"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21/exo_controls_pause.xml",
+        "source": "/Users/denningit/.android/build-cache/50e87067cdfc58c50d7f0361581620189f026f2b/output/res/drawable-anydpi-v21/exo_controls_pause.xml"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21/exo_controls_fastforward.xml",
+        "source": "/Users/denningit/.android/build-cache/50e87067cdfc58c50d7f0361581620189f026f2b/output/res/drawable-anydpi-v21/exo_controls_fastforward.xml"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/androidTest/debug/drawable-anydpi-v21/exo_controls_next.xml",
+        "source": "/Users/denningit/.android/build-cache/50e87067cdfc58c50d7f0361581620189f026f2b/output/res/drawable-anydpi-v21/exo_controls_next.xml"
+    }
+]
