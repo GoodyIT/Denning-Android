@@ -50,6 +50,8 @@ public class Add extends Fragment implements OnSectionItemClickListener {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //returning our layout file
         //change R.layout.yourlayoutfilename for each of your fragments
+        ((MainActivity)getActivity()).hideDennigSupport();
+        ((MainActivity)getActivity()).hideBottomBar();
         return inflater.inflate(R.layout.fragment_recyclerview, container, false);
     }
 

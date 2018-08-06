@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/layout_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.SearchView
+        android:id="@+id/message_search"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/light_gray"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        app:queryHint="Search" />
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg_main">
+
+            <ListView
+                android:id="@+id/chats_listview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white" />
+
+            <TextView
+                android:id="@+id/empty_list_textview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:padding="10dp"
+                android:text="@string/dialog_no_chats"
+                android:textColor="@color/dark_gray"
+                android:textSize="@dimen/text_size"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</LinearLayout>

@@ -48,6 +48,7 @@ import it.denning.model.FirmURLModel;
 import it.denning.model.News;
 import it.denning.navigation.home.attendance.AttendanceActivity;
 import it.denning.navigation.home.branch.HomeBranchAdapter;
+import it.denning.navigation.home.calculators.CalculatorActivity;
 import it.denning.navigation.home.calendar.CalendarActivity;
 import it.denning.navigation.home.comingsoon.ComingSoonActivity;
 import it.denning.navigation.home.news.NewsActivity;
@@ -109,6 +110,9 @@ public class Home extends Fragment {
                 staffSignIn();
             }
         };
+
+        ((MainActivity)getActivity()).hideDennigSupport();
+        ((MainActivity)getActivity()).showBottomBar();
     }
 
     @Override
@@ -449,7 +453,7 @@ public class Home extends Fragment {
     }
 
     private void gotoCalculators() {
-
+        CalculatorActivity.start(getContext());
     }
 
     private void staffSignIn() {

@@ -60,11 +60,12 @@
 
                 <Button
                     android:id="@+id/right_btn"
-                    android:layout_width="wrap_content"
+                    android:layout_width="43dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
+                    android:gravity="right|center_vertical"
                     android:text="Send"
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat"

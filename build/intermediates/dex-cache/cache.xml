@@ -498,21 +498,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/denningit/.android/build-cache/180900d527b1d5feb1ab64df896acb34365e9614/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="bcd0bcdef85b31a656af76e39c0c95ce70800772">
-        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/classes_054a261126c491644aa775c582431b375878e404/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/denningit/MyWork/Denning-Android/q-municate_user_cache/build/intermediates/bundles/default/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.2"
         sha1="00c845e9aefc247dc4c0725f9180bbea00c7b01c">
         <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/4/classes_36dfaf89aab0b775f3116c72632c7ad7ca8c8bed/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/denningit/.android/build-cache/180900d527b1d5feb1ab64df896acb34365e9614/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="bcd0bcdef85b31a656af76e39c0c95ce70800772">
+        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/classes_054a261126c491644aa775c582431b375878e404/classes.dex" />
     </item>
     <item
         is-multidex="true"

@@ -51,6 +51,7 @@ import it.denning.navigation.dashboard.Dashboard;
 import it.denning.navigation.home.Home;
 import it.denning.navigation.home.util.AdsViwerActivity;
 import it.denning.navigation.message.DenningMessage;
+import it.denning.navigation.message.DenningSupportActivity;
 import it.denning.network.CompositeCompletion;
 import it.denning.network.ErrorHandler;
 import it.denning.network.NetworkManager;
@@ -588,5 +589,18 @@ public class MainActivity extends BaseActivity
     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
         displaySelectedScreen(position);
         return false;
+    }
+
+    public void showDenningSupport() {
+        invalidateOptionsMenu();
+    }
+
+    public void hideDennigSupport() {
+        invalidateOptionsMenu();
+    }
+
+    // Open Denning support chat
+    public void gotoDenningSupport() {
+        DenningSupportActivity.start(this);
     }
 }

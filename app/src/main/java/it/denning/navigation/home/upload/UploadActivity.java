@@ -218,6 +218,7 @@ public class UploadActivity extends BaseLoggableActivity implements OnMediaPicke
         title = getIntent().getIntExtra("title", -1);
         toolbarTitle.setText(title);
 
+        rightBtn.setVisibility(View.VISIBLE);
         rightBtn.setEnabled(false);
         mediaPickHelper = new MediaPickHelper();
         key = getIntent().getStringExtra("key");
@@ -312,6 +313,8 @@ public class UploadActivity extends BaseLoggableActivity implements OnMediaPicke
         if(ValidationUtils.validateAttachment(getSupportFragmentManager(), getResources().getStringArray(R.array.supported_attachment_types), type, attachment)){
             fileUrl = attachment.toString();
             Glide.with(this).load(fileUrl).into(imageView);
+            renameAutocomplete.setText(DIHelper.generateFileName());
+            rightBtn.setEnabled(true);
         }
     }
 

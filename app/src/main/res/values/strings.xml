@@ -382,6 +382,11 @@
     <string name="gov_offices_title">Government Offices</string>
     <string name="calendar_title">Calendar</string>
     <string name="news_title">News</string>
+    <string name="calculators_title">Calculators</string>
+    <string name="income_tax_title">Income Tax</string>
+    <string name="basic_legal_costs">Basic Legal Costs</string>
+    <string name="loan_amortisation">Loan Amortisation</string>
+    <string name="real_property_gains_tax">Real Property Gains Tax</string>
     <string name="updates_title">Updates</string>
     <string name="upload_title">Upload</string>
     <string name="attendance_title">Attendance</string>
@@ -471,6 +476,8 @@
     <string name="fees_transfer_title">Fees Transfer</string>
     <string name="due_task_title">Staff Due Task</string>
     <string name="transaction_detail_title">Transaction Detail</string>
+    <string name="select_a_relation">Select a Relation</string>
+    <string name="denning_support_title">Denning Support</string>
 
     <!--    Alert Content   -->
     <string name="please_wait">Please wait...</string>
@@ -570,6 +577,28 @@
     <string-array name="navigation">
         <item>Open in Google Maps</item>
         <item>Open in Waze</item>
+    </string-array>
+
+    <string-array name="calculators">
+        <item>Stamp Duty amp Legal Cost</item>
+        <item>Income Tax</item>
+        <item>Real Property Gains Tax</item>
+        <item>Loan amortisation</item>
+    </string-array>
+
+    <string-array name="spa_relationship">
+        <item>Seller-Purchaser (100%)</item>
+        <item>Husband-Wife (0%)</item>
+        <item>Parents-Child (50%)</item>
+        <item>Grandparent-Grandchild (50%)</item>
+        <item>Trustee-Beneficiary (RM10)</item>
+        <item>No Consideration(Gift) (100%)</item>
+        <item>Others (RM10)</item>
+    </string-array>
+
+    <string-array name="loan_type">
+        <item>Conventional</item>
+        <item>Islamic</item>
     </string-array>
 
 </resources>

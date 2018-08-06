@@ -94,7 +94,7 @@
                     android:layout_marginTop="3dp"
                     android:maxLines="5"
                     android:text="2001-01-01"
-                    android:textColor="@color/bb_darkBackgroundColor"
+                    android:textColor="@color/light_gray"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 

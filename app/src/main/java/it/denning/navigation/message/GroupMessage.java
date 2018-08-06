@@ -785,7 +785,7 @@ public class GroupMessage extends BaseLoaderFragment<List<DialogWrapper>> implem
                     }
                 } else if (data.equals(QMUserCacheImpl.OBSERVE_KEY)) {
                     Log.d(TAG, "else if (data.equals(QMUserCacheImpl.OBSERVE_KEY))");
-//                    updateDialogsList();
+                    updateDialogsList();
                 }
             }
         }

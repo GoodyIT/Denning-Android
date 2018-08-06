@@ -1,11 +1,11 @@
 [
     {
-        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/debug/drawable/abc_text_cursor_material.xml",
-        "source": "/Users/denningit/.android/build-cache/5e44b43a9c0b3f900a77a79ffbe4ad711d64e26e/output/res/drawable/abc_text_cursor_material.xml"
-    },
-    {
         "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/debug/drawable/abc_ic_ab_back_material.xml",
         "source": "/Users/denningit/.android/build-cache/5e44b43a9c0b3f900a77a79ffbe4ad711d64e26e/output/res/drawable/abc_ic_ab_back_material.xml"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/debug/drawable/abc_text_cursor_material.xml",
+        "source": "/Users/denningit/.android/build-cache/5e44b43a9c0b3f900a77a79ffbe4ad711d64e26e/output/res/drawable/abc_text_cursor_material.xml"
     },
     {
         "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/debug/drawable/messenger_button_blue_bg_round.xml",
@@ -28,12 +28,12 @@
         "source": "/Users/denningit/.android/build-cache/ebd5623ddba9d8a5e82e762fd0e79c58dc318871/output/res/drawable/messenger_button_blue_bg_selector.xml"
     },
     {
-        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/debug/drawable/abc_cab_background_internal_bg.xml",
-        "source": "/Users/denningit/.android/build-cache/5e44b43a9c0b3f900a77a79ffbe4ad711d64e26e/output/res/drawable/abc_cab_background_internal_bg.xml"
-    },
-    {
         "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_light_focused.xml",
         "source": "/Users/denningit/.android/build-cache/63608a589e3f1b94bac2548c6e5e1012de480fa7/output/res/drawable/common_google_signin_btn_icon_light_focused.xml"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/debug/drawable/abc_cab_background_internal_bg.xml",
+        "source": "/Users/denningit/.android/build-cache/5e44b43a9c0b3f900a77a79ffbe4ad711d64e26e/output/res/drawable/abc_cab_background_internal_bg.xml"
     },
     {
         "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/debug/drawable/abc_seekbar_thumb_material.xml",

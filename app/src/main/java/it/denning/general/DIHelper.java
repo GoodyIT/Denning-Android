@@ -515,4 +515,12 @@ public class DIHelper {
     public static String toSafeStr(String value) {
         return value == null ? "" : value;
     }
+
+    public static String generateFileName() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        SimpleDateFormat mdformat = new SimpleDateFormat("hhmmss");
+        String today = mdformat.format(calendar.getTime());
+        return "IMG_" + today + ".jpg";
+    }
 }

@@ -15,7 +15,7 @@ public class ComingSoonActivity extends BaseActivity {
     @BindView(R.id.toolbar_title)
     protected TextView toolbarTitle;
 
-    @OnClick(R.id.back_btn)
+    @OnClick({R.id.back_btn, R.id.btn_back_to_home})
     void onBack() {
         KeyboardUtils.hideKeyboard(this);
         finish();

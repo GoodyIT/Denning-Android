@@ -195,6 +195,8 @@ public class DenningMessage extends BaseLoaderFragment<List<DialogWrapper>> impl
         dataManager = DataManager.getInstance();
         commonObserver = new CommonObserver();
         qbUser = AppSession.getSession().getUser();
+
+        ((MainActivity)getActivity()).showDenningSupport();
     }
 
     @Override

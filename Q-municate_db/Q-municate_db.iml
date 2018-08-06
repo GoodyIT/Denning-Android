@@ -97,23 +97,25 @@
     <orderEntry type="jdk" jdkName="Android API 26 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="Gradle: com.quickblox:quickblox-android-sdk-core-3.5.2" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: com.android.support:support-fragment-27.0.2" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: com.android.support:animated-vector-drawable-27.0.2" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: com.android.support:support-compat-27.0.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:animated-vector-drawable-26.1.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:support-vector-drawable-26.1.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:support-core-ui-26.1.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.quickblox:quickblox-android-sdk-extensions-3.5.2" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: com.android.support:appcompat-v7-27.0.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:support-core-utils-26.1.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.google.code.gson:gson:2.8.2@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:appcompat-v7-26.1.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:support-fragment-26.1.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.jxmpp:jxmpp-util-cache:0.4.2@jar" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: com.android.support:support-vector-drawable-27.0.2" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: com.android.support:support-core-ui-27.0.2" level="project" />
     <orderEntry type="library" exported="" name="Gradle: io.reactivex:rxandroid-1.2.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.j256.ormlite:ormlite-core:5.0@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.quickblox:quickblox-android-sdk-chat-3.5.2" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: com.android.support:support-core-utils-27.0.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:support-media-compat-26.1.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.jxmpp:jxmpp-core:0.4.2@jar" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: android.arch.lifecycle:runtime-1.0.3" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:support-compat-26.1.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:support-v4-26.1.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.j256.ormlite:ormlite-android:5.0@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: de.measite.minidns:minidns:0.1.7@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: android.arch.lifecycle:runtime-1.0.0" level="project" />
     <orderEntry type="module" module-name="q-municate_user_service" exported="" />
     <orderEntry type="module" module-name="q-municate_base_cache" exported="" />
     <orderEntry type="module" module-name="q-municate_base_service" exported="" />

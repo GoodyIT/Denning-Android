@@ -66,6 +66,14 @@
                 android:textSize="@dimen/text_size"
                 tools:text="Nabe dsjkd sdldjscljkd dsclk" />
 
+            <TextView
+                android:id="@+id/dialog_tag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill"
+                android:layout_marginLeft="5dp"
+                android:maxLines="1" />
+
             <com.rockerhieu.emojicon.EmojiconTextView
                 android:id="@+id/last_message_textview"
                 android:layout_width="match_parent"

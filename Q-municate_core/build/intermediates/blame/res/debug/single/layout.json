@@ -8,20 +8,20 @@
         "source": "/Users/denningit/.android/build-cache/5e44b43a9c0b3f900a77a79ffbe4ad711d64e26e/output/res/layout/abc_action_bar_title_item.xml"
     },
     {
-        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/debug/layout/list_item_attach_right_video.xml",
-        "source": "/Users/denningit/.android/build-cache/a2730c6e72859a7dcbc107d8f9ea02dfef039762/output/res/layout/list_item_attach_right_video.xml"
-    },
-    {
         "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/debug/layout/widget_player_activity.xml",
         "source": "/Users/denningit/.android/build-cache/a2730c6e72859a7dcbc107d8f9ea02dfef039762/output/res/layout/widget_player_activity.xml"
     },
     {
-        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/debug/layout/list_item_text_right.xml",
-        "source": "/Users/denningit/.android/build-cache/a2730c6e72859a7dcbc107d8f9ea02dfef039762/output/res/layout/list_item_text_right.xml"
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/debug/layout/list_item_attach_right_video.xml",
+        "source": "/Users/denningit/.android/build-cache/a2730c6e72859a7dcbc107d8f9ea02dfef039762/output/res/layout/list_item_attach_right_video.xml"
     },
     {
         "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/debug/layout/exo_simple_player_view.xml",
         "source": "/Users/denningit/.android/build-cache/50e87067cdfc58c50d7f0361581620189f026f2b/output/res/layout/exo_simple_player_view.xml"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/debug/layout/list_item_text_right.xml",
+        "source": "/Users/denningit/.android/build-cache/a2730c6e72859a7dcbc107d8f9ea02dfef039762/output/res/layout/list_item_text_right.xml"
     },
     {
         "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view_list_item.xml",

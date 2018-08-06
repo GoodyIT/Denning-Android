@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -104,6 +105,8 @@ public class Dashboard extends Fragment implements DashboardSecondItemClickListe
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //returning our layout file
         //change R.layout.yourlayoutfilename for each of your fragments
+        ((MainActivity)getActivity()).hideDennigSupport();
+        ((MainActivity)getActivity()).hideBottomBar();
         return inflater.inflate(R.layout.fragment_dashboard, container, false);
     }
 

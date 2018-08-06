@@ -401,6 +401,12 @@
         </activity>
         <activity android:name=".navigation.home.news.NewsActivity" />
         <activity android:name=".navigation.home.comingsoon.ComingSoonActivity" />
+        <activity android:name=".navigation.home.calculators.CalculatorActivity" />
+        <activity android:name=".navigation.home.calculators.incometax.IncomeTaxActivity" />
+        <activity android:name=".navigation.home.calculators.realproperty.RealPropertyActivity" />
+        <activity android:name=".navigation.home.calculators.loanamortisation.LoanAmortisationActivity" />
+        <activity android:name=".navigation.home.calculators.legalcost.LegalCostActivity" />
+        <activity android:name=".navigation.message.DenningSupportActivity" />
 
         <meta-data
             tools:replace="android:value"

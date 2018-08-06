@@ -28,12 +28,12 @@
         "source": "/Users/denningit/.android/build-cache/5e44b43a9c0b3f900a77a79ffbe4ad711d64e26e/output/res/drawable-hdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
-        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/debug/drawable-hdpi-v4/notify_panel_notification_icon_bg.png",
-        "source": "/Users/denningit/.android/build-cache/7a8801187e04bb90d49066eb0d6f0e2d88f99add/output/res/drawable-hdpi-v4/notify_panel_notification_icon_bg.png"
-    },
-    {
         "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/debug/drawable-hdpi-v4/messenger_bubble_small_white.png",
         "source": "/Users/denningit/.android/build-cache/ebd5623ddba9d8a5e82e762fd0e79c58dc318871/output/res/drawable-hdpi-v4/messenger_bubble_small_white.png"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/debug/drawable-hdpi-v4/notify_panel_notification_icon_bg.png",
+        "source": "/Users/denningit/.android/build-cache/7a8801187e04bb90d49066eb0d6f0e2d88f99add/output/res/drawable-hdpi-v4/notify_panel_notification_icon_bg.png"
     },
     {
         "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/debug/drawable-hdpi-v4/exo_controls_fastforward.png",
@@ -160,12 +160,12 @@
         "source": "/Users/denningit/.android/build-cache/5e44b43a9c0b3f900a77a79ffbe4ad711d64e26e/output/res/drawable-hdpi-v4/abc_ic_star_half_black_16dp.png"
     },
     {
-        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png",
-        "source": "/Users/denningit/.android/build-cache/5e44b43a9c0b3f900a77a79ffbe4ad711d64e26e/output/res/drawable-hdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png"
-    },
-    {
         "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/debug/drawable-hdpi-v4/com_facebook_close.png",
         "source": "/Users/denningit/.android/build-cache/ebd5623ddba9d8a5e82e762fd0e79c58dc318871/output/res/drawable-hdpi-v4/com_facebook_close.png"
+    },
+    {
+        "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png",
+        "source": "/Users/denningit/.android/build-cache/5e44b43a9c0b3f900a77a79ffbe4ad711d64e26e/output/res/drawable-hdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png"
     },
     {
         "merged": "/Users/denningit/MyWork/Denning-Android/Q-municate_core/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_switch_track_mtrl_alpha.9.png",

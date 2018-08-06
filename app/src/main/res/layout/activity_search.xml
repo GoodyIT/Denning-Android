@@ -57,8 +57,8 @@
                     android:paddingBottom="5dp"
                     android:paddingTop="5dp"
                     android:popupTheme="@color/cardview_light_background"
-                    android:textColor="@color/bb_darkBackgroundColor"
-                    android:textColorHint="@color/bb_tabletRightBorderDark"
+                    android:textColor="@color/light_gray"
+                    android:textColorHint="@color/dark_gray"
                     android:theme="@style/Autocomplete" />
 
                 <ImageButton
@@ -70,7 +70,7 @@
                     android:layout_alignTop="@+id/search_autoCompleteTextView"
                     android:layout_alignWithParentIfMissing="true"
                     android:layout_centerInParent="true"
-                    android:background="@drawable/bb_bottom_bar_top_shadow"
+                    android:background="@drawable/shadow_toolbar"
                     android:padding="8dp"
                     android:src="@drawable/ic_switch_branch" />
 
