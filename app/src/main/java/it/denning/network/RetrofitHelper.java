@@ -59,6 +59,7 @@ public class RetrofitHelper {
 
     public DenningService getPublicService() {
         setInitialValues();
+        baseUrl = "https://www.denningchat.com/";
         final Retrofit retrofit = createPublicRetrofit();
         return  retrofit.create(DenningService.class);
     }

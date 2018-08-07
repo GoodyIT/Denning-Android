@@ -200,10 +200,8 @@ public class SearchActivity extends BaseActivity implements OnItemClickListener,
 
     private void determineServiceType() {
         if (DISharedPreferences.getInstance(this).getUserType().equals(DISharedPreferences.STAFF_USER)) {
-            mSearchService = new RetrofitHelper(this).getPrivateService();
             isGeneralSearh = true;
         } else {
-            mSearchService = new RetrofitHelper(this).getPublicService();
             isGeneralSearh = false;
         }
     }
@@ -317,11 +315,13 @@ public class SearchActivity extends BaseActivity implements OnItemClickListener,
             DISharedPreferences.CurrentSearchType = DISharedPreferences.PUBLIC_SEARCH;
             DISharedPreferences.CurrentCategory = -1;
             searchView.setHint("Public Search");
+            mSearchService = new RetrofitHelper(this).getPublicService();
         } else {
             filterArray = DIConstants.GeneralSearchFilter;
             DISharedPreferences.CurrentSearchType = DISharedPreferences.GENERAL_SEARCH;
             DISharedPreferences.CurrentCategory = 0;
             searchView.setHint("General Search");
+            mSearchService = new RetrofitHelper(this).getPrivateService();
         }
 
         setupFilter(filterArray);

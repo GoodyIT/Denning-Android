@@ -24,7 +24,7 @@ import retrofit2.http.Url;
  */
 
 public interface DenningService {
-    @GET("v1/publicSearch/keyword")
+    @GET("denningapi/v1/publicSearch/keyword")
     Single<JsonElement> queryPublicSearchKeywords(@Query("search") String keyword);
 
     @GET("v1/generalSearch/keyword")
@@ -33,9 +33,8 @@ public interface DenningService {
     @GET("v1/generalSearch")
     Single<JsonElement> queryGeneralSearch(@Query("search") String keyword, @Query("category") Integer category, @Query("page") Integer page,  @Query("isAutoComplete") Integer isAutoComplete);
 
-    @GET("v1/publicSearch")
+    @GET("denningapi/v1/publicSearch")
     Single<JsonElement> queryPublicSearch(@Query("search") String keyword, @Query("category") Integer category, @Query("page") Integer page, @Query("isAutoComplete") Integer isAutoComplete);
-
 
     /*
         Go to the search detail

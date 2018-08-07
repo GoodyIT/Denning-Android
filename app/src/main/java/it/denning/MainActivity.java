@@ -86,6 +86,7 @@ public class MainActivity extends BaseActivity
     private ImportFriendsSuccessAction importFriendsSuccessAction;
     private ImportFriendsFailAction importFriendsFailAction;
 
+    public boolean isSupportMessage = false;
 
     public static void start(Context context) {
         Intent intent = new Intent(context, MainActivity.class);
@@ -289,11 +290,13 @@ public class MainActivity extends BaseActivity
     }
 
     public void hideBottomBar() {
-        bottomBar.setVisibility(View.INVISIBLE);
+        bottomBar.setVisibility(View.GONE);
+//        bottomBar.setTranslationY(200);
     }
 
     public void showBottomBar() {
         bottomBar.setVisibility(View.VISIBLE);
+        bottomBar.setTranslationY(0);
     }
 
     @Override
@@ -308,7 +311,11 @@ public class MainActivity extends BaseActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        if (isSupportMessage) {
+            getMenuInflater().inflate(R.menu.support, menu);
+        } else {
+            getMenuInflater().inflate(R.menu.main, menu);
+        }
         return true;
     }
 
@@ -327,6 +334,10 @@ public class MainActivity extends BaseActivity
         if (id == R.id.action_settings) {
             gotoAuth();
             return true;
+        }
+
+        if (id == R.id.action_support) {
+            gotoDenningSupport();
         }
 
         if (id == android.R.id.home) {
@@ -421,7 +432,7 @@ public class MainActivity extends BaseActivity
                 position = 1;
                 fragment = new Home();
                 break;
-            case R.id.nav_addcontact:
+            case R.id.nav_add:
                 position = 2;
                 fragment = new Add();
                 break;
@@ -593,10 +604,12 @@ public class MainActivity extends BaseActivity
 
     public void showDenningSupport() {
         invalidateOptionsMenu();
+        isSupportMessage = true;
     }
 
     public void hideDennigSupport() {
         invalidateOptionsMenu();
+        isSupportMessage = false;
     }
 
     // Open Denning support chat

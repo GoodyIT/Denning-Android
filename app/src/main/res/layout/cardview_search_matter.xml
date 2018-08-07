@@ -78,6 +78,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="12dp"
+                            android:padding="10dp"
                             android:layout_marginRight="12dp"
                             android:layout_weight="0.3"
                             android:background="@drawable/selector_button_red_oval"
@@ -91,6 +92,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.3"
+                            android:padding="10dp"
                             android:background="@drawable/selector_button_red_oval"
                             android:text="Accounts"
                             android:textColor="@android:color/white" />
@@ -101,6 +103,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="12dp"
                             android:layout_marginRight="12dp"
+                            android:padding="10dp"
                             android:layout_weight="0.3"
                             android:background="@drawable/selector_button_red_oval"
                             android:text="File Note"
@@ -124,6 +127,7 @@
                             android:layout_marginRight="12dp"
                             android:layout_weight="0.3"
                             android:background="@drawable/selector_button_red_oval"
+                            android:padding="10dp"
                             android:text="Payment Record"
                             android:textColor="@android:color/white" />
 
@@ -131,6 +135,7 @@
                             android:id="@+id/search_matter_uploadBtn"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:padding="10dp"
                             android:layout_marginTop="8dp"
                             android:layout_weight="0.3"
                             android:background="@drawable/selector_button_red_oval"
@@ -141,6 +146,7 @@
                             android:id="@+id/search_matter_templateBtn"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:padding="10dp"
                             android:layout_marginLeft="12dp"
                             android:layout_marginRight="12dp"
                             android:layout_marginTop="8dp"

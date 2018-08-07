@@ -76,9 +76,7 @@
 
                         android:layout_marginRight="10dp"
                         android:background="@drawable/selector_button_red_oval"
-                        android:padding="1dp"
-                        android:paddingLeft="3dp"
-                        android:paddingRight="3dp"
+                        android:padding="10dp"
                         android:text="Related Matter"
                         android:textColor="@android:color/white" />
 
