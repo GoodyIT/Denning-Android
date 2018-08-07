@@ -30,6 +30,7 @@ public class MessageClientAdapter extends MessageBaseAdapter {
         itemViewHolder.name.setText(user.getFullName());
         itemViewHolder.lastMessageAt.setText(user.getLastRequestAt().toString());
         itemViewHolder.avatar.setImageResource(R.drawable.placeholder_user);
+        itemViewHolder.contactTag.setText(user.getTwitterDigitsId());
         boolean isFavorite = false;
         for (ChatFirmModel chatFirmModel : favoriteList) {
             if (chatFirmModel.chatUsers.contains(user)) {

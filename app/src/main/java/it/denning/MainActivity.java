@@ -490,13 +490,8 @@ public class MainActivity extends BaseActivity
     }
 
     private void gotoTermsOfUses() {
-        final JsonObject param = new JsonObject();
-        param.addProperty("email", "");
-        param.addProperty("MAC", DIHelper.getMAC());
-        param.addProperty("deviceName", DIHelper.getDeviceName());
-
         showProgress();
-        NetworkManager.getInstance().sendPublicPostRequest(DIConstants.kDIAgreementUrl, param, new CompositeCompletion() {
+        NetworkManager.getInstance().sendPublicGetRequest(DIConstants.kDIAgreementGetUrl, new CompositeCompletion() {
             @Override
             public void parseResponse(JsonElement jsonElement) {
                 manageResponse(jsonElement);

@@ -32,6 +32,7 @@ public class MessageFavoriteAdapter extends MessageBaseAdapter {
         itemViewHolder.lastMessageAt.setText(user.getLastRequestAt().toString());
         itemViewHolder.avatar.setImageResource(R.drawable.placeholder_user);
         itemViewHolder.btnFavorite.setVisibility(View.INVISIBLE);
+        itemViewHolder.contactTag.setText(user.getTwitterDigitsId());
         itemViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

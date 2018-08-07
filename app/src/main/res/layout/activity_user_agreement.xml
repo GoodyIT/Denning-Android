@@ -1,14 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:id="@+id/search_bank_layout"
+android:focusable="true"
+android:focusableInTouchMode="true"
+android:orientation="vertical"
+    >
+
+<android.support.design.widget.AppBarLayout
+    android:id="@+id/appbarLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/bg_main"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:fitsSystemWindows="true"
+    app:elevation="2dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-    <include layout="@layout/toolbar" />
-
-    <TextView
-        android:id="@+id/user_agreement_textview"
+    <include
+        android:id="@+id/DI_topbar"
+        layout="@layout/toolbar_black"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+</android.support.design.widget.AppBarLayout>
 
+<TextView
+    android:id="@+id/user_agreement_textview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
 </LinearLayout>

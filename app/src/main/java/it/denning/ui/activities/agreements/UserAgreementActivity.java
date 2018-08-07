@@ -3,6 +3,7 @@ package it.denning.ui.activities.agreements;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -15,6 +16,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 import it.denning.MainActivity;
 import it.denning.R;
 import it.denning.general.DIAlert;
@@ -27,12 +29,22 @@ import it.denning.network.CompositeCompletion;
 import it.denning.network.ErrorHandler;
 import it.denning.network.NetworkManager;
 import it.denning.ui.activities.authorization.BaseAuthActivity;
+import it.denning.utils.KeyboardUtils;
 
 public class UserAgreementActivity extends BaseAuthActivity {
     private static final int DELAY_FOR_OPENING_LANDING_ACTIVITY = 1000;
 
+    @BindView(R.id.toolbar_title)
+    protected TextView toolbarTitle;
+
     @BindView(R.id.user_agreement_textview)
     TextView userAgreementTextView;
+
+    @OnClick(R.id.back_btn)
+    void onBack() {
+        KeyboardUtils.hideKeyboard(this);
+        finish();
+    }
 
     public static void start(Context context) {
         Intent intent = new Intent(context, UserAgreementActivity.class);
@@ -53,13 +65,13 @@ public class UserAgreementActivity extends BaseAuthActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initFields();
-        initActionBar();
-        setUpActionBarWithUpButton();
         initUserAgreementWebView();
     }
 
     private void initFields() {
-        title = getString(R.string.user_agreement_title);
+        toolbarTitle.setText(R.string.user_agreement_title);
+
+        userAgreementTextView.setMovementMethod(new ScrollingMovementMethod());
     }
 
     private void initUserAgreementWebView() {

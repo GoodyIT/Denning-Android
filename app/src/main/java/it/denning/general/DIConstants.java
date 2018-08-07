@@ -17,6 +17,7 @@ public class DIConstants {
     public static final String  GOOGLE_MAP_REVERSE_URL  = "maps/api/geocode/json?key=AIzaSyAxOQtqe1t0TkVgmYV1t7Y_JWFERGEpcuU&latlng=";
 
     public static final String kDIAgreementUrl = "https://www.denningchat.com/denningapi/v1/table/eulaAPP";
+    public static final String kDIAgreementGetUrl = "denningapi/v1/table/eulaAPP";
 
     public static final String HOME_ADS_GET_URL = "denningapi/v1/advertisement";
 
