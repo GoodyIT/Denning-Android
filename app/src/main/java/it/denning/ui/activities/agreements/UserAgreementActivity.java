@@ -56,9 +56,10 @@ public class UserAgreementActivity extends BaseAuthActivity {
         context.startActivity(intent);
     }
 
-    public static void start(Context context, String content) {
+    public static void start(Context context, String content, String from) {
         Intent intent = new Intent(context, UserAgreementActivity.class);
         intent.putExtra("content", content);
+        intent.putExtra("from", from);
         context.startActivity(intent);
     }
 
@@ -76,9 +77,11 @@ public class UserAgreementActivity extends BaseAuthActivity {
     private void initFields() {
         toolbarTitle.setText(R.string.user_agreement_title);
 
-        if (!DISharedPreferences.getInstance().isUserAgreement()) {
+        if (getIntent().getStringExtra("from").equals("splash")) {
             btnRight.setVisibility(View.VISIBLE);
             btnRight.setText("Accept");
+        } else {
+            btnRight.setVisibility(View.GONE);
         }
 
         userAgreementTextView.setMovementMethod(new ScrollingMovementMethod());

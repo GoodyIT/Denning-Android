@@ -88,7 +88,7 @@ public class SplashActivity extends BaseAuthActivity {
         if (agreement.code.equals("200")) {
             gotoMainActivity();
         } else {
-            UserAgreementActivity.start(this, agreement.strItemDescription);
+            UserAgreementActivity.start(this, agreement.strItemDescription, "splash");
             finish();
         }
     }

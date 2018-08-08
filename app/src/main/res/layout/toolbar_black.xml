@@ -71,7 +71,8 @@
                     android:textAppearance="@style/TextAppearance.AppCompat"
                     android:textColor="@color/white"
                     android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:visibility="gone"/>
             </RelativeLayout>
 
         </LinearLayout>

@@ -512,7 +512,7 @@ public class MainActivity extends BaseActivity
     private void manageResponse(JsonElement jsonElement) {
         hideProgress();
         Agreement agreement = new Gson().fromJson(jsonElement, Agreement.class);
-        UserAgreementActivity.start(this, agreement.strItemDescription);
+        UserAgreementActivity.start(this, agreement.strItemDescription, "main");
     }
 
     private void logout() {

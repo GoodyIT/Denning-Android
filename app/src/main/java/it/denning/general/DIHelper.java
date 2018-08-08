@@ -10,6 +10,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Environment;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.text.format.DateFormat;
 import android.text.format.Formatter;
@@ -38,6 +39,7 @@ import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Locale;
+import java.util.UUID;
 
 import it.denning.App;
 import it.denning.MainActivity;
@@ -307,9 +309,12 @@ public class DIHelper {
 
     public static String getMAC(Context context) {
 //        return Build.SERIAL;
-        WifiManager manager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
-        WifiInfo info = manager.getConnectionInfo();
-        return info.getMacAddress();
+//        WifiManager manager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+//        WifiInfo info = manager.getConnectionInfo();
+//        return info.getMacAddress();
+//        return Settings.Secure.getString(App.getInstance().getContentResolver(),
+//                Settings.Secure.ANDROID_ID);
+        return UUID.randomUUID().toString();
     }
 
     // Safely parse the response - avoid NULL
