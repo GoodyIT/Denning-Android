@@ -60,19 +60,18 @@
 
                 <Button
                     android:id="@+id/right_btn"
-                    android:layout_width="43dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:gravity="right|center_vertical"
+                    android:gravity="right|center|start"
                     android:text="Send"
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.AppCompat"
                     android:textColor="@color/white"
                     android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:visibility="gone"/>
+                    android:textStyle="bold" />
             </RelativeLayout>
 
         </LinearLayout>

@@ -268,7 +268,8 @@
         <activity
             android:name="it.denning.ui.activities.agreements.UserAgreementActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name="com.soundcloud.android.crop.CropImageActivity" />
         <activity

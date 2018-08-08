@@ -51,7 +51,7 @@ public class SplashActivity extends BaseAuthActivity {
     private void loadAgreement() {
         final JsonObject param = new JsonObject();
         param.addProperty("email", "");
-        param.addProperty("MAC", DIHelper.getMAC());
+        param.addProperty("MAC", DIHelper.getMAC(this));
         param.addProperty("deviceName", DIHelper.getDeviceName());
 
 //        showProgress();

@@ -167,7 +167,7 @@ public class NetworkManager {
         json.addProperty("OS", DIHelper.getOS());
         json.addProperty("device", DIHelper.getDevice());
         json.addProperty("deviceName", DIHelper.getDeviceName());
-        json.addProperty("MAC", DIHelper.getMAC());
+        json.addProperty("MAC", DIHelper.getMAC(App.getInstance()));
         return json;
     }
 

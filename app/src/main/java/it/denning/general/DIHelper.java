@@ -6,9 +6,11 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Environment;
+import android.support.v7.app.AppCompatActivity;
 import android.text.format.DateFormat;
 import android.text.format.Formatter;
 import android.util.Base64;
@@ -303,8 +305,11 @@ public class DIHelper {
         return Build.USER;
     }
 
-    public static String getMAC() {
-        return Build.SERIAL;
+    public static String getMAC(Context context) {
+//        return Build.SERIAL;
+        WifiManager manager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+        WifiInfo info = manager.getConnectionInfo();
+        return info.getMacAddress();
     }
 
     // Safely parse the response - avoid NULL

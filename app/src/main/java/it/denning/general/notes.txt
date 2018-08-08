@@ -1,0 +1,9 @@
+ some modificaitons about qb
+
+- com.quickblox.q_municate_core.qb.commands.chat.QBLoadDialogsCommand
+
+ In the loadAllDialogsByPages function added
+     qbRequestGetBuilderPrivate.addRule("data[class_name]", QueryRule.EQ, "dialog_data");
+     qbRequestGetBuilderGroup.addRule("data[class_name]", QueryRule.EQ, "dialog_data");
+ to get custom data from private and group dialogs.
+

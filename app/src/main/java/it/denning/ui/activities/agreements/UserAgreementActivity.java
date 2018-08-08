@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -36,6 +38,9 @@ public class UserAgreementActivity extends BaseAuthActivity {
 
     @BindView(R.id.toolbar_title)
     protected TextView toolbarTitle;
+
+    @BindView(R.id.right_btn)
+    Button btnRight;
 
     @BindView(R.id.user_agreement_textview)
     TextView userAgreementTextView;
@@ -71,6 +76,11 @@ public class UserAgreementActivity extends BaseAuthActivity {
     private void initFields() {
         toolbarTitle.setText(R.string.user_agreement_title);
 
+        if (!DISharedPreferences.getInstance().isUserAgreement()) {
+            btnRight.setVisibility(View.VISIBLE);
+            btnRight.setText("Accept");
+        }
+
         userAgreementTextView.setMovementMethod(new ScrollingMovementMethod());
     }
 
@@ -78,38 +88,15 @@ public class UserAgreementActivity extends BaseAuthActivity {
         userAgreementTextView.setText(getIntent().getStringExtra("content"));
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-
-        if (!DISharedPreferences.getInstance().isUserAgreement()) {
-            getMenuInflater().inflate(R.menu.agreement, menu);
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_agree) {
-            updateAgreement();
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+    @OnClick(R.id.right_btn)
+    void onAccept() {
+        updateAgreement();
     }
 
     private void updateAgreement() {
         final JsonObject param = new JsonObject();
         param.addProperty("email", "");
-        param.addProperty("MAC", DIHelper.getMAC());
+        param.addProperty("MAC", DIHelper.getMAC(this));
         param.addProperty("deviceName", DIHelper.getDeviceName());
 
         showProgress();
