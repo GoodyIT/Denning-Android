@@ -1,0 +1,11 @@
+<tabs>
+    <tab
+        id="@+id/nav_home"
+        icon="@drawable/icon_tab_home"
+        title="Home" />
+
+    <tab
+        id="@+id/nav_message"
+        icon="@mipmap/ic_message"
+        title="Message"/>
+</tabs>

@@ -74,6 +74,11 @@ public class SignInActivity extends BaseAuthActivity {
         finish();
     }
 
+    @OnClick(R.id.btn_back)
+    void onBackToMain() {
+        onBackPressed();
+    }
+
     public static void start(Context context) {
         Intent intent = new Intent(context, SignInActivity.class);
         context.startActivity(intent);

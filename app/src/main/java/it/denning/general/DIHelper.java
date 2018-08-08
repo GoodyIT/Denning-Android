@@ -312,9 +312,9 @@ public class DIHelper {
 //        WifiManager manager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
 //        WifiInfo info = manager.getConnectionInfo();
 //        return info.getMacAddress();
-//        return Settings.Secure.getString(App.getInstance().getContentResolver(),
-//                Settings.Secure.ANDROID_ID);
-        return UUID.randomUUID().toString();
+        return Settings.Secure.getString(App.getInstance().getContentResolver(),
+                Settings.Secure.ANDROID_ID);
+//        return UUID.randomUUID().toString();
     }
 
     // Safely parse the response - avoid NULL

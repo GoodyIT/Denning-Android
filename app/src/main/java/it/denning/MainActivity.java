@@ -121,7 +121,7 @@ public class MainActivity extends BaseActivity
         drawBottomBar();
 
         // select home screen
-        displaySelectedScreenByMenuItem(nvDrawer.getMenu().getItem(0));
+        changeUI();
 
         initFields();
 
@@ -149,7 +149,7 @@ public class MainActivity extends BaseActivity
     }
 
     private void checkAndProcessChatLogin() {
-        if (!isChatInitializedAndUserLoggedIn() && DISharedPreferences.getInstance(this).getEmail().trim().length() != 0) {
+        if (!isChatInitializedAndUserLoggedIn() && DISharedPreferences.getInstance(this).isLoggedIn()) {
             Log.d(TAG, "onCreate. !isChatInitializedAndUserLoggedIn()");
             loginChat();
         }
@@ -559,6 +559,11 @@ public class MainActivity extends BaseActivity
 
     private void changeUI() {
         displaySelectedScreen(1);
+        if (!isChatInitializedAndUserLoggedIn() && !DISharedPreferences.getInstance(this).isLoggedIn()) {
+            bottomBar.setItems(R.xml.bottombar_tabs_unregistered);
+        } else {
+            bottomBar.setItems(R.xml.bottombar_tabs);
+        }
     }
 
     private boolean checkToLoginChat() {
