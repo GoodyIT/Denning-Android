@@ -75,6 +75,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/denningit/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.11.0/75966e05a49046ca2ae734e5626f28837a8d1e82/okhttp-3.11.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="75966e05a49046ca2ae734e5626f28837a8d1e82">
+        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/okhttp-3.11.0_398b0746179e9601cffbfc4570080d8625da5f0f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/denningit/.android/build-cache/90539950d189947440cd122e99c80493db8343c1/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -153,15 +162,6 @@
         revision="26.0.2"
         sha1="a2af9c72ccaa4c5c049b500ca6ea664a4ce1f7d4">
         <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/classes_1bf9022b4c7378088ee77eb8877c315e7fd4d42b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/denningit/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.3.0/bcacde6a8ccedcc56c127403d26b76072fe6214d/retrofit-2.3.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="bcacde6a8ccedcc56c127403d26b76072fe6214d">
-        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/retrofit-2.3.0_e3961ce06f82703774c14dd0410adc279bf0a1ee/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -264,6 +264,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/denningit/.android/build-cache/ac082ec39953afca44aada32998f213da115f406/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="a2f3cb3df170666c6db106758a97d3a91b30d585">
+        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/classes_6778289978682c79804e27aeed35857aa3e9c921/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/denningit/.android/build-cache/2a6ab87ebdd95a38df81359c29f6b54488d3d9ce/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -306,6 +315,15 @@
         revision="26.0.2"
         sha1="6ee92f191bc56ff6479ca27a042e8b8d28b7c809">
         <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/classes_697114a2b86724aa80362f692a2b22fdfcb73d8d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/denningit/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/adapter-rxjava2/2.4.0/9286ea8ac29dc3822cca03291259db825e118506/adapter-rxjava2-2.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="9286ea8ac29dc3822cca03291259db825e118506">
+        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/adapter-rxjava2-2.4.0_de5ae06aa76faee96027817b8dd9e1701495f724/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -372,15 +390,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/denningit/.android/build-cache/45062c20d54099cd4ec223c073450fde129a12cc/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="461929440e66685425a298693507f6fb27b0a872">
-        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/classes_39e914da4a76dcf6d8452e80e42266b0ee272ba2/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/denningit/.android/build-cache/ec0b40f2400923d4bf623a818daae31d912998ba/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -396,6 +405,33 @@
         revision="26.0.2"
         sha1="1172a3e2d27ed59042bbb004c0de3abaaecc100a">
         <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/4/classes_c2f323b9401c59005f60c13021c21a7206883514/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/denningit/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.4.0/fc4aa382632bfaa7be7b41579efba41d5a71ecf3/retrofit-2.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="fc4aa382632bfaa7be7b41579efba41d5a71ecf3">
+        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/retrofit-2.4.0_c40b92680f2b9030d3c19651662a66eceda9ca3f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/denningit/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.14.0/102d7be47241d781ef95f1581d414b0943053130/okio-1.14.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="102d7be47241d781ef95f1581d414b0943053130">
+        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/okio-1.14.0_5ece722400faff6f207b33c268bc4fbc288f3048/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/denningit/.gradle/caches/modules-2/files-2.1/org.reactivestreams/reactive-streams/1.0.2/323964c36556eb0e6209f65c1cef72b53b461ab8/reactive-streams-1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="323964c36556eb0e6209f65c1cef72b53b461ab8">
+        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/reactive-streams-1.0.2_652cac314700e99a24ddffc647af3b143abeee7f/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -432,15 +468,6 @@
         revision="26.0.2"
         sha1="3edcfe49d2c6053a70a2a47e4e1c2f94998a49cf">
         <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/gson-2.8.2_c01ef5499f0b167cbaaa66b64ef434373466f2e1/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/denningit/.android/build-cache/5407f99aa74290422e0e35b88d4215868c5f2b4c/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="646439081688c43e04ec4aa7ba6915ddfdcc337f">
-        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/classes_e2287ad4fe7644f8cad60a622cf20fa32d5b224c/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -561,39 +588,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/denningit/.android/build-cache/f5a89380b18e3aff3501fb0bb536cc626199b64a/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="204f607419af8247cc1b2a61f50663c65f841c12">
-        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/classes_aa5296353e96b03527b7b5143dc32d16e810d44e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/denningit/.android/build-cache/68d82f85c40c9e6f66548aaad219de9d227dafa2/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.2"
         sha1="f03c448fbcf684ab192c8dc69e6405f206bf12ef">
         <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/classes_c90a7de87ca6acd9b2f709493baa3f5563fe91c4/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/denningit/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-gson/2.3.0/9e09011e9767bb76b5e27c9b8223476b93b14631/converter-gson-2.3.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="9e09011e9767bb76b5e27c9b8223476b93b14631">
-        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/converter-gson-2.3.0_c0c4641f99f94b912312054f69f711964fa62552/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/denningit/.gradle/caches/modules-2/files-2.1/io.reactivex.rxjava2/rxjava/2.1.7/8c6d3f76a0b8ed49e9d49a5af9c80c5fc2091677/rxjava-2.1.7.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="8c6d3f76a0b8ed49e9d49a5af9c80c5fc2091677">
-        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/rxjava-2.1.7_328dbcb9eea262521a2cdde82b22d465ae4b6231/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -669,6 +669,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/denningit/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-gson/2.4.0/15d7790ee311d961379c51b00aba12d5967cb7ea/converter-gson-2.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="15d7790ee311d961379c51b00aba12d5967cb7ea">
+        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/converter-gson-2.4.0_2215e2f23429c608e2fec65b2d096e5e82a6ce8a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/denningit/.android/build-cache/c55c8258025a93914a189bf865632485758afca3/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -705,12 +714,39 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/denningit/.android/build-cache/9185b3de5a23ccee07014b60ee66b98f91ea2306/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="97c7be4a90a5495a6e3beda08120d0fa106cfdcc">
+        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/classes_0f4f2da8dc30fb6f486c0b125c7dc884eee0ba16/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/denningit/.android/build-cache/a7b8accdedb3c234677e2e77158d666e42ec2b85/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="5ab7b6af3e80111065d8aae2ab9694939bf4d289">
+        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/classes_5fe254f3d746347313ddb7724794625daea7180d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/denningit/.android/build-cache/860f1001becd467db5cf85af66b1c350b4bdaa79/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.2"
         sha1="e66b741299db855d094ffafb2b783258f24fc010">
         <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/classes_7d7a0ecd5939ad1e39e1fbde921406c6e4c52546/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/denningit/.gradle/caches/modules-2/files-2.1/io.reactivex.rxjava2/rxjava/2.2.0/2c622e8f1cab8d5871d32bb2023af515216056d8/rxjava-2.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="2c622e8f1cab8d5871d32bb2023af515216056d8">
+        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/rxjava-2.2.0_982b206b2135f4fcca3c4578d1f91342675150cc/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -729,15 +765,6 @@
         revision="26.0.2"
         sha1="20d6aa9a18ea9833cd2bee95dff7cd303cdb80e4">
         <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/classes_c8f163fe28de2accc7a12e9e6207a4d77f8f3f3f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/denningit/.android/build-cache/523f04774a5d86e65444377a1834c6278990a78d/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="005d20a198159b87f65812fc5c51b2d84c5eba0a">
-        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/classes_4603de0fec8593ffb6516588c27a5179069e5d73/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -993,15 +1020,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/denningit/.gradle/caches/modules-2/files-2.1/org.reactivestreams/reactive-streams/1.0.1/1b1c911686eb40179219466e6a59b634b9d7a748/reactive-streams-1.0.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="1b1c911686eb40179219466e6a59b634b9d7a748">
-        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/reactive-streams-1.0.1_eae28f78e842d91cc71d5ca52bfdef99e35db9a1/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/denningit/.android/build-cache/0c1484b8608f67ec2a07a6d2d9036b082a67e0cb/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -1017,15 +1035,6 @@
         revision="26.0.2"
         sha1="91aa1ef30e6f38fdd4a9889dad4caff2ca1364ed">
         <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/classes_08ea36240bfdad5bcfca43cd8c730fbcd2319d42/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/denningit/.android/build-cache/3a74e75bc03e8904a97fbfaba232558f2a7cfce1/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="4119ea97a7191ff9b8f33b534ea220448f62f491">
-        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/classes_3170a649f19b0d51ae5bee448b7cb6d7a19a55f5/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -1119,15 +1128,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/denningit/.android/build-cache/007a5c3f0deb1d127c1491f1adfb0790781f66f0/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="7045152f3bd1870740b9bcb1cddff495e189774e">
-        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/classes_129e636f0f623d87b6c54e63627de1e1aa3e488b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/denningit/.android/build-cache/ec07ad9cad76e85a9409bd5ac541c821793dee1c/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -1146,15 +1146,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/denningit/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.9.0/1b6c10b5120995a7542c1a31b7828fb8593c8ba/okhttp-3.9.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="01b6c10b5120995a7542c1a31b7828fb8593c8ba">
-        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/okhttp-3.9.0_d5c8632e4aeb95233a9f28154f12c88a6eab4ad0/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/denningit/.android/build-cache/ebd5623ddba9d8a5e82e762fd0e79c58dc318871/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -1164,21 +1155,21 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/denningit/.android/build-cache/ecc2547b685bdf86c7a04c0e3cde310ff272f42a/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="3a64f14f460e307f5dfce75e9804e20077d3e6e8">
+        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/classes_228219f9b8fd4274cb1219241033fe2627896a65/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/denningit/.android/build-cache/ff3f5505e7e40d0b657aeae793c47b5aa01c4064/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.2"
         sha1="e57811edcf98c8efc8db63a03f7e07116abfde1a">
         <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/classes_84a21eb941ad5d9fa39768901e622bf471e751d5/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/denningit/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.13.0/a9283170b7305c8d92d25aff02a6ab7e45d06cbe/okio-1.13.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="a9283170b7305c8d92d25aff02a6ab7e45d06cbe">
-        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/okio-1.13.0_2b186dd4d225b4aa91c4dac64f725b5c829a8036/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -1317,6 +1308,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/denningit/.android/build-cache/50e16eca89f35e22e793b347511e520ef458f3a0/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="a291a37263a30113eb90ad7618fd7081d8c0e837">
+        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/classes_051262ab68e0affe4f12efff5b2234a55815f001/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/denningit/.android/build-cache/bebf1a9806acd8bb15b8230f401bc29383c56f4c/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -1344,15 +1344,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/denningit/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/adapter-rxjava2/2.3.0/f436637f9500ab5b8bc32afe556373180894b4a5/adapter-rxjava2-2.3.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="f436637f9500ab5b8bc32afe556373180894b4a5">
-        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/adapter-rxjava2-2.3.0_8304723af786943bd8a654c66a2d607e9256c2c7/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/denningit/.android/build-cache/0be6d63c9a114074b96d7c1b22500a1d8110ee11/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -1377,6 +1368,15 @@
         revision="26.0.2"
         sha1="612555ff5772c873ade285a4174d27cbdeb90c4a">
         <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/classes_e9817d64a769d4890413bd2d4b909d9fc4f67c4e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/denningit/.android/build-cache/2da886a0fc6868d7b104b2ad3f01f39faa4a4567/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="978ba04cd179b5fc1f832074cc7c6218dac984d3">
+        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/classes_3006eef188a92a88248e7418a880e7eb2a81a3fb/classes.dex" />
     </item>
     <item
         is-multidex="true"

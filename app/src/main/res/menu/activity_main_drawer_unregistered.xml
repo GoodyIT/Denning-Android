@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/menu_home"
+            android:checked="true"
+            android:title="Home" />
+
+        <item
+            android:id="@+id/nav_message"
+            android:icon="@mipmap/ic_message"
+            android:checked="true"
+            android:title="Chats" />
+
+        <item
+            android:id="@+id/nav_our_products"
+            android:icon="@drawable/menu_our_product"
+            android:checked="true"
+            android:title="Our Products" />
+
+        <item
+            android:id="@+id/nav_help"
+            android:icon="@drawable/menu_help"
+            android:checked="true"
+            android:title="Help" />
+
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/menu_settings"
+            android:checked="true"
+            android:title="Settings" />
+
+        <item
+            android:id="@+id/nav_contact_us"
+            android:icon="@drawable/menu_contact_us"
+            android:checked="true"
+            android:title="Contact Us" />
+
+        <item
+            android:id="@+id/nav_terms_of_uses"
+            android:icon="@drawable/menu_terms_of_uses"
+            android:checked="true"
+            android:title="Terms of Uses" />
+
+        <item
+            android:id="@+id/nav_log_out"
+            android:icon="@drawable/menu_logout"
+            android:checked="true"
+            android:title="Log out" />
+    </group>
+
+</menu>

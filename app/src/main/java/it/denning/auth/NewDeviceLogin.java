@@ -156,6 +156,7 @@ public class NewDeviceLogin extends BaseActivity {
     }
 
     private void manageUserType(FirmURLModel firmURLModel) {
+        DISharedPreferences.getInstance().saveUserInfoFromResponse(firmURLModel);
         DISharedPreferences.documentView = "nothing";
         if (DISharedPreferences.getInstance(this).getUserType().equals(DISharedPreferences.STAFF_USER)) {
             manageFirmURL(firmURLModel.catDenning);

@@ -42,8 +42,8 @@
 
     <application
         android:name="it.denning.App"
-        tools:replace="android:label"
-        android:allowBackup="true"
+        tools:replace="android:label,android:allowBackup"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="Denning"
         android:supportsRtl="true"

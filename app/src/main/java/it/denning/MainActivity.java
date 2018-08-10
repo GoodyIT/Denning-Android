@@ -145,7 +145,14 @@ public class MainActivity extends BaseActivity
         mDrawer.addDrawerListener(drawerToggle);
         mDrawer.requestLayout();
         nvDrawer.bringToFront();
+
         headerLayout = nvDrawer.inflateHeaderView(R.layout.nav_header);
+        headerLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoAuth();
+            }
+        });
     }
 
     private void checkAndProcessChatLogin() {
@@ -559,11 +566,17 @@ public class MainActivity extends BaseActivity
 
     private void changeUI() {
         displaySelectedScreen(1);
+
+        // Change the bottom bar & navigation drawer
         if (!isChatInitializedAndUserLoggedIn() && !DISharedPreferences.getInstance(this).isLoggedIn()) {
             bottomBar.setItems(R.xml.bottombar_tabs_unregistered);
+            nvDrawer.inflateMenu(R.menu.activity_main_drawer_unregistered);
         } else {
             bottomBar.setItems(R.xml.bottombar_tabs);
+            nvDrawer.inflateMenu(R.menu.activity_main_drawer);
         }
+
+        nvDrawer.invalidate();
     }
 
     private boolean checkToLoginChat() {

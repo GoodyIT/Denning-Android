@@ -167,16 +167,16 @@ dependencies {
     compile "com.soundcloud.android:android-crop:${rootProject.cropVersion}@aar"
     compile 'com.marshalchen.ultimaterecyclerview:library:0.7.3'
 
-    compile 'com.squareup.okhttp3:okhttp:3.9.0'
+    compile 'com.squareup.okhttp3:okhttp:3.11.0'
     compile 'com.squareup.moshi:moshi:1.5.0'
 
-    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    compile 'io.reactivex.rxjava2:rxjava:2.1.7'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    compile 'io.reactivex.rxjava2:rxjava:2.2.0'
 
     // Retrofit http://square.github.io/retrofit
-    compile 'com.squareup.retrofit2:retrofit:2.3.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    compile 'com.squareup.retrofit2:retrofit:2.4.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.4.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
     compile 'me.grantland:autofittextview:0.2.1'
     compile 'info.hoang8f:android-segmented:1.0.6'
     compile 'com.hannesdorfmann.smoothprogressbar:library:1.0.0'
@@ -189,7 +189,7 @@ dependencies {
     compile 'com.mikepenz:itemanimators:0.5.0@aar'
     compile 'com.mikepenz:crossfader:1.5.0@aar'
     compile 'com.mikepenz:crossfadedrawerlayout:1.0.0@aar'
-    compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
+    compile('com.crashlytics.sdk.android:crashlytics:2.9.4@aar') {
         transitive = true
     }
 

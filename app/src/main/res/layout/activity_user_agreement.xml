@@ -24,8 +24,10 @@ android:orientation="vertical"
         android:layout_height="match_parent" />
 </android.support.design.widget.AppBarLayout>
 
-<TextView
-    android:id="@+id/user_agreement_textview"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    <TextView
+        android:id="@+id/user_agreement_textview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        android:paddingRight="1dp" />
 </LinearLayout>

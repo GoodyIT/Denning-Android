@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: io.fabric.sdk.android:fabric-1.4.3">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.android/build-cache/9185b3de5a23ccee07014b60ee66b98f91ea2306/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/9185b3de5a23ccee07014b60ee66b98f91ea2306/output/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
