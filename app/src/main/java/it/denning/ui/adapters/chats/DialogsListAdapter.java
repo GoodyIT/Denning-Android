@@ -62,6 +62,7 @@ public class DialogsListAdapter extends BaseListAdapter<DialogWrapper> {
                     R.id.unread_messages_textview);
             viewHolder.btnDelete = convertView.findViewById(R.id.btn_delete);
             viewHolder.swipeLayout = (SwipeLayout)convertView.findViewById(R.id.swipe_layout);
+            viewHolder.tagTextView = convertView.findViewById(R.id.dialog_tag);
 
             convertView.setTag(viewHolder);
         } else {
@@ -80,6 +81,7 @@ public class DialogsListAdapter extends BaseListAdapter<DialogWrapper> {
             viewHolder.nameTextView.setText(currentDialog.getName());
             viewHolder.avatarImageView.setImageResource(R.drawable.placeholder_group);
             displayGroupPhotoImage(currentDialog.getPhoto(), viewHolder.avatarImageView);
+            viewHolder.tagTextView.setText(DIHelper.getPosition(currentDialog));
         }
 
         long totalCount = dialogWrapper.getTotalCount();
@@ -196,6 +198,7 @@ public class DialogsListAdapter extends BaseListAdapter<DialogWrapper> {
         public TextView lastMessageTextView;
         public TextView unreadMessagesTextView;
         public Button btnDelete;
+        public TextView tagTextView;
         private SwipeLayout swipeLayout;
 
     }

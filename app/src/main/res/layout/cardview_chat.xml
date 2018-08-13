@@ -72,7 +72,7 @@
                     tools:text="Nabe dsjkd sdldjscljkd dsclk" />
 
                 <TextView
-                    android:id="@+id/contact_tag"
+                    android:id="@+id/position_tag"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"

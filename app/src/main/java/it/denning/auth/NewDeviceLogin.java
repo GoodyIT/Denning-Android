@@ -181,6 +181,7 @@ public class NewDeviceLogin extends BaseActivity {
             public void parseResponse(JsonElement jsonElement) {
                 FirmURLModel firmURLModel = new Gson().fromJson(jsonElement.getAsJsonObject(), FirmURLModel.class);
                 if (firmURLModel.statusCode == 200) {
+                    DISharedPreferences.getInstance().saveUserInfoFromResponse(firmURLModel);
                     DISharedPreferences.getInstance().saveSessionID(firmURLModel.sessionID);
                     MainActivity.start(NewDeviceLogin.this);
                 } else {

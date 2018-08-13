@@ -35,4 +35,14 @@ dependencies {
 
     compile "com.android.support:cardview-v7:${rootProject.supportVersion}"
     compile "com.android.support:customtabs:${rootProject.supportVersion}"
+
+    // Network libs for our server
+    compile ('com.squareup.retrofit2:retrofit:2.1.0') {
+        // exclude Retrofit’s OkHttp dependency module and define your own module import
+        exclude module: 'okhttp'
+    }
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'
 }

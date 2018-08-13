@@ -66,7 +66,10 @@ import butterknife.OnItemClick;
 import info.hoang8f.android.segmented.SegmentedGroup;
 import it.denning.MainActivity;
 import it.denning.R;
+import it.denning.general.DIMessageInterface;
+import it.denning.general.DIService;
 import it.denning.loaders.DialogsListLoader;
+import it.denning.model.ChatContactModel;
 import it.denning.navigation.message.utils.OnMessageDeleteListener;
 import it.denning.ui.activities.chats.GroupDialogActivity;
 import it.denning.ui.activities.chats.PrivateDialogActivity;
@@ -425,7 +428,7 @@ public class DenningMessage extends BaseLoaderFragment<List<DialogWrapper>> impl
     }
 
     @Override
-    public void onLoadFinished(Loader<List<DialogWrapper>> loader, List<DialogWrapper> dialogsList) {
+    public void onLoadFinished(Loader<List<DialogWrapper>> loader, final List<DialogWrapper> dialogsList) {
         updateDialogsProcess = State.started;
         Log.d(TAG, "onLoadFinished!!! dialogsListLoader.isLoadCacheFinished() " + dialogsListLoader.isLoadCacheFinished());
         if (dialogsListLoader.isLoadCacheFinished()){
@@ -437,6 +440,18 @@ public class DenningMessage extends BaseLoaderFragment<List<DialogWrapper>> impl
 
         baseActivity.hideProgress();
         updateDialogsAdapter(dialogsList);
+
+        DIService.fetchContacts(dialogsList, new DIMessageInterface() {
+            @Override
+            public void onSuccess(ChatContactModel chatContactModel) {
+                onChangedData();
+            }
+
+            @Override
+            public void onError(String error) {
+
+            }
+        });
 
         checkEmptyList(dialogsListAdapter.getCount());
 

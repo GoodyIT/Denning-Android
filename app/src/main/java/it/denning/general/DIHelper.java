@@ -17,8 +17,13 @@ import android.text.format.Formatter;
 import android.util.Base64;
 import android.util.TypedValue;
 
+import com.quickblox.auth.session.QBSession;
 import com.quickblox.chat.model.QBChatDialog;
 import com.quickblox.chat.model.QBDialogCustomData;
+import com.quickblox.chat.model.QBDialogType;
+import com.quickblox.q_municate_core.models.AppSession;
+import com.quickblox.q_municate_user_service.QMUserService;
+import com.quickblox.q_municate_user_service.model.QMUser;
 import com.wdullaer.materialdatetimepicker.date.MonthAdapter;
 
 import java.io.ByteArrayOutputStream;
@@ -489,6 +494,24 @@ public class DIHelper {
         return tag == null ? DIConstants.kChatColleaguesTag : tag;
     }
 
+    public static String getPosition(QBChatDialog chatDialog) {
+        if (QBDialogType.PRIVATE.equals(chatDialog.getType())) {
+            for (QMUser user :  QMUserService.getInstance().getUserCache().getUsersByIDs(chatDialog.getOccupants())) {
+                if (user.getEmail().equals(AppSession.getSession().getUser().getEmail())) {
+                    return user.getTwitterDigitsId();
+                }
+            }
+        }
+
+        QBDialogCustomData data = chatDialog.getCustomData();
+        if (data == null) {
+            return "";
+        }
+
+        String position = (String) data.get("position");
+        return position == null ? "" : position;
+    }
+
     public static String addThousandsSeparator(String value) {
         value = value.replace(",", "");
         DecimalFormat formatter = (DecimalFormat) NumberFormat.getInstance(Locale.US);
@@ -532,5 +555,9 @@ public class DIHelper {
         SimpleDateFormat mdformat = new SimpleDateFormat("hhmmss");
         String today = mdformat.format(calendar.getTime());
         return "IMG_" + today + ".jpg";
+    }
+
+    public static String getUserPosition(String email) {
+        return "";
     }
 }

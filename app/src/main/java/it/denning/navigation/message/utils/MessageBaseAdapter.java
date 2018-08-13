@@ -58,7 +58,7 @@ public class MessageBaseAdapter extends SectioningAdapter {
         TextView lastMessageAt;
         @BindView(R.id.button_favorite)
         ImageView btnFavorite;
-        @BindView(R.id.contact_tag)
+        @BindView(R.id.position_tag)
         TextView contactTag;
         @BindView(R.id.chat_cardview)
         CardView cardView;

@@ -66,6 +66,8 @@ import butterknife.OnItemClick;
 import info.hoang8f.android.segmented.SegmentedGroup;
 import it.denning.MainActivity;
 import it.denning.R;
+import it.denning.general.DIConstants;
+import it.denning.general.DIHelper;
 import it.denning.loaders.DialogsListLoader;
 import it.denning.navigation.message.utils.OnMessageDeleteListener;
 import it.denning.ui.activities.chats.GroupDialogActivity;
@@ -405,10 +407,10 @@ public class DenningSupport extends BaseLoaderFragment<List<DialogWrapper>> impl
             }
         }
 
-        private ArrayList<DialogWrapper> filterGroupChatDialog(List<DialogWrapper> dialogsList) {
+        private ArrayList<DialogWrapper> filterDenningSupportGroupChatDialog(List<DialogWrapper> dialogsList) {
             ArrayList<DialogWrapper> groupDialogs = new ArrayList<>();
             for (DialogWrapper dialogWrapper : dialogsList) {
-                if (QBDialogType.GROUP.equals(dialogWrapper.getChatDialog().getType())) {
+                if (QBDialogType.GROUP.equals(dialogWrapper.getChatDialog().getType()) && DIHelper.getTag(dialogWrapper.getChatDialog()).equals(DIConstants.kChatDenningTag)) {
                     groupDialogs.add(dialogWrapper);
                 }
             }
@@ -417,9 +419,9 @@ public class DenningSupport extends BaseLoaderFragment<List<DialogWrapper>> impl
 
         private void updateDialogsAdapter(List<DialogWrapper> dialogsList) {
             if (dialogsListLoader.isLoadAll()) {
-                dialogsListAdapter.setNewData(filterGroupChatDialog(dialogsList));
+                dialogsListAdapter.setNewData(filterDenningSupportGroupChatDialog(dialogsList));
             } else {
-                dialogsListAdapter.addNewData(filterGroupChatDialog(dialogsList));
+                dialogsListAdapter.addNewData(filterDenningSupportGroupChatDialog(dialogsList));
             }
 
             if(dialogsListLoader.isLoadRestFinished()) {

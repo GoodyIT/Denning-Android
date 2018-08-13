@@ -273,6 +273,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/denningit/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/logging-interceptor/3.4.1/381fc1096ba65040d8e80ea43b2e1d9bad02345e/logging-interceptor-3.4.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="381fc1096ba65040d8e80ea43b2e1d9bad02345e">
+        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/logging-interceptor-3.4.1_a120bc9b81de3ec9af3de01ea767d53a1bc94443/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/denningit/.android/build-cache/2a6ab87ebdd95a38df81359c29f6b54488d3d9ce/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -286,7 +295,7 @@
         jumboMode="false"
         optimize="true"
         revision="26.0.2"
-        sha1="a498f8a2245dc4763110faea0d0f5e20a702f344">
+        sha1="0b24fe5a552826dfc2029390c277dfbecfc64f9c">
         <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/4/classes_64827d27b1438209eb618b083b6deabec0155d3c/classes.dex" />
     </item>
     <item

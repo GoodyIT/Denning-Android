@@ -13,8 +13,10 @@ import com.quickblox.core.helper.StringifyArrayList;
 import com.quickblox.core.request.GenericQueryRule;
 import com.quickblox.core.request.QBPagedRequestBuilder;
 import com.quickblox.q_municate_core.models.AppSession;
+import com.quickblox.q_municate_core.models.DialogWrapper;
 import com.quickblox.q_municate_core.utils.FinderUnknownUsers;
 import com.quickblox.q_municate_db.utils.ErrorUtils;
+import com.quickblox.q_municate_user_service.QMUserService;
 import com.quickblox.q_municate_user_service.model.QMUser;
 import com.quickblox.users.QBUsers;
 import com.quickblox.users.model.QBUser;
@@ -24,6 +26,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -35,6 +38,7 @@ import it.denning.network.CompositeCompletion;
 import it.denning.network.ErrorHandler;
 import it.denning.network.NetworkManager;
 import it.denning.utils.AuthUtils;
+import it.denning.utils.helpers.ServiceManager;
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -79,7 +83,7 @@ public class DIService {
             @Override
             public void onSuccess(final ArrayList<QBUser> qbUsers, Bundle bundle) {
                 myFriendsList = QMUser.convertList(qbUsers);
-                fetchContacts();
+//                fetchContacts();
             }
 
             @Override
@@ -87,15 +91,19 @@ public class DIService {
                 messageInterface.onError(e.getLocalizedMessage());
             }
         });
-
     }
 
-    private void fetchContacts() {
-        String url  = DIConstants.CHAT_GET_URL + DISharedPreferences.getInstance(context).getEmail();
+    public static void fetchContacts(List<DialogWrapper> dialogsList, final DIMessageInterface messageInterface) {
+        Collection<Integer> userIDs = new ArrayList<>();
+        for (DialogWrapper dialogWrapper :  dialogsList) {
+            userIDs.addAll(dialogWrapper.getChatDialog().getOccupants());
+        }
+        myFriendsList = QMUserService.getInstance().getUserCache().getUsersByIDs(userIDs);
+        String url  = DIConstants.CHAT_GET_URL + DISharedPreferences.getInstance().getEmail();
         NetworkManager.getInstance().sendPublicGetRequest(url, new CompositeCompletion() {
             @Override
             public void parseResponse(JsonElement jsonElement) {
-                manageResponse(jsonElement);
+                manageResponse(jsonElement, messageInterface);
             }
         }, new ErrorHandler() {
             @Override
@@ -106,7 +114,7 @@ public class DIService {
     }
 
 
-    private void manageResponse(JsonElement jsonElement) {
+    private static void manageResponse(JsonElement jsonElement, final DIMessageInterface messageInterface) {
         final ChatContactModel chatContactModel = new Gson().fromJson(jsonElement, ChatContactModel.class);
                 ChatContactModel newContact = new ChatContactModel();
 
@@ -117,7 +125,7 @@ public class DIService {
         messageInterface.onSuccess(newContact);
     }
 
-    private List<ChatFirmModel> findChatFirm(List<ChatFirmModel> modelList) {
+    private static List<ChatFirmModel> findChatFirm(List<ChatFirmModel> modelList) {
         List<ChatFirmModel> newModelList = new ArrayList<>();
         for (ChatFirmModel chatFirmModel : modelList) {
             ChatFirmModel newChatFirm = new ChatFirmModel();
@@ -126,10 +134,11 @@ public class DIService {
             for (final ChatUserModel userModel : chatFirmModel.users) {
                 QMUser _user = findUser(userModel, myFriendsList);
                 if (_user != null) {
-                    _user.setTwitterDigitsId(userModel.position);
                     StringifyArrayList list = new StringifyArrayList<String>();
                     list.add(userModel.tag);
                     _user.setTags(list);
+                    _user.setTwitterDigitsId(userModel.position);
+                    QMUserService.getInstance().getUserCache().update(_user);
                     newChatFirm.chatUsers.add(_user);
                 }
             }
@@ -139,7 +148,7 @@ public class DIService {
         return newModelList;
     }
 
-    private QMUser findUser(ChatUserModel userModel, List<QMUser> friendsList) {
+    private static QMUser findUser(ChatUserModel userModel, List<QMUser> friendsList) {
         QMUser selectedUser = null;
         for (QMUser user : friendsList) {
             if (DIHelper.toSafeStr(user.getEmail()).equals(userModel.email)) {

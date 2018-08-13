@@ -104,6 +104,7 @@ public class ChangePassword extends AppCompatActivity {
     private void manageResponse(JsonObject jsonObject) {
         FirmURLModel firmURLModel = new Gson().fromJson(jsonObject, FirmURLModel.class);
         DISharedPreferences.getInstance(this).saveUserInfoFromNewDeviceLogin(firmURLModel);
+        DISharedPreferences.getInstance().saveUserPassword(newPasswordView.getText().toString());
         if (firmURLModel.statusCode == 200) {
             manageUserType(firmURLModel);
         } else {

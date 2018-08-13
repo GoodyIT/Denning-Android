@@ -523,8 +523,8 @@ public class MainActivity extends BaseActivity
     }
 
     private void logout() {
-        showProgress();
         if (isChatInitializedAndUserLoggedIn()) {
+            showProgress();
             ServiceManager.getInstance().logout(new Subscriber<Void>() {
                 @Override
                 public void onCompleted() {
@@ -570,13 +570,14 @@ public class MainActivity extends BaseActivity
         // Change the bottom bar & navigation drawer
         if (!isChatInitializedAndUserLoggedIn() && !DISharedPreferences.getInstance(this).isLoggedIn()) {
             bottomBar.setItems(R.xml.bottombar_tabs_unregistered);
-            nvDrawer.inflateMenu(R.menu.activity_main_drawer_unregistered);
+            nvDrawer.getMenu().findItem(R.id.nav_add).setVisible(false);
+            nvDrawer.getMenu().findItem(R.id.nav_dashboard).setVisible(false);
         } else {
             bottomBar.setItems(R.xml.bottombar_tabs);
-            nvDrawer.inflateMenu(R.menu.activity_main_drawer);
+            nvDrawer.getMenu().findItem(R.id.nav_add).setVisible(true);
+            nvDrawer.getMenu().findItem(R.id.nav_dashboard).setVisible(true);
         }
 
-        nvDrawer.invalidate();
     }
 
     private boolean checkToLoginChat() {

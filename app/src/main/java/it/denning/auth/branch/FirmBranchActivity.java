@@ -146,7 +146,9 @@ public class FirmBranchActivity extends AppCompatActivity implements OnItemClick
 
     private void manageResponse(JsonObject response, FirmModel firmURLModel) {
         DocumentModel documentModel = saveSessionAndGetFolder(response);
-        if (response.get("statusCode").getAsString().equals("200")) {
+        if (response.get("statusCode").getAsString().equals("250")) {
+            FirmPasswordConfirmActivity.start(this, firmURLModel.LawFirm.address.city, firmURLModel.LawFirm.name);
+        } else {
             if (DISharedPreferences.documentView.equals("upload")) {
                 UploadActivity.start(
                         FirmBranchActivity.this, null, R.string.client_upload_title);
@@ -158,8 +160,6 @@ public class FirmBranchActivity extends AppCompatActivity implements OnItemClick
                     PersonalDocumentActivity.start(this, "Documents");
                 }
             }
-        } else {
-            FirmPasswordConfirmActivity.start(this, firmURLModel.LawFirm.address.city, firmURLModel.LawFirm.name);
         }
     }
 
