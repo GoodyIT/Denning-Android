@@ -77,6 +77,7 @@ android {
     packagingOptions {
         exclude 'META-INF/LICENSE.txt'
         exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/rxjava.properties'
     }
 
     dataBinding {
@@ -169,9 +170,10 @@ dependencies {
 
     compile 'com.squareup.okhttp3:okhttp:3.11.0'
     compile 'com.squareup.moshi:moshi:1.5.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
 
-    compile 'io.reactivex.rxjava2:rxandroid:2.0.2'
-    compile 'io.reactivex.rxjava2:rxjava:2.2.0'
+//    compile 'io.reactivex.rxjava2:rxandroid:2.0.2'
+//    compile 'io.reactivex.rxjava2:rxjava:2.2.0'
 
     // Retrofit http://square.github.io/retrofit
     compile 'com.squareup.retrofit2:retrofit:2.4.0'

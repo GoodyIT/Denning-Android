@@ -4,7 +4,6 @@ package it.denning.network.services;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Environment;
-import android.support.v7.util.SortedList;
 import android.util.Log;
 
 import java.io.BufferedInputStream;
@@ -14,13 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import io.reactivex.Single;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Function;
-import io.reactivex.observers.DisposableSingleObserver;
-import io.reactivex.schedulers.Schedulers;
-import it.denning.App;
 import it.denning.general.DIFileManager;
 import it.denning.general.DIHelper;
 import it.denning.network.RetrofitHelper;

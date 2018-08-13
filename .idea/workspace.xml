@@ -19,37 +19,751 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5d691f3-9667-4a91-a0a4-05c325d93859" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp3_logging_interceptor_3_4_1_jar.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp3_okhttp_3_4_1_jar.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okio_okio_1_9_0_jar.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_retrofit2_converter_gson_2_1_0_jar.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_retrofit2_retrofit_2_1_0_jar.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/myservice/APIClient.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/myservice/APIInterface.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/myservice/ChatContactModel.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/myservice/ChatFirmModel.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/myservice/ChatUserModel.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_reactivex_rxjava2_rxjava_2_0_0_jar.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_reactivestreams_reactive_streams_1_0_0_jar.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp3_okhttp_3_4_1_jar.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okio_okio_1_9_0_jar.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_retrofit2_converter_gson_2_1_0_jar.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_retrofit2_retrofit_2_1_0_jar.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__io_reactivex_rxjava2_rxandroid_2_0_2.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__io_reactivex_rxjava2_rxjava_2_2_0_jar.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_reactivestreams_reactive_streams_1_0_2_jar.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/Q-municate_core/Q-municate_core.iml" afterPath="$PROJECT_DIR$/Q-municate_core/Q-municate_core.iml" />
       <change beforePath="$PROJECT_DIR$/Q-municate_core/build.gradle" afterPath="$PROJECT_DIR$/Q-municate_core/build.gradle" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/bundles/debug/classes.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/bundles/debug/jni/arm64-v8a/libboringssl.cr.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/bundles/debug/jni/arm64-v8a/libc++_shared.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/bundles/debug/jni/arm64-v8a/libjingle_peerconnection_so.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/bundles/debug/jni/arm64-v8a/libprotobuf_lite.cr.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/bundles/debug/jni/armeabi-v7a/libboringssl.cr.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/bundles/debug/jni/armeabi-v7a/libc++_shared.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/bundles/debug/jni/armeabi-v7a/libjingle_peerconnection_so.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/bundles/debug/jni/armeabi-v7a/libprotobuf_lite.cr.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/bundles/debug/jni/x86/libboringssl.cr.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/bundles/debug/jni/x86/libc++_shared.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/bundles/debug/jni/x86/libjingle_peerconnection_so.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/bundles/debug/jni/x86/libprotobuf_lite.cr.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/bundles/debug/jni/x86_64/libboringssl.cr.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/bundles/debug/jni/x86_64/libc++_shared.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/bundles/debug/jni/x86_64/libjingle_peerconnection_so.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/bundles/debug/jni/x86_64/libprotobuf_lite.cr.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/bundles/debug/res/raw/beep.wav" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/bundles/debug/res/values/values.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/bundles/default/classes.jar" afterPath="$PROJECT_DIR$/Q-municate_core/build/intermediates/bundles/default/classes.jar" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/arch/lifecycle/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/compat/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/compat/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/compat/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/compat/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/compat/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/compat/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/compat/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/compat/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/compat/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/compat/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/compat/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/compat/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/coreui/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/coreui/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/coreui/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/coreui/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/coreui/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/coreui/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/coreui/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/coreui/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/coreui/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/coreui/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/coreui/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/coreui/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/coreutils/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/coreutils/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/coreutils/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/coreutils/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/coreutils/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/coreutils/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/coreutils/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/coreutils/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/coreutils/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/coreutils/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/coreutils/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/coreutils/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/customtabs/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/customtabs/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/customtabs/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/customtabs/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/customtabs/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/customtabs/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/customtabs/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/customtabs/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/customtabs/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/customtabs/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/customtabs/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/customtabs/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/fragment/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/fragment/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/fragment/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/fragment/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/fragment/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/fragment/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/fragment/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/fragment/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/fragment/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/fragment/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/fragment/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/fragment/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/graphics/drawable/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/graphics/drawable/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/graphics/drawable/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/graphics/drawable/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/graphics/drawable/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/graphics/drawable/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/graphics/drawable/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/graphics/drawable/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/graphics/drawable/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/graphics/drawable/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/graphics/drawable/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/graphics/drawable/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/mediacompat/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/mediacompat/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/mediacompat/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/mediacompat/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/mediacompat/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/mediacompat/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/mediacompat/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/mediacompat/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/mediacompat/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/mediacompat/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/mediacompat/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/mediacompat/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v4/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v4/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v4/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v4/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v4/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v4/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v4/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v4/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v4/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v4/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v4/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v4/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v7/appcompat/R$anim.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v7/appcompat/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v7/appcompat/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v7/appcompat/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v7/appcompat/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v7/appcompat/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v7/appcompat/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v7/appcompat/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v7/appcompat/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v7/appcompat/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v7/appcompat/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v7/appcompat/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v7/appcompat/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v7/cardview/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v7/cardview/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v7/cardview/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v7/cardview/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v7/cardview/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/android/support/v7/cardview/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/facebook/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/facebook/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/facebook/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/facebook/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/facebook/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/facebook/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/facebook/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/facebook/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/facebook/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/facebook/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/exoplayer2/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/exoplayer2/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/exoplayer2/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/exoplayer2/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/exoplayer2/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/exoplayer2/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/exoplayer2/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/exoplayer2/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/exoplayer2/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/exoplayer2/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/exoplayer2/core/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/exoplayer2/source/dash/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/exoplayer2/source/hls/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/exoplayer2/source/smoothstreaming/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/exoplayer2/ui/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/exoplayer2/ui/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/exoplayer2/ui/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/exoplayer2/ui/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/exoplayer2/ui/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/exoplayer2/ui/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/exoplayer2/ui/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/exoplayer2/ui/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/exoplayer2/ui/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/exoplayer2/ui/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/gms/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/gms/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/gms/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/gms/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/gms/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/gms/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/gms/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/gms/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/gms/base/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/gms/base/license/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/gms/common/license/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/gms/gcm/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/gms/gcm/license/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/gms/iid/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/gms/iid/license/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/gms/measurement/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/gms/measurement/impl/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/gms/tasks/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/android/gms/tasks/license/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/firebase/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/firebase/firebase/common/license/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/firebase/firebase/iid/license/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/firebase/firebase/messaging/license/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/firebase/firebase_core/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/firebase/iid/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/firebase/measurement/impl/license/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/firebase/measurement/license/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/google/firebase/messaging/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/chat/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/content/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/customobjects/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/extensions/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/messages/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/messages/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/messages/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/messages/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/messages/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/messages/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/messages/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/messages/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/messages/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/messages/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/messages/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/messages/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_auth_service/R$anim.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_auth_service/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_auth_service/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_auth_service/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_auth_service/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_auth_service/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_auth_service/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_auth_service/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_auth_service/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_auth_service/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_auth_service/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_auth_service/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_auth_service/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_base_cache/R$anim.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_base_cache/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_base_cache/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_base_cache/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_base_cache/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_base_cache/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_base_cache/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_base_cache/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_base_cache/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_base_cache/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_base_cache/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_base_cache/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_base_cache/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_base_service/R$anim.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_base_service/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_base_service/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_base_service/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_base_service/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_base_service/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_base_service/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_base_service/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_base_service/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_base_service/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_base_service/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_base_service/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_base_service/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/BuildConfig.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/R$anim.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/R$array.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/R$raw.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/core/command/Command.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/core/command/CompositeServiceCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/core/command/ServiceCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/core/concurrency/BaseAsyncTask.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/core/concurrency/BaseErrorAsyncTask.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/core/loader/BaseLoader.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/models/AppSession$ChatState.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/models/AppSession.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/models/CallPushParams.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/models/ChatNotificationType.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/models/CombinationMessage$DateComparator.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/models/CombinationMessage.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/models/DialogSearchWrapper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/models/DialogWrapper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/models/InviteFriend.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/models/LoginType.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/models/NotificationEvent.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/models/NotificationType.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/models/ParcelableQBDialog$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/models/ParcelableQBDialog.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/models/StartConversationReason.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/models/UserCustomData.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/network/NetworkGCMTaskService.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/QBFindUsersCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/QBGetFileCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/QBLoadAttachFileCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/chat/QBAddFriendsToGroupCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/chat/QBCreateGroupDialogCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/chat/QBCreatePrivateChatCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/chat/QBDeleteChatCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/chat/QBInitCallChatCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/chat/QBInitChatServiceCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/chat/QBInitChatsCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/chat/QBJoinGroupChatsCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/chat/QBLeaveGroupDialogCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/chat/QBLoadDialogByIdsCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/chat/QBLoadDialogMessagesCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/chat/QBLoadDialogsCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/chat/QBLoginChatCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/chat/QBLoginChatCompositeCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/chat/QBLogoutAndDestroyChatCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/chat/QBUpdateGroupDialogCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/chat/QBUpdateStatusMessageCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/friend/QBAcceptFriendCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/friend/QBAddFriendCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/friend/QBImportFriendsCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/friend/QBInitFriendListCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/friend/QBLoadFriendListCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/friend/QBRejectFriendCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/friend/QBRemoveFriendCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/push/QBPushCallCompositeCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/push/QBSendPushCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/rest/QBLoginCompositeCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/rest/QBLogoutCompositeCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/rest/QBReloginCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/commands/rest/QBSignUpCommand.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/BaseHelper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/BaseThreadPoolHelper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/QBCallChatHelper$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/QBCallChatHelper$CameraErrorHandler.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/QBCallChatHelper$QBRTCClientSessionCallbacksImpl.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/QBCallChatHelper$QBVideoChatSignalingManagerListenerImpl.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/QBCallChatHelper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/QBChatHelper$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/QBChatHelper$AllChatMessagesListener$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/QBChatHelper$AllChatMessagesListener.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/QBChatHelper$ChatConnectionListener.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/QBChatHelper$ParticipantListener.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/QBChatHelper$PrivateChatMessagesStatusListener.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/QBChatHelper$PrivateChatNotificationListener.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/QBChatHelper$QBNotificationChatListener.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/QBChatHelper$SystemMessageListener$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/QBChatHelper$SystemMessageListener.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/QBChatHelper$TypingListener.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/QBChatHelper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/QBChatRestHelper$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/QBChatRestHelper$ChatConnectionListener.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/QBChatRestHelper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/QBFriendListHelper$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/QBFriendListHelper$RosterListener$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/QBFriendListHelper$RosterListener$2.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/QBFriendListHelper$RosterListener.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/QBFriendListHelper$SubscriptionListener.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/QBFriendListHelper$UserLoadingTimerTask.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/QBFriendListHelper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/qb/helpers/QBRestHelper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/service/QBService$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/service/QBService$LoginBroadcastReceiver.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/service/QBService$QBServiceBinder.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/service/QBService.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/service/QBServiceConsts.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/utils/ChatNotificationUtils$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/utils/ChatNotificationUtils.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/utils/ChatUtils$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/utils/ChatUtils.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/utils/ConnectivityUtils.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/utils/ConstsCore.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/utils/DateUtilsCore.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/utils/DbUtils.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/utils/FinderUnknownUsers.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/utils/MediaUtils$MetaData.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/utils/MediaUtils.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/utils/MimeTypeAttach.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/utils/OnlineStatusUtils.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/utils/UserFriendUtils.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/utils/Utils.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/utils/call/RingtonePlayer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/utils/call/SettingsUtil.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/utils/helpers/CoreNotificationHelper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/utils/helpers/CoreSharedHelper$Constants.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_core/utils/helpers/CoreSharedHelper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_db/R$anim.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_db/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_db/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_db/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_db/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_db/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_db/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_db/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_db/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_db/R$raw.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_db/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_db/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_db/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_db/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_user_service/R$anim.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_user_service/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_user_service/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_user_service/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_user_service/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_user_service/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_user_service/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_user_service/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_user_service/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_user_service/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_user_service/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_user_service/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/q_municate_user_service/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/ui/kit/chatmessage/adapter/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/ui/kit/chatmessage/adapter/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/ui/kit/chatmessage/adapter/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/ui/kit/chatmessage/adapter/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/ui/kit/chatmessage/adapter/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/ui/kit/chatmessage/adapter/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/ui/kit/chatmessage/adapter/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/ui/kit/chatmessage/adapter/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/ui/kit/chatmessage/adapter/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/ui/kit/chatmessage/adapter/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/videochat/webrtc/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/videochat/webrtc/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/com/quickblox/videochat/webrtc/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/de/hdodenhof/circleimageview/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/de/hdodenhof/circleimageview/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/de/hdodenhof/circleimageview/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/debug/rx/android/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/release/com/quickblox/q_municate_core/myservice/APIClient.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/release/com/quickblox/q_municate_core/myservice/APIInterface.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/release/com/quickblox/q_municate_core/myservice/ChatContactModel.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/release/com/quickblox/q_municate_core/myservice/ChatFirmModel.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/release/com/quickblox/q_municate_core/myservice/ChatUserModel.class" afterPath="" />
       <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/release/com/quickblox/q_municate_core/utils/FinderUnknownUsers.class" afterPath="$PROJECT_DIR$/Q-municate_core/build/intermediates/classes/release/com/quickblox/q_municate_core/utils/FinderUnknownUsers.class" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/incremental-safeguard/debug/tag.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/Q-municate_core/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/incremental/mergeReleaseResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/Q-municate_core/build/intermediates/incremental/mergeReleaseResources/compile-file-map.properties" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/incremental/packageDebugResources/merged.dir/values/values.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/incremental/packageDebugResources/merger.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/incremental/packageReleaseResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/Q-municate_core/build/intermediates/incremental/packageReleaseResources/compile-file-map.properties" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/jniLibs/debug/arm64-v8a/libboringssl.cr.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/jniLibs/debug/arm64-v8a/libc++_shared.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/jniLibs/debug/arm64-v8a/libjingle_peerconnection_so.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/jniLibs/debug/arm64-v8a/libprotobuf_lite.cr.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/jniLibs/debug/armeabi-v7a/libboringssl.cr.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/jniLibs/debug/armeabi-v7a/libc++_shared.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/jniLibs/debug/armeabi-v7a/libjingle_peerconnection_so.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/jniLibs/debug/armeabi-v7a/libprotobuf_lite.cr.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/jniLibs/debug/x86/libboringssl.cr.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/jniLibs/debug/x86/libc++_shared.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/jniLibs/debug/x86/libjingle_peerconnection_so.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/jniLibs/debug/x86/libprotobuf_lite.cr.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/jniLibs/debug/x86_64/libboringssl.cr.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/jniLibs/debug/x86_64/libc++_shared.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/jniLibs/debug/x86_64/libjingle_peerconnection_so.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/jniLibs/debug/x86_64/libprotobuf_lite.cr.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/transforms/mergeJniLibs/debug/folders/2000/3/main/lib/arm64-v8a/libboringssl.cr.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/transforms/mergeJniLibs/debug/folders/2000/3/main/lib/arm64-v8a/libc++_shared.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/transforms/mergeJniLibs/debug/folders/2000/3/main/lib/arm64-v8a/libjingle_peerconnection_so.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/transforms/mergeJniLibs/debug/folders/2000/3/main/lib/arm64-v8a/libprotobuf_lite.cr.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/transforms/mergeJniLibs/debug/folders/2000/3/main/lib/armeabi-v7a/libboringssl.cr.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/transforms/mergeJniLibs/debug/folders/2000/3/main/lib/armeabi-v7a/libc++_shared.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/transforms/mergeJniLibs/debug/folders/2000/3/main/lib/armeabi-v7a/libjingle_peerconnection_so.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/transforms/mergeJniLibs/debug/folders/2000/3/main/lib/armeabi-v7a/libprotobuf_lite.cr.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/transforms/mergeJniLibs/debug/folders/2000/3/main/lib/x86/libboringssl.cr.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/transforms/mergeJniLibs/debug/folders/2000/3/main/lib/x86/libc++_shared.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/transforms/mergeJniLibs/debug/folders/2000/3/main/lib/x86/libjingle_peerconnection_so.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/transforms/mergeJniLibs/debug/folders/2000/3/main/lib/x86/libprotobuf_lite.cr.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/transforms/mergeJniLibs/debug/folders/2000/3/main/lib/x86_64/libboringssl.cr.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/transforms/mergeJniLibs/debug/folders/2000/3/main/lib/x86_64/libc++_shared.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/transforms/mergeJniLibs/debug/folders/2000/3/main/lib/x86_64/libjingle_peerconnection_so.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/intermediates/transforms/mergeJniLibs/debug/folders/2000/3/main/lib/x86_64/libprotobuf_lite.cr.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/build/outputs/aar/Q-municate_core-debug.aar" afterPath="" />
       <change beforePath="$PROJECT_DIR$/Q-municate_core/build/outputs/aar/Q-municate_core-release.aar" afterPath="$PROJECT_DIR$/Q-municate_core/build/outputs/aar/Q-municate_core-release.aar" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/myservice/APIClient.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/myservice/APIInterface.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/myservice/ChatContactModel.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/myservice/ChatFirmModel.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/myservice/ChatUserModel.java" afterPath="" />
       <change beforePath="$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/utils/FinderUnknownUsers.java" afterPath="$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/utils/FinderUnknownUsers.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/MainActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/auth/ChangePassword.java" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/auth/ChangePassword.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/auth/NewDeviceLogin.java" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/auth/NewDeviceLogin.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/auth/branch/FirmBranchActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/auth/branch/FirmBranchActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/general/DIHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/general/DIHelper.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/general/DIService.java" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/general/DIService.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/message/DenningMessage.java" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/message/DenningMessage.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/message/DenningSupport.java" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/message/DenningSupport.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/message/utils/MessageBaseAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/message/utils/MessageBaseAdapter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/ui/adapters/chats/DialogsListAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/ui/adapters/chats/DialogsListAdapter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/cardview_chat.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/cardview_chat.xml" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/bundles/debug/classes.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/bundles/debug/res/raw/orm.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/bundles/debug/res/values/values.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/arch/lifecycle/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/compat/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/compat/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/compat/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/compat/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/compat/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/compat/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/compat/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/compat/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/compat/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/compat/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/compat/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/compat/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/coreui/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/coreui/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/coreui/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/coreui/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/coreui/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/coreui/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/coreui/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/coreui/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/coreui/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/coreui/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/coreui/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/coreui/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/coreutils/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/coreutils/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/coreutils/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/coreutils/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/coreutils/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/coreutils/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/coreutils/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/coreutils/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/coreutils/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/coreutils/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/coreutils/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/coreutils/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/fragment/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/fragment/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/fragment/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/fragment/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/fragment/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/fragment/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/fragment/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/fragment/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/fragment/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/fragment/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/fragment/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/fragment/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/graphics/drawable/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/graphics/drawable/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/graphics/drawable/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/graphics/drawable/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/graphics/drawable/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/graphics/drawable/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/graphics/drawable/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/graphics/drawable/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/graphics/drawable/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/graphics/drawable/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/graphics/drawable/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/graphics/drawable/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/graphics/drawable/animated/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/mediacompat/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/mediacompat/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/mediacompat/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/mediacompat/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/mediacompat/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/mediacompat/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/mediacompat/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/mediacompat/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/mediacompat/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/mediacompat/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/mediacompat/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/mediacompat/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/v4/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/v4/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/v4/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/v4/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/v4/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/v4/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/v4/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/v4/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/v4/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/v4/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/v4/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/v4/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/v7/appcompat/R$anim.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/v7/appcompat/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/v7/appcompat/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/v7/appcompat/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/v7/appcompat/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/v7/appcompat/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/v7/appcompat/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/v7/appcompat/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/v7/appcompat/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/v7/appcompat/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/v7/appcompat/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/v7/appcompat/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/android/support/v7/appcompat/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/chat/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/extensions/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_base_cache/R$anim.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_base_cache/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_base_cache/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_base_cache/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_base_cache/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_base_cache/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_base_cache/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_base_cache/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_base_cache/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_base_cache/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_base_cache/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_base_cache/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_base_cache/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_base_service/R$anim.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_base_service/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_base_service/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_base_service/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_base_service/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_base_service/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_base_service/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_base_service/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_base_service/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_base_service/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_base_service/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_base_service/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_base_service/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/BuildConfig.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/ConfigGenerator.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/R$anim.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/R$raw.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/helpers/DataHelper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/managers/AttachmentManager.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/managers/DataManager.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/managers/DialogDataManager.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/managers/DialogNotificationDataManager.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/managers/DialogOccupantDataManager.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/managers/FriendDataManager.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/managers/MessageDataManager.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/managers/QBChatDialogDataManager.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/managers/SocialDataManager.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/managers/UserRequestDataManager.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/managers/base/BaseManager$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/managers/base/BaseManager$2.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/managers/base/BaseManager$3.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/managers/base/BaseManager$4.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/managers/base/BaseManager$EventObject.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/managers/base/BaseManager.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/managers/base/Manager.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/models/Attachment$Column.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/models/Attachment$Type.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/models/Attachment.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/models/Dialog$Column.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/models/Dialog$Type.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/models/Dialog.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/models/DialogNotification$Column.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/models/DialogNotification$Type.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/models/DialogNotification.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/models/DialogOccupant$Column.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/models/DialogOccupant$Status.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/models/DialogOccupant.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/models/Friend$Column.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/models/Friend.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/models/Message$Column.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/models/Message.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/models/Social$Column.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/models/Social$Type.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/models/Social.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/models/State.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/models/UserRequest$Column.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/models/UserRequest$RequestStatus.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/models/UserRequest.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/utils/DbHelperUtils.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/utils/DialogTransformUtils.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_db/utils/ErrorUtils.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_user_service/R$anim.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_user_service/R$attr.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_user_service/R$bool.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_user_service/R$color.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_user_service/R$dimen.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_user_service/R$drawable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_user_service/R$id.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_user_service/R$integer.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_user_service/R$layout.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_user_service/R$string.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_user_service/R$style.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_user_service/R$styleable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/com/quickblox/q_municate_user_service/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/debug/rx/android/R.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/incremental-safeguard/debug/tag.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/Q-municate_db/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/incremental/mergeDebugShaders/merger.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/incremental/mergeReleaseResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/Q-municate_db/build/intermediates/incremental/mergeReleaseResources/compile-file-map.properties" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/incremental/packageDebugResources/merged.dir/values/values.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/incremental/packageDebugResources/merger.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/incremental/packageReleaseResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/Q-municate_db/build/intermediates/incremental/packageReleaseResources/compile-file-map.properties" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/outputs/aar/Q-municate_db-debug.aar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/outputs/aar/Q-municate_db-release.aar" afterPath="$PROJECT_DIR$/Q-municate_db/build/outputs/aar/Q-municate_db-release.aar" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/upload/UploadActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/upload/UploadActivity.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/network/NetworkManager.java" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/network/NetworkManager.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/network/RetrofitHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/network/RetrofitHelper.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/network/services/DenningService.java" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/network/services/DenningService.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/network/services/DownloadService.java" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/network/services/DownloadService.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/search/SearchActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/search/SearchActivity.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/share/DenningShareActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/share/DenningShareActivity.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/ui/activities/chats/NewGroupDialogActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/ui/activities/chats/NewGroupDialogActivity.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/ui/activities/denningfile/DenningFileActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/ui/activities/denningfile/DenningFileActivity.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/ui/activities/forgotpassword/ForgotPasswordActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/ui/activities/forgotpassword/ForgotPasswordActivity.java" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
     </list>
     <ignored path="Android-Denning.iws" />
@@ -88,14 +802,116 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DenningMessage.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/message/DenningMessage.java">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="104" column="46" lean-forward="true" selection-start-line="104" selection-start-column="46" selection-end-line="104" selection-end-column="46" />
+            <state relative-caret-position="-1004">
+              <caret line="77" column="38" lean-forward="false" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SplashActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/auth/SplashActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="57" column="49" lean-forward="false" selection-start-line="57" selection-start-column="49" selection-end-line="57" selection-end-column="49" />
               <folding>
-                <element signature="e#16250#16251#0" expanded="true" />
-                <element signature="e#16297#16298#0" expanded="true" />
+                <element signature="e#1815#1998#0" expanded="true" />
+                <element signature="e#1997#1998#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NewGroupDialogActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/ui/activities/chats/NewGroupDialogActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-811">
+              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DownloadService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/network/services/DownloadService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1233">
+              <caret line="15" column="51" lean-forward="false" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NetworkManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/network/NetworkManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="37" column="23" lean-forward="false" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#8104#8105#0" expanded="true" />
+                <element signature="e#8148#8149#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RetrofitHelper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/network/RetrofitHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="262">
+              <caret line="128" column="37" lean-forward="false" selection-start-line="128" selection-start-column="37" selection-end-line="128" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SearchActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/search/SearchActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-455">
+              <caret line="158" column="9" lean-forward="false" selection-start-line="158" selection-start-column="9" selection-end-line="158" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DenningShareActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/share/DenningShareActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UploadActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/upload/UploadActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="249">
+              <caret line="83" column="8" lean-forward="false" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DenningFileActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/ui/activities/denningfile/DenningFileActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="125" column="23" lean-forward="false" selection-start-line="125" selection-start-column="23" selection-end-line="125" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -116,16 +932,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>item</find>
-      <find>items</find>
-      <find>remove</find>
-      <find>updatedialog</find>
-      <find>position</find>
-      <find>save</find>
-      <find>changeUI</find>
-      <find>gettag</find>
-      <find>getMenu().getItem</find>
-      <find>logout</find>
       <find>QBLoadFriendListCommand</find>
       <find>qbservice</find>
       <find>context</find>
@@ -146,9 +952,18 @@
       <find>update dialog</find>
       <find>dialog_loading_dialogs</find>
       <find>ConstsCore.DIALOGS_UPDATE_ALL</find>
+      <find>com.squareup.moshi:moshi</find>
+      <find>com.squareup.okhttp3</find>
+      <find>io.reactivex.rxjava2:rxandroid</find>
+      <find>moshi</find>
+      <find>sendpost</find>
+      <find>sendpostse</find>
+      <find>mCompositeDisposable.add</find>
+      <find>Single</find>
+      <find>DefaultBuildOperationExecutor</find>
+      <find>logging</find>
     </findStrings>
     <replaceStrings>
-      <replace>ThirdItemModel</replace>
       <replace>CompletionTrackingModel</replace>
       <replace>TransferredViewHolder</replace>
       <replace>FeesUnTransferViewHolder</replace>
@@ -178,6 +993,7 @@
       <replace>matches(&quot;\\w*&quot;)</replace>
       <replace>trim().length()</replace>
       <replace>trim().length() == 0)</replace>
+      <replace>Call</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/utils/simplematter/listmatter</dir>
@@ -1157,11 +1973,6 @@
                 <option name="description" value="Prepare com.google.firebase:firebase-core:11.4.2" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="prepareComGoogleFirebaseFirebaseCore1142Library" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Prepare io.reactivex.rxjava2:rxandroid:2.0.2" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareIoReactivexRxjava2Rxandroid202Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Prepare io.reactivex:rxandroid:1.2.1" />
@@ -5136,11 +5947,6 @@
                 <option name="description" value="Prepare com.google.firebase:firebase-core:11.4.2" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="prepareComGoogleFirebaseFirebaseCore1142Library" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Prepare io.reactivex.rxjava2:rxandroid:2.0.2" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareIoReactivexRxjava2Rxandroid202Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Prepare io.reactivex:rxandroid:1.2.1" />
@@ -12385,32 +13191,19 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/network/RetrofitHelper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/network/services/DenningService.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/search/SearchActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/cardview_search_general.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/cardview_search_result.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/cardview_search_matter.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/xml/bottombar_tabs.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/toolbar.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/general/DIConstants.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/general/notes.txt" />
         <option value="$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/qb/commands/chat/QBLoadDialogsCommand.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/auth/SignUpActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/network/NetworkManager.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/agreement.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/toolbar_black.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/ui/activities/agreements/UserAgreementActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/auth/SplashActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/Home.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/xml/bottombar_tabs_unregistered.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/auth/SignInActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/general/DISharedPreferences.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/App.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_user_agreement.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer_unregistered.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/auth/NewDeviceLogin.java" />
@@ -12421,7 +13214,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/message/utils/MessageBaseAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
-        <option value="$PROJECT_DIR$/Q-municate_core/build.gradle" />
         <option value="$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/utils/myservice/ChatContactModel.java" />
         <option value="$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/utils/myservice/ChatFirmModel.java" />
         <option value="$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/utils/myservice/ChatUserModel.java" />
@@ -12432,16 +13224,31 @@
         <option value="$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/myservice/APIClient.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/ui/adapters/chats/DialogsListAdapter.java" />
         <option value="$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/qb/helpers/QBFriendListHelper.java" />
-        <option value="$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/utils/FinderUnknownUsers.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/general/DIService.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/general/DIHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/message/DenningMessage.java" />
+        <option value="$PROJECT_DIR$/Q-municate_core/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/network/MyNetworkManager.java" />
+        <option value="$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/utils/FinderUnknownUsers.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/network/services/DenningService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/auth/SplashActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/ui/activities/forgotpassword/ForgotPasswordActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/ui/activities/chats/NewGroupDialogActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/network/services/DownloadService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/upload/UploadActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/search/SearchActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/share/DenningShareActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/network/NetworkManager.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/network/RetrofitHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/ui/activities/denningfile/DenningFileActivity.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+    <option name="y" value="429" />
+    <option name="width" value="80" />
+    <option name="height" value="22" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -12483,6 +13290,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
@@ -12507,43 +13317,32 @@
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="denning" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="navigation" type="462c0819:PsiDirectoryNode" />
+              <item name="network" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Denning-Android" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="denning" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="navigation" type="462c0819:PsiDirectoryNode" />
-              <item name="message" type="462c0819:PsiDirectoryNode" />
+              <item name="network" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Denning-Android" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="denning" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="navigation" type="462c0819:PsiDirectoryNode" />
-              <item name="message" type="462c0819:PsiDirectoryNode" />
+              <item name="network" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Denning-Android" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="denning" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Denning-Android" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="denning" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-              <item name="helpers" type="462c0819:PsiDirectoryNode" />
+              <item name="Q-municate_core" type="feadf853:AndroidModuleNode" />
             </path>
             <path>
               <item name="Denning-Android" type="1abcf292:AndroidViewProjectNode" />
               <item name="Q-municate_core" type="feadf853:AndroidModuleNode" />
+              <item name="manifests" type="f94875db:AndroidManifestsGroupNode" />
             </path>
             <path>
               <item name="Denning-Android" type="1abcf292:AndroidViewProjectNode" />
@@ -12555,45 +13354,6 @@
               <item name="Q-municate_core" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="q_municate_core" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Denning-Android" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Q-municate_core" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="q_municate_core" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="qb" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Denning-Android" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Q-municate_core" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="q_municate_core" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="qb" type="462c0819:PsiDirectoryNode" />
-              <item name="commands" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Denning-Android" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Q-municate_core" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="q_municate_core" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="qb" type="462c0819:PsiDirectoryNode" />
-              <item name="commands" type="462c0819:PsiDirectoryNode" />
-              <item name="chat" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Denning-Android" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Q-municate_core" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="q_municate_core" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="qb" type="462c0819:PsiDirectoryNode" />
-              <item name="helpers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Denning-Android" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Q-municate_core" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="q_municate_core" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Denning-Android" type="1abcf292:AndroidViewProjectNode" />
@@ -12616,14 +13376,15 @@
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="q_municate_user_service" type="cbb59c9e:AndroidPsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Denning-Android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -12646,8 +13407,8 @@
     <property name="SHOW_ALL_PROCESSES" value="false" />
     <property name="DEBUGGER_ID" value="Auto" />
     <property name="show.do.not.ask.upgrade.gradle.plugin" value="2.3.3" />
-    <property name="SearchEverywhereHistoryKey" value="find&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/Q-municate_core/src/main/java/com/quickblox/q_municate_core/utils/FinderUnknownUsers.java&#10;qmuser&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/q-municate_user_service/src/main/java/com/quickblox/q_municate_user_service/cache/QMUserCache.java&#10;findu&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/Q-municate_core/src/main/java/com/quickblox/q_municate_core/utils/FinderUnknownUsers.java&#10;Denning&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/message/DenningMessage.java&#10;service&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/utils/helpers/ServiceManager.java&#10;dih&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/general/DIHelper.java&#10;denning&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/message/DenningMessage.java&#10;dicons&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/general/DIConstants.java&#10;disha&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/general/DISharedPreferences.java&#10;qbse&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/Q-municate_core/src/main/java/com/quickblox/q_municate_core/service/QBService.java&#10;dishare&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/general/DISharedPreferences.java&#10;DISer&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/general/DIService.java&#10;signin&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/auth/SignInActivity.java&#10;main&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/MainActivity.java&#10;dihel&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/general/DIHelper.java&#10;Denningsu&#9;PSI&#9;JAVA://it.denning.navigation.message.DenningSupport&#10;home&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/home/Home.java&#10;App&#9;PSI&#9;JAVA://it.denning.App&#10;netw&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/network/NetworkManager.java&#10;spla&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/auth/SplashActivity.java&#10;sign&#9;PSI&#9;JAVA://it.denning.auth.SignInActivity&#10;activity_mai&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/res/layout/activity_main.xml&#10;useragre&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/ui/activities/agreements/UserAgreementActivity.java&#10;qmusercach&#9;PSI&#9;JAVA://com.quickblox.q_municate_user_cache.QMUserCacheImpl&#10;AddContact&#9;PSI&#9;JAVA://it.denning.navigation.add.contact.AddContactActivity&#10;calen&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/home/calendar/CalendarActivity.java&#10;ic_done_&#9;PSI&#9;JAVA://it.denning.R.drawable#ic_done_white&#10;splash&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/auth/SplashActivity.java&#10;useragr&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/ui/activities/agreements/UserAgreementActivity.java&#10;denningme&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/message/DenningMessage.java&#10;Denningmessage&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/message/DenningMessage.java&#10;cale&#9;PSI&#9;JAVA://it.denning.navigation.home.calendar.CalendarActivity&#10;dialogac&#9;PSI&#9;JAVA://it.denning.ui.activities.chats.BaseDialogActivity&#10;userag&#9;PSI&#9;JAVA://it.denning.ui.activities.agreements.UserAgreementActivity&#10;updatecourt&#9;PSI&#9;JAVA://it.denning.navigation.add.diary.BaseDiaryAdapter#updateCourt&#10;activity_ma&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/res/layout/activity_main.xml&#10;maina&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/MainActivity.java&#10;cardview_search&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/res/layout/cardview_search_general.xml&#10;activity&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/res/layout/activity_search.xml&#10;activity_sear&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/res/layout/activity_search.xml&#10;search&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/search/SearchActivity.java&#10;dicon&#9;PSI&#9;JAVA://it.denning.general.DIConstants&#10;activity_main&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/res/layout/activity_main.xml&#10;coming&#9;PSI&#9;JAVA://it.denning.navigation.home.comingsoon.ComingSoonActivity&#10;pushno&#9;PSI&#9;JAVA://com.quickblox.messages.QBPushNotifications&#10;feet&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section4.feestransfer.FeesTransferActivity&#10;dashboardfile&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/res/layout/dashboard_file_listing.xml&#10;fileledger&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section4.fileledgers.FileLedgerActivity&#10;searchacti&#9;PSI&#9;JAVA://it.denning.search.SearchActivity&#10;addcon&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/add/contact/AddContactActivity.java" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1534022149697" />
+    <property name="SearchEverywhereHistoryKey" value="spla&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/auth/SplashActivity.java&#10;splash&#9;PSI&#9;JAVA://it.denning.auth.SplashActivity&#10;userpro&#9;PSI&#9;JAVA://it.denning.ui.activities.profile.UserProfileActivity&#10;find&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/Q-municate_core/src/main/java/com/quickblox/q_municate_core/utils/FinderUnknownUsers.java&#10;qmuser&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/q-municate_user_service/src/main/java/com/quickblox/q_municate_user_service/cache/QMUserCache.java&#10;findu&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/Q-municate_core/src/main/java/com/quickblox/q_municate_core/utils/FinderUnknownUsers.java&#10;Denning&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/message/DenningMessage.java&#10;service&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/utils/helpers/ServiceManager.java&#10;dih&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/general/DIHelper.java&#10;denning&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/message/DenningMessage.java&#10;dicons&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/general/DIConstants.java&#10;disha&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/general/DISharedPreferences.java&#10;qbse&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/Q-municate_core/src/main/java/com/quickblox/q_municate_core/service/QBService.java&#10;dishare&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/general/DISharedPreferences.java&#10;DISer&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/general/DIService.java&#10;signin&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/auth/SignInActivity.java&#10;main&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/MainActivity.java&#10;dihel&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/general/DIHelper.java&#10;Denningsu&#9;PSI&#9;JAVA://it.denning.navigation.message.DenningSupport&#10;home&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/home/Home.java&#10;App&#9;PSI&#9;JAVA://it.denning.App&#10;netw&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/network/NetworkManager.java&#10;sign&#9;PSI&#9;JAVA://it.denning.auth.SignInActivity&#10;activity_mai&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/res/layout/activity_main.xml&#10;useragre&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/ui/activities/agreements/UserAgreementActivity.java&#10;qmusercach&#9;PSI&#9;JAVA://com.quickblox.q_municate_user_cache.QMUserCacheImpl&#10;AddContact&#9;PSI&#9;JAVA://it.denning.navigation.add.contact.AddContactActivity&#10;calen&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/home/calendar/CalendarActivity.java&#10;ic_done_&#9;PSI&#9;JAVA://it.denning.R.drawable#ic_done_white&#10;useragr&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/ui/activities/agreements/UserAgreementActivity.java&#10;denningme&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/message/DenningMessage.java&#10;Denningmessage&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/message/DenningMessage.java&#10;cale&#9;PSI&#9;JAVA://it.denning.navigation.home.calendar.CalendarActivity&#10;dialogac&#9;PSI&#9;JAVA://it.denning.ui.activities.chats.BaseDialogActivity&#10;userag&#9;PSI&#9;JAVA://it.denning.ui.activities.agreements.UserAgreementActivity&#10;updatecourt&#9;PSI&#9;JAVA://it.denning.navigation.add.diary.BaseDiaryAdapter#updateCourt&#10;activity_ma&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/res/layout/activity_main.xml&#10;maina&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/MainActivity.java&#10;cardview_search&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/res/layout/cardview_search_general.xml&#10;activity&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/res/layout/activity_search.xml&#10;activity_sear&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/res/layout/activity_search.xml&#10;search&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/search/SearchActivity.java&#10;dicon&#9;PSI&#9;JAVA://it.denning.general.DIConstants&#10;activity_main&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/res/layout/activity_main.xml&#10;coming&#9;PSI&#9;JAVA://it.denning.navigation.home.comingsoon.ComingSoonActivity&#10;pushno&#9;PSI&#9;JAVA://com.quickblox.messages.QBPushNotifications&#10;feet&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section4.feestransfer.FeesTransferActivity&#10;dashboardfile&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/res/layout/dashboard_file_listing.xml&#10;fileledger&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section4.fileledgers.FileLedgerActivity&#10;searchacti&#9;PSI&#9;JAVA://it.denning.search.SearchActivity" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1534169135812" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
@@ -12660,23 +13421,23 @@
       <recent name="it.denning.navigation.add.utils.simplematter" />
       <recent name="it.denning.auth" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.quickblox.q_municate_core.myservice" />
-      <recent name="com.quickblox.q_municate_core.utils.myservice" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.quickblox.q_municate_core.utils.myservice" />
-      <recent name="it.denning.share" />
-      <recent name="it.denning.search.accounts.transaction" />
-      <recent name="it.denning.navigation.dashboard.section4.dashboardcontactfolder" />
-      <recent name="it.denning.navigation.dashboard.section4.feestransferreddetail" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/res/menu" />
       <recent name="$PROJECT_DIR$/app/src/main/res/xml" />
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
       <recent name="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/message" />
       <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="it.denning.network" />
+      <recent name="com.quickblox.q_municate_core.utils.myservice" />
+      <recent name="it.denning.share" />
+      <recent name="it.denning.search.accounts.transaction" />
+      <recent name="it.denning.navigation.dashboard.section4.dashboardcontactfolder" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.quickblox.q_municate_core.myservice" />
+      <recent name="com.quickblox.q_municate_core.utils.myservice" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -13065,10 +13826,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
     <layout>
-      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.3287841" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287841" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32692307" sideWeight="0.49713877" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -13082,13 +13842,14 @@
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19957082" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22961374" sideWeight="0.49007446" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2067239" sideWeight="0.49007446" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32527205" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4183797" sideWeight="0.47997138" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4183797" sideWeight="0.47997138" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2739628" sideWeight="0.5064695" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -13103,7 +13864,6 @@
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43990386" sideWeight="0.5143061" order="13" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32527205" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287841" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -13220,7 +13980,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/it/denning/network/services/DownloadService.java</url>
-          <line>85</line>
+          <line>78</line>
           <properties />
           <option name="timeStamp" value="1199" />
         </line-breakpoint>
@@ -13352,7 +14112,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/it/denning/share/DenningShareActivity.java</url>
-          <line>147</line>
+          <line>137</line>
           <properties />
           <option name="timeStamp" value="1739" />
         </line-breakpoint>
@@ -13465,12 +14225,6 @@
           <option name="timeStamp" value="1890" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/core/command/ServiceCommand.java</url>
-          <line>27</line>
-          <properties />
-          <option name="timeStamp" value="1897" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/message/DenningMessage.java</url>
           <line>728</line>
           <properties />
@@ -13494,8 +14248,14 @@
           <properties />
           <option name="timeStamp" value="1901" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/it/denning/auth/SplashActivity.java</url>
+          <line>57</line>
+          <properties />
+          <option name="timeStamp" value="1905" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="1902" />
+      <option name="time" value="1906" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="app">
@@ -13554,151 +14314,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/general/DISharedPreferences.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="743">
-          <caret line="103" column="91" lean-forward="false" selection-start-line="103" selection-start-column="27" selection-end-line="103" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/myservice/APIInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="27" lean-forward="false" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/myservice/APIClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/cardview_chat.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="74" column="32" lean-forward="false" selection-start-line="74" selection-start-column="32" selection-end-line="74" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_dialog.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="69" column="43" lean-forward="false" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-26/java/util/Queue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="171" column="12" lean-forward="false" selection-start-line="171" selection-start-column="12" selection-end-line="171" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-26/java/util/concurrent/ConcurrentLinkedQueue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="238" column="11" lean-forward="false" selection-start-line="238" selection-start-column="11" selection-end-line="238" selection-end-column="11" />
-          <folding>
-            <element signature="e#10681#10682#0" expanded="false" />
-            <element signature="e#10724#10725#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/models/ParcelableQBDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/utils/ChatUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1853">
-          <caret line="139" column="0" lean-forward="false" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/models/DialogWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="24" column="17" lean-forward="false" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/qb/commands/friend/QBLoadFriendListCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="30" column="66" lean-forward="false" selection-start-line="30" selection-start-column="66" selection-end-line="30" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/qb/helpers/QBRestHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="32" column="73" lean-forward="false" selection-start-line="32" selection-start-column="66" selection-end-line="32" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/qb/commands/chat/QBLoadDialogByIdsCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="29" column="19" lean-forward="true" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.android/build-cache/13128a734aa9671622ed02b8c59f8e044841bbd0/output/jars/classes.jar!/com/quickblox/chat/model/QBChatDialog.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="126" column="25" lean-forward="false" selection-start-line="126" selection-start-column="25" selection-end-line="126" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.android/build-cache/7bc72a2b67c20f031bb800491417064eda656cd0/output/jars/classes.jar!/com/quickblox/users/model/QBUser.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="201" column="16" lean-forward="false" selection-start-line="201" selection-start-column="16" selection-end-line="201" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Q-municate_db/src/main/java/com/quickblox/q_municate_db/managers/base/BaseManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="87" column="16" lean-forward="false" selection-start-line="87" selection-start-column="16" selection-end-line="87" selection-end-column="16" />
-          <folding>
-            <element signature="e#2522#2523#0" expanded="false" />
-            <element signature="e#2566#2567#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.android/build-cache/7bc72a2b67c20f031bb800491417064eda656cd0/output/jars/classes.jar!/com/quickblox/auth/session/QueryUpdateUser.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="14" column="11" lean-forward="false" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.android/build-cache/7bc72a2b67c20f031bb800491417064eda656cd0/output/jars/classes.jar!/com/quickblox/users/QBUsers.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="227" column="28" lean-forward="false" selection-start-line="227" selection-start-column="28" selection-end-line="227" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/qb/helpers/QBFriendListHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2989">
@@ -13772,13 +14387,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/utils/FinderUnknownUsers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="573">
-          <caret line="95" column="68" lean-forward="false" selection-start-line="95" selection-start-column="68" selection-end-line="95" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/qb/commands/chat/QBLoginChatCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="283">
@@ -13818,7 +14426,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="238" column="59" lean-forward="false" selection-start-line="238" selection-start-column="59" selection-end-line="238" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -13858,14 +14465,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="316">
           <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/core/command/ServiceCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -13924,7 +14523,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="151">
           <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -13946,20 +14544,192 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
           <caret line="22" column="22" lean-forward="true" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
-          <folding>
-            <element signature="e#832#833#0" expanded="true" />
-            <element signature="e#873#874#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/message/DenningMessage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="104" column="46" lean-forward="true" selection-start-line="104" selection-start-column="46" selection-end-line="104" selection-end-column="46" />
+        <state relative-caret-position="463">
+          <caret line="104" column="46" lean-forward="false" selection-start-line="104" selection-start-column="46" selection-end-line="104" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Q-municate_core/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="4" lean-forward="false" selection-start-line="35" selection-start-column="4" selection-end-line="36" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/utils/helpers/FirebaseAuthHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="38" column="28" lean-forward="false" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/myservice/APIClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/myservice/ChatFirmModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/utils/FinderUnknownUsers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="33" lean-forward="false" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
           <folding>
-            <element signature="e#16250#16251#0" expanded="true" />
-            <element signature="e#16297#16298#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/core/command/ServiceCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="27" column="46" lean-forward="false" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/network/MyNetworkManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="53" column="5" lean-forward="true" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/network/services/DenningService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="8" column="10" lean-forward="false" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/ui/activities/profile/UserProfileActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="46" column="13" lean-forward="false" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/ui/activities/forgotpassword/ForgotPasswordActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="73" column="13" lean-forward="false" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/ui/activities/chats/NewGroupDialogActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-811">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/network/services/DownloadService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1233">
+          <caret line="15" column="51" lean-forward="false" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/upload/UploadActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="83" column="8" lean-forward="false" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/search/SearchActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-455">
+          <caret line="158" column="9" lean-forward="false" selection-start-line="158" selection-start-column="9" selection-end-line="158" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/share/DenningShareActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/network/NetworkManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="37" column="23" lean-forward="false" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#8104#8105#0" expanded="true" />
+            <element signature="e#8148#8149#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/network/RetrofitHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="128" column="37" lean-forward="false" selection-start-line="128" selection-start-column="37" selection-end-line="128" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/ui/activities/denningfile/DenningFileActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="125" column="23" lean-forward="false" selection-start-line="125" selection-start-column="23" selection-end-line="125" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1004">
+          <caret line="77" column="38" lean-forward="false" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/auth/SplashActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="57" column="49" lean-forward="false" selection-start-line="57" selection-start-column="49" selection-end-line="57" selection-end-column="49" />
+          <folding>
+            <element signature="e#1815#1998#0" expanded="true" />
+            <element signature="e#1997#1998#0" expanded="true" />
           </folding>
         </state>
       </provider>

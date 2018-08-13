@@ -3,6 +3,7 @@ package it.denning.ui.activities.forgotpassword;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -11,7 +12,6 @@ import android.widget.EditText;
 
 import butterknife.BindView;
 import butterknife.OnTextChanged;
-import io.reactivex.annotations.Nullable;
 import it.denning.R;
 import it.denning.ui.activities.base.BaseActivity;
 import it.denning.utils.KeyboardUtils;

@@ -125,7 +125,6 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jniLibs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifests" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/multi-dex" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/pre-dexed" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/res" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/rs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/shaders" />
@@ -189,9 +188,9 @@
     <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-iid-license-11.4.2" level="project" />
     <orderEntry type="library" exported="" name="Gradle: me.grantland:autofittextview-0.2.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.quickblox:quickblox-android-sdk-videochat-webrtc-3.5.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.reactivestreams:reactive-streams:1.0.0@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.zakariya.stickyheaders:stickyheaders-0.7.6" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.google.android.exoplayer:exoplayer-dash-r2.5.1" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: org.reactivestreams:reactive-streams:1.0.2@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: net.objecthunter:exp4j:0.4.8@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:support-fragment-26.1.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:support-media-compat-27.0.2" level="project" />
@@ -199,6 +198,7 @@
     <orderEntry type="library" exported="" name="Gradle: com.android.support:support-core-ui-27.0.2" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.google.firebase:firebase-analytics-impl-license-11.4.2" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.google.firebase:firebase-iid-license-11.4.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: io.reactivex.rxjava2:rxjava:2.0.0@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-basement-11.4.2" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:support-annotations:27.0.2@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-analytics-impl-license-11.4.2" level="project" />
@@ -221,7 +221,6 @@
     <orderEntry type="library" exported="" name="Gradle: jp.wasabeef:recyclerview-animators-2.2.3" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support.constraint:constraint-layout-solver:1.1.0-beta1@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.mikepenz:crossfadedrawerlayout-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: io.reactivex.rxjava2:rxjava:2.2.0@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.squareup.retrofit2:retrofit:2.4.0@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.jakewharton:butterknife-8.5.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-tasks-license-11.4.2" level="project" />
@@ -268,7 +267,6 @@
     <orderEntry type="library" exported="" name="Gradle: com.nostra13.universalimageloader:universal-image-loader:1.9.1@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:support-compat-26.1.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.databinding:baseLibrary:2.3.3@jar" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: io.reactivex.rxjava2:rxandroid-2.0.2" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-analytics-license-11.4.2" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.mikepenz:materialize-1.1.2" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-base-11.4.2" level="project" />
@@ -281,6 +279,7 @@
     <orderEntry type="library" exported="" name="Gradle: com.github.sundeepk:compact-calendar-view-2.0.2.2" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.google.firebase:firebase-analytics-11.4.2" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-tagmanager-v4-impl-license-11.4.2" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.squareup.okhttp3:logging-interceptor:3.4.1@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.crashlytics.sdk.android:answers-1.4.2" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.firebaseui:firebase-ui-auth-2.3.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.google.android.gms:play-services-tasks-11.4.2" level="project" />

@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.util.Pair;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -36,7 +37,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import io.reactivex.annotations.Nullable;
 import it.denning.R;
 import it.denning.general.DIAlert;
 import it.denning.general.DIConstants;

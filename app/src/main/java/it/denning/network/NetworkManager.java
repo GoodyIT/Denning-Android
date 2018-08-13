@@ -3,36 +3,28 @@ package it.denning.network;
 import android.content.Context;
 import android.location.Location;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.quickblox.q_municate_db.utils.ErrorUtils;
-
-import org.json.JSONException;
 
 import java.net.SocketTimeoutException;
 import java.util.Map;
 import java.util.Set;
 
-import io.reactivex.Single;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Function;
-import io.reactivex.observers.DisposableSingleObserver;
-import io.reactivex.schedulers.Schedulers;
 import it.denning.App;
 import it.denning.general.DIConstants;
 import it.denning.general.DIHelper;
 import it.denning.general.DISharedPreferences;
 import it.denning.general.MyCallbackInterface;
 import it.denning.general.MyNameCodeCallback;
-import it.denning.general.MySimpleCallback;
 import it.denning.model.NameCode;
-import it.denning.model.Payment;
-import it.denning.model.StaffModel;
 import it.denning.network.services.DenningService;
 import it.denning.utils.helpers.ServiceManager;
+import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.HttpException;
+import retrofit2.Response;
 
 /**
  * Created by denningit on 2017-12-09.
@@ -44,7 +36,7 @@ public class NetworkManager {
     private static NetworkManager instance;
 
     private CompositeDisposable mCompositeDisposable;
-    private Single<JsonElement> mSingle;
+    private Call<JsonElement> mSingle;
 
     private Context context;
 
@@ -76,36 +68,56 @@ public class NetworkManager {
     }
 
     private void sendRequest(final CompositeCompletion completion, final ErrorHandler errorHandler) {
-        mCompositeDisposable.add(mSingle.
-                subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .map(new Function<JsonElement, JsonElement>() {
-                    @Override
-                    public JsonElement apply(JsonElement jsonElement) throws Exception {
-                        return jsonElement;
-                    }
-                })
-                .subscribeWith(new DisposableSingleObserver<JsonElement>() {
-                    @Override
-                    public void onSuccess(JsonElement jsonElement) {
-                        completion.parseResponse(jsonElement);
-                    }
+//        mCompositeDisposable.add(mSingle.
+//                subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .map(new Function<JsonElement, JsonElement>() {
+//                    @Override
+//                    public JsonElement apply(JsonElement jsonElement) throws Exception {
+//                        return jsonElement;
+//                    }
+//                })
+//                .subscribeWith(new DisposableSingleObserver<JsonElement>() {
+//                    @Override
+//                    public void onSuccess(JsonElement jsonElement) {
+//                        completion.parseResponse(jsonElement);
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//                        if (e instanceof HttpException && ((HttpException) e).code() == 410) {
+//                            errorHandler.handleError("Session expired. Please log in again.");
+//                        } else if (e instanceof SocketTimeoutException){
+//                            errorHandler.handleError("Cannot reach the server.");
+//                        } else if (e instanceof HttpException && ((HttpException) e).code() == 400) {
+//                            e.printStackTrace();
+//                        } else {
+//                            errorHandler.handleError(e.getMessage());
+//                        }
+//                        e.printStackTrace();
+//                    }
+//                })
+//        );
+        mSingle.enqueue(new Callback<JsonElement>() {
+            @Override
+            public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
+                completion.parseResponse(response.body());
+            }
 
-                    @Override
-                    public void onError(Throwable e) {
-                        if (e instanceof HttpException && ((HttpException) e).code() == 410) {
-                            errorHandler.handleError("Session expired. Please log in again.");
-                        } else if (e instanceof SocketTimeoutException){
-                            errorHandler.handleError("Cannot reach the server.");
-                        } else if (e instanceof HttpException && ((HttpException) e).code() == 400) {
-                            e.printStackTrace();
-                        } else {
-                            errorHandler.handleError(e.getMessage());
-                        }
-                        e.printStackTrace();
-                    }
-                })
-        );
+            @Override
+            public void onFailure(Call<JsonElement> call, Throwable e) {
+                if (e instanceof HttpException && ((HttpException) e).code() == 410) {
+                    errorHandler.handleError("Session expired. Please log in again.");
+                } else if (e instanceof SocketTimeoutException){
+                    errorHandler.handleError("Cannot reach the server.");
+                } else if (e instanceof HttpException && ((HttpException) e).code() == 400) {
+                    e.printStackTrace();
+                } else {
+                    errorHandler.handleError(e.getMessage());
+                }
+                e.printStackTrace();
+            }
+        });
     }
 
     public void sendPublicPostRequest(String url, JsonObject param, final CompositeCompletion completion, final ErrorHandler errorHandler) {

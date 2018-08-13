@@ -1,10 +1,8 @@
 package it.denning.ui.activities.denningfile;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
@@ -26,7 +24,6 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
-import com.quickblox.q_municate_db.utils.ErrorUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,44 +32,25 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 import info.hoang8f.android.segmented.SegmentedGroup;
-import io.reactivex.Single;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Function;
-import io.reactivex.observers.DisposableSingleObserver;
-import io.reactivex.schedulers.Schedulers;
 import it.denning.R;
 import it.denning.general.DIConstants;
 import it.denning.general.DIHelper;
 import it.denning.general.DISharedPreferences;
 import it.denning.general.EndlessRecyclerViewScrollListener;
-import it.denning.model.Bank;
-import it.denning.model.Contact;
 import it.denning.model.DocumentModel;
-import it.denning.model.LegalFirm;
-import it.denning.model.MatterModel;
-import it.denning.model.MatterProperty;
 import it.denning.model.SearchKeyword;
 import it.denning.model.SearchResultModel;
 import it.denning.network.CompositeCompletion;
 import it.denning.network.RetrofitHelper;
 import it.denning.network.services.DenningService;
-import it.denning.search.SearchActivity;
-import it.denning.search.accounts.AccountsActivity;
-import it.denning.search.bank.BankActivity;
-import it.denning.search.contact.SearchContactActivity;
 import it.denning.search.document.DocumentActivity;
-import it.denning.search.legal_firm.LegalFirmActivity;
-import it.denning.search.matter.MatterActivity;
-import it.denning.search.property.PropertyActivity;
 import it.denning.search.utils.ClearableAutoCompleteTextView;
 import it.denning.search.utils.OnItemClickListener;
-import it.denning.ui.activities.base.BaseActivity;
 import it.denning.ui.activities.base.BaseLoggableActivity;
-import it.denning.ui.activities.call.CallActivity;
 import it.denning.utils.KeyboardUtils;
 import it.denning.utils.MediaUtils;
-import it.denning.utils.ToastUtils;
+import retrofit2.Call;
 
 /**
  * Created by denningit on 22/04/2017.
@@ -103,7 +81,7 @@ public class DenningFileActivity extends BaseLoggableActivity implements OnItemC
     private Boolean isGeneralSearh;
     private CompositeDisposable mCompositeDisposable = new CompositeDisposable();
     private DenningService mSearchService;
-    private Single<JsonElement> mSingle;
+    private Call<JsonElement> mSingle;
     Integer isAutoComplete = 1;
     Integer page = 1;
     Integer currentSearch;
@@ -426,29 +404,29 @@ public class DenningFileActivity extends BaseLoggableActivity implements OnItemC
     }
 
     private void excecuteCompositeDisposable(final CompositeCompletion completion) {
-        mCompositeDisposable.add(mSingle
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .map(new Function<JsonElement, JsonElement>() {
-                    @Override
-                    public JsonElement apply(JsonElement jsonElement) throws Exception {
-                        return jsonElement;
-                    }
-                })
-                .subscribeWith(new DisposableSingleObserver<JsonElement>() {
-                    @Override
-                    public void onSuccess(JsonElement jsonElement) {
-                        completion.parseResponse(jsonElement);
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        hideProgress();
-                        hideHorizontalProgress();
-                        ErrorUtils.showError(DenningFileActivity.this, e.getMessage());
-                    }
-                })
-        );
+//        mCompositeDisposable.add(mSingle
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .map(new Function<JsonElement, JsonElement>() {
+//                    @Override
+//                    public JsonElement apply(JsonElement jsonElement) throws Exception {
+//                        return jsonElement;
+//                    }
+//                })
+//                .subscribeWith(new DisposableSingleObserver<JsonElement>() {
+//                    @Override
+//                    public void onSuccess(JsonElement jsonElement) {
+//                        completion.parseResponse(jsonElement);
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//                        hideProgress();
+//                        hideHorizontalProgress();
+//                        ErrorUtils.showError(DenningFileActivity.this, e.getMessage());
+//                    }
+//                })
+//        );
     }
 
     @Override

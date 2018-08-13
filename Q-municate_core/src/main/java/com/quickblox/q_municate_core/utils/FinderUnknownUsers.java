@@ -4,9 +4,6 @@ import android.content.Context;
 
 import com.quickblox.chat.model.QBChatDialog ;
 import com.quickblox.core.exception.QBResponseException;
-import com.quickblox.q_municate_core.myservice.APIClient;
-import com.quickblox.q_municate_core.myservice.APIInterface;
-import com.quickblox.q_municate_core.myservice.ChatContactModel;
 import com.quickblox.q_municate_core.qb.helpers.QBRestHelper;
 import com.quickblox.q_municate_db.managers.DataManager;
 import com.quickblox.q_municate_db.utils.ErrorUtils;
@@ -18,10 +15,6 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class FinderUnknownUsers {
 

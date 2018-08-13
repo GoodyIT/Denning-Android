@@ -12,7 +12,6 @@ import com.quickblox.q_municate_user_service.model.QMUser;
 import java.util.List;
 
 import butterknife.BindView;
-import io.reactivex.annotations.Nullable;
 import it.denning.R;
 import it.denning.ui.activities.others.BaseFriendsListActivity;
 import it.denning.ui.adapters.friends.FriendsAdapter;

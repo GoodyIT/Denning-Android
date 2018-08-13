@@ -1,6 +1,5 @@
 package it.denning.share;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,7 +17,6 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -37,12 +35,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 import info.hoang8f.android.segmented.SegmentedGroup;
-import io.reactivex.Single;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Function;
-import io.reactivex.observers.DisposableSingleObserver;
-import io.reactivex.schedulers.Schedulers;
 import it.denning.R;
 import it.denning.general.DIAlert;
 import it.denning.general.DIConstants;
@@ -50,9 +43,7 @@ import it.denning.general.DIHelper;
 import it.denning.general.DISharedPreferences;
 import it.denning.general.EndlessRecyclerViewScrollListener;
 import it.denning.general.MyCallbackInterface;
-import it.denning.model.DocumentModel;
 import it.denning.model.FirmModel;
-import it.denning.model.FirmURLModel;
 import it.denning.model.ParentModel;
 import it.denning.model.SearchKeyword;
 import it.denning.model.SearchResultModel;
@@ -61,13 +52,12 @@ import it.denning.network.ErrorHandler;
 import it.denning.network.NetworkManager;
 import it.denning.network.RetrofitHelper;
 import it.denning.network.services.DenningService;
-import it.denning.search.document.DocumentActivity;
 import it.denning.search.utils.ClearableAutoCompleteTextView;
 import it.denning.search.utils.OnItemClickListener;
 import it.denning.ui.activities.base.BaseLoggableActivity;
-import it.denning.ui.activities.denningfile.DenningFileAdapter;
 import it.denning.utils.KeyboardUtils;
 import it.denning.utils.MediaUtils;
+import retrofit2.Call;
 
 /**
  * Created by denningit on 22/04/2017.
@@ -98,7 +88,7 @@ public class DenningShareActivity extends BaseLoggableActivity implements OnItem
     private Boolean isGeneralSearh;
     private CompositeDisposable mCompositeDisposable = new CompositeDisposable();
     private DenningService mSearchService;
-    private Single<JsonElement> mSingle;
+    private Call<JsonElement> mSingle;
     Integer isAutoComplete = 1;
     Integer page = 1;
     Integer currentSearch;
@@ -527,29 +517,29 @@ public class DenningShareActivity extends BaseLoggableActivity implements OnItem
     }
 
     private void excecuteCompositeDisposable(final CompositeCompletion completion) {
-        mCompositeDisposable.add(mSingle
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .map(new Function<JsonElement, JsonElement>() {
-                    @Override
-                    public JsonElement apply(JsonElement jsonElement) throws Exception {
-                        return jsonElement;
-                    }
-                })
-                .subscribeWith(new DisposableSingleObserver<JsonElement>() {
-                    @Override
-                    public void onSuccess(JsonElement jsonElement) {
-                        completion.parseResponse(jsonElement);
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        hideProgress();
-                        hideHorizontalProgress();
-                        ErrorUtils.showError(DenningShareActivity.this, e.getMessage());
-                    }
-                })
-        );
+//        mCompositeDisposable.add(mSingle
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .map(new Function<JsonElement, JsonElement>() {
+//                    @Override
+//                    public JsonElement apply(JsonElement jsonElement) throws Exception {
+//                        return jsonElement;
+//                    }
+//                })
+//                .subscribeWith(new DisposableSingleObserver<JsonElement>() {
+//                    @Override
+//                    public void onSuccess(JsonElement jsonElement) {
+//                        completion.parseResponse(jsonElement);
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//                        hideProgress();
+//                        hideHorizontalProgress();
+//                        ErrorUtils.showError(DenningShareActivity.this, e.getMessage());
+//                    }
+//                })
+//        );
     }
 
     @Override
