@@ -18,7 +18,9 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5d691f3-9667-4a91-a0a4-05c325d93859" name="Default" comment="" />
+    <list default="true" id="d5d691f3-9667-4a91-a0a4-05c325d93859" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="Android-Denning.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,23 +57,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1004">
-              <caret line="77" column="38" lean-forward="false" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
+            <state relative-caret-position="315">
+              <caret line="90" column="5" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="237" selection-end-column="46" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SplashActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SplashActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/auth/SplashActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="61" column="13" lean-forward="true" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
+            <state relative-caret-position="230">
+              <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
               <folding>
                 <element signature="e#1815#1998#0" expanded="true" />
+                <element signature="e#1997#1998#0" expanded="true" />
                 <element signature="e#2000#2154#0" expanded="true" />
                 <element signature="e#2153#2154#0" expanded="true" />
                 <element signature="e#2287#2309#0" expanded="true" />
@@ -12665,7 +12668,7 @@
     <property name="DEBUGGER_ID" value="Auto" />
     <property name="show.do.not.ask.upgrade.gradle.plugin" value="2.3.3" />
     <property name="SearchEverywhereHistoryKey" value="spla&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/auth/SplashActivity.java&#10;splash&#9;PSI&#9;JAVA://it.denning.auth.SplashActivity&#10;userpro&#9;PSI&#9;JAVA://it.denning.ui.activities.profile.UserProfileActivity&#10;find&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/Q-municate_core/src/main/java/com/quickblox/q_municate_core/utils/FinderUnknownUsers.java&#10;qmuser&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/q-municate_user_service/src/main/java/com/quickblox/q_municate_user_service/cache/QMUserCache.java&#10;findu&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/Q-municate_core/src/main/java/com/quickblox/q_municate_core/utils/FinderUnknownUsers.java&#10;Denning&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/message/DenningMessage.java&#10;service&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/utils/helpers/ServiceManager.java&#10;dih&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/general/DIHelper.java&#10;denning&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/message/DenningMessage.java&#10;dicons&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/general/DIConstants.java&#10;disha&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/general/DISharedPreferences.java&#10;qbse&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/Q-municate_core/src/main/java/com/quickblox/q_municate_core/service/QBService.java&#10;dishare&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/general/DISharedPreferences.java&#10;DISer&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/general/DIService.java&#10;signin&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/auth/SignInActivity.java&#10;main&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/MainActivity.java&#10;dihel&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/general/DIHelper.java&#10;Denningsu&#9;PSI&#9;JAVA://it.denning.navigation.message.DenningSupport&#10;home&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/home/Home.java&#10;App&#9;PSI&#9;JAVA://it.denning.App&#10;netw&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/network/NetworkManager.java&#10;sign&#9;PSI&#9;JAVA://it.denning.auth.SignInActivity&#10;activity_mai&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/res/layout/activity_main.xml&#10;useragre&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/ui/activities/agreements/UserAgreementActivity.java&#10;qmusercach&#9;PSI&#9;JAVA://com.quickblox.q_municate_user_cache.QMUserCacheImpl&#10;AddContact&#9;PSI&#9;JAVA://it.denning.navigation.add.contact.AddContactActivity&#10;calen&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/home/calendar/CalendarActivity.java&#10;ic_done_&#9;PSI&#9;JAVA://it.denning.R.drawable#ic_done_white&#10;useragr&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/ui/activities/agreements/UserAgreementActivity.java&#10;denningme&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/message/DenningMessage.java&#10;Denningmessage&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/message/DenningMessage.java&#10;cale&#9;PSI&#9;JAVA://it.denning.navigation.home.calendar.CalendarActivity&#10;dialogac&#9;PSI&#9;JAVA://it.denning.ui.activities.chats.BaseDialogActivity&#10;userag&#9;PSI&#9;JAVA://it.denning.ui.activities.agreements.UserAgreementActivity&#10;updatecourt&#9;PSI&#9;JAVA://it.denning.navigation.add.diary.BaseDiaryAdapter#updateCourt&#10;activity_ma&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/res/layout/activity_main.xml&#10;maina&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/MainActivity.java&#10;cardview_search&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/res/layout/cardview_search_general.xml&#10;activity&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/res/layout/activity_search.xml&#10;activity_sear&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/res/layout/activity_search.xml&#10;search&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/search/SearchActivity.java&#10;dicon&#9;PSI&#9;JAVA://it.denning.general.DIConstants&#10;activity_main&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/res/layout/activity_main.xml&#10;coming&#9;PSI&#9;JAVA://it.denning.navigation.home.comingsoon.ComingSoonActivity&#10;pushno&#9;PSI&#9;JAVA://com.quickblox.messages.QBPushNotifications&#10;feet&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section4.feestransfer.FeesTransferActivity&#10;dashboardfile&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/res/layout/dashboard_file_listing.xml&#10;fileledger&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section4.fileledgers.FileLedgerActivity&#10;searchacti&#9;PSI&#9;JAVA://it.denning.search.SearchActivity" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1534197928312" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1534219720709" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
@@ -13107,7 +13110,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4183797" sideWeight="0.47997138" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4183797" sideWeight="0.47997138" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2739628" sideWeight="0.5064695" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -13505,12 +13508,6 @@
           <line>568</line>
           <properties />
           <option name="timeStamp" value="1901" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/it/denning/auth/SplashActivity.java</url>
-          <line>57</line>
-          <properties />
-          <option name="timeStamp" value="1905" />
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="1906" />
@@ -13973,26 +13970,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1004">
-          <caret line="77" column="38" lean-forward="false" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/auth/SplashActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="61" column="13" lean-forward="true" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
+        <state relative-caret-position="230">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
           <folding>
             <element signature="e#1815#1998#0" expanded="true" />
+            <element signature="e#1997#1998#0" expanded="true" />
             <element signature="e#2000#2154#0" expanded="true" />
             <element signature="e#2153#2154#0" expanded="true" />
             <element signature="e#2287#2309#0" expanded="true" />
             <element signature="e#3065#3243#0" expanded="true" />
             <element signature="e#3242#3243#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="90" column="5" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="237" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
