@@ -23,17 +23,4 @@ public class ThreeItemModel implements Serializable {
     public List<ItemModel> items;
     public List<VisibleModel> main;
 
-    public static ThreeItemModel getThreeItemFromResponse(JSONObject jsonObject) {
-        ThreeItemModel model = new ThreeItemModel();
-
-        try {
-            model.iStyle = jsonObject.getString("iStyle");
-            model.graphs = GraphModel.getGraphArrayFromResponse(jsonObject.getJSONArray("graphs"));
-            model.items = ItemModel.getItemModelArrayFromResponse(jsonObject.getJSONArray("items"));
-            model.main = VisibleModel.getVisibleModelArrayFromResponse(jsonObject.getJSONArray("main"));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return model;
-    }
 }

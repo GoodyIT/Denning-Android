@@ -3,7 +3,6 @@ package com.quickblox.q_municate_user_service.utils;
 import android.text.TextUtils;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 import com.quickblox.q_municate_base_cache.utils.ErrorUtils;
 import com.quickblox.q_municate_user_service.model.QMUserCustomData;
@@ -20,9 +19,8 @@ public class Utils {
         }
 
         QMUserCustomData userCustomData = null;
-        GsonBuilder gsonBuilder = new GsonBuilder();
 
-        Gson gson = gsonBuilder.create();
+        Gson gson = new Gson();
 
         try {
             userCustomData = gson.fromJson(userCustomDataString, QMUserCustomData.class);

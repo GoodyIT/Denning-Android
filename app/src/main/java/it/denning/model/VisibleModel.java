@@ -18,30 +18,5 @@ public class VisibleModel implements Serializable{
     public String sessionID;
     public String sessionName;
 
-    public static VisibleModel getVisibleModelFromResponse(JSONObject jsonObject) {
-        VisibleModel model = new VisibleModel();
 
-        try {
-            model.isVisible = jsonObject.getString("isVisible");
-            model.iStyle = jsonObject.getString("iStyle");
-            model.sessionAPI = jsonObject.getString("sessionAPI");
-            model.sessionID = jsonObject.getString("sessionID");
-            model.sessionName = jsonObject.getString("sessionName");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return model;
-    }
-
-    public static ArrayList<VisibleModel> getVisibleModelArrayFromResponse(JSONArray jsonArray) {
-        ArrayList<VisibleModel> arrayList = new ArrayList<>();
-        for (int i = 0; i < jsonArray.length(); i++) {
-            try {
-                arrayList.add(VisibleModel.getVisibleModelFromResponse(jsonArray.getJSONObject(i)));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-        return arrayList;
-    }
 }

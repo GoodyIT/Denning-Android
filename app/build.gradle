@@ -176,6 +176,7 @@ dependencies {
 //    compile 'io.reactivex.rxjava2:rxjava:2.2.0'
 
     // Retrofit http://square.github.io/retrofit
+    compile 'com.google.code.gson:gson:2.8.5'
     compile 'com.squareup.retrofit2:retrofit:2.4.0'
     compile 'com.squareup.retrofit2:converter-gson:2.4.0'
     compile 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'

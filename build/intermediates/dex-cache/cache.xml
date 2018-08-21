@@ -34,7 +34,7 @@
         jumboMode="false"
         optimize="true"
         revision="26.0.2"
-        sha1="fafe9fd2ab5d2907061269e77d81a09a28e9fa3c">
+        sha1="f578cbd83bbd31012709dcbc542dd63098bd780c">
         <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/4/classes_7368c43dcad08dd901a0944d27858dee36e3c240/classes.dex" />
     </item>
     <item
@@ -295,7 +295,7 @@
         jumboMode="false"
         optimize="true"
         revision="26.0.2"
-        sha1="a498f8a2245dc4763110faea0d0f5e20a702f344">
+        sha1="44d5b79a21b4418036a247065b98c9332c136e60">
         <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/4/classes_64827d27b1438209eb618b083b6deabec0155d3c/classes.dex" />
     </item>
     <item
@@ -342,6 +342,15 @@
         revision="26.0.2"
         sha1="288913b440a3c61c30aa171095453a605432277a">
         <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/classes_c169420b929075940208138e26086e139377a652/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/denningit/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.5/f645ed69d595b24d4cf8b3fbb64cc505bede8829/gson-2.8.5.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="f645ed69d595b24d4cf8b3fbb64cc505bede8829">
+        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/gson-2.8.5_1c2f6291cfbeb061ec238526966bb542603a37d5/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -468,15 +477,6 @@
         revision="26.0.2"
         sha1="5f1054add84f2844e5a809ef162c2a1a3fe81718">
         <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/classes_6ebdbe826359e507d0983eb9fa228a8ce02defd2/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/denningit/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.2/3edcfe49d2c6053a70a2a47e4e1c2f94998a49cf/gson-2.8.2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="3edcfe49d2c6053a70a2a47e4e1c2f94998a49cf">
-        <dex dex="/Users/denningit/MyWork/Denning-Android/app/build/intermediates/transforms/dex/custom/debug/folders/1000/10/gson-2.8.2_c01ef5499f0b167cbaaa66b64ef434373466f2e1/classes.dex" />
     </item>
     <item
         is-multidex="true"

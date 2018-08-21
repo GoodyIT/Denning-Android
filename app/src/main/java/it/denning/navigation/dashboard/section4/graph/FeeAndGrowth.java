@@ -10,6 +10,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.zakariya.stickyheaders.StickyHeaderLayoutManager;
@@ -25,6 +29,8 @@ import it.denning.general.DISharedPreferences;
 import it.denning.model.GraphModel;
 import it.denning.model.ThreeItemModel;
 import it.denning.navigation.dashboard.util.GeneralActivity;
+import it.denning.network.CompositeCompletion;
+import it.denning.network.NetworkManager;
 import okhttp3.Call;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -70,51 +76,19 @@ public class FeeAndGrowth extends GeneralActivity {
 
     void fetchTask(final String _url) {
 
-
         final ProgressDialog pd = ProgressDialog.show(this, "", "Loading", true, false);
-        new Thread(new Runnable() {
-            public void run() {
-                String url  = DISharedPreferences.getInstance(getApplicationContext()).getServerAPI() + _url;
-                Request request = new Request.Builder()
-                        .url(url)
-                        .header("Content-Type", "application/json")
-                        .addHeader("webuser-sessionid", DISharedPreferences.getInstance(getApplicationContext()).getSessionID())
-                        .addHeader("webuser-id", DISharedPreferences.getInstance(getApplicationContext()).getEmail())
-                        .build();
-
-                try {
-                    Call call = client.newCall(request);
-                    Response response = call.execute();
-                    pd.dismiss();
-                    if (response != null) {
-                        if (!response.isSuccessful()) {
-                            Snackbar.make(linearLayout, response.message(), Snackbar.LENGTH_LONG).show();
-                        } else {
-                            try {
-                                final ThreeItemModel threeItem = ThreeItemModel.getThreeItemFromResponse(new JSONObject(response.body().string()));
-
-                                runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        displayResult(threeItem);
-
-                                    }
-                                });
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        String url  = DISharedPreferences.getInstance().getServerAPI() + _url;
+        NetworkManager.getInstance().sendPrivateGetRequestWithoutError(url, new CompositeCompletion() {
+            @Override
+            public void parseResponse(JsonElement jsonElement) {
+                pd.dismiss();
+                manageResponse(jsonElement.getAsJsonObject());
             }
-        }).start();
+        });
     }
 
-    void displayResult(ThreeItemModel threeItem) {
+    void manageResponse(JsonObject jsonObject) {
+        ThreeItemModel threeItem = new Gson().fromJson(jsonObject, ThreeItemModel.class);
         feesAndGrowthAdapter.swapItems(threeItem.graphs);
     }
 

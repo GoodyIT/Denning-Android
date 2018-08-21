@@ -19,7 +19,6 @@ import android.widget.RelativeLayout;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.quickblox.q_municate_db.utils.ErrorUtils;
@@ -440,7 +439,7 @@ public class Home extends Fragment {
         NetworkManager.getInstance().sendPublicGetRequest(DIConstants.UPDATES_LATEST_URL, new CompositeCompletion() {
             @Override
             public void parseResponse(JsonElement jsonElement) {
-                News[] events = new GsonBuilder().serializeNulls().create().fromJson(jsonElement.getAsJsonArray(), News[].class);
+                News[] events = new Gson().fromJson(jsonElement.getAsJsonArray(), News[].class);
                 DISharedPreferences.news = Arrays.asList(events);
                 NewsActivity.start(getContext(), "updates");
             }

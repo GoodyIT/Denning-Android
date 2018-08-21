@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.quickblox.q_municate_db.utils.ErrorUtils;
 
 import org.json.JSONArray;
@@ -66,9 +67,7 @@ public class StaffOnlineActivity extends GeneralActivity implements OnItemClickL
 
     StaffOnlineAdapter adapter;
     ArrayList<StaffOnlineModel> originalModelArrayList = new ArrayList<>();
-    List<ItemModel> headerModelArrayList;
     String filter = "", _url;
-    String request_tag;
     int page = 1;
     private EndlessRecyclerViewScrollListener scrollListener;
 
@@ -79,14 +78,13 @@ public class StaffOnlineActivity extends GeneralActivity implements OnItemClickL
         ButterKnife.bind(this);
 
         _url = getIntent().getStringExtra("api");
+
         setupList();
-
-        new FetchHeader().execute();
-        loadData();
-
         setupSearchView();
-
         setupEndlessScroll();
+
+        updateHeader();
+        loadData();
     }
 
     void setupSearchView() {
@@ -152,53 +150,22 @@ public class StaffOnlineActivity extends GeneralActivity implements OnItemClickL
         dashboardList.addOnScrollListener(scrollListener);
     }
 
-    private class FetchHeader extends AsyncTask<Void, Void, Void> {
-
-        @Override
-        protected Void doInBackground(Void... params) {
-            String url  = DISharedPreferences.getInstance(getApplicationContext()).getServerAPI() + DIConstants.DASHBOARD_S10_GET_URL;
-            Request request = new Request.Builder()
-                    .url(url)
-                    .header("Content-Type", "application/json")
-                    .addHeader("webuser-sessionid", DISharedPreferences.getInstance(getApplicationContext()).getSessionID())
-                    .addHeader("webuser-id", DISharedPreferences.getInstance(getApplicationContext()).getEmail())
-                    .build();
-
-            try {
-                Call call = client.newCall(request);
-                Response response = call.execute();
-                if (response != null) {
-                    if (!response.isSuccessful()) {
-                        Snackbar.make(linearLayout, response.message(), Snackbar.LENGTH_LONG).show();
-                    } else {
-                        try {
-                            ThreeItemModel threeItemModel = ThreeItemModel.getThreeItemFromResponse(new JSONObject(response.body().string()));
-                            headerModelArrayList = threeItemModel.items;
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    updateHeader();
-                                }
-                            });
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        } catch (Exception e) {
-
-                        }
-                    }
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
+    private void updateHeader() {
+        String url  = DISharedPreferences.getInstance(getApplicationContext()).getServerAPI() + DIConstants.DASHBOARD_S10_GET_URL;
+        NetworkManager.getInstance().sendPrivateGetRequestWithoutError(url, new CompositeCompletion() {
+            @Override
+            public void parseResponse(JsonElement jsonElement) {
+                manageHeaderResponse(jsonElement.getAsJsonObject());
             }
-            return null;
-        }
+        });
     }
 
-    void updateHeader() {
-        if (headerModelArrayList.size() > 0) {
-            badgeAll.setText(headerModelArrayList.get(0).value);
-            badgeToday.setText(headerModelArrayList.get(1).value);
-            badgeThisWeek.setText(headerModelArrayList.get(2).value);
+    void manageHeaderResponse(JsonObject jsonObject) {
+        ThreeItemModel threeItemModel = new Gson().fromJson(jsonObject, ThreeItemModel.class);
+        if (threeItemModel.items.size() > 0) {
+            badgeAll.setText(threeItemModel.items.get(0).value);
+            badgeToday.setText(threeItemModel.items.get(1).value);
+            badgeThisWeek.setText(threeItemModel.items.get(2).value);
         }
     }
 
