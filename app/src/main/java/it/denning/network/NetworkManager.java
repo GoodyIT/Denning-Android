@@ -170,6 +170,10 @@ public class NetworkManager {
         });
     }
 
+    public void sendPrivateGetRequestWithoutError(String url, final CompositeCompletion completion) {
+        sendPrivateGetRequestWithoutError(url, completion, App.getInstance());
+    }
+
     private JsonObject buildDefaultParam() {
 
         JsonObject json = new JsonObject();

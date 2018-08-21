@@ -413,6 +413,7 @@
     <string name="type_title">Select Type</string>
     <string name="leave_type_title">Leave Type</string>
     <string name="mode_title">Select Mode</string>
+    <string name="profit_loss_title">Profit Loss</string>
     <string name="leave_application_title">Leave Application</string>
     <string name="leave_records_title">Leave Records</string>
     <string name="leave_pending_approval_title">Leave Pending Approval</string>

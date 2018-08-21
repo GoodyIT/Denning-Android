@@ -16,26 +16,26 @@ public class DIConstants {
 
     public static final String  GOOGLE_MAP_REVERSE_URL  = "maps/api/geocode/json?key=AIzaSyAxOQtqe1t0TkVgmYV1t7Y_JWFERGEpcuU&latlng=";
 
-    public static final String kDIAgreementUrl = "https://www.denningchat.com/denningapi/v1/table/eulaAPP";
+    public static final String kDIAgreementUrl = "https://www.denningonline.com.my/denningapi/v1/table/eulaAPP";
     public static final String kDIAgreementGetUrl = "denningapi/v1/table/eulaAPP";
 
     public static final String HOME_ADS_GET_URL = "denningapi/v1/advertisement";
 
-    public static final String LOGOUT_URL = "https://www.denningchat.com/denningapi/v1/logout";
+    public static final String LOGOUT_URL = "https://www.denningonline.com.my/denningapi/v1/logout";
 
-    public static final String AUTH_SIGNIN_URL = "https://www.denningchat.com/denningapi/v1/signIn";
-    public static final String AUTH_SIGNUP_URL = "https://www.denningchat.com/denningapi/v1/signUp";
+    public static final String AUTH_SIGNIN_URL = "https://www.denningonline.com.my/denningapi/v1/signIn";
+    public static final String AUTH_SIGNUP_URL = "https://www.denningonline.com.my/denningapi/v1/signUp";
     public static final String STAFF_SIGNIN_URL   = "v1/app/staffLogin";
     public static final String CLIENT_SIGNIN_URL   = "v1/app/clientLogin";
     public static final String CLIENT_FIRST_SIGNIN_URL  = "v1/app/clientLogin/first";
-    public static final String AUTH_FIND_SOLICITORs = "https://www.denningchat.com/denningapi/v1/Solicitor";
+    public static final String AUTH_FIND_SOLICITORs = "https://www.denningonline.com.my/denningapi/v1/Solicitor";
 
-    public static final String AUTH_SMS_NEW = "https://www.denningchat.com/denningapi/v1/SMS/newDevice";
-    public static final String AUTH_SMS_FORGET_PASSWORD = "https://www.denningchat.com/denningapi/v1/SMS/lostPassword";
-    public static final String AUTH_SMS_REQUEST = "https://www.denningchat.com/denningapi/v1/SMS/request";
+    public static final String AUTH_SMS_NEW = "https://www.denningonline.com.my/denningapi/v1/SMS/newDevice";
+    public static final String AUTH_SMS_FORGET_PASSWORD = "https://www.denningonline.com.my/denningapi/v1/SMS/lostPassword";
+    public static final String AUTH_SMS_REQUEST = "https://www.denningonline.com.my/denningapi/v1/SMS/request";
 
-    public static final String AUTH_SET_NEW_PASSWORD = "https://www.denningchat.com/denningapi/v1/password/new";
-    public static final String AUTH_FORGET_PASSWORD = "https://www.denningchat.com/denningapi/v1/password/forget";
+    public static final String AUTH_SET_NEW_PASSWORD = "https://www.denningonline.com.my/denningapi/v1/password/new";
+    public static final String AUTH_FORGET_PASSWORD = "https://www.denningonline.com.my/denningapi/v1/password/forget";
 
     public static final String NEWS_LATEST_URL = "denningapi/v1/DenningNews";
     public static final String UPDATES_LATEST_URL = "denningapi/v1/DenningUpdate";
@@ -47,8 +47,8 @@ public class DIConstants {
 
     public static final String CALENDAR_MONTHLY_SUMMARY_URL =  "v1/DenningCalendar/MonthlySummary";
     // Search
-    public static final String DENNING_KEYWORD_SEARCH_URL = "https://www.denningchat.com/denningapi/v1/publicSearch/keyword?search=";
-    public static final String DENNING_SEARCH_URL = "https://www.denningchat.com/denningapi/v1/publicSearch?search=";
+    public static final String DENNING_KEYWORD_SEARCH_URL = "https://www.denningonline.com.my/denningapi/v1/publicSearch/keyword?search=";
+    public static final String DENNING_SEARCH_URL = "https://www.denningonline.com.my/denningapi/v1/publicSearch?search=";
     public static final String DENNING_SEARCH_FILTER = "";
 
     public static final String MATTER_GET_URL  = "v1/app/matter/";
@@ -90,7 +90,7 @@ public class DIConstants {
 
     public static final String CHAT_GET_URL = "denningapi/v2/chat/contact?userid=";
 
-    public static final String CHAT_ADD_FAVORITE = "https://www.denningchat.com/denningapi/v1/chat/contact/fav";
+    public static final String CHAT_ADD_FAVORITE = "https://www.denningonline.com.my/denningapi/v1/chat/contact/fav";
 
     public static final String MATTERSIMPLE_GET_URL = "v1/matter/simpleList?search=";
 
@@ -242,7 +242,7 @@ public class DIConstants {
 
     public static final String PROPERTY_MASTER_TITLE_GETLIST_URL  = "v1/Property/MasterTitle?search=";
 
-    public static final String  THIRD_PARTY_UPLOAD_CATEGORY  = "https://www.denningchat.com/denningapi/v1/catPersonal?email=";
+    public static final String  THIRD_PARTY_UPLOAD_CATEGORY  = "https://www.denningonline.com.my/denningapi/v1/catPersonal?email=";
 
     public static final String  MATTER_STAFF_TRANSIT_FOLDER = "v1/app/matter/fileFolder";
 

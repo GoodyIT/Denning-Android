@@ -23,7 +23,7 @@ public class RetrofitHelper {
     private String sessionID;
     private String email;
     private String baseUrl;
-    private final String publicBaseUrl = "https://www.denningchat.com/";
+    private final String publicBaseUrl = "https://www.denningonline.com.my/";
 
     private static RetrofitHelper instance;
 
@@ -57,7 +57,7 @@ public class RetrofitHelper {
 
     public DenningService getPublicService() {
         setInitialValues();
-        baseUrl = "https://www.denningchat.com/";
+        baseUrl = "https://www.denningonline.com.my/";
         final Retrofit retrofit = createPublicRetrofit();
         return  retrofit.create(DenningService.class);
     }

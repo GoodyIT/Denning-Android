@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -78,7 +79,7 @@ public class ProfitLossAdapter extends RecyclerView.Adapter {
         return modelArrayList.size();
     }
 
-    public void swapItems(ArrayList<ItemModel> newList) {
+    public void swapItems(List<ItemModel> newList) {
         modelArrayList.clear();
         modelArrayList.addAll(newList);
 

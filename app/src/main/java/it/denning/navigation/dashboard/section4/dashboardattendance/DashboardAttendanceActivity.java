@@ -14,7 +14,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.quickblox.q_municate_db.utils.ErrorUtils;
 
 import org.json.JSONArray;
@@ -164,45 +166,17 @@ public class DashboardAttendanceActivity extends GeneralActivity implements OnIt
     }
 
     void fetchHeader() {
-        new Thread(new Runnable() {
-            public void run() {
-                String url  = DISharedPreferences.getInstance(getApplicationContext()).getServerAPI() + DIConstants.DASHBOARD_S11_GET_URL;
-                Request request = new Request.Builder()
-                        .url(url)
-                        .header("Content-Type", "application/json")
-                        .addHeader("webuser-sessionid", DISharedPreferences.getInstance(getApplicationContext()).getSessionID())
-                        .addHeader("webuser-id", DISharedPreferences.getInstance(getApplicationContext()).getEmail())
-                        .build();
-
-                try {
-                    Call call = client.newCall(request);
-//                    request_tag = (String)call.request().tag();
-                    Response response = call.execute();
-                    if (response != null) {
-                        if (!response.isSuccessful()) {
-                            Snackbar.make(linearLayout, response.message(), Snackbar.LENGTH_LONG).show();
-                        } else {
-                            try {
-                                headerModel = ThreeItemModel.getThreeItemFromResponse(new JSONObject(response.body().string()));
-                                runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        updateHeader();
-                                    }
-                                });
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        String url  = DISharedPreferences.getInstance().getServerAPI() + DIConstants.DASHBOARD_S11_GET_URL;
+        NetworkManager.getInstance().sendPrivateGetRequestWithoutError(url, new CompositeCompletion() {
+            @Override
+            public void parseResponse(JsonElement jsonElement) {
+                manageHeaderResponse(jsonElement.getAsJsonObject());
             }
-        }).start();
+        });
     }
 
-    void updateHeader() {
+    void manageHeaderResponse(JsonObject jsonObject) {
+        headerModel = new Gson().fromJson(jsonObject, ThreeItemModel.class);
         if (headerModel.items.size() > 0) {
             badgeAll.setText(headerModel.items.get(0).value);
             badgeOnDuty.setText(headerModel.items.get(1).value);

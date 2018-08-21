@@ -34,6 +34,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import it.denning.App;
 import it.denning.MainActivity;
 import it.denning.R;
 import it.denning.auth.branch.FirmBranchActivity;
@@ -186,7 +187,7 @@ public class Home extends Fragment {
         }, new ErrorHandler() {
             @Override
             public void handleError(String error) {
-                ErrorUtils.showError(getContext(), error);
+                ErrorUtils.showError(App.getInstance(), error);
             }
         });
     }

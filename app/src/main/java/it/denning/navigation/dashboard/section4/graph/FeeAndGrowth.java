@@ -70,6 +70,7 @@ public class FeeAndGrowth extends GeneralActivity {
 
     void fetchTask(final String _url) {
 
+
         final ProgressDialog pd = ProgressDialog.show(this, "", "Loading", true, false);
         new Thread(new Runnable() {
             public void run() {
