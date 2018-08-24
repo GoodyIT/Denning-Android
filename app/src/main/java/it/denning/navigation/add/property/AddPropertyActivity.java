@@ -78,13 +78,13 @@ public class AddPropertyActivity extends MyBaseActivity implements
     }
 
     private void initFields() {
+        property = (Property) getIntent().getSerializableExtra("model");
+        isUpdateMode = property != null;
         if (isUpdateMode) {
             toolbarTitle.setText(R.string.update_property_title);
         } else {
             toolbarTitle.setText(R.string.add_property_title);
         }
-        property = (Property) getIntent().getSerializableExtra("model");
-        isUpdateMode = property != null;
     }
 
     private void setupRecyclerView() {

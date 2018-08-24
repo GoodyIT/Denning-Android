@@ -188,6 +188,14 @@ public class LeaveApplicationAdapter extends SectioningAdapter {
         }
     }
 
+    @Override
+    public GhostHeaderViewHolder onCreateGhostHeaderViewHolder(ViewGroup parent) {
+        final View ghostView = new View(parent.getContext());
+        ghostView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        return new GhostHeaderViewHolder(ghostView);
+    }
+
     private void displayOneButton(OneButtonViewHolder viewHolder, final int sectionIndex, final int itemIndex) {
         final String name = model.items.get(itemIndex).label;
         viewHolder.button.setText(name);

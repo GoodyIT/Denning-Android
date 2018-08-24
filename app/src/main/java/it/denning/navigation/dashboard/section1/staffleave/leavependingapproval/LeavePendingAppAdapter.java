@@ -1,48 +1,23 @@
 package it.denning.navigation.dashboard.section1.staffleave.leavependingapproval;
 
-import android.app.Activity;
 import android.content.Context;
-import android.support.v7.widget.CardView;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.TextView;
 
 import com.google.gson.JsonObject;
 
-import org.zakariya.stickyheaders.SectioningAdapter;
-
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import it.denning.R;
 import it.denning.general.DIConstants;
 import it.denning.general.DIHelper;
-import it.denning.model.AddPendingApproval;
 import it.denning.model.AddSectionItemModel;
-import it.denning.model.CodeDescription;
 import it.denning.model.LabelValueDetail;
-import it.denning.model.NameCode;
 import it.denning.model.StaffLeaveModel;
-import it.denning.navigation.add.Add;
-import it.denning.navigation.add.quotation.AddQuotationAdapter;
 import it.denning.navigation.add.utils.basesectionadapter.BaseSectionAdapter;
 import it.denning.search.utils.OnSectionItemClickListener;
-import it.denning.search.utils.myfloatingedittext.MyFloatingEditText;
-import it.denning.utils.KeyboardUtils;
 
 /**
  * Created by denningit on 2018-01-19.
  */
-
-
 
 public class LeavePendingAppAdapter extends BaseSectionAdapter {
     private final int START_DATE = 0;

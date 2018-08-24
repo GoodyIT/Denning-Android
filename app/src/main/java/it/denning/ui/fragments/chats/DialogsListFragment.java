@@ -260,12 +260,13 @@ public class DialogsListFragment extends BaseLoaderFragment<List<DialogWrapper>>
     public void onPause() {
         super.onPause();
         Log.d(TAG, "onPause()");
+        setStopStateUpdateDialogsProcess();
     }
 
     @Override
     public void onStop(){
         super.onStop();
-        setStopStateUpdateDialogsProcess();
+        Log.d(TAG, "onStop()");
     }
 
     @Override
@@ -405,7 +406,8 @@ public class DialogsListFragment extends BaseLoaderFragment<List<DialogWrapper>>
 
 //        startForResult load dialogs from REST when finished loading from cache
         if (dialogsListLoader.isLoadCacheFinished()) {
-            if (!QBLoginChatCompositeCommand.isRunning()) {
+            if (baseActivity.isChatInitializedAndUserLoggedIn()) {
+                Log.v(TAG, " onLoadFinished --- !QBLoginChatCompositeCommand.isRunning()");
                 QBLoadDialogsCommand.start(getContext(), true);
             }
         }
@@ -418,7 +420,7 @@ public class DialogsListFragment extends BaseLoaderFragment<List<DialogWrapper>>
             dialogsListAdapter.addNewData((ArrayList<DialogWrapper>) dialogsList);
         }
 
-        if(dialogsListLoader.isLoadRestFinished()) {
+        if (dialogsListLoader.isLoadRestFinished()) {
             updateDialogsProcess = State.finished;
             Log.d(TAG, "onLoadFinished isLoadRestFinished updateDialogsProcess= " + updateDialogsProcess);
         }
@@ -436,7 +438,7 @@ public class DialogsListFragment extends BaseLoaderFragment<List<DialogWrapper>>
         }
     }
 
-    private boolean isFriendsLoading(){
+    private boolean isFriendsLoading() {
         return QBLoginChatCompositeCommand.isRunning();
     }
 
@@ -706,8 +708,7 @@ public class DialogsListFragment extends BaseLoaderFragment<List<DialogWrapper>>
 
                             updateOrAddDialog(message.getDialogOccupant().getDialog().getDialogId(), action == BaseManager.CREATE_ACTION);
                         }
-                    }
-                    else if (observeKey.equals(dataManager.getQBChatDialogDataManager().getObserverKey())) {
+                    } else if (observeKey.equals(dataManager.getQBChatDialogDataManager().getObserverKey())) {
                         int action = ((Bundle) data).getInt(BaseManager.EXTRA_ACTION);
                         if (action == BaseManager.DELETE_ACTION
                                 || action == BaseManager.DELETE_BY_ID_ACTION) {

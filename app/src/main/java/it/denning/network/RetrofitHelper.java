@@ -68,7 +68,7 @@ public class RetrofitHelper {
         return  retrofit.create(DenningService.class);
     }
 
-    private OkHttpClient createClient(final String _email, final String _sessionID) {
+    public OkHttpClient createClient(final String _email, final String _sessionID) {
         final OkHttpClient.Builder httpClient =
                 new OkHttpClient.Builder();
         httpClient.addInterceptor(new Interceptor() {
@@ -114,11 +114,11 @@ public class RetrofitHelper {
         return httpClient.build();
     }
 
-    private OkHttpClient createPrivateClient() {
+    public OkHttpClient createPrivateClient() {
         return createClient(email, sessionID);
     }
 
-    private OkHttpClient createPublicClient() {
+    public OkHttpClient createPublicClient() {
         return createClient("android@denning.com.my", "{334E910C-CC68-4784-9047-0F23D37C9CF9}");
     }
 

@@ -358,10 +358,6 @@ public class CallActivity extends BaseLoggableActivity implements QBRTCClientSes
 
             Log.d(TAG, "Stop session");
 
-            if (qbCallChatHelper != null) {
-                qbCallChatHelper.releaseCurrentSession(CallActivity.this, CallActivity.this);
-            }
-
             stopTimer();
             closeByWifiStateAllow = true;
             setValidStatePerformLogout();

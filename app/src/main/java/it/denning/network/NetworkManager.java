@@ -101,12 +101,20 @@ public class NetworkManager {
         mSingle.enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
-                completion.parseResponse(response.body());
+                if (!response.isSuccessful()) {
+                    if (response.code() == 408){
+                        errorHandler.handleError("Session expired. Please log in again.");
+                    } else {
+                        errorHandler.handleError(response.message());
+                    }
+                } else {
+                    completion.parseResponse(response.body());
+                }
             }
 
             @Override
             public void onFailure(Call<JsonElement> call, Throwable e) {
-                if (e instanceof HttpException && ((HttpException) e).code() == 410) {
+                if (e instanceof HttpException && ((HttpException) e).code() == 408) {
                     errorHandler.handleError("Session expired. Please log in again.");
                 } else if (e instanceof SocketTimeoutException){
                     errorHandler.handleError("Cannot reach the server.");

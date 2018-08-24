@@ -9,6 +9,7 @@ import android.util.Log;
 import com.quickblox.auth.model.QBProvider;
 import com.quickblox.auth.session.QBSessionManager;
 import com.quickblox.chat.QBChatService;
+import it.denning.utils.helpers.FirebaseAuthHelper;
 import com.quickblox.core.helper.Lo;
 import com.quickblox.q_municate_core.models.AppSession;
 import com.quickblox.q_municate_core.qb.commands.chat.QBLoginChatCompositeCommand;
@@ -29,7 +30,7 @@ public class ActivityLifecycleHandler implements Application.ActivityLifecycleCa
     }
 
     @SuppressLint("LongLogTag")
-    public void onActivityStarted(Activity activity) {
+    public void onActivityStarted(final Activity activity) {
         Log.d("ActivityLifecycleHandler", "onActivityStarted " + activity.getClass().getSimpleName());
         boolean activityLogeable = isActivityLogeable(activity);
         chatDestroyed = chatDestroyed && !isLoggedIn();
@@ -42,14 +43,24 @@ public class ActivityLifecycleHandler implements Application.ActivityLifecycleCa
                 boolean canLogin = chatDestroyed && isLoggedIn;
                 boolean networkAvailable = ((BaseActivity) activity).isNetworkAvailable();
                 Log.d(TAG, "networkAvailable" + networkAvailable);
-                if (canLogin) {
+                if (canLogin && !QBLoginChatCompositeCommand.isRunning()) {
                     if (QBProvider.FIREBASE_PHONE.equals(QBSessionManager.getInstance().getSessionParameters().getSocialProvider())
                             && !QBSessionManager.getInstance().isValidActiveSession()){
+                        Log.d(TAG, "start refresh Firebase token");
+                        new FirebaseAuthHelper(activity).refreshInternalFirebaseToken(new FirebaseAuthHelper.RequestFirebaseIdTokenCallback() {
+                            @Override
+                            public void onSuccess(String accessToken) {
+                                QBLoginChatCompositeCommand.start(activity);
+                            }
 
-                        ((BaseActivity) activity).renewFirebaseToken();
+                            @Override
+                            public void onError(Exception e) {
+                                e.printStackTrace();
+                            }
+                        });
+                    } else {
+                        QBLoginChatCompositeCommand.start(activity);
                     }
-
-                    QBLoginChatCompositeCommand.start(activity);
                 }
             }
         }
@@ -86,6 +97,7 @@ public class ActivityLifecycleHandler implements Application.ActivityLifecycleCa
             boolean isLoggedIn = isLoggedIn();
             Log.d(TAG, "isLoggedIn= " + isLoggedIn);
             if (!isLoggedIn) {
+                chatDestroyed = true;
                 return;
             }
             chatDestroyed = ((Loggable) activity).isCanPerformLogoutInOnStop();

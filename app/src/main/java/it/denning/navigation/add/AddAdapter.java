@@ -104,6 +104,14 @@ public class AddAdapter extends SectioningAdapter {
         headerViewHolder.firstTitle.setText("");
     }
 
+    @Override
+    public GhostHeaderViewHolder onCreateGhostHeaderViewHolder(ViewGroup parent) {
+        final View ghostView = new View(parent.getContext());
+        ghostView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        return new GhostHeaderViewHolder(ghostView);
+    }
+
     private void displayGeneral(GeneralTypeViewHolder viewHolder, final int sectionIndex, final int itemIndex) {
         final LabelIconModel model = addModel.items.get(sectionIndex).items.get(itemIndex);
         viewHolder.label.setText(model.label);

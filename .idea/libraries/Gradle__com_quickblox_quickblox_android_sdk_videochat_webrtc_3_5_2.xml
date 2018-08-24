@@ -1,10 +1,10 @@
 <component name="libraryTable">
   <library name="Gradle: com.quickblox:quickblox-android-sdk-videochat-webrtc-3.5.2">
     <CLASSES>
-      <root url="file://$USER_HOME$/.android/build-cache/15037a26dfdc666b05850dab73fc0201b904358a/output/res" />
-      <root url="jar://$USER_HOME$/.android/build-cache/15037a26dfdc666b05850dab73fc0201b904358a/output/jars/classes.jar!/" />
-      <root url="jar://$USER_HOME$/.android/build-cache/15037a26dfdc666b05850dab73fc0201b904358a/output/jars/libs/libjingle_peerconnection_java.jar!/" />
-      <root url="jar://$USER_HOME$/.android/build-cache/15037a26dfdc666b05850dab73fc0201b904358a/output/jars/libs/base_java.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/quickblox-android-sdk-videochat-webrtc-3.5.2.aar/4139cd7fdafc126d296e9a554b4c64e6/jars/libs/libjingle_peerconnection_java.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/quickblox-android-sdk-videochat-webrtc-3.5.2.aar/4139cd7fdafc126d296e9a554b4c64e6/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/quickblox-android-sdk-videochat-webrtc-3.5.2.aar/4139cd7fdafc126d296e9a554b4c64e6/jars/libs/base_java.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/quickblox-android-sdk-videochat-webrtc-3.5.2.aar/4139cd7fdafc126d296e9a554b4c64e6/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

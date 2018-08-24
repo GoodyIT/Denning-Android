@@ -15,7 +15,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import it.denning.R;
-import it.denning.model.BankReconModel;
 import it.denning.model.TaxInvoiceModel;
 import it.denning.search.utils.OnItemClickListener;
 
@@ -125,6 +124,14 @@ public class TaxInvoiceAdapter extends SectioningAdapter {
         headerViewHolder.firstTitle.setText("Tax Invoice No.");
         headerViewHolder.secondTitle.setText("File No.");
         headerViewHolder.thirdTitle.setText("Amount");
+    }
+
+    @Override
+    public GhostHeaderViewHolder onCreateGhostHeaderViewHolder(ViewGroup parent) {
+        final View ghostView = new View(parent.getContext());
+        ghostView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        return new GhostHeaderViewHolder(ghostView);
     }
 
     public void swapItems(List<TaxInvoiceModel> newSearchResultList) {

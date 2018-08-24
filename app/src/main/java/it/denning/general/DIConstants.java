@@ -23,7 +23,7 @@ public class DIConstants {
 
     public static final String LOGOUT_URL = "https://www.denningonline.com.my/denningapi/v1/logout";
 
-    public static final String AUTH_SIGNIN_URL = "https://www.denningonline.com.my/denningapi/v1/signIn";
+    public static final String AUTH_SIGNIN_URL = "https://denningonline.com.my/denningapi/v1/signIn";
     public static final String AUTH_SIGNUP_URL = "https://www.denningonline.com.my/denningapi/v1/signUp";
     public static final String STAFF_SIGNIN_URL   = "v1/app/staffLogin";
     public static final String CLIENT_SIGNIN_URL   = "v1/app/clientLogin";

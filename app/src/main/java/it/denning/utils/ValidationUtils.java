@@ -6,6 +6,7 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.FragmentManager;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
+import android.widget.EditText;
 
 import com.quickblox.q_municate_core.models.AppSession;
 import com.quickblox.q_municate_core.utils.ConstsCore;
@@ -23,7 +24,7 @@ import it.denning.ui.fragments.dialogs.base.OneButtonDialogFragment;
 public class ValidationUtils {
 
     private static final int FULL_NAME_MIN_LENGTH = 3;
-    private static final int FULL_NAME_MAX_LENGTH = 50;
+    private static final int FULL_NAME_MAX_LENGTH = 200;
     private static final int PASSWORD_MIN_LENGTH = 8;
     private final static String NULL = "null";
 

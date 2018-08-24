@@ -557,7 +557,15 @@ public class SearchActivity extends BaseActivity implements OnItemClickListener,
         mSingle.enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
-                completion.parseResponse(response.body());
+                if (!response.isSuccessful()) {
+                    if (response.code() == 408){
+                        ErrorUtils.showError(SearchActivity.this,"Session expired. Please log in again.");
+                    } else {
+                        ErrorUtils.showError(SearchActivity.this, response.message());
+                    }
+                } else {
+                    completion.parseResponse(response.body());
+                }
             }
 
             @Override

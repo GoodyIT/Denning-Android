@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: org.zakariya.stickyheaders:stickyheaders-0.7.6">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.android/build-cache/9597e1119d70d506086ae22db8d19809452028fc/output/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.android/build-cache/9597e1119d70d506086ae22db8d19809452028fc/output/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/stickyheaders-0.7.6.aar/e2f8925fca2bcdbcc46ff6aba97d3b66/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/stickyheaders-0.7.6.aar/e2f8925fca2bcdbcc46ff6aba97d3b66/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

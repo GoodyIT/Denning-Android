@@ -61,7 +61,8 @@ import rx.Subscriber;
 public class SignInActivity extends BaseAuthActivity {
     protected @BindView(R.id.signin_email)
     EditText emailEditText;
-    protected @BindView(R.id.signin_password) EditText passwordEditTExt;
+    protected @BindView(R.id.signin_password)
+    EditText passwordEditTExt;
     protected RelativeLayout signinLayout;
     protected @BindView(R.id.signin_signinbtn)
     Button signinBtn;

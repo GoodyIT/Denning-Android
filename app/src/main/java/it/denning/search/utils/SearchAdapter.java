@@ -234,6 +234,14 @@ public class SearchAdapter extends SectioningAdapter {
         }
     }
 
+    @Override
+    public GhostHeaderViewHolder onCreateGhostHeaderViewHolder(ViewGroup parent) {
+        final View ghostView = new View(parent.getContext());
+        ghostView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        return new GhostHeaderViewHolder(ghostView);
+    }
+
     private void displayGeneralSearchResult(SectioningAdapter.ItemViewHolder viewHolder, final SearchResultModel searchResultModel, final int sectionIndex) {
         GeneralTypeViewHolder generalTypeViewHolder = (GeneralTypeViewHolder) viewHolder;
         generalTypeViewHolder.title.setText(searchResultModel.title);

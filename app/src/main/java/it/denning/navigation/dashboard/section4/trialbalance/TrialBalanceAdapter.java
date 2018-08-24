@@ -134,6 +134,14 @@ public class TrialBalanceAdapter extends SectioningAdapter {
         headerViewHolder.forthTitle.setText("Balance");
     }
 
+    @Override
+    public GhostHeaderViewHolder onCreateGhostHeaderViewHolder(ViewGroup parent) {
+        final View ghostView = new View(parent.getContext());
+        ghostView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        return new GhostHeaderViewHolder(ghostView);
+    }
+
     public void swapItems(List<TrialBalance> newSearchResultList) {
         this.modelArrayList.addAll(newSearchResultList);
         notifySectionItemInserted(0, newSearchResultList.size() +  1);

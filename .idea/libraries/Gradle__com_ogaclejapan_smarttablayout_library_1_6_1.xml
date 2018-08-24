@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.ogaclejapan.smarttablayout:library-1.6.1">
     <CLASSES>
-      <root url="file://$USER_HOME$/.android/build-cache/ec07ad9cad76e85a9409bd5ac541c821793dee1c/output/res" />
-      <root url="jar://$USER_HOME$/.android/build-cache/ec07ad9cad76e85a9409bd5ac541c821793dee1c/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-1.6.1.aar/a7fc898b3ce69e2731cf4f0e5fc0b140/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-1.6.1.aar/a7fc898b3ce69e2731cf4f0e5fc0b140/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

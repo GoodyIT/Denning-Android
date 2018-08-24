@@ -344,6 +344,14 @@ public class BaseSectionAdapter extends SectioningAdapter {
         headerViewHolder.firstTitle.setText(titles.get(sectionIndex));
     }
 
+    @Override
+    public GhostHeaderViewHolder onCreateGhostHeaderViewHolder(ViewGroup parent) {
+        final View ghostView = new View(parent.getContext());
+        ghostView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        return new GhostHeaderViewHolder(ghostView);
+    }
+
     private void displayOneButton(OneButtonViewHolder viewHolder, final int sectionIndex, final int itemIndex) {
         final LabelValueDetail labelValueDetail = model.items.get(sectionIndex).items.get(itemIndex);
 

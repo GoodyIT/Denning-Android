@@ -3,6 +3,7 @@ package it.denning.utils.helpers;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 
 import com.quickblox.chat.model.QBChatDialog;
@@ -77,6 +78,8 @@ public class ActivityUIHelper {
         if (baseActivity instanceof BaseDialogActivity) {
             baseActivity.finish();
         }
+
+        Log.i(ActivityUIHelper.class.getSimpleName(), "Show dialog from " + baseActivity.getClass().getSimpleName());
 
         if (QBDialogType.PRIVATE.equals(chatDialog.getType())) {
             baseActivity.startPrivateChatActivity(senderUser, chatDialog);

@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.quickblox:quickblox-android-sdk-extensions-3.5.2">
     <CLASSES>
-      <root url="file://$USER_HOME$/.android/build-cache/9cd1f5b8b6806c5458dd7021a22bc75d18dace5f/output/res" />
-      <root url="jar://$USER_HOME$/.android/build-cache/9cd1f5b8b6806c5458dd7021a22bc75d18dace5f/output/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/quickblox-android-sdk-extensions-3.5.2.aar/b8b86a77fc75458050ba8b0f51897071/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/quickblox-android-sdk-extensions-3.5.2.aar/b8b86a77fc75458050ba8b0f51897071/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

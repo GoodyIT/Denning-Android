@@ -123,6 +123,14 @@ public class MatterLitigationAdapter extends SectioningAdapter {
         headerViewHolder.idTitle.setText("Description");
     }
 
+    @Override
+    public GhostHeaderViewHolder onCreateGhostHeaderViewHolder(ViewGroup parent) {
+        final View ghostView = new View(parent.getContext());
+        ghostView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        return new GhostHeaderViewHolder(ghostView);
+    }
+
     public void clear() {
         this.matterCodes.clear();
         notifyAllSectionsDataSetChanged();

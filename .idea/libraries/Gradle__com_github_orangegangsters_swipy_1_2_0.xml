@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.orangegangsters:swipy-1.2.0">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.android/build-cache/3aae21bb43ce123831051398b8b499d879c06ab9/output/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.android/build-cache/3aae21bb43ce123831051398b8b499d879c06ab9/output/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/swipy-1.2.0.aar/b4342fec6e05679b724825695111b72d/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/swipy-1.2.0.aar/b4342fec6e05679b724825695111b72d/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

@@ -120,6 +120,14 @@ public class MessageBaseAdapter extends SectioningAdapter {
         headerViewHolder.name.setText(chatFirmModel.firmName);
     }
 
+    @Override
+    public GhostHeaderViewHolder onCreateGhostHeaderViewHolder(ViewGroup parent) {
+        final View ghostView = new View(parent.getContext());
+        ghostView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        return new GhostHeaderViewHolder(ghostView);
+    }
+
     public void setChatContactModel(ChatContactModel chatContactModel) {
         this.chatContactModel = chatContactModel;
 

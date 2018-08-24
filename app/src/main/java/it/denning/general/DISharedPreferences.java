@@ -25,6 +25,7 @@ import it.denning.model.FirmURLModel;
 import it.denning.model.LegalFirm;
 import it.denning.model.MatterSimple;
 import it.denning.model.News;
+import it.denning.model.Property;
 
 /**
  * Created by denningit on 20/04/2017.
@@ -69,6 +70,8 @@ public class DISharedPreferences {
     public static Attendance attendance;
     public static FileNote fileNote;
     public static Accounts accounts;
+    public static LegalFirm legalFirm;
+    public static Property property;
     public static MatterSimple selectedMatterSimple;
     public static File file;
     public static String keyword = "";

@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.marshalchen.ultimaterecyclerview:library-0.7.3">
     <CLASSES>
-      <root url="file://$USER_HOME$/.android/build-cache/5ea5ee66c8df46b3fa9de4b1801ff16381558c48/output/res" />
-      <root url="jar://$USER_HOME$/.android/build-cache/5ea5ee66c8df46b3fa9de4b1801ff16381558c48/output/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-0.7.3.aar/2e9e61ae58576ab99572c23379281142/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-0.7.3.aar/2e9e61ae58576ab99572c23379281142/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

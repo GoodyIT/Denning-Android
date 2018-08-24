@@ -1,16 +1,12 @@
 package it.denning.navigation.dashboard.section4.contacts;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
-import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.json.JSONException;
 import org.zakariya.stickyheaders.SectioningAdapter;
 
 import java.util.List;
@@ -18,12 +14,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import it.denning.R;
-import it.denning.general.DIHelper;
-import it.denning.model.ItemModel;
 import it.denning.model.SearchResultModel;
-import it.denning.navigation.dashboard.section1.FileListingAdapter;
-import it.denning.navigation.dashboard.section1.FileListingDiffCallback;
-import it.denning.navigation.dashboard.section4.bankrecon.BankReconAdapter;
 import it.denning.search.utils.OnItemClickListener;
 
 /**
@@ -129,6 +120,14 @@ public class DashboardContactAdapter extends SectioningAdapter {
         HeaderViewHolder headerViewHolder = (HeaderViewHolder)viewHolder;
         headerViewHolder.nameTitle.setText("Name");
         headerViewHolder.idTitle.setText("ID");
+    }
+
+    @Override
+    public GhostHeaderViewHolder onCreateGhostHeaderViewHolder(ViewGroup parent) {
+        final View ghostView = new View(parent.getContext());
+        ghostView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        return new GhostHeaderViewHolder(ghostView);
     }
 
     public void swapItems(List<SearchResultModel> newSearchResultList) {

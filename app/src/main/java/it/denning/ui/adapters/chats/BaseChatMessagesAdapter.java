@@ -1,14 +1,11 @@
 package it.denning.ui.adapters.chats;
 
 import android.graphics.Bitmap;
-import android.os.Bundle;
-import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.MimeTypeMap;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,41 +15,26 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.quickblox.chat.model.QBAttachment;
 import com.quickblox.chat.model.QBChatDialog;
-import com.quickblox.chat.model.QBChatMessage;
-import com.quickblox.content.QBContent;
-import com.quickblox.core.QBEntityCallback;
-import com.quickblox.core.exception.QBResponseException;
 import com.quickblox.q_municate_core.models.AppSession;
 import com.quickblox.q_municate_core.models.CombinationMessage;
 import com.quickblox.q_municate_core.qb.commands.chat.QBUpdateStatusMessageCommand;
 import com.quickblox.q_municate_db.managers.DataManager;
 import com.quickblox.q_municate_db.models.State;
-import com.quickblox.q_municate_db.utils.ErrorUtils;
 import com.quickblox.ui.kit.chatmessage.adapter.QBMessagesAdapter;
 import com.quickblox.ui.kit.chatmessage.adapter.listeners.QBChatAttachClickListener;
 import com.quickblox.users.model.QBUser;
 import com.timehop.stickyheadersrecyclerview.StickyRecyclerHeadersAdapter;
 
-import org.jivesoftware.smack.SmackException;
-import org.jivesoftware.smack.XMPPException;
-
-import java.io.File;
-import java.io.InputStream;
 import java.util.Collection;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import it.denning.App;
 import it.denning.R;
 import it.denning.general.MySimpleCallback;
-import it.denning.network.utils.Download;
-import it.denning.network.utils.DownloadCompleteInterface;
-import it.denning.network.utils.ProgressInterface;
 import it.denning.ui.activities.base.BaseActivity;
 import it.denning.utils.DateUtils;
 import it.denning.utils.FileUtils;
-import it.denning.utils.StorageUtil;
 import it.denning.utils.StringUtils;
 
 

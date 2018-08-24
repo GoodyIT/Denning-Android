@@ -15,7 +15,6 @@ import butterknife.ButterKnife;
 import it.denning.R;
 import it.denning.general.DIHelper;
 import it.denning.model.FeesTransferModel;
-import it.denning.model.FeesTransferModel;
 import it.denning.search.utils.OnItemClickListener;
 
 /**
@@ -114,6 +113,14 @@ public class TransferredAdapter extends SectioningAdapter {
     public void onBindHeaderViewHolder(SectioningAdapter.HeaderViewHolder viewHolder, int sectionIndex, int headerType) {
         HeaderViewHolder headerViewHolder = (HeaderViewHolder) viewHolder;
         displayHeader(headerViewHolder, "Date", "Batch", "Amount");
+    }
+
+    @Override
+    public GhostHeaderViewHolder onCreateGhostHeaderViewHolder(ViewGroup parent) {
+        final View ghostView = new View(parent.getContext());
+        ghostView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        return new GhostHeaderViewHolder(ghostView);
     }
 
     private void displayHeader(HeaderViewHolder viewHolder, String first, String second, String third) {

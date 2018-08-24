@@ -18,6 +18,7 @@ import org.zakariya.stickyheaders.StickyHeaderLayoutManager;
 import it.denning.R;
 import it.denning.general.DIConstants;
 import it.denning.general.DISharedPreferences;
+import it.denning.model.Accounts;
 import it.denning.model.Bank;
 import it.denning.model.CodeDescription;
 import it.denning.model.Contact;
@@ -27,11 +28,14 @@ import it.denning.model.MatterModel;
 import it.denning.model.Property;
 import it.denning.model.StaffModel;
 import it.denning.navigation.add.matter.AddMatterActivity;
+import it.denning.navigation.add.property.AddPropertyActivity;
 import it.denning.navigation.add.utils.contactlist.ContactListActivity;
 import it.denning.network.CompositeCompletion;
 import it.denning.network.ErrorHandler;
 import it.denning.network.NetworkManager;
 import it.denning.search.MatterCode.MatterCodeActivity;
+import it.denning.search.SearchActivity;
+import it.denning.search.accounts.AccountsActivity;
 import it.denning.search.bank.BankActivity;
 import it.denning.search.contact.SearchContactActivity;
 import it.denning.search.filenote.FileNoteActivity;
@@ -115,6 +119,7 @@ public class MatterActivity extends MyBaseActivity implements OnMatterCodeClickL
 
     @Override
     public void onClick(View view, String type, String code) {
+        showActionBarProgress();
         switch (type) {
             case "contact":
                 gotoContact(code);
@@ -132,7 +137,6 @@ public class MatterActivity extends MyBaseActivity implements OnMatterCodeClickL
             default:
                 break;
         }
-
     }
 
     void openFileFolder(String code) {
@@ -159,52 +163,91 @@ public class MatterActivity extends MyBaseActivity implements OnMatterCodeClickL
     }
 
     void openAccounts(String code) {
-
+        showActionBarProgress();
+        String url = "v1/" + code + "/fileLedger";
+        NetworkManager.getInstance().sendPrivateGetRequest(url, new CompositeCompletion() {
+            @Override
+            public void parseResponse(JsonElement jsonElement) {
+                hideActionBarProgress();
+                DISharedPreferences.accounts = new Gson().fromJson(jsonElement, Accounts.class);
+                AccountsActivity.start(MatterActivity.this);
+            }
+        }, new ErrorHandler() {
+            @Override
+            public void handleError(String error) {
+                hideActionBarProgress();
+                ErrorUtils.showError(getApplicationContext(), error);
+            }
+        });
     }
 
     void gotoContact(String code) {
         String url = DIConstants.CONTACT_GET_URL + code;
-        NetworkManager.getInstance().sendPrivateGetRequestWithoutError(url, new CompositeCompletion() {
+        NetworkManager.getInstance().sendPrivateGetRequest(url, new CompositeCompletion() {
             @Override
             public void parseResponse(JsonElement jsonElement) {
                 Contact contact = new Gson().fromJson(jsonElement.getAsJsonObject(), Contact.class);
                 SearchContactActivity.start(MatterActivity.this, contact, "");
             }
-        }, this);
+        }, new ErrorHandler() {
+            @Override
+            public void handleError(String error) {
+                hideActionBarProgress();
+                ErrorUtils.showError(getApplicationContext(), error);
+            }
+        });
 
     }
 
     void gotoBank(String code) {
         String url = DIConstants.BANK_GET_GET_URL + code;
-        NetworkManager.getInstance().sendPrivateGetRequestWithoutError(url, new CompositeCompletion() {
+        NetworkManager.getInstance().sendPrivateGetRequest(url, new CompositeCompletion() {
             @Override
             public void parseResponse(JsonElement jsonElement) {
                 DISharedPreferences.bank = new Gson().fromJson(jsonElement.getAsJsonObject(), Bank.class);
                 BankActivity.start(MatterActivity.this, R.string.bank_title);
             }
-        }, this);
+        }, new ErrorHandler() {
+            @Override
+            public void handleError(String error) {
+                hideActionBarProgress();
+                ErrorUtils.showError(getApplicationContext(), error);
+            }
+        });
     }
 
     void gotoProperty(String code) {
         String url = DIConstants.PROPERTY_GET_URL + code;
-        NetworkManager.getInstance().sendPrivateGetRequestWithoutError(url, new CompositeCompletion() {
+        NetworkManager.getInstance().sendPrivateGetRequest(url, new CompositeCompletion() {
             @Override
             public void parseResponse(JsonElement jsonElement) {
                 Property property = new Gson().fromJson(jsonElement.getAsJsonObject(), Property.class);
-                PropertyActivity.start(MatterActivity.this, property);
+                AddPropertyActivity.start(MatterActivity.this, property);
             }
-        }, this);
+        }, new ErrorHandler() {
+            @Override
+            public void handleError(String error) {
+                hideActionBarProgress();
+                ErrorUtils.showError(getApplicationContext(), error);
+            }
+        });
     }
 
     void gotoSolicitor(String code) {
         String url = DIConstants.SOLICITOR_GET_URL + code;
-        NetworkManager.getInstance().sendPrivateGetRequestWithoutError(url, new CompositeCompletion() {
+        NetworkManager.getInstance().sendPrivateGetRequest(url, new CompositeCompletion() {
             @Override
             public void parseResponse(JsonElement jsonElement) {
-                LegalFirm legalFirm = new Gson().fromJson(jsonElement.getAsJsonObject(), LegalFirm.class);
-                LegalFirmActivity.start(MatterActivity.this, legalFirm);
+                DISharedPreferences.legalFirm = new Gson().fromJson(jsonElement.getAsJsonObject(), LegalFirm.class);
+                LegalFirmActivity.start(MatterActivity.this);
             }
-        }, this);
+        }, new ErrorHandler() {
+            @Override
+            public void handleError(String error) {
+                hideActionBarProgress();
+                ErrorUtils.showError(getApplicationContext(), error);
+            }
+        });
     }
 
     @Override

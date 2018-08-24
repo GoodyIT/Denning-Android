@@ -116,6 +116,14 @@ public class LeaveRecordAdapter extends SectioningAdapter {
         displayHeader(headerViewHolder, "Period", "No.", "Type", "Status");
     }
 
+    @Override
+    public GhostHeaderViewHolder onCreateGhostHeaderViewHolder(ViewGroup parent) {
+        final View ghostView = new View(parent.getContext());
+        ghostView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        return new GhostHeaderViewHolder(ghostView);
+    }
+
     private void displayHeader(HeaderViewHolder viewHolder, String first, String second, String third, String forth) {
         viewHolder.firstTitle.setText(first);
         viewHolder.secondTextView.setText(second);

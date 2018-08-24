@@ -1,10 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: com.crashlytics.sdk.android:crashlytics-2.9.4">
     <CLASSES>
-      <root url="file://$USER_HOME$/.android/build-cache/2da886a0fc6868d7b104b2ad3f01f39faa4a4567/output/res" />
-      <root url="jar://$USER_HOME$/.android/build-cache/2da886a0fc6868d7b104b2ad3f01f39faa4a4567/output/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/crashlytics-2.9.4.aar/e2eec7244768de611917be80c3c8793c/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/crashlytics-2.9.4.aar/e2eec7244768de611917be80c3c8793c/res" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.crashlytics.sdk.android/crashlytics/2.9.4/d63cbca14a8f4df2923ca37ca7530201362953ff/crashlytics-2.9.4-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES />
   </library>
 </component>

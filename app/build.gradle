@@ -26,6 +26,7 @@ android {
 
     configurations.all {
         resolutionStrategy.force 'com.android.support:multidex:1.0.3'
+        all*.exclude group: 'com.android.support', module: 'support-v13'
     }
 
     defaultConfig {
@@ -108,6 +109,8 @@ android {
         changeApkFileName(variant)
     }
 
+    flavorDimensions "123"
+
     productFlavors {
 
         standard {
@@ -139,100 +142,99 @@ android {
 }
 
 dependencies {
-    compile project(':Q-municate_core')
+    implementation project(path: ':Q-municate_core')
 
-    compile "com.android.support:multidex:${rootProject.multiDexVersion}"
-    compile "com.android.support:appcompat-v7:${rootProject.supportVersion}"
-    compile "com.android.support:design:${rootProject.supportVersion}"
+    implementation "com.android.support:multidex:${rootProject.multiDexVersion}"
+    implementation "com.android.support:appcompat-v7:${rootProject.supportVersion}"
+    implementation "com.android.support:design:${rootProject.supportVersion}"
 
-    compile "com.google.android.gms:play-services-base:${rootProject.googlePlayServicesVersion}"
-    compile "com.google.android.gms:play-services-maps:${rootProject.googlePlayServicesVersion}"
-    compile "com.google.android.gms:play-services-location:${rootProject.googlePlayServicesVersion}"
-    compile "com.google.android.gms:play-services-analytics:${rootProject.googlePlayServicesVersion}"
+    implementation "com.google.android.gms:play-services-base:${rootProject.googlePlayServicesVersion}"
+    implementation "com.google.android.gms:play-services-maps:${rootProject.googlePlayServicesVersion}"
+    implementation "com.google.android.gms:play-services-location:${rootProject.googlePlayServicesVersion}"
+    implementation "com.google.android.gms:play-services-analytics:${rootProject.googlePlayServicesVersion}"
 
-    compile "com.firebase:firebase-jobdispatcher-with-gcm-dep:${rootProject.firebaseDispatcherVersion}"
-    compile "com.google.firebase:firebase-auth:${rootProject.firebaseAuthVersion}"
-    compile ("com.firebaseui:firebase-ui-auth:${rootProject.firebaseUiAuthVersion}"){
+    implementation "com.firebase:firebase-jobdispatcher-with-gcm-dep:${rootProject.firebaseDispatcherVersion}"
+    implementation "com.google.firebase:firebase-auth:${rootProject.firebaseAuthVersion}"
+    implementation ("com.firebaseui:firebase-ui-auth:${rootProject.firebaseUiAuthVersion}"){
         exclude group: 'com.google.android.gms'
     }
 
-    compile "com.nostra13.universalimageloader:universal-image-loader:${rootProject.universalImageLoaderVersion}"
-    compile 'com.flurry.android:analytics:6.2.0'
-    compile 'com.jakewharton:butterknife:8.5.1'
+    implementation "com.nostra13.universalimageloader:universal-image-loader:${rootProject.universalImageLoaderVersion}"
+    implementation 'com.flurry.android:analytics:6.2.0'
+    implementation 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
-    compile "com.afollestad.material-dialogs:core:${rootProject.materialDialogsVersion}"
+    implementation "com.afollestad.material-dialogs:core:${rootProject.materialDialogsVersion}"
 
-    compile "com.github.orangegangsters:swipy:${rootProject.swipyRecyclerviewVersion}@aar"
-    compile "com.timehop.stickyheadersrecyclerview:library:${rootProject.stickylistheadersRecyclerViewVersion}@aar"
-    compile "com.rockerhieu.emojicon:library:${rootProject.emojiconVersion}"
-    compile "com.soundcloud.android:android-crop:${rootProject.cropVersion}@aar"
-    compile 'com.marshalchen.ultimaterecyclerview:library:0.7.3'
+    implementation "com.github.orangegangsters:swipy:${rootProject.swipyRecyclerviewVersion}@aar"
+    implementation "com.timehop.stickyheadersrecyclerview:library:${rootProject.stickylistheadersRecyclerViewVersion}@aar"
+    implementation "com.rockerhieu.emojicon:library:${rootProject.emojiconVersion}"
+    implementation "com.soundcloud.android:android-crop:${rootProject.cropVersion}@aar"
+    implementation 'com.marshalchen.ultimaterecyclerview:library:0.7.3'
 
-    compile 'com.squareup.okhttp3:okhttp:3.11.0'
-    compile 'com.squareup.moshi:moshi:1.5.0'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
+    implementation 'com.squareup.moshi:moshi:1.5.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
 
-//    compile 'io.reactivex.rxjava2:rxandroid:2.0.2'
-//    compile 'io.reactivex.rxjava2:rxjava:2.2.0'
+//    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+//    implementation 'io.reactivex.rxjava2:rxjava:2.2.0'
 
     // Retrofit http://square.github.io/retrofit
-    compile 'com.google.code.gson:gson:2.8.5'
-    compile 'com.squareup.retrofit2:retrofit:2.4.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.4.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
-    compile 'me.grantland:autofittextview:0.2.1'
-    compile 'info.hoang8f:android-segmented:1.0.6'
-    compile 'com.hannesdorfmann.smoothprogressbar:library:1.0.0'
-    compile 'com.mikepenz:fastadapter-commons:2.5.0@aar'
-    compile('com.mikepenz:materialdrawer:6.0.6@aar') {
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+    implementation 'me.grantland:autofittextview:0.2.1'
+    implementation 'info.hoang8f:android-segmented:1.0.6'
+    implementation 'com.hannesdorfmann.smoothprogressbar:library:1.0.0'
+    implementation 'com.mikepenz:fastadapter-commons:2.5.0@aar'
+    implementation('com.mikepenz:materialdrawer:6.0.6@aar') {
         transitive = true
     }
-    compile 'com.mindorks:placeholderview:0.2.7'
+    implementation 'com.mindorks:placeholderview:0.2.7'
    
-    compile 'com.mikepenz:itemanimators:0.5.0@aar'
-    compile 'com.mikepenz:crossfader:1.5.0@aar'
-    compile 'com.mikepenz:crossfadedrawerlayout:1.0.0@aar'
-    compile('com.crashlytics.sdk.android:crashlytics:2.9.4@aar') {
+    implementation 'com.mikepenz:itemanimators:0.5.0@aar'
+    implementation 'com.mikepenz:crossfader:1.5.0@aar'
+    implementation 'com.mikepenz:crossfadedrawerlayout:1.0.0@aar'
+    implementation('com.crashlytics.sdk.android:crashlytics:2.9.4@aar') {
         transitive = true
     }
 
-    compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.2'
 
-    compile 'com.roughike:bottom-bar:2.3.1'
-    compile 'com.android.support:cardview-v7:26.0.2'
-    compile 'com.android.support:recyclerview-v7:26.0.2'
+    implementation 'com.roughike:bottom-bar:2.3.1'
+    implementation 'com.android.support:cardview-v7:26.0.2'
+    implementation 'com.android.support:recyclerview-v7:26.0.2'
 
-    compile 'com.github.ceryle:SegmentedButton:v2.0.2'
-    compile 'org.zakariya.stickyheaders:stickyheaders:0.7.6'
-    compile "com.daimajia.swipelayout:library:1.2.0@aar"
-    compile 'com.synnapps:carouselview:0.1.4'
-    compile 'com.github.sundeepk:compact-calendar-view:2.0.2.2'
-    compile 'com.github.devlight.navigationtabstrip:navigationtabstrip:1.0.4'
+    implementation 'com.github.ceryle:SegmentedButton:v2.0.2'
+    implementation 'org.zakariya.stickyheaders:stickyheaders:0.7.6'
+    implementation "com.daimajia.swipelayout:library:1.2.0@aar"
+    implementation 'com.synnapps:carouselview:0.1.4'
+    implementation 'com.github.sundeepk:compact-calendar-view:2.0.2.2'
+    implementation 'com.github.devlight.navigationtabstrip:navigationtabstrip:1.0.4'
 
-    compile 'com.beardedhen:androidbootstrap:2.3.2'
-    compile 'com.rockerhieu:rv-adapter-endless:1.2'
+    implementation 'com.beardedhen:androidbootstrap:2.3.2'
+    implementation 'com.rockerhieu:rv-adapter-endless:1.2'
 
-//    compile "com.github.bumptech.glide:glide:@{rootProject.glideVersion}"
-    compile 'com.wdullaer:materialdatetimepicker:3.5.0'
-    compile 'com.hbb20:ccp:2.1.2'
+//    implementation "com.github.bumptech.glide:glide:@{rootProject.glideVersion}"
+    implementation 'com.wdullaer:materialdatetimepicker:3.5.0'
+    implementation 'com.hbb20:ccp:2.1.2'
 
-    compile 'net.objecthunter:exp4j:0.4.8'
-    compile 'com.rengwuxian.materialedittext:library:2.1.4'
-    compile 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
+    implementation 'net.objecthunter:exp4j:0.4.8'
+    implementation 'com.rengwuxian.materialedittext:library:2.1.4'
+    implementation 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
 
-//    compile 'com.commonsware.cwac:provider:0.5.3'
+//    implementation 'com.commonsware.cwac:provider:0.5.3'
 
-    compile project(':lib')
-    compile project(path: ':q-municate_user_service')
-    compile project(path: ':q-municate_auth_service')
-    compile project(path: ':q-municate_user_cache')
+    implementation project(':lib')
+    implementation project(path: ':q-municate_user_service')
+    implementation project(path: ':q-municate_auth_service')
+    implementation project(path: ':q-municate_user_cache')
 }
 
 def changeApkFileName(variant) {
     variant.outputs.each { output ->
-        def file = output.outputFile
         def newName = 'Denning_v.' + rootProject.versionName + '_c.' + rootProject.versionCode + '-' + variant.buildType.name + '.apk'
-        output.outputFile = new File(file.parent, newName)
+        output.outputFileName = newName
     }
 }
 

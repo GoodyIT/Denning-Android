@@ -109,6 +109,14 @@ public class DashboardLeaveAppAdapter extends SectioningAdapter {
         displayHeader(headerViewHolder, "Staff", "Period", "Type");
     }
 
+    @Override
+    public GhostHeaderViewHolder onCreateGhostHeaderViewHolder(ViewGroup parent) {
+        final View ghostView = new View(parent.getContext());
+        ghostView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        return new GhostHeaderViewHolder(ghostView);
+    }
+
     private void displayHeader(HeaderViewHolder viewHolder, String first, String second, String third) {
         viewHolder.firstTitle.setText(first);
         viewHolder.secondTextView.setText(second);

@@ -9,8 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -19,10 +17,7 @@ import org.zakariya.stickyheaders.SectioningAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import it.denning.R;
-import it.denning.general.DIConstants;
-import it.denning.general.DIHelper;
 import it.denning.model.DashboardModel;
-import it.denning.model.S1;
 import it.denning.model.SecondItemModel;
 
 /**
@@ -117,6 +112,14 @@ public class DashboardThirdAdapter extends SectioningAdapter {
     @Override
     public void onBindHeaderViewHolder(HeaderViewHolder viewHolder, int sectionIndex, int headerType) {
         displayThirdHeader((ThirdHeaderViewHolder)viewHolder, sectionIndex);
+    }
+
+    @Override
+    public GhostHeaderViewHolder onCreateGhostHeaderViewHolder(ViewGroup parent) {
+        final View ghostView = new View(parent.getContext());
+        ghostView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        return new GhostHeaderViewHolder(ghostView);
     }
 
     public void displayThirdHeader(ThirdHeaderViewHolder viewHolder, int sectionIndex) {

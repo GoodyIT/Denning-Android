@@ -30,6 +30,7 @@ import com.quickblox.q_municate_db.managers.DataManager;
 import com.quickblox.q_municate_db.managers.base.BaseManager;
 import com.quickblox.q_municate_db.models.Dialog;
 import com.quickblox.q_municate_db.models.DialogOccupant;
+import com.quickblox.q_municate_db.utils.DialogTransformUtils;
 import com.quickblox.q_municate_user_service.model.QMUser;
 
 import java.util.ArrayList;

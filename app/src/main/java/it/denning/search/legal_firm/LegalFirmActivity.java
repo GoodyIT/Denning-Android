@@ -16,6 +16,7 @@ import org.zakariya.stickyheaders.StickyHeaderLayoutManager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import it.denning.R;
+import it.denning.general.DISharedPreferences;
 import it.denning.model.Contact;
 import it.denning.model.LegalFirm;
 import it.denning.model.MatterModel;
@@ -29,9 +30,8 @@ import it.denning.ui.activities.base.MyBaseActivity;
 public class LegalFirmActivity extends MyBaseActivity {
     LegalFirmAdapter legalFirmAdapter;
 
-    public static void start(Context context, LegalFirm legalFirm) {
+    public static void start(Context context) {
         Intent intent = new Intent(context, LegalFirmActivity.class);
-        intent.putExtra("legalFirm", legalFirm);
         context.startActivity(intent);
     }
 
@@ -46,10 +46,8 @@ public class LegalFirmActivity extends MyBaseActivity {
     private void initFields() {
         toolbarTitle.setText(getString(R.string.legal_firm_title));
         Intent intent = getIntent();
-        LegalFirm legalFirm = (LegalFirm) intent.getSerializableExtra("legalFirm");
-
-        if (legalFirm != null) {
-            setupRecyclerView(legalFirm);
+        if (DISharedPreferences.legalFirm != null) {
+            setupRecyclerView(DISharedPreferences.legalFirm);
         }
     }
 

@@ -293,6 +293,14 @@ public class AddBillAdapter extends SectioningAdapter {
         }
     }
 
+    @Override
+    public GhostHeaderViewHolder onCreateGhostHeaderViewHolder(ViewGroup parent) {
+        final View ghostView = new View(parent.getContext());
+        ghostView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        return new GhostHeaderViewHolder(ghostView);
+    }
+
     private void displayInput(final InputTypeViewHolder viewHolder, final int sectionIndex, int itemIndex) {
         if (!isRental.equals("0") && itemIndex > 4 && sectionIndex == 0) {
             itemIndex += 2;

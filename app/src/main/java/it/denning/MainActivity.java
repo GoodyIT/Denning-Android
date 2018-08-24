@@ -298,12 +298,10 @@ public class MainActivity extends BaseActivity
 
     public void hideBottomBar() {
         bottomBar.setVisibility(View.GONE);
-//        bottomBar.setTranslationY(200);
     }
 
     public void showBottomBar() {
         bottomBar.setVisibility(View.VISIBLE);
-        bottomBar.setTranslationY(0);
     }
 
     @Override
@@ -425,9 +423,11 @@ public class MainActivity extends BaseActivity
         // Set action bar title
         setTitle(menuItem.getTitle());
         displaySelectedScreenByTabID(menuItem.getItemId());
+        bottomBar.setDefaultTab(menuItem.getItemId());
     }
 
     private void displaySelectedScreenByTabID(int tabID) {
+        nvDrawer.setCheckedItem(tabID);
 
         //creating fragment object
         Fragment fragment = null;

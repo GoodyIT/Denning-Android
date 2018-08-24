@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.beardedhen:androidbootstrap-2.3.2">
     <CLASSES>
-      <root url="file://$USER_HOME$/.android/build-cache/08c32a6f993f51c5ce418dc29f2edec6cbc7d39f/output/res" />
-      <root url="jar://$USER_HOME$/.android/build-cache/08c32a6f993f51c5ce418dc29f2edec6cbc7d39f/output/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/androidbootstrap-2.3.2.aar/683344de3f6f1e06593243a86ad4cbe8/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/androidbootstrap-2.3.2.aar/683344de3f6f1e06593243a86ad4cbe8/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

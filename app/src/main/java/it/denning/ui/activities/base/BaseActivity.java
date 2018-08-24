@@ -21,6 +21,7 @@ import android.support.v4.app.NavUtils;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.util.SparseArray;
@@ -28,6 +29,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 
 import com.quickblox.auth.model.QBProvider;
@@ -287,7 +289,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ActionBa
 
     @Override
     public void hideSnackBar() {
-        Log.i(TAG, "hideSnackBar for:" );
+        Log.i(TAG, "hideSnackBar for:");
         if (snackbar != null && !isSnackBarHasMaxPriority()) {
             snackbar.dismiss();
         }
@@ -295,7 +297,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ActionBa
 
     @Override
     public void hideSnackBar(int titleResId) {
-        Log.i(TAG, "hideSnackBar for:" +getString(titleResId) );
+        Log.i(TAG, "hideSnackBar for:" + getString(titleResId));
         snackbarClientPriority.remove(titleResId);
         hideSnackBar();
     }
@@ -305,8 +307,8 @@ public abstract class BaseActivity extends AppCompatActivity implements ActionBa
         super.onPause();
         Log.d("BaseActivity", "onPause");
         unregisterBroadcastReceivers();
-        removeActions();
         unregisterConnectionListener();
+        removeActions();
         hideSnackBar(R.string.error_disconnected);
         NetworkManager.getInstance().clearQueue();
         hideProgress();
@@ -347,8 +349,8 @@ public abstract class BaseActivity extends AppCompatActivity implements ActionBa
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d("BaseActivity", "onStart");
         connectToService();
+        blockUI(false);
     }
 
     @Override
@@ -674,22 +676,29 @@ public abstract class BaseActivity extends AppCompatActivity implements ActionBa
         showSnackbar(R.string.dialog_loading_dialogs, Snackbar.LENGTH_INDEFINITE, Priority.MAX);
         if (QBSessionManager.getInstance().getSessionParameters() != null
                 && QBProvider.FIREBASE_PHONE.equals(QBSessionManager.getInstance().getSessionParameters().getSocialProvider())
-                && !QBSessionManager.getInstance().isValidActiveSession()){
-            renewFirebaseToken();
+                && !QBSessionManager.getInstance().isValidActiveSession()) {
+            Log.d(TAG, "start refresh Firebase token");
+            new FirebaseAuthHelper(BaseActivity.this).refreshInternalFirebaseToken(new FirebaseAuthHelper.RequestFirebaseIdTokenCallback() {
+                @Override
+                public void onSuccess(String accessToken) {
+                    QBLoginChatCompositeCommand.start(BaseActivity.this);
+                }
+
+                @Override
+                public void onError(Exception e) {
+                    performLoginChatFailAction(null);
+                }
+            });
+        } else {
+            QBLoginChatCompositeCommand.start(this);
         }
-
-        QBLoginChatCompositeCommand.start(this);
-    }
-
-    public void renewFirebaseToken() {
-        FirebaseAuthHelper.refreshInternalFirebaseToken();
     }
 
     protected boolean isAppInitialized() {
         return AppSession.getSession().isSessionExist();
     }
 
-    protected boolean isChatInitializedAndUserLoggedIn() {
+    public boolean isChatInitializedAndUserLoggedIn() {
         return isAppInitialized() && QBChatService.getInstance().isLoggedIn();
     }
 
@@ -709,8 +718,16 @@ public abstract class BaseActivity extends AppCompatActivity implements ActionBa
     }
 
     protected void performLoginChatSuccessAction(Bundle bundle) {
-        QBInitCallChatCommand.start(this, CallActivity.class);
+        blockUI(false);
+        hideSnackBar(R.string.error_disconnected);
+        QBInitCallChatCommand.start(this, CallActivity.class, null);
         hideProgress();
+    }
+
+    protected void performLoginChatFailAction(Bundle bundle) {
+        blockUI(true);
+        hideSnackBar(R.string.dialog_loading_dialogs);
+        showSnackbar(R.string.error_disconnected, Snackbar.LENGTH_INDEFINITE, Priority.MAX);
     }
 
     @Override
@@ -731,6 +748,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ActionBa
                 Log.d(TAG, "chatConnectionListener authenticated");
                 hideSnackBar(R.string.error_disconnected);
                 blockUI(false);
+                checkShowingConnectionError();
             }
 
             @Override
@@ -742,7 +760,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ActionBa
             public void connectionClosedOnError(Exception e) {
                 onChatDisconnected(e);
                 blockUI(true);
-                showSnackbar(R.string.error_disconnected, Snackbar.LENGTH_INDEFINITE);
+                showSnackbar(R.string.error_disconnected, Snackbar.LENGTH_INDEFINITE, Priority.MAX);
             }
 
             @Override
@@ -751,6 +769,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ActionBa
                 Log.d(TAG, "chatConnectionListener reconnectionSuccessful");
                 hideSnackBar(R.string.error_disconnected);
                 blockUI(false);
+                checkShowingConnectionError();
             }
 
             @Override
@@ -765,7 +784,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ActionBa
         };
     }
 
-    private void blockUI(boolean stopUserInteractions){
+    private void blockUI(boolean stopUserInteractions) {
         if (isUIDisabled == stopUserInteractions) {
             return;
         }
@@ -773,16 +792,29 @@ public abstract class BaseActivity extends AppCompatActivity implements ActionBa
         disableEnableControls(!stopUserInteractions, root);
     }
 
-    private void disableEnableControls(boolean enable, ViewGroup vg){
-        if(vg instanceof Toolbar) {
+    private void disableEnableControls(boolean enable, ViewGroup vg) {
+        if (vg instanceof Toolbar) {
             return;
         }
 
-        for (int i = 0; i < vg.getChildCount(); i++){
+        for (int i = 0; i < vg.getChildCount(); i++) {
             View child = vg.getChildAt(i);
+            if (child instanceof ListView || child instanceof RecyclerView) {
+                float fullColor = 1.0f;
+                float semiTransparent = 0.75f;
+
+                child.setEnabled(enable);
+                if (enable) {
+                    child.setAlpha(fullColor);
+
+                } else {
+                    child.setAlpha(semiTransparent);
+                }
+                break;
+            }
             child.setEnabled(enable);
-            if (child instanceof ViewGroup){
-                disableEnableControls(enable, (ViewGroup)child);
+            if (child instanceof ViewGroup) {
+                disableEnableControls(enable, (ViewGroup) child);
             }
         }
     }
@@ -791,13 +823,13 @@ public abstract class BaseActivity extends AppCompatActivity implements ActionBa
         ButterKnife.bind(this);
     }
 
-    private boolean isSnackBarHasMaxPriority(){
-        if (snackbarClientPriority.size() == 0){
+    private boolean isSnackBarHasMaxPriority() {
+        if (snackbarClientPriority.size() == 0) {
             return false;
         }
         for (int i = 0; i < snackbarClientPriority.size(); i++) {
-            Log.i(TAG, "snackbar["+i+")="+snackbarClientPriority.valueAt(i));
-            if (Priority.MAX == snackbarClientPriority.valueAt(i)){
+            Log.i(TAG, "snackbar[" + i + ")=" + snackbarClientPriority.valueAt(i));
+            if (Priority.MAX == snackbarClientPriority.valueAt(i)) {
                 return true;
             }
         }
@@ -809,11 +841,11 @@ public abstract class BaseActivity extends AppCompatActivity implements ActionBa
     }
 
     protected void performLoadChatsSuccessAction(Bundle bundle) {
-       // hideSnackBar();
+        // hideSnackBar();
         isDialogLoading = false;
     }
 
-    protected void startActivityByName (Class<?> activityName, boolean needClearTask){
+    protected void startActivityByName(Class<?> activityName, boolean needClearTask) {
         Intent intent = new Intent(this, activityName);
 
         if (needClearTask) {

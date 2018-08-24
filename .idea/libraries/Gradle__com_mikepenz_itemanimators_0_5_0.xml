@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.mikepenz:itemanimators-0.5.0">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.android/build-cache/913d49b08ddd8dc6b9ecb09e35d3b1b95c8e70a9/output/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.android/build-cache/913d49b08ddd8dc6b9ecb09e35d3b1b95c8e70a9/output/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/itemanimators-0.5.0.aar/e3e31f16a74f26f2dcfa78a6f903e613/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/itemanimators-0.5.0.aar/e3e31f16a74f26f2dcfa78a6f903e613/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

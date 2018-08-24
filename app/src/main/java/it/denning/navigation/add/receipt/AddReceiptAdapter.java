@@ -1,11 +1,8 @@
 package it.denning.navigation.add.receipt;
 
 import android.content.Context;
-import android.support.design.widget.TextInputLayout;
 import android.support.v7.widget.CardView;
-import android.text.Editable;
 import android.text.InputType;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,11 +12,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.gson.JsonObject;
-import com.rengwuxian.materialedittext.MaterialEditText;
 
 import org.zakariya.stickyheaders.SectioningAdapter;
-
-import java.util.logging.Handler;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,9 +28,7 @@ import it.denning.model.LabelValueDetail;
 import it.denning.model.MatterSimple;
 import it.denning.model.ReceiptModel;
 import it.denning.model.TaxInvoiceModel;
-import it.denning.navigation.add.matter.AddMatterActivity;
 import it.denning.search.utils.OnSectionItemClickListener;
-import it.denning.search.utils.floatinglabelview.FloatingLabelView;
 import it.denning.search.utils.myfloatingedittext.MyFloatingEditText;
 import it.denning.utils.KeyboardUtils;
 
@@ -212,6 +204,14 @@ public class AddReceiptAdapter extends SectioningAdapter {
         } else {
             headerViewHolder.firstTitle.setText("Mode Of Payment");
         }
+    }
+
+    @Override
+    public GhostHeaderViewHolder onCreateGhostHeaderViewHolder(ViewGroup parent) {
+        final View ghostView = new View(parent.getContext());
+        ghostView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        return new GhostHeaderViewHolder(ghostView);
     }
 
     private void displayInput(final InputTypeViewHolder viewHolder, final int sectionIndex, final int itemIndex) {

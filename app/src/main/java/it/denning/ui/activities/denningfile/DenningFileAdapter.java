@@ -6,7 +6,6 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -21,14 +20,7 @@ import it.denning.R;
 import it.denning.general.DIConstants;
 import it.denning.general.DIHelper;
 import it.denning.model.SearchResultModel;
-import it.denning.search.utils.OnAccountsClickListener;
-import it.denning.search.utils.OnFileFolderClickListener;
-import it.denning.search.utils.OnFileNoteClickListener;
 import it.denning.search.utils.OnItemClickListener;
-import it.denning.search.utils.OnPaymentRecordClickListener;
-import it.denning.search.utils.OnRelatedMatterClickListener;
-import it.denning.search.utils.OnTemplateClickListener;
-import it.denning.search.utils.OnUploadClickListener;
 
 /**
  * Created by com on 12/4/2017.
@@ -117,6 +109,14 @@ public class DenningFileAdapter extends SectioningAdapter {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View v = inflater.inflate(R.layout.cardview_search_section_header, parent, false);
         return new HeaderViewHolder(v);
+    }
+
+    @Override
+    public GhostHeaderViewHolder onCreateGhostHeaderViewHolder(ViewGroup parent) {
+        final View ghostView = new View(parent.getContext());
+        ghostView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        return new GhostHeaderViewHolder(ghostView);
     }
 
     @Override

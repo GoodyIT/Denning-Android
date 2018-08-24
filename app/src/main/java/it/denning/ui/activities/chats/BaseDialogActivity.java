@@ -363,6 +363,7 @@ public abstract class BaseDialogActivity extends BaseLoggableActivity implements
 
     private void returnResult(){
         if (getCallingActivity() != null) {
+            Log.i(TAG, "return result to " + getCallingActivity().getShortClassName());
             Intent intent = new Intent();
             intent.putExtra(QBServiceConsts.EXTRA_DIALOG_ID, currentChatDialog.getDialogId());
             intent.putExtra(QBServiceConsts.EXTRA_DIALOG_UPDATE_POSITION, needUpdatePosition);
@@ -712,7 +713,9 @@ public abstract class BaseDialogActivity extends BaseLoggableActivity implements
     }
 
     protected void startLoadDialogMessages(QBChatDialog chatDialog, long lastDateLoad, boolean isLoadOldMessages) {
-        if (!QBLoginChatCompositeCommand.isRunning()) {
+        Log.v(TAG, "startLoadDialogMessages()");
+        if (isChatInitializedAndUserLoggedIn()) {
+            Log.v(TAG, "startLoadDialogMessages() --- isChatInitializedAndUserLoggedIn()");
             isLoadingMessages = true;
             QBLoadDialogMessagesCommand.start(this, chatDialog, lastDateLoad, isLoadOldMessages);
         }

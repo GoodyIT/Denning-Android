@@ -25,9 +25,8 @@ public class PropertyActivity extends AppCompatActivity {
     @BindView(R.id.search_property_list)
     RecyclerView propertyList;
 
-    public static void start(Context context, Property property) {
+    public static void start(Context context) {
         Intent intent = new Intent(context, PropertyActivity.class);
-        intent.putExtra("property", property);
         context.startActivity(intent);
     }
 
