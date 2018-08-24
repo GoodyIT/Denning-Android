@@ -166,7 +166,7 @@ public class DashboardAttendanceActivity extends GeneralActivity implements OnIt
     }
 
     void fetchHeader() {
-        String url  = DISharedPreferences.getInstance().getServerAPI() + DIConstants.DASHBOARD_S11_GET_URL;
+        String url  = DIConstants.DASHBOARD_S11_GET_URL;
         NetworkManager.getInstance().sendPrivateGetRequestWithoutError(url, new CompositeCompletion() {
             @Override
             public void parseResponse(JsonElement jsonElement) {

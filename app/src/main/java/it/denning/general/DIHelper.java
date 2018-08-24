@@ -42,6 +42,7 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.Enumeration;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
@@ -362,7 +363,7 @@ public class DIHelper {
         if (title.matches("\\w*") || title.length() < 9) {
             return new String[]{"", ""};
         }
-        return DIHelper.separateNameIntoTwo(title.substring(9));
+        return DIHelper.separateNameIntoTwo(title.split("")[1]);
     }
 
     public static boolean isDocFile(String ext) {
@@ -418,9 +419,7 @@ public class DIHelper {
         if (array.length > 1) {
             array[1] = array[1].substring(0, array[1].length()-1);
         } else {
-            List<String> _array = Arrays.asList(array);
-            _array.add("");
-            array = (String[]) _array.toArray();
+            array = new String[]{array[0], ""};
         }
         return array;
     }

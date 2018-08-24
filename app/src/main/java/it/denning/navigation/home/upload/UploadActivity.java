@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.util.Pair;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
@@ -27,10 +26,8 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.quickblox.q_municate_core.utils.ConstsCore;
 import com.quickblox.q_municate_db.models.Attachment;
 import com.quickblox.q_municate_db.utils.ErrorUtils;
-import com.quickblox.ui.kit.chatmessage.adapter.utils.LocationUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +47,6 @@ import it.denning.search.utils.ClearableAutoCompleteTextView;
 import it.denning.tasks.GetFilepathFromUriTask;
 import it.denning.ui.activities.base.BaseLoggableActivity;
 import it.denning.ui.activities.others.PreviewImageActivity;
-import it.denning.ui.fragments.mediapicker.MediaSourcePickDialogFragment;
 import it.denning.utils.DialogsUtils;
 import it.denning.utils.KeyboardUtils;
 import it.denning.utils.MediaUtils;
@@ -236,8 +232,8 @@ public class UploadActivity extends BaseLoggableActivity implements OnMediaPicke
                 fileNo1 = key;
             }
         } else {
-            uploadToLabel.setText(key.substring(9));
-            fileNo1 = DIHelper.separateNameIntoTwo(key.substring(9))[0];
+            uploadToLabel.setText(key.split(":")[1]);
+            fileNo1 = DIHelper.separateNameIntoTwo(key.split(":")[1])[0];
         }
     }
 

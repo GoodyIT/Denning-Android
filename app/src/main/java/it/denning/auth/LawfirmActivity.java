@@ -2,6 +2,7 @@ package it.denning.auth;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -35,6 +36,7 @@ import java.util.Arrays;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import it.denning.R;
+import it.denning.general.DIConstants;
 import it.denning.general.DISharedPreferences;
 import it.denning.general.EndlessRecyclerViewScrollListener;
 import it.denning.model.Bank;
@@ -58,7 +60,7 @@ import okhttp3.Response;
  */
 
 public class LawfirmActivity extends MySearchBaseActivity implements OnClickListenerWithCode {
-    private String title, url;
+    private String title;
     private String filter = "";
     private int page = 1;
     private LinearLayoutManager linearLayoutManager;
@@ -83,7 +85,6 @@ public class LawfirmActivity extends MySearchBaseActivity implements OnClickList
 
     private void initFields() {
         title = getIntent().getStringExtra("title");
-        url = getIntent().getStringExtra("url");
         toolbarTitle.setText(title);
     }
 
@@ -144,7 +145,7 @@ public class LawfirmActivity extends MySearchBaseActivity implements OnClickList
     }
 
     private void loadData() {
-        String _url = url + filter + "&page=" + page;
+        String _url = DIConstants.SIGNUP_FIRM_LIST_URL + "?search=" + filter + "&page=" + page;
         showActionBarProgress();
         NetworkManager.getInstance().sendPrivateGetRequest(_url, new CompositeCompletion() {
             @Override

@@ -28,7 +28,10 @@ dependencies {
     }
     api "com.quickblox:quickblox-android-sdk-videochat-webrtc:${rootProject.qbSdkVersion}"
     api "com.quickblox:quickblox-android-sdk-core:${rootProject.qbSdkVersion}"
-    api("com.quickblox:chat-message-adapter:$rootProject.qbMessageAdapterVersion")
+    api ("com.quickblox:chat-message-adapter:$rootProject.qbMessageAdapterVersion") {
+        exclude group: 'com.quickblox'
+        exclude group: 'com.android.support'
+    }
 
     api("com.facebook.android:facebook-android-sdk:$rootProject.facebookSdkVersion") {
         exclude group: 'com.android.support'

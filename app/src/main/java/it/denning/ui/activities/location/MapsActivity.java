@@ -5,8 +5,6 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Address;
-import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
@@ -44,23 +42,13 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.quickblox.q_municate_core.utils.ConstsCore;
-import com.quickblox.q_municate_db.utils.ErrorUtils;
 import com.quickblox.ui.kit.chatmessage.adapter.utils.LocationUtils;
-
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import it.denning.App;
 import it.denning.R;
-import it.denning.general.DIConstants;
 import it.denning.network.CompositeCompletion;
-import it.denning.network.ErrorHandler;
 import it.denning.network.NetworkManager;
-import it.denning.network.RetrofitHelper;
 import it.denning.ui.activities.base.BaseLoggableActivity;
 import it.denning.utils.helpers.SystemPermissionHelper;
 

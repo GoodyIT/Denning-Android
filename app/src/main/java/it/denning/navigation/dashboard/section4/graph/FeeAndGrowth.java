@@ -26,11 +26,15 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import it.denning.R;
 import it.denning.general.DISharedPreferences;
+import it.denning.model.BillModel;
 import it.denning.model.GraphModel;
 import it.denning.model.ThreeItemModel;
 import it.denning.navigation.dashboard.util.GeneralActivity;
 import it.denning.network.CompositeCompletion;
+import it.denning.network.ErrorHandler;
 import it.denning.network.NetworkManager;
+import it.denning.ui.activities.base.BaseActivity;
+import it.denning.ui.activities.base.MyBaseActivity;
 import okhttp3.Call;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -39,50 +43,51 @@ import okhttp3.Response;
  * Created by hothongmee on 08/11/2017.
  */
 
-public class FeeAndGrowth extends GeneralActivity {
+public class FeeAndGrowth extends MyBaseActivity {
     @BindView(R.id.dashboard_second_layout)
     LinearLayout linearLayout;
     ArrayList<GraphModel> modelArrayList;
     FeesAndGrowthAdapter feesAndGrowthAdapter;
 
+    private String _url;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dashboard_graph);
-        ButterKnife.bind(this);
+        initFields();
+        initActionBar();
+        setupRecyclerView();
 
-        setupList();
-        _url = getIntent().getStringExtra("api");
         fetchTask(_url);
     }
 
-    void setupList() {
+    private void initFields() {
+        toolbarTitle.setText(R.string.fee_matter_growth);
+
+        _url = getIntent().getStringExtra("api");
+    }
+
+    void setupRecyclerView() {
         modelArrayList = new ArrayList<>();
         feesAndGrowthAdapter = new FeesAndGrowthAdapter(modelArrayList);
-        dashboardList.setHasFixedSize(true);
-        dashboardList.setItemAnimator(new DefaultItemAnimator());
-        dashboardList.setAdapter(feesAndGrowthAdapter);
-        dashboardList.setLayoutManager(new LinearLayoutManager(this, OrientationHelper.VERTICAL, false));
-
-        dashboardList.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                hideKeyboard();
-                return false;
-            }
-        });
-        dashboardList.setItemViewCacheSize(0);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(feesAndGrowthAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, OrientationHelper.VERTICAL, false));
     }
 
     void fetchTask(final String _url) {
-
-        final ProgressDialog pd = ProgressDialog.show(this, "", "Loading", true, false);
-        String url  = DISharedPreferences.getInstance().getServerAPI() + _url;
-        NetworkManager.getInstance().sendPrivateGetRequestWithoutError(url, new CompositeCompletion() {
+        showActionBarProgress();
+        NetworkManager.getInstance().sendPrivateGetRequest(_url, new CompositeCompletion() {
             @Override
             public void parseResponse(JsonElement jsonElement) {
-                pd.dismiss();
+                hideActionBarProgress();
                 manageResponse(jsonElement.getAsJsonObject());
+            }
+        }, new ErrorHandler() {
+            @Override
+            public void handleError(String error) {
+                hideActionBarProgress();
             }
         });
     }
@@ -90,11 +95,5 @@ public class FeeAndGrowth extends GeneralActivity {
     void manageResponse(JsonObject jsonObject) {
         ThreeItemModel threeItem = new Gson().fromJson(jsonObject, ThreeItemModel.class);
         feesAndGrowthAdapter.swapItems(threeItem.graphs);
-    }
-
-    @OnClick(R.id.back_btn)
-    void goBack() {
-        hideKeyboard();
-        finish();
     }
 }

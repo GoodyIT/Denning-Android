@@ -402,6 +402,7 @@
     <string name="client_upload_title">Upload to Contact Folder</string>
     <string name="business_upload_title">Business User Upload</string>
     <string name="branch_title">Select a Branch</string>
+    <string name="select_firm">Select a Firm</string>
     <string name="add_title">ADD</string>
     <string name="add_quotation_title">Add Quotation</string>
     <string name="quotation_title">Quotation</string>
@@ -478,6 +479,7 @@
     <string name="master_title">Select Matter</string>
     <string name="completion_date_title">Completion Date Tracking</string>
     <string name="fees_transfer_title">Fees Transfer</string>
+    <string name="fee_matter_growth">Fee &amp; Matter Growth</string>
     <string name="due_task_title">Staff Due Task</string>
     <string name="transaction_detail_title">Transaction Detail</string>
     <string name="select_a_relation">Select a Relation</string>

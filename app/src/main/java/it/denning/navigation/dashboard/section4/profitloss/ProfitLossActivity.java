@@ -86,14 +86,13 @@ public class ProfitLossActivity extends BaseActivity implements OnItemClickListe
 
         initFields();
         initActionBar();
+        setupRecyclerView();
+        loadData();
     }
 
     private void initFields() {
         toolbarTitle.setText(getString(R.string.profit_loss_title));
         _url = getIntent().getStringExtra("api");
-
-        setupRecyclerView();
-        loadData();
     }
 
     void setupRecyclerView() {
@@ -107,7 +106,7 @@ public class ProfitLossActivity extends BaseActivity implements OnItemClickListe
     }
 
     void loadData() {
-        String url  = DISharedPreferences.getInstance(getApplicationContext()).getServerAPI() + _url;
+        String url  = _url;
         showActionBarProgress();
         NetworkManager.getInstance().sendPrivateGetRequest(url, new CompositeCompletion() {
             @Override

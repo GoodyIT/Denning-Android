@@ -132,6 +132,7 @@ public class SignUpActivity extends BaseAuthActivity {
 
     private void selectLawfirm() {
         Intent intent = new Intent(this, LawfirmActivity.class);
+        intent.putExtra("title", R.string.select_firm);
         startActivityForResult(intent, DIConstants.REQUEST_CODE);
     }
 

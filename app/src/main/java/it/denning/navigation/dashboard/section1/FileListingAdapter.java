@@ -115,11 +115,8 @@ public class FileListingAdapter extends SectioningAdapter {
 
         }
 
-        String title= "";
-        if (model.title.contains("File No.")) {
-            title = model.title.substring(10);
-        }
-        itemViewHolder.fileName.setText(DIHelper.separateNameIntoTwo(title)[1]);
+        String title= model.title;
+        itemViewHolder.fileName.setText(DIHelper.separateNameIntoTwo(title.split(":")[1])[1]);
     }
 
     @SuppressLint("SetTextI18n")

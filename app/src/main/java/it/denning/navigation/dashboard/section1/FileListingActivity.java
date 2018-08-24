@@ -165,7 +165,7 @@ public class FileListingActivity extends GeneralActivity implements OnItemClickL
     }
 
     void fetchHeader() {
-        String url  = DISharedPreferences.getInstance().getServerAPI() + DIConstants.DASHBOARD_S1_MATTERLISTING_GET_URL;
+        String url  = DIConstants.DASHBOARD_S1_MATTERLISTING_GET_URL;
         NetworkManager.getInstance().sendPrivateGetRequestWithoutError(url, new CompositeCompletion() {
             @Override
             public void parseResponse(JsonElement jsonElement) {
