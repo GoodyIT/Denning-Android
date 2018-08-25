@@ -84,8 +84,7 @@ public class LawfirmActivity extends MySearchBaseActivity implements OnClickList
     }
 
     private void initFields() {
-        title = getIntent().getStringExtra("title");
-        toolbarTitle.setText(title);
+        toolbarTitle.setText(R.string.select_firm);
     }
 
     private void setupSearchView() {

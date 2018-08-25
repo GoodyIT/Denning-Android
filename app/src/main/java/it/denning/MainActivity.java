@@ -582,7 +582,7 @@ public class MainActivity extends BaseActivity
 
     private boolean checkToLoginChat() {
         boolean isValid = true;
-        if (!DISharedPreferences.getInstance(this).isLoggedIn() || !isChatInitializedAndUserLoggedIn()) {
+        if (!DISharedPreferences.getInstance(this).isLoggedIn() /*|| !isChatInitializedAndUserLoggedIn()*/) {
             isValid = false;
             mDrawer.closeDrawers();
             DIAlert.showSimpleAlertWithCompletion(this, R.string.warning_title, R.string.login_required, new MyCallbackInterface() {

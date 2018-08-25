@@ -35,7 +35,11 @@ public class ProfitLossAdapter extends RecyclerView.Adapter {
         this.clickListener = clickListener;
     }
 
-    public class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public List<ItemModel> getModel() {
+        return modelArrayList;
+    }
+
+    public class ItemViewHolder extends RecyclerView.ViewHolder{
         @BindView(R.id.name_textview)
         TextView contactName;
         @BindView(R.id.id_textView)
@@ -46,13 +50,8 @@ public class ProfitLossAdapter extends RecyclerView.Adapter {
         public ItemViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
-            cardView.setOnClickListener(this);
         }
 
-        @Override
-        public void onClick(View v) {
-            clickListener.onClick(itemView, getLayoutPosition());
-        }
     }
 
     @Override
@@ -62,16 +61,23 @@ public class ProfitLossAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         ItemModel model = modelArrayList.get(position);
         ItemViewHolder itemViewHolder = (ItemViewHolder)holder;
         itemViewHolder.contactID.setText(model.value);
-        itemViewHolder.contactName.setText(model.itemId);
+        itemViewHolder.contactName.setText(model.label);
         if (Float.parseFloat(String.valueOf(model.value)) > 0) {
             itemViewHolder.contactID.setTextColor(Color.parseColor("#FF3B2F"));
         } else {
             itemViewHolder.contactID.setTextColor(Color.parseColor("#FF5CE499"));
         }
+
+        itemViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickListener.onClick(v, position);
+            }
+        });
     }
 
     @Override

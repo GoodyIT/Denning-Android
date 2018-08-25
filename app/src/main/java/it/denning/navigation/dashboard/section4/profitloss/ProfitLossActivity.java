@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
@@ -34,6 +35,7 @@ import butterknife.OnClick;
 import it.denning.R;
 import it.denning.general.DISharedPreferences;
 import it.denning.model.ItemModel;
+import it.denning.model.ThreeItemModel;
 import it.denning.navigation.dashboard.util.GeneralActivity;
 import it.denning.navigation.home.calendar.CalendarActivity;
 import it.denning.network.CompositeCompletion;
@@ -100,9 +102,9 @@ public class ProfitLossActivity extends BaseActivity implements OnItemClickListe
         linearLayoutManager  = new LinearLayoutManager(this, OrientationHelper.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
+        recyclerView.addItemDecoration(new it.denning.general.DividerItemDecoration(ContextCompat.getDrawable(this, R.drawable.item_decorator)));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(profitLossAdapter);
-
     }
 
     void loadData() {
@@ -111,7 +113,7 @@ public class ProfitLossActivity extends BaseActivity implements OnItemClickListe
         NetworkManager.getInstance().sendPrivateGetRequest(url, new CompositeCompletion() {
             @Override
             public void parseResponse(JsonElement jsonElement) {
-                manageResponse(jsonElement.getAsJsonArray());
+                manageResponse(jsonElement.getAsJsonObject());
             }
         }, new ErrorHandler() {
             @Override
@@ -122,15 +124,15 @@ public class ProfitLossActivity extends BaseActivity implements OnItemClickListe
         });
     }
 
-    private void manageResponse(JsonArray jsonArray) {
+    private void manageResponse(JsonObject jsonObject) {
         hideActionBarProgress();
-        ItemModel[] itemModels = new Gson().fromJson(jsonArray, ItemModel[].class);
-        profitLossAdapter.swapItems(Arrays.asList(itemModels));
+        ThreeItemModel itemModel = new Gson().fromJson(jsonObject, ThreeItemModel.class);
+        profitLossAdapter.swapItems(itemModel.items);
     }
 
     @Override
     public void onClick(View view, int position) {
-        ItemModel model = modelArrayList.get(position);
+        ItemModel model = profitLossAdapter.getModel().get(position);
         Intent i = new Intent(this, ProfitLossDetailActivity.class);
         i.putExtra("api", model.api);
         startActivity(i);

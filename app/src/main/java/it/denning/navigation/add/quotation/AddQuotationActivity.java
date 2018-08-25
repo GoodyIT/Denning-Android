@@ -7,14 +7,12 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -27,7 +25,6 @@ import java.io.File;
 import java.io.IOException;
 
 import it.denning.R;
-import it.denning.auth.LawfirmActivity;
 import it.denning.general.DIAlert;
 import it.denning.general.DIConstants;
 import it.denning.general.DIFileManager;
@@ -35,18 +32,14 @@ import it.denning.general.DISharedPreferences;
 import it.denning.general.MyCallbackInterface;
 import it.denning.model.BillModel;
 import it.denning.model.CodeDescription;
-import it.denning.model.LegalFirm;
 import it.denning.model.MatterCodeModel;
-import it.denning.model.MatterSimple;
 import it.denning.model.ReceiptModel;
 import it.denning.model.TaxInvoiceCalcModel;
-import it.denning.navigation.add.AddAdapter;
 import it.denning.navigation.add.bill.AddBillActivity;
 import it.denning.navigation.add.receipt.AddReceiptActivity;
 import it.denning.navigation.add.utils.billselection.TaxInvoiceSelectionActivity;
 import it.denning.navigation.add.utils.listmatter.ListMatterActivity;
 import it.denning.navigation.add.utils.simplematter.SimpleMatterActivity;
-import it.denning.navigation.add.utils.simplematter.SimpleMatterAdapter;
 import it.denning.navigation.dashboard.section4.contacts.DashboardContactActivity;
 import it.denning.network.CompositeCompletion;
 import it.denning.network.ErrorHandler;
@@ -55,10 +48,9 @@ import it.denning.network.services.DownloadService;
 import it.denning.network.utils.Download;
 import it.denning.network.utils.DownloadCompleteInterface;
 import it.denning.network.utils.ProgressInterface;
-import it.denning.search.document.DocumentActivity;
+import it.denning.search.utils.OnSectionItemClickListener;
 import it.denning.search.utils.generallist.GeneralListActivity;
 import it.denning.ui.activities.base.MyBaseActivity;
-import it.denning.search.utils.OnSectionItemClickListener;
 
 /**
  * Created by denningit on 2018-01-16.
