@@ -15,7 +15,6 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="true"
-        android:layout_margin="1dp"
         android:foreground="?android:attr/selectableItemBackground"
         card_view:cardElevation="1dp"
         card_view:cardBackgroundColor="@android:color/transparent">

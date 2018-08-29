@@ -97,7 +97,7 @@ public class ViewQuotationActivity extends MyBaseActivity implements
     }
 
     private void initFields() {
-        toolbarTitle.setText(R.string.update_property_title);
+        toolbarTitle.setText(R.string.quotation_title);
 
         billModel = (BillModel) getIntent().getSerializableExtra("model");
     }

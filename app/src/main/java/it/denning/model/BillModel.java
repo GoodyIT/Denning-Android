@@ -26,4 +26,8 @@ public class BillModel implements Serializable {
     public String spaAdj;
     public String spaLoan;
     public String spaPrice;
+
+    public String getPresetCodeDesc() {
+        return presetCode == null ? "" : presetCode.description;
+    }
 }

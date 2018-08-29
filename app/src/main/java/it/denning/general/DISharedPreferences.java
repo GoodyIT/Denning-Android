@@ -17,6 +17,7 @@ import it.denning.App;
 import it.denning.model.Accounts;
 import it.denning.model.Attendance;
 import it.denning.model.Bank;
+import it.denning.model.Contact;
 import it.denning.model.DocumentModel;
 import it.denning.model.Event;
 import it.denning.model.FileNote;
@@ -72,6 +73,7 @@ public class DISharedPreferences {
     public static Accounts accounts;
     public static LegalFirm legalFirm;
     public static Property property;
+    public static Contact contact;
     public static MatterSimple selectedMatterSimple;
     public static File file;
     public static String keyword = "";

@@ -28,8 +28,8 @@
                 android:layout_margin="@dimen/padding_large">
 
                 <it.denning.ui.views.roundedimageview.RoundedImageView
-                    style="@style/AvatarImageViewStyle.Common"
                     android:id="@+id/avatar_imageview"
+                    style="@style/AvatarImageViewStyle.Common"
                     android:layout_alignParentLeft="true"
                     app:border_color="@color/dark_gray"
                     app:border_width="@dimen/avatar_border_width"
@@ -84,8 +84,8 @@
                 android:layout_below="@id/push_notification_switch" />
 
             <Button
-                style="@style/SettingsButtonStyle"
                 android:id="@+id/invite_friends_button"
+                style="@style/SettingsButtonStyle"
                 android:layout_below="@id/divider1"
                 android:text="@string/settings_invite_friends" />
 
@@ -97,8 +97,8 @@
                 android:layout_below="@id/invite_friends_button" />
 
             <Button
-                style="@style/SettingsButtonStyle"
                 android:id="@+id/give_feedback_button"
+                style="@style/SettingsButtonStyle"
                 android:layout_below="@id/divider2"
                 android:text="@string/settings_give_feedback" />
 
@@ -116,8 +116,8 @@
                 android:layout_below="@id/divider3">
 
                 <Button
-                    style="@style/SettingsButtonStyle"
                     android:id="@+id/change_password_button"
+                    style="@style/SettingsButtonStyle"
                     android:text="@string/settings_change_password" />
 
                 <include
@@ -129,8 +129,8 @@
             </RelativeLayout>
 
             <Button
-                style="@style/SettingsButtonStyle"
                 android:id="@+id/logout_button"
+                style="@style/SettingsButtonStyle"
                 android:layout_below="@id/change_password_view"
                 android:text="@string/settings_logout" />
 
@@ -143,12 +143,12 @@
 
             <!--hide button until next releases-->
             <Button
-                style="@style/SettingsButtonStyle"
                 android:id="@+id/delete_my_account_button"
+                style="@style/SettingsButtonStyle"
                 android:layout_below="@id/divider4"
                 android:text="@string/settings_delete_my_account"
                 android:textColor="@color/text_red"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
             <include
                 android:id="@+id/divider5"
@@ -156,7 +156,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/divider_height"
                 android:layout_below="@id/delete_my_account_button"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
         </RelativeLayout>
 

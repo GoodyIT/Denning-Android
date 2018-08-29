@@ -303,12 +303,12 @@ public class AddReceiptAdapter extends SectioningAdapter {
 
     public boolean isValidProceed() {
         if (model.items.get(0).items.get(0).value.trim().length() == 0) {
-            DIAlert.showSimpleAlert(App.getInstance(), R.string.alert_file_no_not_select);
+            DIAlert.showSimpleAlert(context, R.string.alert_file_no_not_select);
             return false;
         }
 
         if (model.items.get(0).items.get(1).value.trim().length() == 0) {
-            DIAlert.showSimpleAlert(App.getInstance(), R.string.alert_bill_no_not_select);
+            DIAlert.showSimpleAlert(context, R.string.alert_bill_no_not_select);
             return false;
         }
 

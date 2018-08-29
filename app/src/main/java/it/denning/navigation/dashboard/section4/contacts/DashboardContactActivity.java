@@ -20,6 +20,7 @@ import java.util.Arrays;
 import butterknife.OnClick;
 import it.denning.R;
 import it.denning.general.DIConstants;
+import it.denning.general.DISharedPreferences;
 import it.denning.general.EndlessRecyclerViewScrollListener;
 import it.denning.model.Contact;
 import it.denning.model.SearchResultModel;
@@ -179,8 +180,8 @@ public class DashboardContactActivity extends MySearchBaseActivity implements On
     }
 
     private void manageContactResponse(JsonElement jsonElement) {
-        Contact contact = new Gson().fromJson(jsonElement, Contact.class);
-        SearchContactActivity.start(this, contact, "");
+        DISharedPreferences.contact = new Gson().fromJson(jsonElement, Contact.class);
+        SearchContactActivity.start(this, "");
     }
 
     void openContact(final String key) {

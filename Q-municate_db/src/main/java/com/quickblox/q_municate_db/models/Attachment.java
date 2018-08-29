@@ -66,7 +66,7 @@ public class Attachment implements Serializable {
     }
 
     public Attachment(String attachmentId, int blobId, Type type, String name, long size, String remoteUrl,
-            String additionalInfo, int height, int width, int duration) {
+                      String additionalInfo, int height, int width, int duration) {
         this.attachmentId = attachmentId;
         this.blobId = blobId;
         this.type = type;

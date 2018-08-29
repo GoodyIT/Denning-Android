@@ -377,6 +377,7 @@
     <string name="matter_code_title">Matter</string>
     <string name="matter_title">Matter</string>
     <string name="contact_title">Contact</string>
+    <string name="related_matters_title">Related Matters</string>
     <string name="property_title">Property</string>
     <string name="document_title">Document</string>
     <string name="legal_firm_title">Legal Frim</string>
@@ -418,6 +419,7 @@
     <string name="leave_type_title">Leave Type</string>
     <string name="mode_title">Select Mode</string>
     <string name="profit_loss_title">Profit Loss</string>
+    <string name="back_cash_balance">"Bank &amp; Cash Balances"</string>
     <string name="leave_application_title">Leave Application</string>
     <string name="leave_records_title">Leave Records</string>
     <string name="leave_pending_approval_title">Leave Pending Approval</string>

@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import it.denning.general.DISharedPreferences;
+import it.denning.navigation.message.DenningSupport;
 import it.denning.network.services.DenningService;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -53,6 +54,13 @@ public class RetrofitHelper {
         setInitialValues();
         final Retrofit retrofit = createPrivateRetrofit();
         return retrofit.create(DenningService.class);
+    }
+
+    public DenningService getPublicServiceWithEmail(String email) {
+        setInitialValues();
+        baseUrl = "https://www.denningonline.com.my/";
+        final Retrofit retrofit = createPublicRetrofitWithEmail(email);
+        return  retrofit.create(DenningService.class);
     }
 
     public DenningService getPublicService() {
@@ -122,6 +130,10 @@ public class RetrofitHelper {
         return createClient("android@denning.com.my", "{334E910C-CC68-4784-9047-0F23D37C9CF9}");
     }
 
+    public OkHttpClient createPublicClientWithEmail(String email) {
+        return createClient(email, "{334E910C-CC68-4784-9047-0F23D37C9CF9}");
+    }
+
     /**
      * Creates a pre configured Retrofit instance
      */
@@ -145,6 +157,9 @@ public class RetrofitHelper {
         return createRetrofit(createPublicClient(), publicBaseUrl);
     }
 
+    private Retrofit createPublicRetrofitWithEmail(String email) {
+        return createRetrofit(createPublicClientWithEmail(email), publicBaseUrl);
+    }
 
     /**
      * Download Reftrofit

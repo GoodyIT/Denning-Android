@@ -78,7 +78,7 @@ public class FavoriteContact extends MessageBaseFragment {
         baseActivity.showProgress();
 
         DIService service = new DIService(getContext(), myDialogList);
-        service.fetchAllContactsFromServer(new DIMessageInterface() {
+        DIService.fetchAllContactsFromServer(null, new DIMessageInterface() {
             @Override
             public void onSuccess(final ChatContactModel chatContactModel) {
                 messageAdapter.setChatContactModel(chatContactModel);

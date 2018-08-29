@@ -128,7 +128,7 @@ public class AddPropertyActivity extends MyBaseActivity implements
                 break;
             case "Area Type":
                 twoColumn = 1;
-                gotoDesc(R.string.select_area_type_title, DIConstants.PROPERTY_AREA_TYPE_GET_URL);
+                gotoAreaType();
                 break;
             case "Tenure":
                 gotoDesc(R.string.tenure_type_title, DIConstants.PROPERTY_TENURE_TYPE_GET_URL);
@@ -276,6 +276,15 @@ public class AddPropertyActivity extends MyBaseActivity implements
         startActivityForResult(i, DIConstants.MUKIM_REQUEST_CODE);
     }
 
+    private void gotoAreaType() {
+        Intent i = new Intent(this, GeneralListActivity.class);
+        i.putExtra("title", R.string.select_area_type_title);
+        i.putExtra("value", "description");
+        i.putExtra("code", "code");
+        i.putExtra("url", DIConstants.PROPERTY_AREA_TYPE_GET_URL);
+        startActivityForResult(i, DIConstants.AREA_TYPE_REQUEST_CODE);
+    }
+
     private void gotoCodeDesc(int resTitle, String url) {
         Intent i = new Intent(this, GeneralListActivity.class);
         i.putExtra("title", resTitle);
@@ -358,6 +367,11 @@ public class AddPropertyActivity extends MyBaseActivity implements
                 } else {
                     adapter.updateLeftRightInput(accountType.description, selectedSectionIndex, selectedItemIndex, twoColumn);
                 }
+            }
+        } else if (requestCode == DIConstants.AREA_TYPE_REQUEST_CODE) {
+            if (resultCode == AppCompatActivity.RESULT_OK) {
+                String desc = data.getStringExtra("desc");
+                adapter.updateLeftRightInput(desc, selectedSectionIndex, selectedItemIndex, 1);
             }
         } else if (requestCode == DIConstants.DESC_REQUEST_CODE) {
             if (resultCode == AppCompatActivity.RESULT_OK) {

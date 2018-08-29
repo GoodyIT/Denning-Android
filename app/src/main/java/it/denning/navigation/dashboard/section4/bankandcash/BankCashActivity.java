@@ -84,7 +84,7 @@ public class BankCashActivity extends GeneralActivity implements OnItemClickList
     }
 
     void initFields() {
-        activityTitle.setText("Bank Cash Balances");
+        activityTitle.setText(R.string.back_cash_balance);
         _url = getIntent().getStringExtra("api");
     }
 

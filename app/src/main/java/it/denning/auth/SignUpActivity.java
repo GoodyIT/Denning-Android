@@ -14,7 +14,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.hbb20.CountryCodePicker;
 import com.quickblox.q_municate_core.core.command.Command;
 import com.quickblox.q_municate_core.qb.commands.rest.QBSignUpCommand;
 import com.quickblox.q_municate_core.service.QBServiceConsts;
@@ -41,6 +43,9 @@ import it.denning.general.DIHelper;
 import it.denning.general.DISharedPreferences;
 import it.denning.model.Accounts;
 import it.denning.model.LegalFirm;
+import it.denning.network.CompositeCompletion;
+import it.denning.network.ErrorHandler;
+import it.denning.network.NetworkManager;
 import it.denning.search.accounts.AccountsActivity;
 import it.denning.ui.activities.authorization.BaseAuthActivity;
 import it.denning.utils.KeyboardUtils;
@@ -67,12 +72,14 @@ public class SignUpActivity extends BaseAuthActivity {
     @BindView(R.id.signup_lawyer)
     CheckBox isLawyerChk;
     @BindView(R.id.signup_firm_btn) Button firmSelectBtn;
-    @BindView(R.id.signup_phonecode) Button phoneCodeBtn;
+    @BindView(R.id.ccp)
+    CountryCodePicker ccp;
 
     @BindView(R.id.signup_layout)
     RelativeLayout signupLayout;
     LegalFirm selectedLawfirm;
     private SignUpSuccessAction signUpSuccessAction;
+    private UpdateUserSuccessAction updateUserSuccessAction;
 
     @OnClick(R.id.back_btn)
     void onBack() {
@@ -80,9 +87,6 @@ public class SignUpActivity extends BaseAuthActivity {
         finish();
     }
 
-    private final OkHttpClient client = new OkHttpClient();
-    public static final MediaType jsonType
-            = MediaType.parse("application/json; charset=utf-8");
     private QBUser qbUser;
 
     @Override
@@ -93,12 +97,28 @@ public class SignUpActivity extends BaseAuthActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_signup);
         ButterKnife.bind(this);
 
+        initFields();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        addActions();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        removeActions();
+    }
+
+    void initFields() {
         selectedLawfirm = null;
 
         signUpSuccessAction = new SignUpSuccessAction();
+        updateUserSuccessAction = new UpdateUserSuccessAction();
 
         firmSelectBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,6 +133,8 @@ public class SignUpActivity extends BaseAuthActivity {
                 signup();
             }
         });
+
+        ccp.registerCarrierNumberEditText(userPhone);
     }
 
     @Override
@@ -135,88 +157,55 @@ public class SignUpActivity extends BaseAuthActivity {
         startActivityForResult(intent, DIConstants.REQUEST_CODE);
     }
 
+    private void addActions() {
+        addAction(QBServiceConsts.SIGNUP_SUCCESS_ACTION, signUpSuccessAction);
+        addAction(QBServiceConsts.UPDATE_USER_SUCCESS_ACTION, updateUserSuccessAction);
+
+        updateBroadcastActionList();
+    }
+
+    private void removeActions() {
+        removeAction(QBServiceConsts.SIGNUP_SUCCESS_ACTION);
+        removeAction(QBServiceConsts.UPDATE_USER_SUCCESS_ACTION);
+
+        updateBroadcastActionList();
+    }
+
     private void signup() {
-        if (userEmail.getText().toString().matches("\\w*") || userName.getText().toString().matches("\\w*") || userPhone.getText().toString().trim().length() == 0) {
+        if (userEmail.getText().toString().trim().length() == 0 || userName.getText().toString().trim().length() == 0 || userPhone.getText().toString().trim().length() == 0) {
             Snackbar.make(signupLayout, "Please input the all the fields", Snackbar.LENGTH_LONG).show();
             return;
         }
 
-        showProgress();
-        new signupTask().execute();
-    }
-
-    private class signupTask extends AsyncTask<String, Void, String> {
-
-        // onPreExecute called before the doInBackgroud start for display
-        // progress dialog.
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-
-        }
-
-        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-        @Override
-        protected String doInBackground(String... urls) {
-
-            proceedSignup();
-
-            return "";
-        }
-
-        // onPostExecute displays the results of the doInBackgroud and also we
-        // can hide progress dialog.
-        @Override
-        protected void onPostExecute(String result) {
-        }
-    }
-
-    private void proceedSignup() {
-        String phone = "+60" + userPhone.getText().toString();
-        JsonObject json = new JsonObject();
+        String phone = ccp.getFullNumberWithPlus();
+        final JsonObject json = new JsonObject();
         json.addProperty("email", userEmail.getText().toString());
         json.addProperty("name", userName.getText().toString());
         json.addProperty("hpNumber", phone);
         json.addProperty("isLawyer", isLawyerChk.isChecked());
         json.addProperty("firmCode", selectedLawfirm.code);
-        json.addProperty("ipWAN", DIHelper.getIPWAN());
-        json.addProperty("ipLAN", DIHelper.getIPLAN());
-        json.addProperty("OS", DIHelper.getOS());
-        json.addProperty("device", DIHelper.getDevice());
-        json.addProperty("deviceName", DIHelper.getDeviceName());
-        json.addProperty("MAC", DIHelper.getMAC(this));
-        Request request = new Request.Builder()
-                .url(DIConstants.AUTH_SIGNUP_URL)
-                .header("Content-Type", "application/json")
-                .addHeader("webuser-sessionid", "{334E910C-CC68-4784-9047-0F23D37C9CF9}")
-                .addHeader("webuser-id", "SkySea@denning.com.my")
-                .post(RequestBody.create(jsonType, json.toString()))
-                .build();
+        showProgress();
+        NetworkManager.getInstance().sendPublicPostRequest(DIConstants.AUTH_SIGNUP_URL, json, new CompositeCompletion() {
+            @Override
+            public void parseResponse(JsonElement jsonElement) {
+                manageResponse(jsonElement.getAsJsonObject());
+            }
+        }, new ErrorHandler() {
+            @Override
+            public void handleError(String error) {
+                hideProgress();
+                ErrorUtils.showError(SignUpActivity.this, error);
+            }
+        });
+    }
 
-        Response response = null;
-        try {
-            response = client.newCall(request).execute();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        if (!response.isSuccessful()) {
-            hideProgress();
-
-            final Response myResponse = response;
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    ErrorUtils.showError(getApplicationContext(), myResponse.message());
-                }
-            });
-        } else {
-
-            DISharedPreferences.getInstance(this).saveUserEmail(userEmail.getText().toString());
-            signupQB(userName.getText().toString(), userEmail.getText().toString());
-        }
+    private void manageResponse(JsonObject jsonObject) {
+        DISharedPreferences.getInstance(this).saveUserEmail(userEmail.getText().toString());
+        signupQB(userName.getText().toString(), userEmail.getText().toString());
     }
 
     private void signupQB(String name, String email) {
+        qbUser = new QBUser();
         qbUser.setFullName(name);
         qbUser.setEmail(email);
         qbUser.setPassword(DIConstants.QB_PASSWORD);
@@ -233,12 +222,17 @@ public class SignUpActivity extends BaseAuthActivity {
 
     protected void performUpdateUserSuccessAction(Bundle bundle) {
         QBUser user = (QBUser) bundle.getSerializable(QBServiceConsts.EXTRA_USER);
+        gotoMain(user);
+    }
+
+    protected void gotoMain(QBUser user) {
         appSharedHelper.saveFirstAuth(true);
         appSharedHelper.saveSavedRememberMe(true);
         startMainActivity(user, null);
 
-        // send analytics data
-        GoogleAnalyticsHelper.pushAnalyticsData(SignUpActivity.this, user, "User Sign Up");
+        // senalyticsHelper.pushAnalyticsData(SignUpActivity.this, user, "User Sign Up");
+
+        finish();
     }
 
     private void performSignUpSuccessAction(Bundle bundle) {
@@ -258,6 +252,7 @@ public class SignUpActivity extends BaseAuthActivity {
             @Override
             public void onNext(QMUser qmUser) {
                 hideProgress();
+                gotoMain(qmUser);
                 finish();
             }
         });

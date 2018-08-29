@@ -643,7 +643,6 @@ public abstract class BaseActivity extends AppCompatActivity implements ActionBa
         }
     }
 
-
     public void onReceiveContactRequestAction(Bundle extras) {
         if (needShowReceivedNotification()) {
             onReceivedContactRequestNotification(extras);

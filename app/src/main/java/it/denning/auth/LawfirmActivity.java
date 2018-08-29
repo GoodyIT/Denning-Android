@@ -59,7 +59,7 @@ import okhttp3.Response;
  * Created by denningit on 03/05/2017.
  */
 
-public class LawfirmActivity extends MySearchBaseActivity implements OnClickListenerWithCode {
+public class LawfirmActivity extends MySearchBaseActivity implements OnItemClickListener {
     private String title;
     private String filter = "";
     private int page = 1;
@@ -112,7 +112,7 @@ public class LawfirmActivity extends MySearchBaseActivity implements OnClickList
         loadData();
     }
     private void setupRecyclerView() {
-        adapter = new LawfirmAdapter(new ArrayList<LegalFirm>());
+        adapter = new LawfirmAdapter(new ArrayList<LegalFirm>(), this);
         linearLayoutManager = new LinearLayoutManager(this, OrientationHelper.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.addItemDecoration(new it.denning.general.DividerItemDecoration(ContextCompat.getDrawable(this, R.drawable.item_decorator)));
@@ -146,7 +146,7 @@ public class LawfirmActivity extends MySearchBaseActivity implements OnClickList
     private void loadData() {
         String _url = DIConstants.SIGNUP_FIRM_LIST_URL + "?search=" + filter + "&page=" + page;
         showActionBarProgress();
-        NetworkManager.getInstance().sendPrivateGetRequest(_url, new CompositeCompletion() {
+        NetworkManager.getInstance().sendPublicGetRequest(_url, new CompositeCompletion() {
             @Override
             public void parseResponse(JsonElement jsonElement) {
                 manageResponse(jsonElement.getAsJsonArray());
@@ -168,9 +168,9 @@ public class LawfirmActivity extends MySearchBaseActivity implements OnClickList
     }
 
     @Override
-    public void onClick(View view, String code) {
+    public void onClick(View view, int position) {
         Intent returnIntent = new Intent();
-        returnIntent.putExtra("code", code);
+        returnIntent.putExtra("lawfirm", adapter.getModel().get(position));
         setResult(Activity.RESULT_OK,returnIntent);
         finish();
     }

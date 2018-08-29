@@ -363,7 +363,7 @@ public class DIHelper {
         if (title.matches("\\w*") || title.length() < 9) {
             return new String[]{"", ""};
         }
-        return DIHelper.separateNameIntoTwo(title.split("")[1]);
+        return DIHelper.separateNameIntoTwo(title.split(":")[1]);
     }
 
     public static boolean isDocFile(String ext) {

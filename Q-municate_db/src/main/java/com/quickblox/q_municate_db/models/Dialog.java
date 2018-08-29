@@ -47,6 +47,7 @@ public class Dialog implements Serializable {
             columnName = UPDATED_AT)
     private long updatedAt;
 
+
     public Dialog() {
     }
 

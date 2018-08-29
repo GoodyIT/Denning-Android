@@ -14,6 +14,7 @@ import org.zakariya.stickyheaders.StickyHeaderLayoutManager;
 
 import it.denning.R;
 import it.denning.general.DIConstants;
+import it.denning.general.DISharedPreferences;
 import it.denning.model.Contact;
 import it.denning.model.MatterModel;
 import it.denning.navigation.add.contact.AddContactActivity;
@@ -31,9 +32,8 @@ public class SearchContactActivity extends MyBaseActivity implements OnClickList
     private Boolean isRelatedMatter;
     Contact contact;
 
-    public static void start(Context context, Contact contact, String matter) {
+    public static void start(Context context, String matter) {
         Intent i = new Intent(context, SearchContactActivity.class);
-        i.putExtra("contact", contact);
         i.putExtra("matter", matter);
         context.startActivity(i);
     }
@@ -47,10 +47,14 @@ public class SearchContactActivity extends MyBaseActivity implements OnClickList
     }
 
     private void initFields() {
-        toolbarTitle.setText(R.string.contact_title);
-        contact = (Contact) getIntent().getSerializableExtra("contact");
+        contact = DISharedPreferences.contact;
 
         isRelatedMatter = getIntent().getStringExtra("matter").equals("matter");
+        if (isRelatedMatter) {
+            toolbarTitle.setText(R.string.related_matters_title);
+        } else {
+            toolbarTitle.setText(R.string.contact_title);
+        }
 
         if (contact != null) {
             setupRecyclerView(contact);

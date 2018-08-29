@@ -191,9 +191,9 @@ public class AddContactActivity extends MyBaseActivity implements
         hideProgress();
         isSaved = true;
         // Disable save button
-        Contact contact = new Gson().fromJson(jsonElement, Contact.class);
+        DISharedPreferences.contact = new Gson().fromJson(jsonElement, Contact.class);
         ErrorUtils.showError(this, "Successfully Saved");
-        SearchContactActivity.start(this, contact, "");
+        SearchContactActivity.start(this, "");
     }
 
     private void _save() {

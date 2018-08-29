@@ -36,7 +36,7 @@ public class DashboardAttendanceDetailAdapter extends SectioningAdapter {
         @BindView(R.id.second_textView)
         TextView secondvalue;
         @BindView(R.id.third_textView)
-        ImageView thirdValue;
+        TextView thirdValue;
         @BindView(R.id.dashboard_cardview)
         CardView cardView;
 
@@ -101,7 +101,7 @@ public class DashboardAttendanceDetailAdapter extends SectioningAdapter {
         ItemViewHolder itemViewHolder = (ItemViewHolder) viewHolder;
         itemViewHolder.firstValue.setText(model.timeIn);
         itemViewHolder.secondvalue.setText(model.timeOut);
-        itemViewHolder.thirdValue.setTag(model.hours);
+        itemViewHolder.thirdValue.setText(model.hours);
     }
 
     @SuppressLint("SetTextI18n")

@@ -186,8 +186,8 @@ public class MatterActivity extends MyBaseActivity implements OnMatterCodeClickL
         NetworkManager.getInstance().sendPrivateGetRequest(url, new CompositeCompletion() {
             @Override
             public void parseResponse(JsonElement jsonElement) {
-                Contact contact = new Gson().fromJson(jsonElement.getAsJsonObject(), Contact.class);
-                SearchContactActivity.start(MatterActivity.this, contact, "");
+                DISharedPreferences.contact = new Gson().fromJson(jsonElement.getAsJsonObject(), Contact.class);
+                SearchContactActivity.start(MatterActivity.this, "");
             }
         }, new ErrorHandler() {
             @Override

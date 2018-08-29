@@ -1,5 +1,6 @@
 package it.denning.navigation.dashboard.section4.feestransfer.untransferred;
 
+import android.os.Build;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -128,8 +129,11 @@ public class UnTransferredAdapter extends SectioningAdapter {
         FeesUnTransferModel model = models.get(itemIndex);
         holder.firstTextView.setText(model.fileNo);
         holder.firstBottomTextView.setText(model.fileName);
-        holder.secondTextView.setText(model.invoiceDate);
+        holder.secondTextView.setText(model.invoiceNo);
         holder.thirdTextView.setText(model.fee);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            holder.thirdTextView.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
+        }
     }
 
     public void addItems(List<FeesUnTransferModel> items) {

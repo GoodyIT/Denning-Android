@@ -6,7 +6,6 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -37,12 +36,13 @@ import com.quickblox.q_municate_user_service.model.QMUser;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 
+import java.util.Arrays;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import it.denning.auth.SignInActivity;
 import it.denning.general.DIAlert;
 import it.denning.general.DIConstants;
-import it.denning.general.DIHelper;
 import it.denning.general.DISharedPreferences;
 import it.denning.general.MyCallbackInterface;
 import it.denning.model.Agreement;
@@ -422,13 +422,17 @@ public class MainActivity extends BaseActivity
         menuItem.setChecked(true);
         // Set action bar title
         setTitle(menuItem.getTitle());
+        int[] tabList = {R.id.nav_home, R.id.nav_add, R.id.nav_dashboard, R.id.nav_message};
+        for (int i : tabList) {
+            if (i == menuItem.getItemId()) {
+                bottomBar.setDefaultTab(menuItem.getItemId());
+            }
+        }
         displaySelectedScreenByTabID(menuItem.getItemId());
-        bottomBar.setDefaultTab(menuItem.getItemId());
     }
 
     private void displaySelectedScreenByTabID(int tabID) {
         nvDrawer.setCheckedItem(tabID);
-
         //creating fragment object
         Fragment fragment = null;
 

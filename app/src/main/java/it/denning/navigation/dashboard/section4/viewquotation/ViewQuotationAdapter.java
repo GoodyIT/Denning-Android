@@ -123,7 +123,7 @@ public class ViewQuotationAdapter extends BaseSectionAdapter {
         labelValueDetail.hasDetail = false;
         sectionItemModel.items.add(labelValueDetail);
 
-        labelValueDetail = new LabelValueDetail("Preset Code", billModel.presetCode.description, DIConstants.GENERAL_TYPE);
+        labelValueDetail = new LabelValueDetail("Preset Code", billModel.getPresetCodeDesc(), DIConstants.GENERAL_TYPE);
         labelValueDetail.hasDetail = false;
         sectionItemModel.items.add(labelValueDetail);
 

@@ -24,17 +24,22 @@ public class LawfirmAdapter extends RecyclerView.Adapter {
     ArrayList<LegalFirm> legalFirmArrayList = new ArrayList<>();
     OnItemClickListener itemClickListener;
 
-    LawfirmAdapter(ArrayList<LegalFirm> legalFirmArrayList) {
+    LawfirmAdapter(ArrayList<LegalFirm> legalFirmArrayList, OnItemClickListener itemClickListener) {
         this.legalFirmArrayList.addAll(legalFirmArrayList);
+        this.itemClickListener = itemClickListener;
     }
 
-    public void setItemClickListener(OnItemClickListener itemClickListener) {
-        this.itemClickListener = itemClickListener;
+    public List<LegalFirm> getModel() {
+        return  legalFirmArrayList;
     }
 
     public class LawfirmViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.search_last)
         TextView lawfirmName;
+        @BindView(R.id.search_name)
+        TextView temp1;
+        @BindView(R.id.search_date)
+        TextView temp2;
         @BindView(R.id.search_cardview)
         CardView cardview;
 
@@ -57,6 +62,8 @@ public class LawfirmAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         LawfirmViewHolder lawfirmViewHolder = (LawfirmViewHolder) holder;
         lawfirmViewHolder.lawfirmName.setText(legalFirmArrayList.get(position).name);
+        lawfirmViewHolder.temp1.setText("");
+        lawfirmViewHolder.temp2.setText("");
         lawfirmViewHolder.cardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

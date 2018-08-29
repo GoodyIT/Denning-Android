@@ -583,8 +583,8 @@ public class SearchActivity extends BaseActivity implements OnItemClickListener,
         excecuteCompositeDisposable(new CompositeCompletion() {
             @Override
             public void parseResponse(JsonElement jsonElement) {
-                Contact contact = new Gson().fromJson(jsonElement, Contact.class);
-                SearchContactActivity.start(SearchActivity.this, contact, gotoMatter);
+                DISharedPreferences.contact = new Gson().fromJson(jsonElement, Contact.class);
+                SearchContactActivity.start(SearchActivity.this, gotoMatter);
             }
         });
     }

@@ -577,6 +577,12 @@ public class BaseSectionAdapter extends SectioningAdapter {
     }
 
     public void updateLeftRightInput(String input, int sectionIndex, int itemIndex, int twoColumn) {
+        if (twoColumn == 0) {
+            model.items.get(sectionIndex).items.get(itemIndex).leftView.value = input;
+        } else {
+            model.items.get(sectionIndex).items.get(itemIndex).rightView.value = input;
+        }
+        notifySectionItemChanged(sectionIndex, itemIndex);
     }
 
     public void updateDataAndRefresh(String data, int sectionIndex, int itemIndex) {

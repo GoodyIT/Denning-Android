@@ -35,6 +35,6 @@ public class AdsViwerActivity extends AppCompatActivity {
 
         webView.loadUrl(url);
         WebSettings webSettings = webView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
+//        webSettings.setJavaScriptEnabled(true);
     }
 }

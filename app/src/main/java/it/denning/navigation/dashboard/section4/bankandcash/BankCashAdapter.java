@@ -2,6 +2,7 @@ package it.denning.navigation.dashboard.section4.bankandcash;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Build;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -108,9 +109,12 @@ public class BankCashAdapter extends SectioningAdapter {
     public void onBindItemViewHolder(SectioningAdapter.ItemViewHolder viewHolder, int sectionIndex, int itemIndex, int itemType) {
         BankReconModel model = modelArrayList.get(itemIndex);
         ItemViewHolder customViewHolder = (ItemViewHolder) viewHolder;
-        customViewHolder.firstValue.setText(model.accountNo);
-        customViewHolder.secondValue.setText(model.accountName);
-        if (model.credit.equals("0.0")) {
+        customViewHolder.firstValue.setText(model.accountName);
+        customViewHolder.secondValue.setText(model.accountNo);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            customViewHolder.thirdValue.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
+        }
+        if (Float.parseFloat(model.credit) == 0) {
             customViewHolder.thirdValue.setText(model.debit);
         } else {
             customViewHolder.thirdValue.setText(model.credit + " (CR)");
@@ -121,8 +125,8 @@ public class BankCashAdapter extends SectioningAdapter {
     @Override
     public void onBindHeaderViewHolder(SectioningAdapter.HeaderViewHolder viewHolder, int sectionIndex, int headerType) {
         HeaderViewHolder headerViewHolder = (HeaderViewHolder) viewHolder;
-        headerViewHolder.firstTitle.setText("Ledger No.");
-        headerViewHolder.secondTitle.setText("File Name");
+        headerViewHolder.firstTitle.setText("A/C name");
+        headerViewHolder.secondTitle.setText("A/C no");
         headerViewHolder.thirdTitle.setText("Amount");
     }
 

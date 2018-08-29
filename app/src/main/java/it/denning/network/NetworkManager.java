@@ -67,6 +67,10 @@ public class NetworkManager {
         return RetrofitHelper.getInstance(context).getPublicService();
     }
 
+    private DenningService getPublicServiceWithEmail(String email) {
+        return RetrofitHelper.getInstance(context).getPublicServiceWithEmail(email);
+    }
+
     private void sendRequest(final CompositeCompletion completion, final ErrorHandler errorHandler) {
 //        mCompositeDisposable.add(mSingle.
 //                subscribeOn(Schedulers.io())
@@ -130,6 +134,11 @@ public class NetworkManager {
 
     public void sendPublicPostRequest(String url, JsonObject param, final CompositeCompletion completion, final ErrorHandler errorHandler) {
         mSingle = getPublicService().postRequest(url, buildParamWithDefault(param));
+        sendRequest(completion, errorHandler);
+    }
+
+    public void sendPublickPostRequestWithEmail(String url, JsonObject param, String email, final CompositeCompletion completion, final ErrorHandler errorHandler) {
+        mSingle = getPublicServiceWithEmail(email).postRequest(url, buildParamWithDefault(param));
         sendRequest(completion, errorHandler);
     }
 

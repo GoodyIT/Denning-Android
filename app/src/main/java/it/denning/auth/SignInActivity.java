@@ -222,6 +222,7 @@ public class SignInActivity extends BaseAuthActivity {
             manageFirmURL(firmURLModel.catDenning);
         } else {
             // go to main activity - remove signin activity
+            finish();
             MainActivity.start(this);
         }
     }

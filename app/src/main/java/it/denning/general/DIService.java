@@ -68,8 +68,8 @@ public class DIService {
         }
     }
 
-    public void fetchAllContactsFromServer(final DIMessageInterface messageInterface) {
-        this.messageInterface = messageInterface;
+    public static void fetchAllContactsFromServer(final List<DialogWrapper> dialogsList, final DIMessageInterface messageInterface) {
+//        this.messageInterface = messageInterface;
         QBPagedRequestBuilder qbPagedBuilder = new QBPagedRequestBuilder();
         GenericQueryRule genericQueryRule = new GenericQueryRule(ORDER_RULE, ORDER_VALUE);
 
@@ -83,7 +83,7 @@ public class DIService {
             @Override
             public void onSuccess(final ArrayList<QBUser> qbUsers, Bundle bundle) {
                 myFriendsList = QMUser.convertList(qbUsers);
-//                fetchContacts();
+                fetchContacts(null, messageInterface);
             }
 
             @Override
@@ -94,11 +94,14 @@ public class DIService {
     }
 
     public static void fetchContacts(List<DialogWrapper> dialogsList, final DIMessageInterface messageInterface) {
-        Collection<Integer> userIDs = new ArrayList<>();
-        for (DialogWrapper dialogWrapper :  dialogsList) {
-            userIDs.addAll(dialogWrapper.getChatDialog().getOccupants());
+        if (dialogsList != null) {
+            Collection<Integer> userIDs = new ArrayList<>();
+            for (DialogWrapper dialogWrapper :  dialogsList) {
+                userIDs.addAll(dialogWrapper.getChatDialog().getOccupants());
+            }
+            myFriendsList = QMUserService.getInstance().getUserCache().getUsersByIDs(userIDs);
         }
-        myFriendsList = QMUserService.getInstance().getUserCache().getUsersByIDs(userIDs);
+
         String url  = DIConstants.CHAT_GET_URL + DISharedPreferences.getInstance().getEmail();
         NetworkManager.getInstance().sendPublicGetRequest(url, new CompositeCompletion() {
             @Override

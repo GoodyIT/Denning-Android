@@ -207,6 +207,10 @@ public class SearchContactAdapter extends SectioningAdapter {
             headerName = "Related Matter";
         }
 
+        if (isRelatedMatter) {
+            headerName = "Related Matter";
+        }
+
         headerViewHolder.firstTitle.setText(headerName);
     }
 

@@ -28,7 +28,7 @@ public class DIConstants {
     public static final String STAFF_SIGNIN_URL   = "v1/app/staffLogin";
     public static final String CLIENT_SIGNIN_URL   = "v1/app/clientLogin";
     public static final String CLIENT_FIRST_SIGNIN_URL  = "v1/app/clientLogin/first";
-    public static final String SIGNUP_FIRM_LIST_URL = "v1/Solicitor";
+    public static final String SIGNUP_FIRM_LIST_URL = "denningapi/v1/Solicitor";
 
     public static final String AUTH_SMS_NEW = "https://www.denningonline.com.my/denningapi/v1/SMS/newDevice";
     public static final String AUTH_SMS_FORGET_PASSWORD = "https://www.denningonline.com.my/denningapi/v1/SMS/lostPassword";
@@ -390,6 +390,7 @@ public class DIConstants {
     public static final int MUKIM_REQUEST_CODE = 28;
     public static final int PROJECT_HOUSING_REQUEST_CODE = 29;
     public static final int MASTER_TITLE_REQUEST_CODE = 30;
+    public static final int AREA_TYPE_REQUEST_CODE = 31;
 
     public static final int PERMISSION_REQUEST_CODE = 1;
 

@@ -329,8 +329,8 @@ public class AddMatterActivity extends MyBaseActivity implements
             @Override
             public void parseResponse(JsonElement jsonElement) {
                 hideProgress();
-                Contact contact = new Gson().fromJson(jsonElement, Contact.class);
-                SearchContactActivity.start(AddMatterActivity.this, contact, "");
+                DISharedPreferences.contact = new Gson().fromJson(jsonElement, Contact.class);
+                SearchContactActivity.start(AddMatterActivity.this, "");
             }
         }, new ErrorHandler() {
             @Override

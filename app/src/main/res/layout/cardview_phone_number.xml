@@ -35,6 +35,7 @@
                     android:layout_height="wrap_content"
                     android:layout_toLeftOf="@+id/editText_carrierNumber"
                     app:ccp_autoDetectCountry="true"
+                    app:ccp_showNameCode="false"
                     app:ccp_countryPreference="MY"
                     card_view:ccp_textSize="16sp" />
 

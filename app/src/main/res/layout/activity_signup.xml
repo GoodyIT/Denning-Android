@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
     android:id="@+id/signup_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <ImageButton
         android:id="@+id/back_btn"
@@ -103,14 +104,17 @@
         android:layout_marginTop="14dp"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/signup_phonecode"
-            android:layout_width="49dp"
+        <com.hbb20.CountryCodePicker
+            android:id="@+id/ccp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:text="(+60)"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="18sp" />
+            android:layout_toLeftOf="@+id/signup_phone"
+            app:ccp_autoDetectCountry="true"
+            app:ccp_showNameCode="false"
+            app:ccp_showPhoneCode="false"
+            app:ccp_countryPreference="MY"
+            app:ccp_textGravity="LEFT"
+            card_view:ccp_textSize="14sp" />
 
         <EditText
             android:id="@+id/signup_phone"
@@ -150,6 +154,7 @@
         android:layout_below="@+id/signup_lawyer"
         android:layout_marginTop="3dp"
         android:background="@android:color/transparent"
+        android:gravity="left|center"
         android:text="select a firm you belong to >"
         android:textColor="@color/cardview_dark_background"
         android:textSize="12sp" />

@@ -126,7 +126,7 @@ public class GeneralListActivity extends MySearchBaseActivity implements OnGener
 
     private void manageResponse(JsonElement jsonArray) {
         hideActionBarProgress();
-        JsonObject[] objects = new Gson().fromJson(jsonArray, JsonObject[].class);
+        JsonObject[] objects = new Gson().fromJson(jsonArray.getAsJsonArray(), JsonObject[].class);
         if (objects.length > 0) {
             page++;
         }

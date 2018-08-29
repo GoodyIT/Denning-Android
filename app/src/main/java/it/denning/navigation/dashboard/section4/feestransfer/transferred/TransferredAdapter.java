@@ -1,5 +1,6 @@
 package it.denning.navigation.dashboard.section4.feestransfer.transferred;
 
+import android.os.Build;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -135,6 +136,9 @@ public class TransferredAdapter extends SectioningAdapter {
         holder.firstTextView.setText(DIHelper.getOnlyDateFromDateTime(model.batchDate));
         holder.secondTextView.setText(model.batchNo);
         holder.thirdTextView.setText(DIHelper.addThousandsSeparator(model.totalAmount));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            holder.thirdTextView.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
+        }
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
