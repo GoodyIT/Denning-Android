@@ -28,6 +28,7 @@ import com.quickblox.users.model.QBUser;
 
 import java.io.File;
 
+//import io.reactivex.android.schedulers.AndroidSchedulers;
 import it.denning.App;
 import rx.Observable;
 import rx.Subscriber;

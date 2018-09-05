@@ -76,6 +76,10 @@ public class MatterModel implements Serializable {
         return fileStatus.description;
     }
 
+    public CodeDescription getFileStatus() {
+         return fileStatus == null ? new CodeDescription() : fileStatus;
+    }
+
     public String getPrimaryClientName() {
         if (primaryClient == null) {
             return "";
@@ -112,7 +116,7 @@ public class MatterModel implements Serializable {
         return  matter.code;
     }
 
-    public String getParterName() {
+    public String getPartnerName() {
         if (partner == null) {
             return "";
         }

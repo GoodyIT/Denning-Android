@@ -22,61 +22,66 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_weight="0.7"
+                android:orientation="vertical">
 
-
-                <LinearLayout
-                    android:layout_width="0dp"
+                <TextView
+                    android:id="@+id/fileno_textview"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_weight="0.7"
-                    android:orientation="vertical">
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="6000-2296"
+                    android:textColor="@color/cardview_dark_background" />
 
-                    <TextView
-                        android:id="@+id/fileno_textview"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="5dp"
-                        android:layout_marginRight="5dp"
-                        android:text="6000-2296"
-                        android:textColor="@color/cardview_dark_background" />
-
-                    <TextView
-                        android:id="@+id/filename_textview"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="5dp"
-                        android:layout_marginRight="5dp"
-                        android:maxLines="3"
-                        android:text="SDN BHD"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
+                <TextView
+                    android:id="@+id/filename_textview"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.3"
-                    android:orientation="vertical">
-
-
-                    <TextView
-                        android:id="@+id/opendate_textView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="5dp"
-                        android:layout_marginRight="5dp"
-                        android:maxLines="3"
-                        android:text="8 Sep 2017"/>
-                </LinearLayout>
-
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
+                    android:maxLines="3"
+                    android:text="SDN BHD"
+                    android:textSize="12sp" />
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/opendate_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
+                    android:maxLines="3"
+                    android:text="8 Sep 2017"/>
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/add_detail_right_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:background="@android:color/white"
+                android:padding="5dp"
+                card_view:srcCompat="@mipmap/ic_detail_gray"
+                android:layout_alignParentRight="true" />
+
         </LinearLayout>
 
     </android.support.v7.widget.CardView>

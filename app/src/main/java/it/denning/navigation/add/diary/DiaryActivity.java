@@ -84,19 +84,19 @@ public class DiaryActivity extends BaseActivity implements RadioGroup.OnCheckedC
         initFields();
         initActionBar();
 
+        setupFragment();
         setupFilter();
 
-        setupFragment();
     }
 
     private void initFields() {
         resTitle = getIntent().getIntExtra("title", -1);
-        courtModel = (EditCourtModel) getIntent().getSerializableExtra("model");
         updateTitle(resTitle);
+        toolbarTitle.setText(resTitle);
     }
 
     public void updateTitle(int resTitle) {
-        toolbarTitle.setText(resTitle);
+
     }
 
     private void setupFilter() {
@@ -113,16 +113,19 @@ public class DiaryActivity extends BaseActivity implements RadioGroup.OnCheckedC
             case R.string.add_court_diary_title:
             case R.string.update_court_diary_title:
                 checkId = R.id.court;
+                courtModel = (EditCourtModel) getIntent().getSerializableExtra("model");
                 fragment = CourtFragment.newInstance(courtModel);
                 break;
             case R.string.update_office_diary_title:
             case R.string.add_office_diary_title:
                 checkId = R.id.office;
+                officeDiaryModel = (OfficeDiaryModel) getIntent().getSerializableExtra("model");
                 fragment = OfficeFragment.newInstance(officeDiaryModel);
                 break;
             case R.string.update_personal_diary_title:
             case R.string.add_personal_diary_title:
                 checkId = R.id.personal;
+                officeDiaryModel = (OfficeDiaryModel) getIntent().getSerializableExtra("model");
                 fragment = PersonalFragment.newInstance(officeDiaryModel);
                 break;
         }

@@ -46,6 +46,7 @@ import com.quickblox.q_municate_core.qb.commands.friend.QBRemoveFriendCommand;
 import com.quickblox.q_municate_core.qb.commands.chat.QBUpdateGroupDialogCommand;
 import com.quickblox.q_municate_core.qb.commands.chat.QBUpdateStatusMessageCommand;
 import com.quickblox.q_municate_core.qb.commands.push.QBSendPushCommand;
+import com.quickblox.q_municate_core.qb.commands.rest.QBSignUpCommand;
 import com.quickblox.q_municate_core.qb.helpers.BaseHelper;
 import com.quickblox.q_municate_core.qb.helpers.QBChatHelper;
 import com.quickblox.q_municate_core.qb.helpers.QBChatRestHelper;
@@ -130,6 +131,7 @@ public class QBService extends Service {
         registerJoinGroupChatsCommand();
         registerLoginChatCommand();
         registerPushCallCommand();
+        registerSignupCommand();
 
         // users/friends commands
         registerLoadUsersCommand();
@@ -163,6 +165,15 @@ public class QBService extends Service {
 
         serviceCommandMap.put(QBServiceConsts.LOGIN_CHAT_ACTION, loginChatCommand);
         serviceCommandMap.put(QBServiceConsts.LOGIN_CHAT_COMPOSITE_ACTION, loginChatCompositeCommand);
+    }
+
+    // Custom for sign up
+    private void registerSignupCommand() {
+        CompositeServiceCommand signupCommand = new QBSignUpCommand(this,
+                QBServiceConsts.SIGNUP_SUCCESS_ACTION,
+                QBServiceConsts.SIGNUP_FAIL_ACTION);
+
+        serviceCommandMap.put(QBServiceConsts.SIGNUP_ACTION, signupCommand);
     }
 
     private void registerPushCallCommand() {

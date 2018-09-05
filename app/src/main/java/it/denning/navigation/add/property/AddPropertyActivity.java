@@ -128,7 +128,7 @@ public class AddPropertyActivity extends MyBaseActivity implements
                 break;
             case "Area Type":
                 twoColumn = 1;
-                gotoAreaType();
+                gotoSimpleAutoComplete(DIConstants.PROPERTY_AREA_TYPE_GET_URL, R.string.select_area_type_title);
                 break;
             case "Tenure":
                 gotoDesc(R.string.tenure_type_title, DIConstants.PROPERTY_TENURE_TYPE_GET_URL);

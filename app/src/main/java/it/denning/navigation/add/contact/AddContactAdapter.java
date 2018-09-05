@@ -490,7 +490,7 @@ public class AddContactAdapter extends BaseSectionAdapter {
             if (itemIndex == ID_NO) {
                 String IDType = model.items.get(PERSONAL_INFO).items.get(ID_TYPE).code;
                 if (IDType.equals("1") || IDType.equals("2")) {
-                    input.replace("-", "");
+                    input = input.replace("-", "");
                     if (input.length() > 12) {
                         DIAlert.showSimpleAlert(context, R.string.alert_ID_wrong);
                         return;
@@ -505,14 +505,18 @@ public class AddContactAdapter extends BaseSectionAdapter {
                             year = "19" + year;
                         }
                         String month = birth.substring(2, 4);
+                        if (Integer.parseInt(month) - 1 < 0) {
+                            DIAlert.showSimpleAlert(context, R.string.alert_valid_ID);
+                            return;
+                        }
                         String day = birth.substring(4, 6);
                         if (Integer.parseInt(month) > 12 || Integer.parseInt(day) > 31) {
                             DIAlert.showSimpleAlert(context, R.string.alert_valid_ID);
                             return;
                         }
                         Calendar cal = Calendar.getInstance();
-                        cal.set(Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day));
-                        updateDataAndRefresh(DIHelper.toMySQLDateFormat(cal), OTHER_INFO, DATE_OF_BIRTH);
+                        cal.set(Integer.parseInt(year), Integer.parseInt(month)-1, Integer.parseInt(day));
+                        updateDataAndRefresh(DIHelper.toSimpleDateFormat(cal), OTHER_INFO, DATE_OF_BIRTH);
                         input = new StringBuilder(input).insert(6, '-').toString();
                     }
 

@@ -160,6 +160,15 @@ public class AddQuotationActivity extends MyBaseActivity implements OnSectionIte
         return true;
     }
 
+    private boolean isFileNoSelected() {
+        if (!adapter.isFileNoSelected()) {
+            DIAlert.showSimpleAlert(this, R.string.alert_file_no_not_select);
+            return false;
+        }
+
+        return true;
+    }
+
     private void gotoTaxSelection() {
         if (!isCalcDone) {
             return;
@@ -191,6 +200,10 @@ public class AddQuotationActivity extends MyBaseActivity implements OnSectionIte
 
     private void calculateTax() {
         if (!isPresetSelected()) {
+            return;
+        }
+
+        if (!isFileNoSelected()) {
             return;
         }
 

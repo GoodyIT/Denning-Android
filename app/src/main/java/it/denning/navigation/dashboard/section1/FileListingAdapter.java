@@ -6,10 +6,13 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import org.zakariya.stickyheaders.SectioningAdapter;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
@@ -24,7 +27,7 @@ import it.denning.search.utils.OnItemClickListener;
  */
 
 public class FileListingAdapter extends SectioningAdapter {
-    private final List<SearchResultModel> modelArrayList;
+    private List<SearchResultModel> modelArrayList;
     private final Context mContext;
     private final OnItemClickListener clickListener;
 
@@ -32,6 +35,10 @@ public class FileListingAdapter extends SectioningAdapter {
         this.modelArrayList = modelArrayList;
         this.mContext = mContext;
         this.clickListener = clickListener;
+    }
+
+    public List<SearchResultModel> getModel() {
+        return modelArrayList;
     }
 
     public class ItemViewHolder extends SectioningAdapter.ItemViewHolder implements View.OnClickListener{
@@ -43,6 +50,8 @@ public class FileListingAdapter extends SectioningAdapter {
         TextView fileNo;
         @BindView(R.id.dashboard_cardview)
         CardView cardView;
+        @BindView(R.id.add_detail_right_btn)
+        ImageButton detaiBtn;
 
         public ItemViewHolder(View itemView) {
             super(itemView);
@@ -104,19 +113,24 @@ public class FileListingAdapter extends SectioningAdapter {
 
     @SuppressLint("SetTextI18n")
     @Override
-    public void onBindItemViewHolder(SectioningAdapter.ItemViewHolder viewHolder, int sectionIndex, int itemIndex, int itemType) {
+    public void onBindItemViewHolder(SectioningAdapter.ItemViewHolder viewHolder, int sectionIndex, final int itemIndex, int itemType) {
         SearchResultModel model = modelArrayList.get(itemIndex);
         ItemViewHolder itemViewHolder = (ItemViewHolder) viewHolder;
         itemViewHolder.fileNo.setText(model.key);
-        try
-        {
-            itemViewHolder.openDate.setText(DIHelper.getOnlyDateFromDateTime(model.sortDate));
-        } catch (Exception e) {
-
-        }
-
-        String title= model.title;
-        itemViewHolder.fileName.setText(DIHelper.separateNameIntoTwo(title.split(":")[1])[1]);
+        itemViewHolder.openDate.setText(DIHelper.getOnlyDateFromDateTime(model.sortDate));
+        itemViewHolder.fileName.setText(DIHelper.separateNameIntoTwo(model.title.split(":")[1])[1]);
+        itemViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickListener.onClick(v, itemIndex);
+            }
+        });
+        itemViewHolder.detaiBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickListener.onClick(v, itemIndex);
+            }
+        });
     }
 
     @SuppressLint("SetTextI18n")
@@ -136,7 +150,9 @@ public class FileListingAdapter extends SectioningAdapter {
     }
 
     public void swapItems(List<SearchResultModel> newSearchResultList) {
-        this.modelArrayList.addAll(newSearchResultList);
+        ArrayList<SearchResultModel> res = new ArrayList<SearchResultModel>(this.modelArrayList);
+        res.addAll(newSearchResultList);
+        this.modelArrayList = res;
         notifySectionItemInserted(0, newSearchResultList.size() +  1);
     }
 

@@ -36,7 +36,7 @@ public class DashboardAttendanceAdapter extends SectioningAdapter {
         this.clickListener = clickListener;
     }
 
-    public class ItemViewHolder extends SectioningAdapter.ItemViewHolder implements View.OnClickListener{
+    public class ItemViewHolder extends SectioningAdapter.ItemViewHolder{
         @BindView(R.id.status_textView)
         TextView status;
         @BindView(R.id.staff_textview)
@@ -47,12 +47,6 @@ public class DashboardAttendanceAdapter extends SectioningAdapter {
         public ItemViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this,itemView);
-            cardView.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View v) {
-            clickListener.onClick(itemView, getLayoutPosition());
         }
     }
 
@@ -104,7 +98,7 @@ public class DashboardAttendanceAdapter extends SectioningAdapter {
 
     @SuppressLint("SetTextI18n")
     @Override
-    public void onBindItemViewHolder(SectioningAdapter.ItemViewHolder viewHolder, int sectionIndex, int itemIndex, int itemType) {
+    public void onBindItemViewHolder(SectioningAdapter.ItemViewHolder viewHolder, int sectionIndex, final int itemIndex, int itemType) {
         StaffOnlineModel model = modelArrayList.get(itemIndex);
         ItemViewHolder itemViewHolder = (ItemViewHolder) viewHolder;
         itemViewHolder.staff.setText(model.name);
@@ -114,6 +108,12 @@ public class DashboardAttendanceAdapter extends SectioningAdapter {
         } else {
             itemViewHolder.status.setTextColor(Color.RED);
         }
+        itemViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickListener.onClick(v, itemIndex);
+            }
+        });
     }
 
     @SuppressLint("SetTextI18n")

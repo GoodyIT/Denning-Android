@@ -53,8 +53,8 @@ public class PrivateChatMessageAdapter extends BaseChatMessagesAdapter implement
         boolean friendsRequestMessage = DialogNotification.Type.FRIENDS_REQUEST.equals(
                 chatMessage.getNotificationType());
         boolean friendsInfoRequestMessage = chatMessage.getNotificationType() != null && !friendsRequestMessage;
-        TextView textView = (TextView) holder.itemView.findViewById(R.id.message_textview);
-        TextView timeTextMessageTextView = (TextView) holder.itemView.findViewById(R.id.time_text_message_textview);
+        TextView textView = (TextView) friendsViewHolder.itemView.findViewById(R.id.message_textview);
+        TextView timeTextMessageTextView = (TextView) friendsViewHolder.itemView.findViewById(R.id.time_text_message_textview);
 
         if (friendsRequestMessage) {
             textView.setText(chatMessage.getBody());

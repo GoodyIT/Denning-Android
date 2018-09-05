@@ -8,12 +8,14 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
+import com.quickblox.chat.model.QBDialogCustomData;
 import com.quickblox.core.exception.QBResponseException;
 import com.quickblox.q_municate_core.models.UserCustomData;
 import com.quickblox.q_municate_db.utils.ErrorUtils;
 import com.quickblox.q_municate_user_service.model.QMUser;
 import com.quickblox.users.model.QBUser;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -119,6 +121,19 @@ public class Utils {
         return jsonObject.toString();
     }
 
+    public static String dialogCustomDataToString(QBDialogCustomData dialogCustomData) {
+        JSONObject jsonObject = new JSONObject();
+
+        setJsonValue(jsonObject, "ClassName", dialogCustomData.getClassName());
+        try {
+            jsonObject.put("Fields", new JSONArray("[" + new JSONObject(dialogCustomData.getFields()).toString() + "]"));
+        } catch (JSONException e) {
+            ErrorUtils.logError(e);
+        }
+
+        return jsonObject.toString();
+    }
+
     private static void setJsonValue(JSONObject jsonObject, String key, String value) {
         if (!TextUtils.isEmpty(value)) {
             try {
@@ -127,6 +142,22 @@ public class Utils {
                 ErrorUtils.logError(e);
             }
         }
+    }
+
+    public static QBDialogCustomData chatCustomDataToObject(String chatCustomDataString) {
+        if (TextUtils.isEmpty(chatCustomDataString)) {
+            return new QBDialogCustomData();
+        }
+
+        QBDialogCustomData dialogCustomData = null;
+        Gson gson = new Gson();
+        try {
+            dialogCustomData = gson.fromJson(chatCustomDataString, QBDialogCustomData.class);
+        } catch (JsonSyntaxException e) {
+            ErrorUtils.logError(e);
+        }
+
+        return dialogCustomData;
     }
 
     public static UserCustomData customDataToObject(String userCustomDataString) {

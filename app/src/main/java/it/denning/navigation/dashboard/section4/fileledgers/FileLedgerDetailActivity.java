@@ -130,6 +130,7 @@ public class FileLedgerDetailActivity extends GeneralActivity implements OnItemC
     void setupList() {
         collectionAdapter = new CollectionAdapter(new ArrayList<LedgerDetail>(), getApplicationContext(), this);
         linearLayoutManager  = new LinearLayoutManager(this, OrientationHelper.VERTICAL, false);
+        linearLayoutManager.setItemPrefetchEnabled(false);
         dashboardList.setLayoutManager(linearLayoutManager);
         dashboardList.setHasFixedSize(true);
         dashboardList.setItemAnimator(new DefaultItemAnimator());

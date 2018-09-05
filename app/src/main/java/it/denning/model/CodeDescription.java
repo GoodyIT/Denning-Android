@@ -14,7 +14,8 @@ public class CodeDescription implements Serializable {
     public String description;
 
     public CodeDescription() {
-
+        this.code = "";
+        this.description = "";
     }
 
     public CodeDescription(String code, String description) {

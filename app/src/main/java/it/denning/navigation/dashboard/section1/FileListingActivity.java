@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
@@ -39,12 +40,15 @@ import it.denning.general.DISharedPreferences;
 import it.denning.general.EndlessRecyclerViewScrollListener;
 import it.denning.general.OkHttpUtils;
 import it.denning.model.ItemModel;
+import it.denning.model.MatterModel;
 import it.denning.model.SearchResultModel;
 import it.denning.model.ThreeItemModel;
 import it.denning.navigation.dashboard.util.GeneralActivity;
 import it.denning.network.CompositeCompletion;
 import it.denning.network.ErrorHandler;
 import it.denning.network.NetworkManager;
+import it.denning.search.SearchActivity;
+import it.denning.search.matter.MatterActivity;
 import it.denning.search.utils.OnItemClickListener;
 import okhttp3.Call;
 import okhttp3.Request;
@@ -81,7 +85,7 @@ public class FileListingActivity extends GeneralActivity implements OnItemClickL
     ThreeItemModel fileList;
     String filter = "", _url;
     int page = 1;
-    String request_tag;
+    boolean isLoading = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,11 +95,11 @@ public class FileListingActivity extends GeneralActivity implements OnItemClickL
 
         initFields();
         setupList();
+//        setupEndlessScroll();
+        setupSearchView();
 
         fetchHeader();
         loadData();
-
-        setupSearchView();
     }
 
     public void setupSearchView() {
@@ -142,10 +146,11 @@ public class FileListingActivity extends GeneralActivity implements OnItemClickL
         modelArrayList = new ArrayList<>();
         fileListingAdapter = new FileListingAdapter(modelArrayList, getApplicationContext(), this);
         dashboardList.setHasFixedSize(true);
+        dashboardList.addItemDecoration(new it.denning.general.DividerItemDecoration(ContextCompat.getDrawable(this, R.drawable.item_decorator)));
         dashboardList.setItemAnimator(new DefaultItemAnimator());
-        dashboardList.setAdapter(fileListingAdapter);
 //        dashboardList.setLayoutManager(new StickyHeaderLayoutManager());
         dashboardList.setLayoutManager(linearLayoutManager);
+        dashboardList.setAdapter(fileListingAdapter);
         dashboardList.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -153,14 +158,18 @@ public class FileListingActivity extends GeneralActivity implements OnItemClickL
                 return false;
             }
         });
-        dashboardList.setItemViewCacheSize(0);
+    }
 
+    void setupEndlessScroll() {
         scrollListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
             @Override
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
-                loadData();
+                if (!isLoading) {
+                    loadData();
+                }
             }
         };
+        dashboardList.clearOnScrollListeners();
         dashboardList.addOnScrollListener(scrollListener);
     }
 
@@ -218,30 +227,32 @@ public class FileListingActivity extends GeneralActivity implements OnItemClickL
     }
 
     void loadData() {
-
+        isLoading = true;
         showActionBarProgress();
         String url  = _url + "?search=" + filter + "&page=" + page;
         NetworkManager.getInstance().sendPrivateGetRequest(url, new CompositeCompletion() {
             @Override
             public void parseResponse(JsonElement jsonElement) {
-                hidewActionBarProgress();
-                SearchResultModel[] models = new Gson().fromJson(jsonElement, SearchResultModel[].class);
-                if (models.length > 0) {
-                    page++;
-                }
-                displayResult(Arrays.asList(models));
+                displayResult(jsonElement);
             }
         }, new ErrorHandler() {
             @Override
             public void handleError(String error) {
+                isLoading = false;
                 hidewActionBarProgress();
                 ErrorUtils.showError(getApplicationContext(), error);
             }
         });
     }
 
-    void displayResult(List<SearchResultModel> newList) {
-        fileListingAdapter.swapItems(newList);
+    void displayResult(JsonElement jsonElement) {
+        isLoading = false;
+        hidewActionBarProgress();
+        SearchResultModel[] models = new Gson().fromJson(jsonElement, SearchResultModel[].class);
+        if (models.length > 0) {
+            page++;
+        }
+        fileListingAdapter.swapItems(Arrays.asList(models));
     }
 
     @OnClick(R.id.back_btn)
@@ -252,6 +263,22 @@ public class FileListingActivity extends GeneralActivity implements OnItemClickL
 
     @Override
     public void onClick(View view, int position) {
-
+        SearchResultModel model = fileListingAdapter.getModel().get(position);
+        showActionBarProgress();
+        String url = "v1/app/matter/" + model.key;
+        NetworkManager.getInstance().sendPrivateGetRequest(url, new CompositeCompletion() {
+            @Override
+            public void parseResponse(JsonElement jsonElement) {
+                hidewActionBarProgress();
+                MatterModel model = new Gson().fromJson(jsonElement, MatterModel.class);
+                MatterActivity.start(FileListingActivity.this, model);
+            }
+        }, new ErrorHandler() {
+            @Override
+            public void handleError(String error) {
+                hidewActionBarProgress();
+                ErrorUtils.showError(FileListingActivity.this, error);
+            }
+        });
     }
 }

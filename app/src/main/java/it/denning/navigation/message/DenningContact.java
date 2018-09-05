@@ -78,7 +78,6 @@ public class DenningContact extends MessageBaseFragment {
     public void loadUsersFromServer() {
         baseActivity.showProgress();
 
-//        DIService service = new DIService(getContext(), myDialogList);
         DIService.fetchAllContactsFromServer(null, new DIMessageInterface() {
             @Override
             public void onSuccess(final ChatContactModel chatContactModel) {

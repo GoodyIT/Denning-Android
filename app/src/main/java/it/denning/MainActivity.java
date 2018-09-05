@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -46,9 +47,11 @@ import it.denning.general.DIConstants;
 import it.denning.general.DISharedPreferences;
 import it.denning.general.MyCallbackInterface;
 import it.denning.model.Agreement;
+import it.denning.model.LegalFirm;
 import it.denning.navigation.add.Add;
 import it.denning.navigation.dashboard.Dashboard;
 import it.denning.navigation.home.Home;
+import it.denning.navigation.home.settings.SettingsActivity;
 import it.denning.navigation.home.util.AdsViwerActivity;
 import it.denning.navigation.message.DenningMessage;
 import it.denning.navigation.message.DenningSupportActivity;
@@ -198,6 +201,20 @@ public class MainActivity extends BaseActivity
     protected void onDestroy() {
         super.onDestroy();
         removeDialogsAction();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == DIConstants.LOGOUT_REQUEST_CODE) {
+
+            if (resultCode == AppCompatActivity.RESULT_OK) {
+                // do something with the result
+                logout();
+            } else if (resultCode == AppCompatActivity.RESULT_CANCELED) {
+                // some stuff that will happen if there's no result
+            }
+        }
     }
 
     @Override
@@ -493,11 +510,21 @@ public class MainActivity extends BaseActivity
     }
 
     private void gotoSettings() {
-
+        if(checkToLoginChat()){
+//            SettingsActivity.startForResult(MainActivity.this);
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivityForResult(intent, DIConstants.LOGOUT_REQUEST_CODE);
+        } else {
+            DIAlert.showSimpleAlertAndGotoLogin(MainActivity.this, R.string.access_restricted, R.string.access_restriceted_text);
+        }
     }
 
     private void gotoContactUs() {
-
+        if(checkToLoginChat()){
+            DenningSupportActivity.start(MainActivity.this);
+        } else {
+            DIAlert.showSimpleAlertAndGotoLogin(MainActivity.this, R.string.access_restricted, R.string.access_restriceted_text);
+        }
     }
 
     private void gotoTermsOfUses() {
@@ -527,6 +554,19 @@ public class MainActivity extends BaseActivity
     }
 
     private void logout() {
+        DIAlert.showConfirm(this, R.string.warning_title, R.string.dlg_confirm, new MyCallbackInterface() {
+            @Override
+            public void nextFunction() {
+                _logout();
+            }
+
+            @Override
+            public void nextFunction(JsonElement jsonElement) {
+            }
+        });
+    }
+
+    private void _logout() {
         if (isChatInitializedAndUserLoggedIn()) {
             showProgress();
             ServiceManager.getInstance().logout(new Subscriber<Void>() {
@@ -549,7 +589,7 @@ public class MainActivity extends BaseActivity
         }
     }
 
-    private void mainLogOut() {
+    public void mainLogOut() {
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("email", DISharedPreferences.getInstance().getEmail());
         NetworkManager.getInstance().sendPublicPutRequest(DIConstants.LOGOUT_URL, jsonObject, new CompositeCompletion() {

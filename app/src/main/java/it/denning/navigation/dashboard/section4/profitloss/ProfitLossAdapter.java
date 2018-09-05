@@ -17,6 +17,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import it.denning.R;
+import it.denning.general.DIHelper;
 import it.denning.model.ItemModel;
 import it.denning.search.utils.OnItemClickListener;
 
@@ -64,12 +65,12 @@ public class ProfitLossAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         ItemModel model = modelArrayList.get(position);
         ItemViewHolder itemViewHolder = (ItemViewHolder)holder;
-        itemViewHolder.contactID.setText(model.value);
+        itemViewHolder.contactID.setText(DIHelper.addThousandsSeparator(model.value));
         itemViewHolder.contactName.setText(model.label);
         if (Float.parseFloat(String.valueOf(model.value)) > 0) {
-            itemViewHolder.contactID.setTextColor(Color.parseColor("#FF3B2F"));
-        } else {
             itemViewHolder.contactID.setTextColor(Color.parseColor("#FF5CE499"));
+        } else {
+            itemViewHolder.contactID.setTextColor(Color.parseColor("#FF3B2F"));
         }
 
         itemViewHolder.cardView.setOnClickListener(new View.OnClickListener() {

@@ -477,7 +477,11 @@ public class AddQuotationAdapter extends SectioningAdapter {
     }
 
     public boolean isPresetSelected() {
-        return !model.items.get(0).items.get(4).isEmptyCode() && !model.items.get(0).items.get(1).value.matches("\\w*");
+        return !model.items.get(0).items.get(4).isEmptyCode() && !model.items.get(0).items.get(1).value.isEmpty();
+    }
+
+    public boolean isFileNoSelected() {
+        return !model.items.get(0).items.get(1).value.isEmpty();
     }
 
     public JsonObject buildReceiptParams() {

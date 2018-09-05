@@ -48,7 +48,6 @@ public class UserFriendUtils {
             user.setLastRequestAt(qbUser.getLastRequestAt());
         }
 
-
         UserCustomData userCustomData = Utils.customDataToObject(qbUser.getCustomData());
 
         if (userCustomData != null) {

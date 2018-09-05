@@ -92,24 +92,9 @@ public class SettingsActivity extends BaseLoggableActivity {
         removeActions();
     }
 
-    @OnClick(R.id.edit_profile_imagebutton)
-    void editProfile() {
-        MyProfileActivity.start(this);
-    }
-
     @OnCheckedChanged(R.id.push_notification_switch)
     void enablePushNotification(boolean enable) {
         QBSettings.getInstance().setEnablePushNotification(enable);
-    }
-
-    @OnClick(R.id.invite_friends_button)
-    void inviteFriends() {
-        InviteFriendsActivity.start(this);
-    }
-
-    @OnClick(R.id.give_feedback_button)
-    void giveFeedback() {
-        FeedbackActivity.start(this);
     }
 
     @OnClick(R.id.change_password_button)
@@ -156,11 +141,6 @@ public class SettingsActivity extends BaseLoggableActivity {
 
     }
 
-
-    @OnClick(R.id.delete_my_account_button)
-    void deleteAccount() {
-        ToastUtils.longToast(R.string.coming_soon);
-    }
 
     private void initFields() {
         title = getString(R.string.settings_title);

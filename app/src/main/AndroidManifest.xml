@@ -409,6 +409,8 @@
         <activity android:name=".navigation.home.calculators.loanamortisation.LoanAmortisationActivity" />
         <activity android:name=".navigation.home.calculators.legalcost.LegalCostActivity" />
         <activity android:name=".navigation.message.DenningSupportActivity" />
+        <activity android:name=".navigation.home.settings.SettingsActivity" />
+        <activity android:name=".navigation.home.settings.UpdatePassword" />
 
         <meta-data
             tools:replace="android:value"

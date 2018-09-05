@@ -245,6 +245,7 @@ public class DashboardQuotationActivity extends BaseActivity implements OnItemCl
             @Override
             public void handleError(String error) {
                 hideProgress();
+                ErrorUtils.showError(DashboardQuotationActivity.this, error);
             }
         });
     }

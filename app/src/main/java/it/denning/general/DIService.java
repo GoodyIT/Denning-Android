@@ -57,8 +57,6 @@ public class DIService {
 
     private Context context;
     private List<QBChatDialog> dialogList;
-    private static List<QMUser> myFriendsList;
-    private DIMessageInterface messageInterface;
 
     public DIService(Context context, List<QBChatDialog> dialogList) {
         this.context = context;
@@ -69,7 +67,6 @@ public class DIService {
     }
 
     public static void fetchAllContactsFromServer(final List<DialogWrapper> dialogsList, final DIMessageInterface messageInterface) {
-//        this.messageInterface = messageInterface;
         QBPagedRequestBuilder qbPagedBuilder = new QBPagedRequestBuilder();
         GenericQueryRule genericQueryRule = new GenericQueryRule(ORDER_RULE, ORDER_VALUE);
 
@@ -82,8 +79,7 @@ public class DIService {
         QBUsers.getUsers(qbPagedBuilder).performAsync(new QBEntityCallback<ArrayList<QBUser>>() {
             @Override
             public void onSuccess(final ArrayList<QBUser> qbUsers, Bundle bundle) {
-                myFriendsList = QMUser.convertList(qbUsers);
-                fetchContacts(null, messageInterface);
+                fetchContacts( messageInterface);
             }
 
             @Override
@@ -93,15 +89,7 @@ public class DIService {
         });
     }
 
-    public static void fetchContacts(List<DialogWrapper> dialogsList, final DIMessageInterface messageInterface) {
-        if (dialogsList != null) {
-            Collection<Integer> userIDs = new ArrayList<>();
-            for (DialogWrapper dialogWrapper :  dialogsList) {
-                userIDs.addAll(dialogWrapper.getChatDialog().getOccupants());
-            }
-            myFriendsList = QMUserService.getInstance().getUserCache().getUsersByIDs(userIDs);
-        }
-
+    public static void fetchContacts(final DIMessageInterface messageInterface) {
         String url  = DIConstants.CHAT_GET_URL + DISharedPreferences.getInstance().getEmail();
         NetworkManager.getInstance().sendPublicGetRequest(url, new CompositeCompletion() {
             @Override
@@ -115,7 +103,6 @@ public class DIService {
             }
         });
     }
-
 
     private static void manageResponse(JsonElement jsonElement, final DIMessageInterface messageInterface) {
         final ChatContactModel chatContactModel = new Gson().fromJson(jsonElement, ChatContactModel.class);
@@ -135,7 +122,7 @@ public class DIService {
             newChatFirm.firmName = chatFirmModel.firmName;
             newChatFirm.firmCode = chatFirmModel.firmCode;
             for (final ChatUserModel userModel : chatFirmModel.users) {
-                QMUser _user = findUser(userModel, myFriendsList);
+                QMUser _user = findUser(userModel, QMUserService.getInstance().getUserCache().getAll());
                 if (_user != null) {
                     StringifyArrayList list = new StringifyArrayList<String>();
                     list.add(userModel.tag);

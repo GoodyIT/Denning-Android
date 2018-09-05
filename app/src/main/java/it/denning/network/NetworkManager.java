@@ -13,6 +13,8 @@ import java.util.Set;
 
 import io.reactivex.disposables.CompositeDisposable;
 import it.denning.App;
+import it.denning.R;
+import it.denning.general.DIAlert;
 import it.denning.general.DIConstants;
 import it.denning.general.DIHelper;
 import it.denning.general.DISharedPreferences;
@@ -107,7 +109,8 @@ public class NetworkManager {
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
                 if (!response.isSuccessful()) {
                     if (response.code() == 408){
-                        errorHandler.handleError("Session expired. Please log in again.");
+//                        errorHandler.handleError("Session expired. Please log in again.");
+                        DIAlert.showSimpleAlertAndGotoLogin(context, R.string.warning_title, R.string.alert_session_expired);
                     } else {
                         errorHandler.handleError(response.message());
                     }

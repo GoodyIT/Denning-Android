@@ -470,7 +470,7 @@
     <string name="lot_type_title">Lot Type</string>
     <string name="mukim_type">Mukim Type</string>
     <string name="select_mukim_value">Select Mukim Value</string>
-    <string name="select_area_type_title">Select Area Type</string>
+    <string name="select_area_type_title">Area Type</string>
     <string name="tenure_type_title">Select Tenure Type</string>
     <string name="restriction_in_interest_title">Restriction in Interest</string>
     <string name="restriction_against_title">Restriction Against</string>
@@ -491,6 +491,7 @@
     <string name="please_wait">Please wait...</string>
     <string name="agree">Ok</string>
     <string name="access_restricted">Access Restricted.</string>
+    <string name="access_restriceted_text">The function is only accessible by registered Denning User, please register.</string>
     <string name="alert_file_not_load">Please select the file to upload.</string>
     <string name="alert_filename_not_input">Please input the file name.</string>
     <string name="alert_attendnace">This function is revserved for only Staff.</string>

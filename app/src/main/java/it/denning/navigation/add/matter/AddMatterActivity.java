@@ -87,6 +87,10 @@ public class AddMatterActivity extends MyBaseActivity implements
     private void initFields() {
         matter = (MatterModel) getIntent().getSerializableExtra("model");
         isUpdateMode = matter != null;
+        updateTitle();
+    }
+
+    private void updateTitle() {
         if (isUpdateMode) {
             toolbarTitle.setText(R.string.matter_update_title);
         } else {
@@ -147,13 +151,13 @@ public class AddMatterActivity extends MyBaseActivity implements
             case "SAR":
                 gotoCourtCoram();
                 break;
-            case "Party":
+            case "Add Party":
                 addParty();
                 break;
             case "Load Party":
                 loadParty();
                 break;
-            case "Property":
+            case "Add Property":
                 addProperty();
                 break;
             case "Load Property":
@@ -217,9 +221,11 @@ public class AddMatterActivity extends MyBaseActivity implements
     private void manageSaveResponse(JsonElement jsonElement) {
         hideProgress();
         isSaved = true;
+        isUpdateMode = true;
         // Disable save button
         matter = new Gson().fromJson(jsonElement, MatterModel.class);
         ErrorUtils.showError(this, "Successfully Saved");
+        updateTitle();
         adapter.adjustModelForUpdate(matter);
     }
 
@@ -436,7 +442,7 @@ public class AddMatterActivity extends MyBaseActivity implements
             if (resultCode == AppCompatActivity.RESULT_OK) {
                 // do something with the result
                 StaffModel model = (StaffModel) data.getSerializableExtra("model");
-                adapter.updateParty(new LabelValueDetail(model.name, model.code), selectedSection, selectedItem);
+                adapter.updateParty(new LabelValueDetail(model.name, model.code, true), selectedSection, selectedItem);
             }
         } else if (requestCode == DIConstants.PROPERTY_ADD_REQUEST_CODE) {
             if (resultCode == AppCompatActivity.RESULT_OK) {

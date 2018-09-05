@@ -7,6 +7,10 @@ import com.google.gson.JsonSyntaxException;
 import com.quickblox.q_municate_base_cache.utils.ErrorUtils;
 import com.quickblox.q_municate_user_service.model.QMUserCustomData;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * Created by pelipets on 1/10/17.
  */
@@ -30,4 +34,6 @@ public class Utils {
 
         return userCustomData;
     }
+
+
 }

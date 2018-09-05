@@ -278,6 +278,7 @@ public class MyProfileActivity extends BaseLoggableActivity implements OnMediaPi
                     hideProgress();
                     AppSession.getSession().updateUser(qmUser);
                     updateOldData();
+
                 }
             });
         }

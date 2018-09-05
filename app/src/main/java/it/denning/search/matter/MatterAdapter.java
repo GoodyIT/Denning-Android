@@ -476,7 +476,7 @@ public class MatterAdapter extends SectioningAdapter {
                 });
                 break;
             case 4:
-                value = mRelatedMatter.getParterName().toUpperCase() + " / "
+                value = mRelatedMatter.getPartnerName().toUpperCase() + " / "
                         + mRelatedMatter.getLegalAssistantName().toUpperCase()  + " / "
                         + mRelatedMatter.getClerkName().toUpperCase();
                 setupGeneralTypeHoler(generalTypeViewHolder, "Partner / LA / Clerk", value, View.INVISIBLE);

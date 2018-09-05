@@ -18,8 +18,6 @@ import com.quickblox.q_municate_core.utils.ConstsCore;
 import com.quickblox.q_municate_user_service.model.QMUser;
 import com.quickblox.users.model.QBUser;
 
-import butterknife.BindView;
-import butterknife.OnTextChanged;
 import it.denning.R;
 import it.denning.ui.activities.base.BaseLoggableActivity;
 import it.denning.utils.ToastUtils;

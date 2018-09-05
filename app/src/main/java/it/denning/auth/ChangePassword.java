@@ -41,6 +41,7 @@ import it.denning.model.FirmURLModel;
 import it.denning.network.CompositeCompletion;
 import it.denning.network.ErrorHandler;
 import it.denning.network.NetworkManager;
+import it.denning.ui.activities.base.BaseActivity;
 import it.denning.utils.KeyboardUtils;
 import it.denning.utils.helpers.ServiceManager;
 import okhttp3.MediaType;
@@ -54,7 +55,7 @@ import rx.Subscriber;
  * Created by denningit on 20/04/2017.
  */
 
-public class ChangePassword extends AppCompatActivity {
+public class ChangePassword extends BaseActivity {
     protected @BindView(R.id.change_password_new)
     EditText newPasswordView;
 
@@ -63,6 +64,9 @@ public class ChangePassword extends AppCompatActivity {
 
     protected @BindView(R.id.change_password_continue)
     Button continueBtn;
+
+    @BindView(R.id.toolbar_title)
+    protected TextView toolbarTitle;
 
     @OnClick(R.id.back_btn)
     void onBack() {
@@ -79,10 +83,20 @@ public class ChangePassword extends AppCompatActivity {
     }
 
     @Override
+    protected int getContentResId() {
+        return R.layout.activity_change_password;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_change_password);
-        ButterKnife.bind(this);
+
+        initFields();
+        initActionBar();
+    }
+
+    private void initFields() {
+        toolbarTitle.setText(R.string.change_password_title);
 
         changePasswordLayout = (RelativeLayout) findViewById(R.id.change_password_layout);
     }

@@ -243,6 +243,7 @@ public class SignInActivity extends BaseAuthActivity {
                 FirmURLModel firmURLModel = new Gson().fromJson(jsonElement.getAsJsonObject(), FirmURLModel.class);
                 if (firmURLModel.statusCode == 200) {
                     DISharedPreferences.getInstance().saveSessionID(firmURLModel.sessionID);
+                    finish();
                     MainActivity.start(SignInActivity.this);
                 } else {
                     ErrorUtils.showError(SignInActivity.this, getApplicationContext().getResources().getString(R.string.alert_no_access_to_firm));

@@ -168,6 +168,8 @@ public class DenningMessage extends BaseLoaderFragment<List<DialogWrapper>> impl
         initChatsDialogs();
         initActions();
         addObservers();
+
+        updateContacts();
     }
 
     @Nullable
@@ -200,6 +202,20 @@ public class DenningMessage extends BaseLoaderFragment<List<DialogWrapper>> impl
         qbUser = AppSession.getSession().getUser();
 
         ((MainActivity)getActivity()).showDenningSupport();
+    }
+
+    private void updateContacts() {
+        DIService.fetchContacts(new DIMessageInterface() {
+            @Override
+            public void onSuccess(ChatContactModel chatContactModel) {
+                onChangedData();
+            }
+
+            @Override
+            public void onError(String error) {
+
+            }
+        });
     }
 
     @Override
@@ -440,18 +456,6 @@ public class DenningMessage extends BaseLoaderFragment<List<DialogWrapper>> impl
 
         baseActivity.hideProgress();
         updateDialogsAdapter(dialogsList);
-
-        DIService.fetchContacts(dialogsList, new DIMessageInterface() {
-            @Override
-            public void onSuccess(ChatContactModel chatContactModel) {
-                onChangedData();
-            }
-
-            @Override
-            public void onError(String error) {
-
-            }
-        });
 
         checkEmptyList(dialogsListAdapter.getCount());
 

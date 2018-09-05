@@ -63,6 +63,7 @@ public class GeneralActivity extends AppCompatActivity {
         }
         filter = "";
         linearLayoutManager  = new LinearLayoutManager(this, OrientationHelper.VERTICAL, false);
+        linearLayoutManager.setItemPrefetchEnabled(false);
     }
 
     @Override

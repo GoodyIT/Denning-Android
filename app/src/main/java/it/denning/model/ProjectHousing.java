@@ -14,4 +14,20 @@ public class ProjectHousing implements Serializable {
     public String name;
     public String phase;
     public StaffModel proprietor;
+
+    public String getDevCode() {
+        return developer == null ? "" : developer.code;
+    }
+
+    public String getDevname() {
+        return developer == null ? "" : developer.name;
+    }
+
+    public String getProprietorCode() {
+        return proprietor == null ? "" : proprietor.code;
+    }
+
+    public String getProprietorname() {
+        return proprietor == null ? "" : proprietor.name;
+    }
 }

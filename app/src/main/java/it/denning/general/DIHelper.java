@@ -157,6 +157,11 @@ public class DIHelper {
         return sdf.format(cal.getTime());
     }
 
+    public static String toSimpleDateFormat(Calendar cal) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MM yyyy");
+        return sdf.format(cal.getTime());
+    }
+
     public static String convertToSimpleDateFormat(String date) {
         if (date.trim().length() == 0) {
             return date;

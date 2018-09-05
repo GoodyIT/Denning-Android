@@ -7,6 +7,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -24,6 +25,7 @@ import it.denning.network.CompositeCompletion;
 import it.denning.network.ErrorHandler;
 import it.denning.network.NetworkManager;
 import it.denning.search.utils.OnSpinerItemClick;
+import it.denning.utils.KeyboardUtils;
 
 /**
  * Created by denningit on 2018-01-19.
@@ -97,6 +99,16 @@ public class SpinnerDialog {
         alertDialog = adb.create();
         alertDialog.getWindow().getAttributes().windowAnimations = style;//R.style.DialogAnimations_SmileWindow;
         alertDialog.setCancelable(false);
+
+        Button selectBtn = (Button) v.findViewById(R.id.select_btn);
+        selectBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                KeyboardUtils.hideKeyboard(v);
+                onSpinerItemClick.onClick(searchBox.getText().toString(), pos);
+                alertDialog.dismiss();
+            }
+        });
 
         loadData("");
 

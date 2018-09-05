@@ -30,133 +30,212 @@
                 <it.denning.ui.views.roundedimageview.RoundedImageView
                     android:id="@+id/avatar_imageview"
                     style="@style/AvatarImageViewStyle.Common"
-                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerInParent="true"
                     app:border_color="@color/dark_gray"
                     app:border_width="@dimen/avatar_border_width"
                     app:oval="true" />
-
-                <TextView
-                    android:id="@+id/full_name_edittext"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_marginLeft="@dimen/padding_large"
-                    android:layout_toLeftOf="@+id/edit_profile_imagebutton"
-                    android:layout_toRightOf="@id/avatar_imageview"
-                    android:maxLines="2"
-                    android:textColor="@color/text_dark"
-                    android:textSize="@dimen/text_size"
-                    tools:text="FullName" />
-
-                <ImageButton
-                    android:id="@+id/edit_profile_imagebutton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/selector_button_general"
-                    android:src="@drawable/ic_edit_dark" />
-
             </RelativeLayout>
 
             <include
                 android:id="@+id/divider0"
                 layout="@layout/view_horizontal_divider_gray"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/divider_height"
+                android:layout_height="25dp"
                 android:layout_below="@id/profile_view" />
 
-            <android.support.v7.widget.SwitchCompat
-                android:id="@+id/push_notification_switch"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/divider0"
-                android:padding="@dimen/padding_large"
-                android:text="@string/settings_push_notifications"
-                android:textColor="@color/text_dark"
-                android:textSize="@dimen/text_size" />
+            <RelativeLayout
+                android:id="@+id/nick_name"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/divider0"
+                android:layout_margin="@dimen/padding_large"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/full_name_edittext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:maxLines="2"
+                    android:textColor="@color/text_dark"
+                    android:textSize="@dimen/text_size"
+                    android:text="Nick Name" />
+
+
+                <TextView
+                    android:id="@+id/nickname_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@id/imageView8"
+                    android:maxLines="2"
+                    android:text="TextView"
+                    android:textSize="@dimen/text_size" />
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    app:srcCompat="@mipmap/ic_detail_gray" />
+            </RelativeLayout>
 
             <include
                 android:id="@+id/divider1"
                 layout="@layout/view_horizontal_divider_gray"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/divider_height"
-                android:layout_below="@id/push_notification_switch" />
+                android:layout_below="@+id/nick_name" />
 
-            <Button
-                android:id="@+id/invite_friends_button"
-                style="@style/SettingsButtonStyle"
-                android:layout_below="@id/divider1"
-                android:text="@string/settings_invite_friends" />
+            <RelativeLayout
+                android:id="@+id/phone"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/divider1"
+                android:layout_margin="@dimen/padding_large"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/phone_edittext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:maxLines="2"
+                    android:textColor="@color/text_dark"
+                    android:textSize="@dimen/text_size"
+                    android:text="Phone" />
+
+                <TextView
+                    android:id="@+id/phone_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:maxLines="2"
+                    android:text="TextView"
+                    android:textSize="@dimen/text_size" />
+
+            </RelativeLayout>
 
             <include
                 android:id="@+id/divider2"
                 layout="@layout/view_horizontal_divider_gray"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/divider_height"
-                android:layout_below="@id/invite_friends_button" />
+                android:layout_below="@+id/phone" />
 
-            <Button
-                android:id="@+id/give_feedback_button"
-                style="@style/SettingsButtonStyle"
-                android:layout_below="@id/divider2"
-                android:text="@string/settings_give_feedback" />
+            <RelativeLayout
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/divider2"
+                android:layout_margin="@dimen/padding_large"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/email_edittext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:maxLines="2"
+                    android:textColor="@color/text_dark"
+                    android:textSize="@dimen/text_size"
+                    android:text="Email" />
+
+                <TextView
+                    android:id="@+id/email_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:maxLines="2"
+                    android:text="TextView"
+                    android:textSize="@dimen/text_size" />
+
+            </RelativeLayout>
 
             <include
                 android:id="@+id/divider3"
                 layout="@layout/view_horizontal_divider_gray"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/divider_height"
-                android:layout_below="@id/give_feedback_button" />
+                android:layout_below="@+id/email" />
 
             <RelativeLayout
                 android:id="@+id/change_password_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/divider3">
+                android:layout_below="@+id/divider3">
 
                 <Button
                     android:id="@+id/change_password_button"
                     style="@style/SettingsButtonStyle"
                     android:text="@string/settings_change_password" />
 
-                <include
-                    layout="@layout/view_horizontal_divider_gray"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/divider_height"
-                    android:layout_below="@id/change_password_button" />
-
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="16dp"
+                    app:srcCompat="@mipmap/ic_detail_gray" />
             </RelativeLayout>
-
-            <Button
-                android:id="@+id/logout_button"
-                style="@style/SettingsButtonStyle"
-                android:layout_below="@id/change_password_view"
-                android:text="@string/settings_logout" />
 
             <include
                 android:id="@+id/divider4"
                 layout="@layout/view_horizontal_divider_gray"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/divider_height"
-                android:layout_below="@id/logout_button" />
+                android:layout_height="20dp"
+                android:layout_below="@+id/change_password_view" />
 
-            <!--hide button until next releases-->
-            <Button
-                android:id="@+id/delete_my_account_button"
-                style="@style/SettingsButtonStyle"
-                android:layout_below="@id/divider4"
-                android:text="@string/settings_delete_my_account"
-                android:textColor="@color/text_red"
-                android:visibility="gone" />
+            <android.support.v7.widget.SwitchCompat
+                android:id="@+id/push_notification_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/divider4"
+                android:padding="@dimen/padding_large"
+                android:text="@string/settings_push_notifications"
+                android:textColor="@color/text_dark"
+                android:textSize="@dimen/text_size" />
 
             <include
                 android:id="@+id/divider5"
                 layout="@layout/view_horizontal_divider_gray"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/divider_height"
-                android:layout_below="@id/delete_my_account_button"
-                android:visibility="gone" />
+                android:layout_height="20dp"
+                android:layout_below="@+id/push_notification_switch" />
+
+            <Button
+                android:id="@+id/logout_button"
+                style="@style/SettingsButtonStyle"
+                android:layout_below="@+id/divider5"
+                android:gravity="center"
+                android:text="@string/settings_logout"
+                android:textColor="@color/accent"
+                android:textStyle="bold" />
+
+            <include
+                android:id="@+id/divider6"
+                layout="@layout/view_horizontal_divider_gray"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@+id/logout_button" />
+
+            <TextView
+                android:id="@+id/version_extview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/divider6"
+                android:maxLines="2"
+                android:text="Powered By Denning IT" />
 
         </RelativeLayout>
 

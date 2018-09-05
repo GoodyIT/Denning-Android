@@ -13,6 +13,7 @@ import static com.quickblox.q_municate_db.models.Dialog.Column.TABLE_NAME;
 import static com.quickblox.q_municate_db.models.Dialog.Column.TITLE;
 import static com.quickblox.q_municate_db.models.Dialog.Column.TYPE;
 import static com.quickblox.q_municate_db.models.Dialog.Column.UPDATED_AT;
+import static com.quickblox.q_municate_db.models.Dialog.Column.CUSTOM_DATA;
 
 @DatabaseTable(tableName = TABLE_NAME)
 public class Dialog implements Serializable {
@@ -47,6 +48,9 @@ public class Dialog implements Serializable {
             columnName = UPDATED_AT)
     private long updatedAt;
 
+    @DatabaseField(
+            columnName = CUSTOM_DATA)
+    private String customData;
 
     public Dialog() {
     }
@@ -107,6 +111,14 @@ public class Dialog implements Serializable {
         this.updatedAt = updatedAt;
     }
 
+    public String getCustomData() {
+        return customData;
+    }
+
+    public void setCustomData(String custom_data) {
+        this.customData = custom_data;
+    }
+
     @Override
     public String toString() {
         return "Dialog [dialogId='" + dialogId
@@ -152,5 +164,6 @@ public class Dialog implements Serializable {
         String TYPE = "type";
         String MODIFIED_DATE_LOCAL = "modified_date_local";
         String UPDATED_AT = "updated_at";
+        String CUSTOM_DATA = "custom_data";
     }
 }

@@ -32,6 +32,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import io.reactivex.disposables.CompositeDisposable;
 import it.denning.R;
+import it.denning.general.DIAlert;
 import it.denning.general.DIConstants;
 import it.denning.general.DIHelper;
 import it.denning.general.DISharedPreferences;
@@ -559,7 +560,8 @@ public class SearchActivity extends BaseActivity implements OnItemClickListener,
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
                 if (!response.isSuccessful()) {
                     if (response.code() == 408){
-                        ErrorUtils.showError(SearchActivity.this,"Session expired. Please log in again.");
+//                        ErrorUtils.showError(SearchActivity.this,"Session expired. Please log in again.");
+                        DIAlert.showSimpleAlertAndGotoLogin(SearchActivity.this, R.string.warning_title, R.string.alert_session_expired);
                     } else {
                         ErrorUtils.showError(SearchActivity.this, response.message());
                     }

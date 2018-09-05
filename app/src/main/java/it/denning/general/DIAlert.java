@@ -32,6 +32,24 @@ public class DIAlert {
                 .show();
     }
 
+    public static void showConfirm(Context context, int title, int message, final MyCallbackInterface callback) {
+        new MaterialDialog.Builder(context)
+                .title(title)
+                .content(message)
+                .positiveText(R.string.dlg_ok)
+                .negativeText(R.string.dlg_cancel)
+                .icon(context.getResources().getDrawable(R.mipmap.ic_launcher))
+                .onPositive(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(MaterialDialog dialog, DialogAction which) {
+                        if (callback != null) {
+                            callback.nextFunction();
+                        }
+                    }
+                })
+                .show();
+    }
+
     public static void showSimpleAlertWithCompletion(Context context, int title, String message, final MyCallbackInterface callback) {
         new MaterialDialog.Builder(context)
                 .title(title)

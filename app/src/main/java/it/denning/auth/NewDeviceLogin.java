@@ -1,14 +1,9 @@
 package it.denning.auth;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -21,20 +16,15 @@ import com.quickblox.chat.QBChatService;
 import com.quickblox.q_municate_db.utils.ErrorUtils;
 
 import org.jivesoftware.smack.SmackException;
-import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import it.denning.MainActivity;
 import it.denning.R;
 import it.denning.auth.branch.FirmBranchActivity;
 import it.denning.general.DIConstants;
-import it.denning.general.DIHelper;
 import it.denning.general.DISharedPreferences;
 import it.denning.model.FirmModel;
 import it.denning.model.FirmURLModel;
@@ -43,13 +33,6 @@ import it.denning.network.ErrorHandler;
 import it.denning.network.NetworkManager;
 import it.denning.ui.activities.base.BaseActivity;
 import it.denning.utils.KeyboardUtils;
-import it.denning.utils.helpers.ServiceManager;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import rx.Subscriber;
 
 /**
  * Created by denningit on 20/04/2017.

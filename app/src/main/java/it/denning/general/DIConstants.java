@@ -23,7 +23,7 @@ public class DIConstants {
 
     public static final String LOGOUT_URL = "https://www.denningonline.com.my/denningapi/v1/logout";
 
-    public static final String AUTH_SIGNIN_URL = "https://denningonline.com.my/denningapi/v1/signIn";
+    public static final String AUTH_SIGNIN_URL = "https://denningonline.com.my/denningapi/v1/app/signIn";
     public static final String AUTH_SIGNUP_URL = "https://www.denningonline.com.my/denningapi/v1/signUp";
     public static final String STAFF_SIGNIN_URL   = "v1/app/staffLogin";
     public static final String CLIENT_SIGNIN_URL   = "v1/app/clientLogin";
@@ -362,6 +362,7 @@ public class DIConstants {
 
     // Activity request code
     public static final int REQUEST_CODE = 1;
+    public static final int LOGOUT_REQUEST_CODE = 2;
 
     public static final int SIMPLE_MATTER_REQUEST_CODE = 2;
     public static final int MATTER_REQUEST_CODE = 3;

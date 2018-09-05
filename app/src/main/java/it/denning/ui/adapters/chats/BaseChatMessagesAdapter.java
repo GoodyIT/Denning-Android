@@ -37,7 +37,6 @@ import it.denning.utils.DateUtils;
 import it.denning.utils.FileUtils;
 import it.denning.utils.StringUtils;
 
-
 public class BaseChatMessagesAdapter extends QBMessagesAdapter<CombinationMessage> implements StickyRecyclerHeadersAdapter<RecyclerView.ViewHolder> {
     private static final String TAG = BaseChatMessagesAdapter.class.getSimpleName();
     protected static final int TYPE_REQUEST_MESSAGE = 100;
@@ -155,6 +154,18 @@ public class BaseChatMessagesAdapter extends QBMessagesAdapter<CombinationMessag
             message.setState(State.READ);
             QBUpdateStatusMessageCommand.start(baseActivity, dialog, message, true);
         }
+    }
+
+    @Override
+    protected void onBindViewAttachLeftAudioHolder(AudioAttachHolder holder, CombinationMessage chatMessage, int position) {
+        updateMessageState(chatMessage, chatDialog);
+        super.onBindViewAttachLeftAudioHolder(holder, chatMessage, position);
+    }
+
+    @Override
+    protected void onBindViewAttachLeftVideoHolder(VideoAttachHolder holder, CombinationMessage chatMessage, int position) {
+        updateMessageState(chatMessage, chatDialog);
+        super.onBindViewAttachLeftVideoHolder(holder, chatMessage, position);
     }
 
     public void addAllInBegin(List<CombinationMessage> collection) {

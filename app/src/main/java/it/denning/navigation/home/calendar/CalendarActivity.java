@@ -1,6 +1,7 @@
 package it.denning.navigation.home.calendar;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -322,6 +323,12 @@ public class CalendarActivity extends BaseActivity implements OnItemClickListene
                 .title(date)
                 // second parameter is an optional layout manager. Must be a LinearLayoutManager or GridLayoutManager.
                 .adapter(modalAdapter, null)
+                .dismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialog) {
+                        isModalList = false;
+                    }
+                })
                 .show();
     }
 

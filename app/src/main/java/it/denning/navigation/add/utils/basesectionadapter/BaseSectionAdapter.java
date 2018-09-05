@@ -227,9 +227,6 @@ public class BaseSectionAdapter extends SectioningAdapter {
 
     @Override
     public boolean doesSectionHaveHeader(int sectionIndex) {
-        if (titles.get(sectionIndex).trim().length() == 0) {
-            return false;
-        }
         return true;
     }
 
@@ -356,10 +353,12 @@ public class BaseSectionAdapter extends SectioningAdapter {
         final LabelValueDetail labelValueDetail = model.items.get(sectionIndex).items.get(itemIndex);
 
         viewHolder.button.setText(labelValueDetail.label);
+        final String clickLabel = labelValueDetail.value.equals("Load Party") ? labelValueDetail.value : labelValueDetail.label;
+
         viewHolder.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                itemClickListener.onClick(v, sectionIndex, itemIndex, labelValueDetail.label);
+                itemClickListener.onClick(v, sectionIndex, itemIndex, clickLabel);
             }
         });
     }

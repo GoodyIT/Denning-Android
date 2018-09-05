@@ -483,8 +483,8 @@ public class AddPropertyAdapter extends BaseSectionAdapter {
 
     public void updateProjectHousing(ProjectHousing projectHousing, int sectionIndex) {
         updateCodeDescData(new CodeDescription(projectHousing.code, projectHousing.name), sectionIndex, PROJECT_NAME);
-        updateCodeDescData(new CodeDescription(projectHousing.developer.code, projectHousing.developer.name), sectionIndex, DEVELOPER);
-        updateCodeDescData(new CodeDescription(projectHousing.proprietor.code, projectHousing.proprietor.name), sectionIndex, PROPRIETOR);
+        updateCodeDescData(new CodeDescription(projectHousing.getDevCode(), projectHousing.getDevname()), sectionIndex, DEVELOPER);
+        updateCodeDescData(new CodeDescription(projectHousing.getProprietorCode(), projectHousing.getProprietorname()), sectionIndex, PROPRIETOR);
         updateDataAndRefresh(projectHousing.masterTitle, sectionIndex, BLOCK_MASTER_TITLE);
     }
 
@@ -592,7 +592,7 @@ public class AddPropertyAdapter extends BaseSectionAdapter {
 
         code = new JsonObject();
         if (!isEqual(titleDetails.get(RESTRICTION_IN_INTEREST).code, property.getRestrictionInInterestCode())) {
-            code.addProperty("code", main.get(RESTRICTION_IN_INTEREST).code);
+            code.addProperty("code", titleDetails.get(RESTRICTION_IN_INTEREST).code);
             params.add("restrictionInInterest", code);
         }
 
