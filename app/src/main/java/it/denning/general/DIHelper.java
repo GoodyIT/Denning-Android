@@ -37,6 +37,7 @@ import java.net.SocketException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
@@ -49,6 +50,7 @@ import java.util.UUID;
 
 import it.denning.App;
 import it.denning.MainActivity;
+import it.denning.model.ChatFirmModel;
 
 import static android.content.Context.WIFI_SERVICE;
 
@@ -158,7 +160,7 @@ public class DIHelper {
     }
 
     public static String toSimpleDateFormat(Calendar cal) {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd MM yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
         return sdf.format(cal.getTime());
     }
 
@@ -495,7 +497,7 @@ public class DIHelper {
         }
 
         String tag = (String) data.get("tag");
-        return tag == null ? DIConstants.kChatColleaguesTag : tag;
+        return tag == null ? DIConstants.kChatColleaguesTag : tag.toLowerCase();
     }
 
     public static String getPosition(QBChatDialog chatDialog) {
@@ -514,6 +516,29 @@ public class DIHelper {
 
         String position = (String) data.get("position");
         return position == null ? "" : position;
+    }
+
+    public static ArrayList<ChatFirmModel> filterMeOut(ArrayList<ChatFirmModel> contacts) {
+        ArrayList<ChatFirmModel> newContacts = new ArrayList<>();
+
+        for (ChatFirmModel chatFirmModel : contacts) {
+            List<QMUser> userArrayList = chatFirmModel.chatUsers;
+            ChatFirmModel newChatFirmModel = new ChatFirmModel();
+            List<QMUser> newUserList = new ArrayList<>();
+            boolean isExisting = false;
+            for (QMUser user : userArrayList) {
+                if (!user.getEmail().equals(AppSession.getSession().getUser().getEmail())) {
+                    newUserList.add(user);
+                }
+            }
+
+            newChatFirmModel.firmCode = chatFirmModel.firmCode;
+            newChatFirmModel.firmName = chatFirmModel.firmName;
+            newChatFirmModel.chatUsers = newUserList;
+            newContacts.add(newChatFirmModel);
+        }
+
+        return newContacts;
     }
 
     public static String addThousandsSeparator(String value) {

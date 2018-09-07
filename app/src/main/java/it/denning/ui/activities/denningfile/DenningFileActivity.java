@@ -24,6 +24,8 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import com.quickblox.q_municate_db.managers.DataManager;
+import com.quickblox.q_municate_db.utils.ErrorUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -34,6 +36,7 @@ import butterknife.OnClick;
 import info.hoang8f.android.segmented.SegmentedGroup;
 import io.reactivex.disposables.CompositeDisposable;
 import it.denning.R;
+import it.denning.general.DIAlert;
 import it.denning.general.DIConstants;
 import it.denning.general.DIHelper;
 import it.denning.general.DISharedPreferences;
@@ -44,6 +47,7 @@ import it.denning.model.SearchResultModel;
 import it.denning.network.CompositeCompletion;
 import it.denning.network.RetrofitHelper;
 import it.denning.network.services.DenningService;
+import it.denning.search.SearchActivity;
 import it.denning.search.document.DocumentActivity;
 import it.denning.search.utils.ClearableAutoCompleteTextView;
 import it.denning.search.utils.OnItemClickListener;
@@ -51,6 +55,8 @@ import it.denning.ui.activities.base.BaseLoggableActivity;
 import it.denning.utils.KeyboardUtils;
 import it.denning.utils.MediaUtils;
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by denningit on 22/04/2017.
@@ -277,25 +283,19 @@ public class DenningFileActivity extends BaseLoggableActivity implements OnItemC
 
     @OnClick(R.id.transit_btn)
     void gotoTransitFolder() {
-
+        documentTitle = "Transit Folder";
+        mSingle = mSearchService.getTransitFolder();
+        callDocumentActivity();
     }
 
     private void determineKeywordType(String keyword) {
-        if (isGeneralSearh) {
-            mSingle =  mSearchService.queryGeneralSearchKeywords(keyword);
-        } else {
-            mSingle = mSearchService.queryPublicSearchKeywords(keyword);
-        }
+        mSingle =  mSearchService.queryGeneralSearchKeywords(keyword);
     }
 
     private void determineSearchType() {
         switch (currentSearch) {
             case DIConstants.DENNING_SEARCH:
-                if (isGeneralSearh) {
-                    mSingle = mSearchService.queryGeneralSearch(currentKeyword, DISharedPreferences.CurrentCategory, page, isAutoComplete);
-                } else {
-                    mSingle = mSearchService.queryPublicSearch(currentKeyword, DISharedPreferences.CurrentCategory, page, isAutoComplete);
-                }
+                mSingle = mSearchService.queryGeneralSearch(currentKeyword, DISharedPreferences.CurrentCategory, page, isAutoComplete);
                 break;
             case DIConstants.CONTACT_TYPE:
                 mSingle = mSearchService.getContact(currentCode);
@@ -303,14 +303,6 @@ public class DenningFileActivity extends BaseLoggableActivity implements OnItemC
 
             case DIConstants.MATTER_TYPE:
                 mSingle = mSearchService.getMatter(currentCode);
-                break;
-            case DIConstants.DOCUMENT_TYPE:
-                documentTitle = "File Folder";
-                mSingle = mSearchService.getDocument(currentCode);
-                break;
-            case DIConstants.DOCUMENT_FOR_CONTACT_TYPE:
-                documentTitle = "Contact Folder";
-                mSingle = mSearchService.getDocumentFromContact(currentCode);
                 break;
         }
     }
@@ -370,6 +362,7 @@ public class DenningFileActivity extends BaseLoggableActivity implements OnItemC
             page++;
         }
         denningFileAdapter.swapItems(Arrays.asList(searchArray));
+        denningFileAdapter.filterList();
 
         setupEndlessScroll();
         hideHorizontalProgress();
@@ -394,6 +387,10 @@ public class DenningFileActivity extends BaseLoggableActivity implements OnItemC
                 break;
         }
 
+        callDocumentActivity();
+    }
+
+    private void callDocumentActivity() {
         excecuteCompositeDisposable(new CompositeCompletion() {
             @Override
             public void parseResponse(JsonElement jsonElement) {
@@ -404,29 +401,27 @@ public class DenningFileActivity extends BaseLoggableActivity implements OnItemC
     }
 
     private void excecuteCompositeDisposable(final CompositeCompletion completion) {
-//        mCompositeDisposable.add(mSingle
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .map(new Function<JsonElement, JsonElement>() {
-//                    @Override
-//                    public JsonElement apply(JsonElement jsonElement) throws Exception {
-//                        return jsonElement;
-//                    }
-//                })
-//                .subscribeWith(new DisposableSingleObserver<JsonElement>() {
-//                    @Override
-//                    public void onSuccess(JsonElement jsonElement) {
-//                        completion.parseResponse(jsonElement);
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//                        hideProgress();
-//                        hideHorizontalProgress();
-//                        ErrorUtils.showError(DenningFileActivity.this, e.getMessage());
-//                    }
-//                })
-//        );
+        mSingle.enqueue(new Callback<JsonElement>() {
+            @Override
+            public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
+                if (!response.isSuccessful()) {
+                    if (response.code() == 408){
+                        ErrorUtils.showError(DenningFileActivity.this,"Session expired. Please log in again.");
+//                        DIAlert.showSimpleAlertAndGotoLogin(DenningFileActivity.this, R.string.warning_title, R.string.alert_session_expired);
+                    } else {
+                        ErrorUtils.showError(DenningFileActivity.this, response.message());
+                    }
+                } else {
+                    completion.parseResponse(response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JsonElement> call, Throwable e) {
+                hideHorizontalProgress();
+                ErrorUtils.showError(DenningFileActivity.this, e.getMessage());
+            }
+        });
     }
 
     @Override
@@ -442,7 +437,7 @@ public class DenningFileActivity extends BaseLoggableActivity implements OnItemC
     private void _gotoDocumentActivity() {
         DISharedPreferences.isDenningFile = true;
         Intent intent = new Intent(this, DocumentActivity.class);
-        intent.putExtra("title", title);
+        intent.putExtra("title", documentTitle);
         startActivityForResult(intent, MediaUtils.DENNING_FILE_REQUEST_CODE);
         setResult(Activity.RESULT_OK, new Intent());
     }

@@ -28,6 +28,9 @@ public class ChatContactModel {
     @SerializedName("client")
     public List<ChatFirmModel> clientContacts;
 
+    @SerializedName("denningPeople")
+    public List<ChatFirmModel> denningContacts;
+
     public List<ChatFirmModel> getFavoriteClientContacts() {
         return favoriteClientContacts != null ? favoriteClientContacts : new ArrayList<ChatFirmModel>();
     }
@@ -42,5 +45,9 @@ public class ChatContactModel {
 
     public List<ChatFirmModel> getClientContacts() {
         return clientContacts != null ? clientContacts : new ArrayList<ChatFirmModel>();
+    }
+
+    public List<ChatFirmModel> getDenningContacts() {
+        return denningContacts != null ? denningContacts : new ArrayList<ChatFirmModel>();
     }
 }

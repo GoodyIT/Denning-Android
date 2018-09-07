@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.denning.R;
+import it.denning.general.DIHelper;
 import it.denning.model.ChatFirmModel;
 
 /**
@@ -56,7 +57,7 @@ public class MessageFavoriteAdapter extends MessageBaseAdapter {
                 newList.addAll(chatContactModel.getFavoriteClientContacts());
         }
 
-        copyOfObjectsList = new ArrayList<>(newList);
+        setNewData(DIHelper.filterMeOut(newList));
         filterItem(query);
     }
 }

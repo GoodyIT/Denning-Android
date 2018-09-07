@@ -81,8 +81,8 @@ public class DialogsListAdapter extends BaseListAdapter<DialogWrapper> {
             viewHolder.nameTextView.setText(currentDialog.getName());
             viewHolder.avatarImageView.setImageResource(R.drawable.placeholder_group);
             displayGroupPhotoImage(currentDialog.getPhoto(), viewHolder.avatarImageView);
-            viewHolder.tagTextView.setText(DIHelper.getPosition(currentDialog));
         }
+        viewHolder.tagTextView.setText(DIHelper.getPosition(currentDialog));
 
         long totalCount = dialogWrapper.getTotalCount();
 
@@ -175,13 +175,13 @@ public class DialogsListAdapter extends BaseListAdapter<DialogWrapper> {
     public void filterItem(String query) {
         this.query = query;
         if (query.trim().length() == 0) {
-            setNewData(copyOfObjectsList);
+            setNewData(new ArrayList<DialogWrapper>(objectsList));
             return;
         }
         query = query.toLowerCase();
         ArrayList<DialogWrapper> newList = new ArrayList<>();
 
-        for (DialogWrapper dialogWrapper : copyOfObjectsList) {
+        for (DialogWrapper dialogWrapper : objectsList) {
             QBChatDialog dialog = dialogWrapper.getChatDialog();
             if (dialog.getName().toLowerCase().contains(query) || dialogWrapper.getLastMessage().toLowerCase().contains(query)) {
                 newList.add(dialogWrapper);

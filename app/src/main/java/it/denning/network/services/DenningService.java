@@ -61,6 +61,9 @@ public interface DenningService {
     @GET("v1/app/matter/{code}/fileFolder")
     Call<JsonElement> getDocument(@Path("code") String code);
 
+    @GET("v1/app/matter/transit/fileFolder")
+    Call<JsonElement> getTransitFolder();
+
     @GET("v1/app/contactFolder/{code}")
     Call<JsonElement> getDocumentFromContact(@Path("code") String code);
 

@@ -121,7 +121,7 @@ public class DashboardQuotationAdapter extends SectioningAdapter {
     @Override
     public void onBindHeaderViewHolder(SectioningAdapter.HeaderViewHolder viewHolder, int sectionIndex, int headerType) {
         HeaderViewHolder headerViewHolder = (HeaderViewHolder) viewHolder;
-        headerViewHolder.firstTitle.setText("Tax Invoice No.");
+        headerViewHolder.firstTitle.setText("Quotation No.");
         headerViewHolder.secondTitle.setText("File No.");
         headerViewHolder.thirdTitle.setText("Amount");
     }

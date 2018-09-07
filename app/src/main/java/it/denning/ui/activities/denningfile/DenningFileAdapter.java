@@ -170,7 +170,7 @@ public class DenningFileAdapter extends SectioningAdapter {
                 Integer type = DIHelper.determinSearchType(model.form);
                 if (tab == 1 && type == DIConstants.MATTER_TYPE) { // File
                     newList.add(model);
-                } else if (type == DIConstants.CONTACT_TYPE){ // Contact
+                } else if (tab == 2 && type == DIConstants.CONTACT_TYPE){ // Contact
                     newList.add(model);
                 }
             }

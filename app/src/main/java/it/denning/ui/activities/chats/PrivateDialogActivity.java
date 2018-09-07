@@ -167,13 +167,13 @@ public class PrivateDialogActivity extends BaseDialogActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        boolean isFriend = DataManager.getInstance().getFriendDataManager().getByUserId(
-                opponentUser.getId()) != null;
-
-        if (!isFriend && item.getItemId() != android.R.id.home) {
-            ToastUtils.longToast(R.string.dialog_user_is_not_friend);
-            return true;
-        }
+//        boolean isFriend = DataManager.getInstance().getFriendDataManager().getByUserId(
+//                opponentUser.getId()) != null;
+//
+//        if (!isFriend && item.getItemId() != android.R.id.home) {
+//            ToastUtils.longToast(R.string.dialog_user_is_not_friend);
+//            return true;
+//        }
         switch (item.getItemId()) {
             case R.id.action_audio_call:
                 callToUser(opponentUser, QBRTCTypes.QBConferenceType.QB_CONFERENCE_TYPE_AUDIO);
@@ -189,14 +189,14 @@ public class PrivateDialogActivity extends BaseDialogActivity {
 
     @Override
     protected void checkMessageSendingPossibility() {
-        boolean enable = dataManager.getFriendDataManager().existsByUserId(opponentUser.getId()) && isNetworkAvailable();
+        boolean enable = /*dataManager.getFriendDataManager().existsByUserId(opponentUser.getId()) &&*/ isNetworkAvailable();
 
         checkMessageSendingPossibility(enable);
     }
 
     @OnClick(R.id.toolbar)
     void openProfile(View view) {
-        UserProfileActivity.start(this, opponentUser.getId());
+//        UserProfileActivity.start(this, opponentUser.getId());
     }
 
     @Override

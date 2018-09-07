@@ -30,6 +30,8 @@ import it.denning.ui.activities.base.BaseActivity;
 import it.denning.utils.KeyboardUtils;
 import it.denning.utils.listeners.UserStatusChangingListener;
 
+import static android.content.Intent.FLAG_ACTIVITY_NO_HISTORY;
+
 /**
  * Created by denningit on 2017-12-24.
  */

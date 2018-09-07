@@ -96,6 +96,7 @@ public class AddMatterAdapter extends BaseSectionAdapter {
     public AddMatterAdapter(Context context, OnSectionItemClickListener itemClickListener, boolean isUpdateMode) {
         super(context, itemClickListener);
         this.isUpdateMode = isUpdateMode;
+        matter = new MatterModel();
         updateTitles();
         buildModel();
     }
@@ -156,8 +157,6 @@ public class AddMatterAdapter extends BaseSectionAdapter {
             String[] __titles = {"Matter Information"};
             titles.addAll(Arrays.asList(__titles));
         }
-
-        matter = new MatterModel();
     }
 
     public MatterModel getModel() {

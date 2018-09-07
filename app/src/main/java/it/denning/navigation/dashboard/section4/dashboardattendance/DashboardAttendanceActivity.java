@@ -253,7 +253,7 @@ public class DashboardAttendanceActivity extends GeneralActivity implements OnIt
 
     @Override
     public void onClick(View view, int position) {
-        StaffOnlineModel model = modelArrayList.get(position-1);
+        StaffOnlineModel model = modelArrayList.get(position);
         Intent i = new Intent(this, DashboardAttendanceDetailActivity.class);
         i.putExtra("model", model);
         startActivity(i);

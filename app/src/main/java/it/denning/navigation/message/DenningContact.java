@@ -70,9 +70,6 @@ public class DenningContact extends MessageBaseFragment {
         super.onActivityCreated(savedInstanceState);
         Log.d(TAG, "onActivityCreated");
         addActions();
-//        if (messageAdapter.getCount() == 0){
-//            loadUsersFromServer();
-//        }
     }
 
     public void loadUsersFromServer() {
@@ -82,6 +79,7 @@ public class DenningContact extends MessageBaseFragment {
             @Override
             public void onSuccess(final ChatContactModel chatContactModel) {
                 messageAdapter.setChatContactModel(chatContactModel);
+                messageAdapter.filterTag(0);
                 if (getActivity() != null) {
                     getActivity().runOnUiThread(new Runnable() {
                         @Override

@@ -50,6 +50,15 @@ public class NetworkManager {
         return instance;
     }
 
+    public static NetworkManager getInstance(Context context) {
+        instance.context = context;
+        if (instance == null) {
+            instance = new NetworkManager();
+        }
+
+        return instance;
+    }
+
     private NetworkManager() {
         this.context = App.getInstance();
         if (mCompositeDisposable == null) {
@@ -109,8 +118,8 @@ public class NetworkManager {
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
                 if (!response.isSuccessful()) {
                     if (response.code() == 408){
-//                        errorHandler.handleError("Session expired. Please log in again.");
-                        DIAlert.showSimpleAlertAndGotoLogin(context, R.string.warning_title, R.string.alert_session_expired);
+                        errorHandler.handleError("Session expired. Please log in again.");
+//                        DIAlert.showSimpleAlertAndGotoLogin(context, R.string.warning_title, R.string.alert_session_expired);
                     } else {
                         errorHandler.handleError(response.message());
                     }

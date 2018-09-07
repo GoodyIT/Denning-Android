@@ -19,6 +19,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import it.denning.R;
+import it.denning.general.DIHelper;
 import it.denning.model.ChatContactModel;
 import it.denning.model.ChatFirmModel;
 
@@ -177,13 +178,13 @@ public class MessageBaseAdapter extends SectioningAdapter {
     public void filterItem(String query) {
         this.query = query;
         if (query.trim().length() == 0) {
-            setNewData(copyOfObjectsList);
+            setNewData(new ArrayList<>(contactList));
             return;
         }
         query.toLowerCase();
         ArrayList<ChatFirmModel> newList = new ArrayList<>();
 
-        for (ChatFirmModel chatFirmModel : copyOfObjectsList) {
+        for (ChatFirmModel chatFirmModel : contactList) {
             List<QMUser> userArrayList = chatFirmModel.chatUsers;
             ChatFirmModel newChatFirmModel = new ChatFirmModel();
             List<QMUser> newUserList = new ArrayList<>();
@@ -192,6 +193,7 @@ public class MessageBaseAdapter extends SectioningAdapter {
                 if (user.getFullName().toLowerCase().contains(query)) {
                     newUserList.add(user);
                     isExisting = true;
+                    break;
                 }
             }
 

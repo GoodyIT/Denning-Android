@@ -1,6 +1,5 @@
 package it.denning.general;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 
@@ -12,21 +11,14 @@ import com.quickblox.core.exception.QBResponseException;
 import com.quickblox.core.helper.StringifyArrayList;
 import com.quickblox.core.request.GenericQueryRule;
 import com.quickblox.core.request.QBPagedRequestBuilder;
-import com.quickblox.q_municate_core.models.AppSession;
 import com.quickblox.q_municate_core.models.DialogWrapper;
-import com.quickblox.q_municate_core.utils.FinderUnknownUsers;
 import com.quickblox.q_municate_db.utils.ErrorUtils;
 import com.quickblox.q_municate_user_service.QMUserService;
 import com.quickblox.q_municate_user_service.model.QMUser;
 import com.quickblox.users.QBUsers;
 import com.quickblox.users.model.QBUser;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -37,12 +29,7 @@ import it.denning.model.ChatUserModel;
 import it.denning.network.CompositeCompletion;
 import it.denning.network.ErrorHandler;
 import it.denning.network.NetworkManager;
-import it.denning.utils.AuthUtils;
-import it.denning.utils.helpers.ServiceManager;
-import okhttp3.Call;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 /**
  * Created by hothongmee on 10/11/2017.
@@ -109,6 +96,7 @@ public class DIService {
                 ChatContactModel newContact = new ChatContactModel();
 
         newContact.staffContacts = findChatFirm(chatContactModel.staffContacts);
+        newContact.denningContacts = findChatFirm(chatContactModel.denningContacts);
         newContact.favoriteClientContacts = findChatFirm(chatContactModel.favoriteClientContacts);
         newContact.favoriteStaffContacts = findChatFirm(chatContactModel.favoriteStaffContacts);
         newContact.clientContacts = findChatFirm(chatContactModel.clientContacts);

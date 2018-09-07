@@ -145,6 +145,7 @@ public class NewDeviceLogin extends BaseActivity {
             manageFirmURL(firmURLModel.catDenning);
         } else {
             // go to main activity - remove signin activity
+            finish();
             MainActivity.start(this);
         }
     }
@@ -154,6 +155,7 @@ public class NewDeviceLogin extends BaseActivity {
             DISharedPreferences.getInstance(this).saveServerAPI(firmArray.get(0));
             staffSignIn();
         } else {
+            finish();
             FirmBranchActivity.start(this);
         }
     }

@@ -254,10 +254,10 @@ public class DIConstants {
     *   Chat Tags
     * */
 
-    public static final String kChatDenningTag = "Denning";
-    public static final String kChatColleaguesTag = "Colleagues";
-    public static final String kChatClientsTag = "Clients";
-    public static final String kChatMattersTag = "Matters";
+    public static final String kChatDenningTag = "dnning";
+    public static final String kChatColleaguesTag = "colleagues";
+    public static final String kChatClientsTag = "clients";
+    public static final String kChatMattersTag = "matters";
 
     /*
     *   Group Position Tag

@@ -2,6 +2,7 @@ package it.denning.navigation.add.contact;
 
 import android.content.Context;
 import android.support.v4.util.SimpleArrayMap;
+import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,6 +41,7 @@ import it.denning.network.NetworkManager;
 import it.denning.search.utils.OnSectionItemClickListener;
 import it.denning.search.utils.myfloatingedittext.MyFloatingEditText;
 import it.denning.utils.KeyboardUtils;
+import android.os.Handler;
 
 /**
  * Created by denningit on 2018-01-19.
@@ -91,6 +93,8 @@ public class AddContactAdapter extends BaseSectionAdapter {
 
     // INVITATION
     public int INVITATION_TO_DENNING = 0;
+
+    private boolean onBind;
 
     public AddContactAdapter(Context context, OnSectionItemClickListener itemClickListener) {
         super(context, itemClickListener);
@@ -514,9 +518,14 @@ public class AddContactAdapter extends BaseSectionAdapter {
                             DIAlert.showSimpleAlert(context, R.string.alert_valid_ID);
                             return;
                         }
-                        Calendar cal = Calendar.getInstance();
+                        final Calendar cal = Calendar.getInstance();
                         cal.set(Integer.parseInt(year), Integer.parseInt(month)-1, Integer.parseInt(day));
-                        updateDataAndRefresh(DIHelper.toSimpleDateFormat(cal), OTHER_INFO, DATE_OF_BIRTH);
+                        new Handler().post(new Runnable() {
+                            @Override
+                            public void run () {
+                                updateDataAndRefresh(DIHelper.toSimpleDateFormat(cal), OTHER_INFO, DATE_OF_BIRTH);
+                            }
+                        });
                         input = new StringBuilder(input).insert(6, '-').toString();
                     }
 
@@ -615,7 +624,6 @@ public class AddContactAdapter extends BaseSectionAdapter {
 
         notifySectionItemChanged(PERSONAL_INFO, ID_NO);
         notifySectionItemChanged(OTHER_INFO, CITIZENSHIP);
-
 
         updateCodeDescData(codeDescription, sectionIndex, itemIndex);
     }

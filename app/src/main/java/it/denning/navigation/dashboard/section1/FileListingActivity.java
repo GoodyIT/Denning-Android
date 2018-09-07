@@ -1,6 +1,7 @@
 package it.denning.navigation.dashboard.section1;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -10,6 +11,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -95,8 +97,8 @@ public class FileListingActivity extends GeneralActivity implements OnItemClickL
 
         initFields();
         setupList();
-//        setupEndlessScroll();
         setupSearchView();
+        setupEndlessScroll();
 
         fetchHeader();
         loadData();
@@ -142,6 +144,22 @@ public class FileListingActivity extends GeneralActivity implements OnItemClickL
         _url = getIntent().getStringExtra("api");
     }
 
+    public class WrapContentLinearLayoutManager extends LinearLayoutManager {
+        public WrapContentLinearLayoutManager(Context context) {
+            super(context);
+        }
+
+        //... constructor
+        @Override
+        public void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state) {
+            try {
+                super.onLayoutChildren(recycler, state);
+            } catch (IndexOutOfBoundsException e) {
+                Log.e("Error", "IndexOutOfBoundsException in RecyclerView happens");
+            }
+        }
+    }
+
     void setupList() {
         modelArrayList = new ArrayList<>();
         fileListingAdapter = new FileListingAdapter(modelArrayList, getApplicationContext(), this);
@@ -149,6 +167,8 @@ public class FileListingActivity extends GeneralActivity implements OnItemClickL
         dashboardList.addItemDecoration(new it.denning.general.DividerItemDecoration(ContextCompat.getDrawable(this, R.drawable.item_decorator)));
         dashboardList.setItemAnimator(new DefaultItemAnimator());
 //        dashboardList.setLayoutManager(new StickyHeaderLayoutManager());
+        linearLayoutManager  = new LinearLayoutManager(this, OrientationHelper.VERTICAL, false);
+        linearLayoutManager.setItemPrefetchEnabled(false);
         dashboardList.setLayoutManager(linearLayoutManager);
         dashboardList.setAdapter(fileListingAdapter);
         dashboardList.setOnTouchListener(new View.OnTouchListener() {

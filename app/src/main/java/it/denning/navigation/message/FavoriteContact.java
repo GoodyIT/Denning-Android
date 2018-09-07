@@ -84,6 +84,7 @@ public class FavoriteContact extends MessageBaseFragment {
                 messageAdapter.setChatContactModel(chatContactModel);
                 messageAdapter.setNewData(chatContactModel.favoriteClientContacts);
                 messageAdapter.addNewData(chatContactModel.favoriteStaffContacts);
+                messageAdapter.filterTag(0);
                 if (getActivity() != null) {
                     getActivity().runOnUiThread(new Runnable() {
                         @Override

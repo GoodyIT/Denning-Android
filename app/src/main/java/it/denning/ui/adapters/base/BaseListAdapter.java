@@ -53,8 +53,9 @@ public abstract class BaseListAdapter<T> extends BaseAdapter {
     }
 
     public void setNewData(List<T> newData) {
-        objectsList = newData;
-        copyOfObjectsList = new ArrayList<>(newData);
+        objectsList.clear();
+        objectsList.addAll(newData);
+//        copyOfObjectsList = new ArrayList<>(newData);
         notifyDataSetChanged();
     }
 

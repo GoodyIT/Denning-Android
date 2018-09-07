@@ -31,11 +31,11 @@ public class OfficeFragment extends BaseDiaryFragment {
     public static OfficeFragment newInstance(OfficeDiaryModel officeDiaryModel) {
         if (fragment == null) {
             fragment = new OfficeFragment();
-            Bundle bundle = new Bundle();
-            bundle.putSerializable("model", officeDiaryModel);
-            fragment.setArguments(bundle);
         }
 
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("model", officeDiaryModel);
+        fragment.setArguments(bundle);
         return fragment;
     }
 

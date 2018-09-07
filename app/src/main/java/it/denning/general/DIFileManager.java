@@ -20,7 +20,7 @@ import it.denning.utils.MediaUtils;
  */
 
 public class DIFileManager {
-    public static String folderName = "/DenningIT";
+    public static String folderName = "/DenningIT/";
     private final Context mContext;
 
 

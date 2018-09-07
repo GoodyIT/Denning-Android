@@ -43,7 +43,9 @@ public class DialogTransformUtils {
         qbDialog.setRoomJid(dialog.getRoomJid());
         qbDialog.setPhoto(dialog.getPhoto());
         qbDialog.setName(dialog.getTitle());
-        qbDialog.setCustomData(chatCustomDataToObject(dialog.getCustomData()));
+        if (dialog.getCustomData() != null) {
+            qbDialog.setCustomData(chatCustomDataToObject(dialog.getCustomData()));
+        }
         qbDialog.setOccupantsIds(createOccupantsIdsFromDialogOccupantsList(dialogOccupantsList));
         qbDialog.setType(
                 Dialog.Type.PRIVATE.equals(dialog.getType()) ? QBDialogType.PRIVATE : QBDialogType.GROUP);

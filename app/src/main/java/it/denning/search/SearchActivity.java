@@ -560,8 +560,8 @@ public class SearchActivity extends BaseActivity implements OnItemClickListener,
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
                 if (!response.isSuccessful()) {
                     if (response.code() == 408){
-//                        ErrorUtils.showError(SearchActivity.this,"Session expired. Please log in again.");
-                        DIAlert.showSimpleAlertAndGotoLogin(SearchActivity.this, R.string.warning_title, R.string.alert_session_expired);
+                        ErrorUtils.showError(SearchActivity.this,"Session expired. Please log in again.");
+//                        DIAlert.showSimpleAlertAndGotoLogin(SearchActivity.this, R.string.warning_title, R.string.alert_session_expired);
                     } else {
                         ErrorUtils.showError(SearchActivity.this, response.message());
                     }

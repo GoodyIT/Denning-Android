@@ -30,10 +30,10 @@ public class PersonalFragment extends BaseDiaryFragment {
     public static PersonalFragment newInstance(OfficeDiaryModel personalDiaryModel) {
         if (fragment == null) {
             fragment = new PersonalFragment();
-            Bundle bundle = new Bundle();
-            bundle.putSerializable("model", personalDiaryModel);
-            fragment.setArguments(bundle);
         }
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("model", personalDiaryModel);
+        fragment.setArguments(bundle);
 
         return fragment;
     }

@@ -116,6 +116,7 @@ public class CalendarActivity extends BaseActivity implements OnItemClickListene
         initActionBar();
 
         loadMonthlyEvents();
+        loadEvents();
     }
 
     private void initFields() {
@@ -135,6 +136,7 @@ public class CalendarActivity extends BaseActivity implements OnItemClickListene
         setupRecyclerView();
 
         setupEndlessScroll();
+
     }
 
     private void configureCalendar() {

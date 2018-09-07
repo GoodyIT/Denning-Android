@@ -185,9 +185,9 @@ public class AddMatterActivity extends MyBaseActivity implements
     private void saveMatter() {
         findViewById(R.id.search_bank_layout).requestFocus();
 
-        if (isSaved) {
-            return;
-        }
+//        if (isSaved) {
+//            return;
+//        }
 
         if (!adapter.isValidProceed()) {
             return;

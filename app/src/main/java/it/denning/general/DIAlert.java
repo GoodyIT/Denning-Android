@@ -83,7 +83,7 @@ public class DIAlert {
         showSimpleAlertWithCompletion(context, title, message, new MyCallbackInterface() {
             @Override
             public void nextFunction() {
-                SignInActivity.start(context);
+//                SignInActivity.start(context);
             }
 
             @Override

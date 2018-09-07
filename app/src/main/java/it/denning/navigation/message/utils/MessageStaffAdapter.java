@@ -5,6 +5,7 @@ import org.zakariya.stickyheaders.SectioningAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+import it.denning.general.DIHelper;
 import it.denning.model.ChatContactModel;
 import it.denning.model.ChatFirmModel;
 import it.denning.search.utils.OnItemClickListener;
@@ -34,7 +35,7 @@ public class MessageStaffAdapter extends MessageClientAdapter {
                 newList.addAll(chatContactModel.getClientContacts());
         }
 
-        copyOfObjectsList = new ArrayList<>(newList);
+        setNewData(DIHelper.filterMeOut(newList));
         filterItem(query);
     }
 }

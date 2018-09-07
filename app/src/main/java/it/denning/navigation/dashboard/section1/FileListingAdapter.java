@@ -153,7 +153,7 @@ public class FileListingAdapter extends SectioningAdapter {
         ArrayList<SearchResultModel> res = new ArrayList<SearchResultModel>(this.modelArrayList);
         res.addAll(newSearchResultList);
         this.modelArrayList = res;
-        notifySectionItemInserted(0, newSearchResultList.size() +  1);
+        notifyAllSectionsDataSetChanged();
     }
 
     public void clear() {

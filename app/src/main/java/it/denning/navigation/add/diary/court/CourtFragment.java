@@ -27,10 +27,10 @@ public class CourtFragment extends BaseDiaryFragment {
     public static CourtFragment newInstance(EditCourtModel courtModel) {
         if (fragment == null) {
             fragment = new CourtFragment();
-            Bundle bundle = new Bundle();
-            bundle.putSerializable("model", courtModel);
-            fragment.setArguments(bundle);
         }
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("model", courtModel);
+        fragment.setArguments(bundle);
 
         return fragment;
     }
