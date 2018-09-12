@@ -33,6 +33,8 @@ public class ChatNotificationUtils {
     public static final String PROPERTY_ROOM_DELETED_OCCUPANTS_IDS = "deleted_occupant_ids";
     public static final String PROPERTY_ROOM_UPDATED_AT = "room_updated_date";
     public static final String PROPERTY_ROOM_UPDATE_INFO = "dialog_update_info";
+    public static final String PROPERTY_ROOM_TAG = "room_tag";
+    public static final String PROPERTY_ROOM_POSITION = "room_position";
 
     public static final String PROPERTY_MODULE_IDENTIFIER = "moduleIdentifier";
     public static final String PROPERTY_NOTIFICATION_TYPE = "notification_type";
@@ -321,6 +323,14 @@ public class ChatNotificationUtils {
                 chatNotificationType = ChatNotificationType.CHAT_OCCUPANTS;
                 break;
             }
+            case TAG_DIALOG:
+                qbChatMessage.setProperty(PROPERTY_ROOM_TAG, qbDialog.getCustomData().get("tag") != null ? qbDialog.getCustomData().get("tag").toString() : "");
+                chatNotificationType = ChatNotificationType.CHAT_TAG;
+                break;
+            case POSITION_DIALOG:
+                qbChatMessage.setProperty(PROPERTY_ROOM_POSITION, qbDialog.getCustomData().get("position") != null ?  qbDialog.getCustomData().get("position").toString() : "");
+                chatNotificationType = ChatNotificationType.CHAT_POSITION;
+                break;
         }
 
         if (chatNotificationType != null) {
@@ -358,6 +368,12 @@ public class ChatNotificationUtils {
                 case CHAT_OCCUPANTS:
                     dialogNotificationTypeLocal = DialogNotification.Type.OCCUPANTS_DIALOG;
                     break;
+                case CHAT_TAG:
+                    dialogNotificationTypeLocal = DialogNotification.Type.TAG_DIALOG;
+                    break;
+                case CHAT_POSITION:
+                    dialogNotificationTypeLocal = DialogNotification.Type.POSITION_DIALOG;
+                    break;
             }
         }
 
@@ -380,6 +396,8 @@ public class ChatNotificationUtils {
         String addedOccupantsIdsString = (String) qbChatMessage.getProperty(PROPERTY_ROOM_ADDED_OCCUPANTS_IDS);
         String deletedOccupantsIdsString = (String) qbChatMessage.getProperty(PROPERTY_ROOM_DELETED_OCCUPANTS_IDS);
         String dialogName = (String) qbChatMessage.getProperty(PROPERTY_ROOM_NAME);
+        String dialogTag = (String) qbChatMessage.getProperty(PROPERTY_ROOM_TAG);
+        String dialogPosition = (String) qbChatMessage.getProperty(PROPERTY_ROOM_POSITION);
 
         NotificationType notificationType = null;
         ChatNotificationType chatNotificationType = null;
@@ -443,6 +461,18 @@ public class ChatNotificationUtils {
                                 : resources.getString(R.string.cht_update_group_leave_message, fullNames);
                     }
 
+                    break;
+                case CHAT_POSITION:
+                    resultMessage = ownMessage ? resources.getString(R.string.cht_update_group_position_message,
+                            qbUser.getFullName(), dialogPosition) : resources.getString(
+                            R.string.cht_update_group_position_message, ChatUtils.getFullNameById(dataManager,
+                                    qbChatMessage.getSenderId()), dialogPosition);
+                    break;
+                case CHAT_TAG:
+                    resultMessage = ownMessage ? resources.getString(R.string.cht_update_group_tag_message,
+                            qbUser.getFullName(), dialogTag) : resources.getString(
+                            R.string.cht_update_group_tag_message, ChatUtils.getFullNameById(dataManager,
+                                    qbChatMessage.getSenderId()), dialogTag);
                     break;
             }
         }

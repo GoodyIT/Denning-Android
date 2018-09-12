@@ -1,12 +1,15 @@
 package it.denning;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,6 +20,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -38,9 +42,11 @@ import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 
 import java.util.Arrays;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import it.denning.auth.SignInActivity;
 import it.denning.general.DIAlert;
 import it.denning.general.DIConstants;
@@ -68,6 +74,8 @@ public class MainActivity extends BaseActivity
         implements Drawer.OnDrawerItemClickListener {
     private static final String TAG = MainActivity.class.getSimpleName();
 
+    private static final String BACK_STACK_ROOT_TAG = "root_fragment";
+
     @BindView(R.id.bottomBar)
     public BottomBar bottomBar;
 
@@ -82,6 +90,15 @@ public class MainActivity extends BaseActivity
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
+
+    @BindView(R.id.back_btn)
+    ImageButton backBtn;
+
+    @OnClick(R.id.back_btn)
+    void onBack() {
+        super.onBackPressed();
+        replaceFragment(new Home());
+    }
 
     private ActionBarDrawerToggle drawerToggle;
     private View headerLayout;
@@ -156,6 +173,15 @@ public class MainActivity extends BaseActivity
                 gotoAuth();
             }
         });
+    }
+
+    public void showNavigation(Boolean isShow) {
+        setActionBarUpButtonEnabled(isShow);
+        if (isShow) {
+            backBtn.setVisibility(View.GONE);
+        } else {
+            backBtn.setVisibility(View.VISIBLE);
+        }
     }
 
     private void checkAndProcessChatLogin() {
@@ -238,6 +264,7 @@ public class MainActivity extends BaseActivity
 
     private void removeDialogsAction() {
         removeAction(QBServiceConsts.LOAD_CHATS_DIALOGS_SUCCESS_ACTION);
+
     }
 
     private void addActions() {
@@ -248,6 +275,8 @@ public class MainActivity extends BaseActivity
     }
 
     private void removeActions() {
+        removeAction(QBServiceConsts.CREATE_PRIVATE_CHAT_SUCCESS_ACTION);
+        removeAction(QBServiceConsts.CREATE_PRIVATE_CHAT_FAIL_ACTION);
         updateBroadcastActionList();
     }
 
@@ -302,6 +331,13 @@ public class MainActivity extends BaseActivity
                         return true;
                     }
                 });
+
+        getSupportFragmentManager().addOnBackStackChangedListener(
+                new FragmentManager.OnBackStackChangedListener() {
+                    public void onBackStackChanged() {
+
+                    }
+                });
     }
 
     private void drawBottomBar() {
@@ -319,6 +355,8 @@ public class MainActivity extends BaseActivity
 
     public void showBottomBar() {
         bottomBar.setVisibility(View.VISIBLE);
+        bottomBar.setDefaultTab(R.id.nav_home);
+        nvDrawer.setCheckedItem(R.id.nav_home);
     }
 
     @Override
@@ -495,7 +533,11 @@ public class MainActivity extends BaseActivity
         if (position != -1) {
             displaySelectedScreen(position);
         } else {
-            replaceFragment(fragment);
+            if (position == 1) {
+                replaceFragment(fragment);
+            } else {
+                replaceFragment(fragment);
+            }
         }
 
         mDrawer.closeDrawers();
@@ -646,11 +688,27 @@ public class MainActivity extends BaseActivity
         return isValid;
     }
 
+    protected void updateBadge() {
+        super.updateBadge();
+
+        // Calc push count
+        List<QBChatDialog> qbDialogsList = DataManager.getInstance().getQBChatDialogDataManager().getAllSorted();
+        int totalCount = 0;
+        for (QBChatDialog qbDialog : qbDialogsList) {
+            totalCount += qbDialog.getUnreadMessageCount();
+        }
+
+        bottomBar.getTabWithId(R.id.nav_message).setBadgeCount(totalCount);
+    }
+
     private void replaceFragment(Fragment fragment) {
         if (fragment != null) {
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.content_frame, fragment);
-            ft.commit();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.popBackStack(BACK_STACK_ROOT_TAG, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+            fragmentManager.beginTransaction()
+                    .replace(R.id.content_frame, fragment)
+                    .addToBackStack(BACK_STACK_ROOT_TAG)
+                    .commit();
         }
     }
 
@@ -661,13 +719,13 @@ public class MainActivity extends BaseActivity
     }
 
     public void showDenningSupport() {
-        invalidateOptionsMenu();
         isSupportMessage = true;
+        invalidateOptionsMenu();
     }
 
     public void hideDennigSupport() {
-        invalidateOptionsMenu();
         isSupportMessage = false;
+        invalidateOptionsMenu();
     }
 
     // Open Denning support chat

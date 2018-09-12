@@ -49,7 +49,7 @@
                             app:met_clearButton="true"
                             android:layout_marginLeft="12dp"
                             android:textSize="15sp"
-                            app:met_primaryColor="?colorAccent"
+                            app:met_primaryColor="@color/accent"
                             app:met_floatingLabel="highlight"
                             app:met_hideUnderline="true"
                             app:met_floatingLabelTextColor="@color/red" />

@@ -234,7 +234,7 @@ public class UserProfileActivity extends BaseLoggableActivity {
         } else {
             phoneView.setVisibility(View.GONE);
         }
-        phoneTextView.setText(user.getPhone());
+        phoneTextView.setText(user.getEmail());
     }
 
     private void loadAvatar() {

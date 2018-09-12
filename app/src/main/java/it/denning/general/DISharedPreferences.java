@@ -3,13 +3,18 @@ package it.denning.general;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.location.Location;
+import android.preference.PreferenceManager;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.google.gson.reflect.TypeToken;
+import com.quickblox.q_municate_core.models.AppSession;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +22,7 @@ import it.denning.App;
 import it.denning.model.Accounts;
 import it.denning.model.Attendance;
 import it.denning.model.Bank;
+import it.denning.model.ChatFirmModel;
 import it.denning.model.Contact;
 import it.denning.model.DocumentModel;
 import it.denning.model.Event;
@@ -48,6 +54,13 @@ public class DISharedPreferences {
     public static String CHECK_PUBLIC_KEY       = "denning.public.user";
     public static String AVATAR_URL_KEY         = "denning.avatar.url";
     public static String USER_AGREEMENT_KEY     = "denning.user.agreement";
+    public static String USER_EXPIRE_KEY        = "denning.user.expire";
+    public static String USER_EXPIRED_DATE      = "denning.user.expired.date";
+    public static String DENNING_CONTACT_KEY    = "denning.denning.contact";
+    public static String STAFF_CONTACT_KEY      = "denning.staff.contact";
+    public static String CLIENT_CONTACT_KEY     = "denning.client.contact";
+    public static String FAVORITE_STAFF_KEY     = "denning.favorite.staff";
+    public static String FAVORITE_CLIENT_KEY    = "denning.favorite.client";
 
     public static String GENERAL_SEARCH = "General Search";
     public static String PUBLIC_SEARCH = "Public Search";
@@ -206,6 +219,23 @@ public class DISharedPreferences {
         saveValue(USER_AGREEMENT_KEY, true);
     }
 
+    public void setIsExpire(Boolean isExpired) { saveValue(USER_EXPIRED_DATE, isExpired);}
+
+    public void setUserExpiredDate(String expiredDate) { saveValue(USER_EXPIRED_DATE, expiredDate);}
+
+    public void saveArrayList(List<ChatFirmModel> list, String key){
+        Gson gson = new Gson();
+        String json = gson.toJson(list);
+        saveValue(key, json);
+    }
+
+    public ArrayList<String> getArrayList(String key){
+        Gson gson = new Gson();
+        String json = (String)getValue(key, null);
+        Type type = new TypeToken<ArrayList<ChatFirmModel>>() {}.getType();
+        return gson.fromJson(json, type);
+    }
+
     public String getServerAPI() {
         return (String) getValue(SERVERAPI_SHARED_KEY, "http://43.252.215.81/");
     }
@@ -240,6 +270,10 @@ public class DISharedPreferences {
 
     public String getAvatarUrl() {return  (String) getValue(AVATAR_URL_KEY, "");}
 
+    public Boolean isExpired() { return (Boolean) getValue(USER_EXPIRE_KEY, false); }
+
+    public String getUserExpiredDate() { return (String) getValue(USER_EXPIRED_DATE, ""); }
+
     public Boolean isUserAgreement() {return (Boolean) getValue(USER_AGREEMENT_KEY, false);}
 
     public Boolean isClient() {return (Boolean) getValue(CHECK_CLIENT_KEY, false);}
@@ -247,6 +281,15 @@ public class DISharedPreferences {
     public Boolean isLoggedIn() {return getEmail().length() > 0;}
 
     public Boolean isStaff() {return (Boolean) getUserType().equals(DISharedPreferences.STAFF_USER);}
+
+    public Boolean isDenningUser() { return checkDenningUser(AppSession.getSession().getUser().getEmail()); }
+
+    public Boolean checkDenningUser(String email) {
+//        Boolean isSupportMember = false;
+
+//        for (ChatFirmModel model : )
+        return email.contains("denning.com.my") ? true : false;
+    }
 
     public void clearData() {
         saveValue(USERNAME_SHARED_KEY, "");

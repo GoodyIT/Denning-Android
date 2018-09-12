@@ -45,6 +45,7 @@ import com.quickblox.q_municate_core.qb.helpers.QBFriendListHelper;
 import com.quickblox.q_municate_core.service.QBService;
 import com.quickblox.q_municate_core.service.QBServiceConsts;
 import com.quickblox.q_municate_core.utils.ConnectivityUtils;
+import com.quickblox.q_municate_db.managers.DataManager;
 import com.quickblox.q_municate_db.utils.ErrorUtils;
 import com.quickblox.q_municate_user_service.model.QMUser;
 
@@ -54,6 +55,7 @@ import org.jivesoftware.smack.XMPPConnection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -596,15 +598,21 @@ public abstract class BaseActivity extends AppCompatActivity implements ActionBa
 
     }
 
+    protected void updateBadge() {
+
+    }
+
     protected void onReceivedChatMessageNotification(Bundle extras) {
         activityUIHelper.showChatMessageNotification(extras);
+
+        updateBadge();
     }
 
     protected void onReceivedContactRequestNotification(Bundle extras) {
         activityUIHelper.showContactRequestNotification(extras);
     }
 
-    private Handler getHandler() {
+    protected Handler getHandler() {
         if (handler == null) {
             handler = new Handler();
         }
@@ -672,7 +680,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ActionBa
 
     protected void loginChat() {
         isDialogLoading = true;
-        showSnackbar(R.string.dialog_loading_dialogs, Snackbar.LENGTH_INDEFINITE, Priority.MAX);
+//        showSnackbar(R.string.dialog_loading_dialogs, Snackbar.LENGTH_INDEFINITE, Priority.MAX);
         if (QBSessionManager.getInstance().getSessionParameters() != null
                 && QBProvider.FIREBASE_PHONE.equals(QBSessionManager.getInstance().getSessionParameters().getSocialProvider())
                 && !QBSessionManager.getInstance().isValidActiveSession()) {
@@ -719,6 +727,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ActionBa
     protected void performLoginChatSuccessAction(Bundle bundle) {
         blockUI(false);
         hideSnackBar(R.string.error_disconnected);
+        hideSnackBar(R.string.dialog_loading_dialogs);
         QBInitCallChatCommand.start(this, CallActivity.class, null);
         hideProgress();
     }
@@ -840,8 +849,9 @@ public abstract class BaseActivity extends AppCompatActivity implements ActionBa
     }
 
     protected void performLoadChatsSuccessAction(Bundle bundle) {
-        // hideSnackBar();
+         hideSnackBar();
         isDialogLoading = false;
+        updateBadge();
     }
 
     protected void startActivityByName(Class<?> activityName, boolean needClearTask) {
@@ -889,7 +899,6 @@ public abstract class BaseActivity extends AppCompatActivity implements ActionBa
         @Override
         public void execute(Bundle bundle) {
             QBLoginChatCompositeCommand.setIsRunning(false);
-            hideSnackBar(R.string.dialog_loading_dialogs);
             performLoginChatSuccessAction(bundle);
         }
     }
@@ -899,9 +908,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ActionBa
         @Override
         public void execute(Bundle bundle) {
             QBLoginChatCompositeCommand.setIsRunning(false);
-//            blockUI(true);
-            hideSnackBar(R.string.dialog_loading_dialogs);
-            showSnackbar(R.string.error_disconnected, Snackbar.LENGTH_INDEFINITE, Priority.MAX);
+            performLoginChatFailAction(bundle);
         }
     }
 

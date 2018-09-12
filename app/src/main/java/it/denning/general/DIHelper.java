@@ -1,29 +1,24 @@
 package it.denning.general;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
 import android.os.Build;
-import android.os.Environment;
 import android.provider.Settings;
-import android.support.v7.app.AppCompatActivity;
 import android.text.format.DateFormat;
-import android.text.format.Formatter;
 import android.util.Base64;
-import android.util.TypedValue;
 
-import com.quickblox.auth.session.QBSession;
 import com.quickblox.chat.model.QBChatDialog;
 import com.quickblox.chat.model.QBDialogCustomData;
 import com.quickblox.chat.model.QBDialogType;
 import com.quickblox.q_municate_core.models.AppSession;
+import com.quickblox.q_municate_core.utils.UserFriendUtils;
 import com.quickblox.q_municate_user_service.QMUserService;
 import com.quickblox.q_municate_user_service.model.QMUser;
+import com.quickblox.users.model.QBUser;
 import com.wdullaer.materialdatetimepicker.date.MonthAdapter;
 
 import java.io.ByteArrayOutputStream;
@@ -40,25 +35,32 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.Date;
 import java.util.Enumeration;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
-import java.util.UUID;
 
 import it.denning.App;
-import it.denning.MainActivity;
+import it.denning.R;
 import it.denning.model.ChatFirmModel;
-
-import static android.content.Context.WIFI_SERVICE;
 
 /**
  * Created by denningit on 18/04/2017.
  */
 
 public class DIHelper {
+    private static DIHelper instance;
+    private static Context activity;
+
+    public static DIHelper getInstance(Context activity) {
+        if (instance == null) {
+            instance = new DIHelper();
+        }
+
+        instance.activity = activity;
+        return instance;
+    }
+
     public static Bitmap base64ToBitmap(String b64) {
         byte[] imageAsBytes = Base64.decode(b64.getBytes(), Base64.DEFAULT);
         return BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
@@ -339,8 +341,16 @@ public class DIHelper {
         return response;
     }
 
+    public static String getNotNull(Object object) {
+        return object != null ? object.toString() : "";
+    }
+
+    public static List<String> getNotNullArray(Object object) {
+        return object != null ? Arrays.asList(object.toString()) : new ArrayList<String>();
+    }
+
     public static int determinSearchType(String formName) {
-        int searchType = DIConstants.CONTACT_TYPE;
+        int searchType;
 
         if (formName.equals("200customer") ) // Contact
         {
@@ -491,13 +501,25 @@ public class DIHelper {
     }
 
     public static String getTag(QBChatDialog chatDialog) {
+        return getChatCustomData(chatDialog, "tag");
+    }
+
+    public static String getChatCustomData(QBChatDialog chatDialog, String key) {
         QBDialogCustomData data = chatDialog.getCustomData();
         if (data == null) {
             return DIConstants.kChatColleaguesTag;
         }
 
-        String tag = (String) data.get("tag");
-        return tag == null ? DIConstants.kChatColleaguesTag : tag.toLowerCase();
+        return data.get(key) == null ? DIConstants.kChatColleaguesTag : data.get(key).toString().toLowerCase();
+    }
+
+    public static List<String> getChatCustomDataArray(QBChatDialog chatDialog, String key) {
+        QBDialogCustomData data = chatDialog.getCustomData();
+        if (data == null) {
+            return new ArrayList<>();
+        }
+
+        return getNotNullArray(data.get(key));
     }
 
     public static String getPosition(QBChatDialog chatDialog) {
@@ -514,8 +536,7 @@ public class DIHelper {
             return "";
         }
 
-        String position = (String) data.get("position");
-        return position == null ? "" : position;
+        return data.get("position") == null ? "" : data.get("position").toString();
     }
 
     public static ArrayList<ChatFirmModel> filterMeOut(ArrayList<ChatFirmModel> contacts) {
@@ -586,7 +607,617 @@ public class DIHelper {
         return "IMG_" + today + ".jpg";
     }
 
-    public static String getUserPosition(String email) {
-        return "";
+    public static String getCurrentUserRole(QBUser user, QBChatDialog chatDialog) {
+        String role;
+
+        List<String> adminRole = getChatCustomDataArray(chatDialog, DIConstants.kRoleAdminTag);
+        List<String> readerRole = getChatCustomDataArray(chatDialog, DIConstants.kRoleReaderTag);
+        List<String> normalRole = getChatCustomDataArray(chatDialog, DIConstants.kRoleStaffTag);
+
+        if (DISharedPreferences.getInstance().checkDenningUser(user.getEmail())) {
+            role = DIConstants.kRoleDenningTag;
+        } else if (adminRole.contains(user.getId())) {
+            role = DIConstants.kRoleAdminTag;
+        } else if (readerRole.contains(user.getId())) {
+            role = DIConstants.kRoleReaderTag;
+        } else if (normalRole.contains(user.getId())) {
+            role = DIConstants.kRoleStaffTag;
+        } else {
+            role = DIConstants.kRoleClientTag;
+        }
+
+        return role;
+    }
+
+    public static Boolean isChatExpired(QBChatDialog dialog) {
+        if (DISharedPreferences.getInstance().isExpired()) {
+            DIAlert.showSimpleAlert(activity, R.string.access_restricted, R.string.chat_access_restricted_text);
+            return false;
+        }
+
+        return true;
+    }
+
+    public static Boolean isAllowToSendForDialog(QBChatDialog dialog) {
+        String role = getCurrentUserRole(AppSession.getSession().getUser(), dialog);
+        if (role.equals(DIConstants.kRoleReaderTag)) {
+            // reader only can read dialog
+            return false;
+        }
+
+        if (!role.equals(DIConstants.kChatClientsTag)) {
+            if (!getTag(dialog).equals(DIConstants.kChatDenningTag)) {
+                return isChatExpired(dialog);
+            }
+        }
+
+        return true;
+    }
+
+    public static Boolean canChangeGroupInfoforDialog(QBChatDialog dialog) {
+        if (!isAllowToSendForDialog(dialog)) {
+            return false;
+        }
+
+        Boolean isPossible = false;
+        String role = getCurrentUserRole(AppSession.getSession().getUser(), dialog);
+        String tag = getTag(dialog);
+        Boolean isDenningUser = DISharedPreferences.getInstance().isDenningUser();
+
+        if (tag.equals(DIConstants.kChatDenningTag)) {
+            if (isDenningUser) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleAdminTag)) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleStaffTag)) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleReaderTag)) {
+                isPossible = false;
+            } else {
+                isPossible = false;
+            }
+        } else {
+            if (isDenningUser) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleAdminTag)) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleStaffTag)) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleReaderTag)) {
+                isPossible = false;
+            } else {
+                isPossible = false;
+            }
+        }
+
+        if (!isPossible) {
+            DIAlert.showSimpleAlert(activity, R.string.access_restricted, R.string.chat_access_restricted_text);
+        }
+        return isPossible;
+    }
+
+    public static Boolean canChangeGroupNameforDialog(QBChatDialog dialog) {
+        if (!isAllowToSendForDialog(dialog)) {
+            return false;
+        }
+
+        Boolean isPossible = false;
+        String role = getCurrentUserRole(AppSession.getSession().getUser(), dialog);
+        String tag = getTag(dialog);
+        Boolean isDenningUser = DISharedPreferences.getInstance().isDenningUser();
+
+        if (tag.equals(DIConstants.kChatDenningTag)) {
+            if (isDenningUser) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleAdminTag)) {
+                isPossible = false;
+            } else if (role.equals(DIConstants.kRoleStaffTag)) {
+                isPossible = false;
+            } else if (role.equals(DIConstants.kRoleReaderTag)) {
+                isPossible = false;
+            } else {
+                isPossible = false;
+            }
+        } else {
+            if (isDenningUser) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleAdminTag)) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleStaffTag)) {
+                isPossible = false;
+            } else if (role.equals(DIConstants.kRoleReaderTag)) {
+                isPossible = false;
+            } else {
+                isPossible = false;
+            }
+        }
+
+        if (!isPossible) {
+            DIAlert.showSimpleAlert(activity, R.string.access_restricted, R.string.chat_access_restricted_text);
+        }
+
+        return isPossible;
+    }
+
+    public static Boolean canChangeGroupTagforDialog(QBChatDialog dialog) {
+        if (!isAllowToSendForDialog(dialog)) {
+            return false;
+        }
+
+        Boolean isPossible = false;
+        String role = getCurrentUserRole(AppSession.getSession().getUser(), dialog);
+        String tag = getTag(dialog);
+        Boolean isDenningUser = DISharedPreferences.getInstance().isDenningUser();
+
+        if (tag.equals(DIConstants.kChatDenningTag)) {
+            if (isDenningUser) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleAdminTag)) {
+                isPossible = false;
+            } else if (role.equals(DIConstants.kRoleStaffTag)) {
+                isPossible = false;
+            } else if (role.equals(DIConstants.kRoleReaderTag)) {
+                isPossible = false;
+            } else {
+                isPossible = false;
+            }
+        } else {
+            if (isDenningUser) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleAdminTag)) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleStaffTag)) {
+                isPossible = false;
+            } else if (role.equals(DIConstants.kRoleReaderTag)) {
+                isPossible = false;
+            } else {
+                isPossible = false;
+            }
+        }
+
+        if (!isPossible) {
+//            DIAlert.showSimpleAlert(App.getInstance(), R.string.access_restricted, R.string.chat_access_restricted_text);
+        }
+
+        return isPossible;
+    }
+
+    public static Boolean canChangeGroupRoleforDialog(QBChatDialog dialog, QBUser toUser) {
+        if (!isAllowToSendForDialog(dialog)) {
+            return false;
+        }
+
+        Boolean isPossible = false;
+        QBUser user = AppSession.getSession().getUser();
+        String role = getCurrentUserRole(AppSession.getSession().getUser(), dialog);
+        String roleofToUser = getCurrentUserRole(toUser, dialog);
+        String tag = getTag(dialog);
+        Boolean isDenningUser = DISharedPreferences.getInstance().isDenningUser();
+
+        if (user.getEmail().equals(toUser.getEmail())) {
+            DIAlert.showSimpleAlert(activity, R.string.warning_title, R.string.alert_role_self_change);
+            return false;
+        }
+
+        if (roleofToUser.equals(DIConstants.kRoleClientTag)) {
+            DIAlert.showSimpleAlert(activity, R.string.warning_title, R.string.alert_role_client_change);
+            return false;
+        }
+
+        if (tag.equals(DIConstants.kChatDenningTag)) {
+            if (isDenningUser) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleAdminTag)) {
+                if (roleofToUser.equals(DIConstants.kRoleDenningTag)) {
+                    DIAlert.showSimpleAlert(activity, R.string.warning_title, R.string.alert_role_denning_change);
+                    return false;
+                }
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleStaffTag)) {
+                isPossible = false;
+            } else if (role.equals(DIConstants.kRoleReaderTag)) {
+                isPossible = false;
+            } else {
+                isPossible = false;
+            }
+        } else {
+            if (isDenningUser) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleAdminTag)) {
+                if (roleofToUser.equals(DIConstants.kRoleDenningTag)) {
+                    DIAlert.showSimpleAlert(activity, R.string.warning_title, R.string.alert_role_denning_change);
+                    return false;
+                }
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleStaffTag)) {
+                isPossible = false;
+            } else if (role.equals(DIConstants.kRoleReaderTag)) {
+                isPossible = false;
+            } else {
+                isPossible = false;
+            }
+        }
+
+
+        if (!isPossible) {
+            DIAlert.showSimpleAlert(activity, R.string.access_restricted, R.string.chat_access_restricted_text);
+        }
+
+        return isPossible;
+    }
+
+    public static Boolean canMuteforDialog(QBChatDialog dialog) {
+        if (!isAllowToSendForDialog(dialog)) {
+            return false;
+        }
+
+        Boolean isPossible = false;
+        String role = getCurrentUserRole(AppSession.getSession().getUser(), dialog);
+        String tag = getTag(dialog);
+        Boolean isDenningUser = DISharedPreferences.getInstance().isDenningUser();
+
+        if (tag.equals(DIConstants.kChatDenningTag)) {
+            if (isDenningUser) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleAdminTag)) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleStaffTag)) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleReaderTag)) {
+                isPossible = false;
+            } else {
+                isPossible = false;
+            }
+        } else {
+            if (isDenningUser) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleAdminTag)) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleStaffTag)) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleReaderTag)) {
+                isPossible = false;
+            } else {
+                isPossible = false;
+            }
+        }
+
+        if (!isPossible) {
+            DIAlert.showSimpleAlert(App.getInstance(), R.string.access_restricted, R.string.chat_access_restricted_text);
+        }
+
+        return isPossible;
+    }
+
+    public static Boolean canAddMemberforDialog(QBChatDialog dialog) {
+        if (!isAllowToSendForDialog(dialog)) {
+            return false;
+        }
+
+        Boolean isPossible = false;
+        String role = getCurrentUserRole(AppSession.getSession().getUser(), dialog);
+        String tag = getTag(dialog);
+        Boolean isDenningUser = DISharedPreferences.getInstance().isDenningUser();
+
+        if (tag.equals(DIConstants.kChatDenningTag)) {
+            if (isDenningUser) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleAdminTag)) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleStaffTag)) {
+                isPossible = false;
+            } else if (role.equals(DIConstants.kRoleReaderTag)) {
+                isPossible = false;
+            } else {
+                isPossible = false;
+            }
+        } else {
+            if (isDenningUser) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleAdminTag)) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleStaffTag)) {
+                isPossible = false;
+            } else if (role.equals(DIConstants.kRoleReaderTag)) {
+                isPossible = false;
+            } else {
+                isPossible = false;
+            }
+        }
+
+        if (!isPossible) {
+            DIAlert.showSimpleAlert(App.getInstance(), R.string.access_restricted, R.string.chat_access_restricted_text);
+        }
+
+        return isPossible;
+    }
+
+    public static Boolean canRemoveMemberforDialog(QBChatDialog dialog) {
+        if (!isAllowToSendForDialog(dialog)) {
+            return false;
+        }
+
+        Boolean isPossible = false;
+        String role = getCurrentUserRole(AppSession.getSession().getUser(), dialog);
+        String tag = getTag(dialog);
+        Boolean isDenningUser = DISharedPreferences.getInstance().isDenningUser();
+
+        if (tag.equals(DIConstants.kChatDenningTag)) {
+            if (isDenningUser) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleAdminTag)) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleStaffTag)) {
+                isPossible = false;
+            } else if (role.equals(DIConstants.kRoleReaderTag)) {
+                isPossible = false;
+            } else {
+                isPossible = false;
+            }
+        } else {
+            if (isDenningUser) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleAdminTag)) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleStaffTag)) {
+                isPossible = false;
+            } else if (role.equals(DIConstants.kRoleReaderTag)) {
+                isPossible = false;
+            } else {
+                isPossible = false;
+            }
+        }
+
+        if (!isPossible) {
+            DIAlert.showSimpleAlert(App.getInstance(), R.string.access_restricted, R.string.chat_access_restricted_text);
+        }
+
+        return isPossible;
+    }
+
+    public static Boolean canLeaveChatforDialog(QBChatDialog dialog) {
+        if (!isAllowToSendForDialog(dialog)) {
+            return false;
+        }
+
+        Boolean isPossible = false;
+        String role = getCurrentUserRole(AppSession.getSession().getUser(), dialog);
+        String tag = getTag(dialog);
+        Boolean isDenningUser = DISharedPreferences.getInstance().isDenningUser();
+
+        if (tag.equals(DIConstants.kChatDenningTag)) {
+            if (isDenningUser) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleAdminTag)) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleStaffTag)) {
+                isPossible = false;
+            } else if (role.equals(DIConstants.kRoleReaderTag)) {
+                isPossible = false;
+            } else {
+                isPossible = false;
+            }
+        } else {
+            if (isDenningUser) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleAdminTag)) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleStaffTag)) {
+                isPossible = false;
+            } else if (role.equals(DIConstants.kRoleReaderTag)) {
+                isPossible = false;
+            } else {
+                isPossible = false;
+            }
+        }
+
+        if (!isPossible) {
+            DIAlert.showSimpleAlert(App.getInstance(), R.string.access_restricted, R.string.chat_access_restricted_text);
+        }
+
+        return isPossible;
+    }
+
+    public static Boolean canViewContactProfileforDialog(QBChatDialog dialog, QBUser toUser) {
+        if (!isAllowToSendForDialog(dialog)) {
+            return false;
+        }
+
+        Boolean isPossible = false;
+        QBUser user = AppSession.getSession().getUser();
+        String role = getCurrentUserRole(AppSession.getSession().getUser(), dialog);
+        String roleofToUser = getCurrentUserRole(toUser, dialog);
+        String tag = getTag(dialog);
+        Boolean isDenningUser = DISharedPreferences.getInstance().isDenningUser();
+
+        if (user.getEmail().equals(toUser.getEmail())) {
+            DIAlert.showSimpleAlert(App.getInstance(), R.string.warning_title, R.string.alert_role_self_change);
+            return false;
+        }
+
+        if (roleofToUser.equals(DIConstants.kRoleClientTag)) {
+            DIAlert.showSimpleAlert(App.getInstance(), R.string.warning_title, R.string.alert_role_client_change);
+            return false;
+        }
+
+        if (tag.equals(DIConstants.kChatDenningTag)) {
+            if (isDenningUser) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleAdminTag)) {
+                if (roleofToUser.equals(DIConstants.kRoleDenningTag)) {
+                    return false;
+                }
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleStaffTag)) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleReaderTag)) {
+                isPossible = false;
+            } else {
+                isPossible = false;
+            }
+        } else {
+            if (isDenningUser) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleAdminTag)) {
+                if (roleofToUser.equals(DIConstants.kRoleDenningTag)) {
+                    return false;
+                }
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleStaffTag)) {
+                if (roleofToUser.equals(DIConstants.kRoleDenningTag)) {
+                    return false;
+                }
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleReaderTag)) {
+                isPossible = false;
+            } else {
+                isPossible = false;
+            }
+        }
+
+
+        if (!isPossible) {
+            DIAlert.showSimpleAlert(App.getInstance(), R.string.access_restricted, R.string.chat_access_restricted_text);
+        }
+
+        return isPossible;
+    }
+
+    public static Boolean canShowAllMembersStatusforDialog(QBChatDialog dialog) {
+        if (!isAllowToSendForDialog(dialog)) {
+            return false;
+        }
+
+        Boolean isPossible = false;
+        String role = getCurrentUserRole(AppSession.getSession().getUser(), dialog);
+        String tag = getTag(dialog);
+        Boolean isDenningUser = DISharedPreferences.getInstance().isDenningUser();
+
+        if (tag.equals(DIConstants.kChatDenningTag)) {
+            if (isDenningUser) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleAdminTag)) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleStaffTag)) {
+                isPossible = false;
+            } else if (role.equals(DIConstants.kRoleReaderTag)) {
+                isPossible = false;
+            } else {
+                isPossible = false;
+            }
+        } else {
+            if (isDenningUser) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleAdminTag)) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleStaffTag)) {
+                isPossible = false;
+            } else if (role.equals(DIConstants.kRoleReaderTag)) {
+                isPossible = false;
+            } else {
+                isPossible = false;
+            }
+        }
+
+        if (!isPossible) {
+            DIAlert.showSimpleAlert(App.getInstance(), R.string.access_restricted, R.string.chat_access_restricted_text);
+        }
+
+        return isPossible;
+    }
+
+    public static Boolean canSendMessageforDialog(QBChatDialog dialog) {
+        if (!isAllowToSendForDialog(dialog)) {
+            return false;
+        }
+
+        Boolean isPossible = false;
+        String role = getCurrentUserRole(AppSession.getSession().getUser(), dialog);
+        String tag = getTag(dialog);
+        Boolean isDenningUser = DISharedPreferences.getInstance().isDenningUser();
+
+        if (tag.equals(DIConstants.kChatDenningTag)) {
+            if (isDenningUser) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleAdminTag)) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleStaffTag)) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleReaderTag)) {
+                isPossible = false;
+            } else {
+                isPossible = true;
+            }
+        } else {
+            if (isDenningUser) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleAdminTag)) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleStaffTag)) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleReaderTag)) {
+                isPossible = false;
+            } else {
+                isPossible = true;
+            }
+        }
+
+        if (!isPossible) {
+            DIAlert.showSimpleAlert(App.getInstance(), R.string.access_restricted, R.string.chat_access_restricted_text);
+        }
+
+        return isPossible;
+    }
+
+    public static Boolean canCallVideoforDialog(QBChatDialog dialog) {
+        if (!isAllowToSendForDialog(dialog)) {
+            return false;
+        }
+
+        Boolean isPossible = false;
+        String role = getCurrentUserRole(AppSession.getSession().getUser(), dialog);
+        String tag = getTag(dialog);
+        Boolean isDenningUser = DISharedPreferences.getInstance().isDenningUser();
+
+        if (tag.equals(DIConstants.kChatDenningTag)) {
+            if (isDenningUser) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleAdminTag)) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleStaffTag)) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleReaderTag)) {
+                isPossible = false;
+            } else {
+                isPossible = true;
+            }
+        } else {
+            if (isDenningUser) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleAdminTag)) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleStaffTag)) {
+                isPossible = true;
+            } else if (role.equals(DIConstants.kRoleReaderTag)) {
+                isPossible = false;
+            } else {
+                isPossible = true;
+            }
+        }
+
+        if (!isPossible) {
+            DIAlert.showSimpleAlert(App.getInstance(), R.string.access_restricted, R.string.chat_access_restricted_text);
+        }
+
+        return isPossible;
+    }
+
+    public static void filterGroupOccupants(ArrayList<QBUser> users, QBChatDialog dialog) {
+        ArrayList<QBUser> newUsers = new ArrayList<>();
+        ArrayList<Integer> ids = UserFriendUtils.getFriendIdsList(users);
+    }
+
+    public static Boolean isSuperUser(String email) {
+        return email.equals("tmho@denning.com.m") || email.equals("jingpiow@denning.com.my");
     }
 }

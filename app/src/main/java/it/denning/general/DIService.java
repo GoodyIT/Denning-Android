@@ -96,21 +96,29 @@ public class DIService {
                 ChatContactModel newContact = new ChatContactModel();
 
         newContact.staffContacts = findChatFirm(chatContactModel.staffContacts);
+        DISharedPreferences.getInstance().saveArrayList(newContact.staffContacts, DISharedPreferences.STAFF_CONTACT_KEY);
         newContact.denningContacts = findChatFirm(chatContactModel.denningContacts);
-        newContact.favoriteClientContacts = findChatFirm(chatContactModel.favoriteClientContacts);
-        newContact.favoriteStaffContacts = findChatFirm(chatContactModel.favoriteStaffContacts);
+        DISharedPreferences.getInstance().saveArrayList(newContact.denningContacts, DISharedPreferences.DENNING_CONTACT_KEY);
         newContact.clientContacts = findChatFirm(chatContactModel.clientContacts);
+        DISharedPreferences.getInstance().saveArrayList(newContact.clientContacts, DISharedPreferences.CLIENT_CONTACT_KEY);
+        newContact.favoriteClientContacts = findChatFirm(chatContactModel.favoriteClientContacts);
+        DISharedPreferences.getInstance().saveArrayList(newContact.favoriteClientContacts, DISharedPreferences.FAVORITE_CLIENT_KEY);
+        newContact.favoriteStaffContacts = findChatFirm(chatContactModel.favoriteStaffContacts);
+        DISharedPreferences.getInstance().saveArrayList(newContact.favoriteStaffContacts, DISharedPreferences.FAVORITE_STAFF_KEY);
+        DISharedPreferences.getInstance().setIsExpire(chatContactModel.isExpire);
+        DISharedPreferences.getInstance().setUserExpiredDate(chatContactModel.dtExpire);
         messageInterface.onSuccess(newContact);
     }
 
     private static List<ChatFirmModel> findChatFirm(List<ChatFirmModel> modelList) {
         List<ChatFirmModel> newModelList = new ArrayList<>();
+        List<QMUser> friendsList = QMUserService.getInstance().getUserCache().getAll();
         for (ChatFirmModel chatFirmModel : modelList) {
             ChatFirmModel newChatFirm = new ChatFirmModel();
             newChatFirm.firmName = chatFirmModel.firmName;
             newChatFirm.firmCode = chatFirmModel.firmCode;
             for (final ChatUserModel userModel : chatFirmModel.users) {
-                QMUser _user = findUser(userModel, QMUserService.getInstance().getUserCache().getAll());
+                QMUser _user = findUser(userModel, friendsList);
                 if (_user != null) {
                     StringifyArrayList list = new StringifyArrayList<String>();
                     list.add(userModel.tag);

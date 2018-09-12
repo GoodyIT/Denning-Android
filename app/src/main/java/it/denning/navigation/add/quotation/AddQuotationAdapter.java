@@ -477,7 +477,7 @@ public class AddQuotationAdapter extends SectioningAdapter {
     }
 
     public boolean isPresetSelected() {
-        return !model.items.get(0).items.get(4).isEmptyCode() && !model.items.get(0).items.get(1).value.isEmpty();
+        return !model.items.get(0).items.get(4).isEmptyCode();
     }
 
     public boolean isFileNoSelected() {

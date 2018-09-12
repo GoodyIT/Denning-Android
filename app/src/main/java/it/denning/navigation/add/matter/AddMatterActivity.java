@@ -17,7 +17,9 @@ import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import org.zakariya.stickyheaders.StickyHeaderLayoutManager;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import it.denning.R;
 import it.denning.general.DIAlert;
@@ -110,6 +112,8 @@ public class AddMatterActivity extends MyBaseActivity implements
         }
     }
 
+
+
     @Override
     public void onClick(View view, int sectionIndex, int itemIndex, String name) {
         selectedSection = sectionIndex;
@@ -156,6 +160,8 @@ public class AddMatterActivity extends MyBaseActivity implements
                 break;
             case "Load Party":
                 loadParty();
+                break;
+            case "Delete Party":
                 break;
             case "Add Property":
                 addProperty();
@@ -386,14 +392,27 @@ public class AddMatterActivity extends MyBaseActivity implements
     }
 
     private void addCalendar() {
-        Calendar now = Calendar.getInstance();
-        if (dpd == null) {
-            dpd = DatePickerDialog.newInstance(
-                    this,
-                    now
-            );
-            dpd.setVersion(DatePickerDialog.Version.VERSION_2);
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
+        Date testDate = null;
+        String date = adapter.getAddingModel().items.get(selectedSection).items.get(selectedItem).value;
+        if (date.isEmpty()) {
+            calendar = Calendar.getInstance();
+        } else {
+            try {
+                testDate = sdf.parse(date);
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
+
+            calendar = Calendar.getInstance();
+            calendar.setTime(testDate);
         }
+        dpd = DatePickerDialog.newInstance(
+                this,
+                calendar
+        );
+        dpd.setVersion(DatePickerDialog.Version.VERSION_2);
         dpd.show(getFragmentManager(), "Datepickerdialog");
     }
 

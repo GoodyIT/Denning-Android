@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.content.Loader;
 import android.support.v7.widget.SearchView;
 import android.text.TextUtils;
@@ -77,6 +78,7 @@ import it.denning.ui.adapters.chats.DialogsListAdapter;
 import it.denning.ui.fragments.base.BaseLoaderFragment;
 import it.denning.utils.KeyboardUtils;
 import it.denning.utils.ToastUtils;
+import it.denning.utils.bridges.SnackbarBridge;
 
 /**
  * Created by denningit on 09/04/2017.
@@ -160,8 +162,10 @@ public class DenningMessage extends BaseLoaderFragment<List<DialogWrapper>> impl
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        baseActivity.showSnackbar(R.string.dialog_loading_dialogs, Snackbar.LENGTH_INDEFINITE, SnackbarBridge.Priority.MAX);
+
         ((MainActivity)getActivity()).titleView.setText("Denning Chats");
-        ((MainActivity)getActivity()).hideBottomBar();
+
 
         Log.d(TAG, "onCreate");
         initFields();
@@ -183,6 +187,8 @@ public class DenningMessage extends BaseLoaderFragment<List<DialogWrapper>> impl
         btnMessage.setImageResource(R.drawable.ic_message_selected);
         floatingActionButton.setVisibility(View.GONE);
         messageTopFilter.setOnCheckedChangeListener(this);
+        ((MainActivity)getActivity()).hideBottomBar();
+        ((MainActivity)getActivity()).showNavigation(false);
 
         initSearchView();
 
@@ -192,7 +198,7 @@ public class DenningMessage extends BaseLoaderFragment<List<DialogWrapper>> impl
     @Override
     public void initActionBar() {
         super.initActionBar();
-        actionBarBridge.setActionBarUpButtonEnabled(true);
+        actionBarBridge.setActionBarUpButtonEnabled(false);
         loadingBridge.hideActionBarProgress();
     }
 
@@ -324,12 +330,13 @@ public class DenningMessage extends BaseLoaderFragment<List<DialogWrapper>> impl
     public void onPause() {
         super.onPause();
         Log.d(TAG, "onPause()");
+        setStopStateUpdateDialogsProcess();
     }
 
     @Override
     public void onStop(){
         super.onStop();
-        setStopStateUpdateDialogsProcess();
+        Log.d(TAG, "onStop()");
     }
 
     @Override
@@ -465,7 +472,8 @@ public class DenningMessage extends BaseLoaderFragment<List<DialogWrapper>> impl
 
 //        startForResult load dialogs from REST when finished loading from cache
         if (dialogsListLoader.isLoadCacheFinished()) {
-            if (!QBLoginChatCompositeCommand.isRunning()) {
+            if (baseActivity.isChatInitializedAndUserLoggedIn()) {
+                Log.v(TAG, " onLoadFinished --- !QBLoginChatCompositeCommand.isRunning()");
                 QBLoadDialogsCommand.start(getContext(), true);
             }
         }
@@ -478,8 +486,7 @@ public class DenningMessage extends BaseLoaderFragment<List<DialogWrapper>> impl
             dialogsListAdapter.addNewData((ArrayList<DialogWrapper>) dialogsList);
         }
 
-        if(dialogsListLoader.isLoadRestFinished()) {
-            loadingBridge.hideActionBarProgress();
+        if (dialogsListLoader.isLoadRestFinished()) {
             updateDialogsProcess = State.finished;
             Log.d(TAG, "onLoadFinished isLoadRestFinished updateDialogsProcess= " + updateDialogsProcess);
         }
@@ -549,11 +556,6 @@ public class DenningMessage extends BaseLoaderFragment<List<DialogWrapper>> impl
     }
 
     private void startPrivateChatActivity(QBChatDialog chatDialog) {
-        boolean isFriend = DataManager.getInstance().getFriendDataManager().getByUserId(
-                qbUser.getId()) != null;
-        if (!isFriend) {
-
-        }
         List<DialogOccupant> occupantsList = dataManager.getDialogOccupantDataManager()
                 .getDialogOccupantsListByDialogId(chatDialog.getDialogId());
         QMUser opponent = ChatUtils.getOpponentFromPrivateDialog(UserFriendUtils.createLocalUser(qbUser), occupantsList);
@@ -731,7 +733,7 @@ public class DenningMessage extends BaseLoaderFragment<List<DialogWrapper>> impl
         public void execute(Bundle bundle) {
             baseActivity.hideProgress();
             Log.d(TAG, "UpdateDialogSuccessAction action UpdateDialogSuccessAction bundle= " + bundle);
-            if(bundle != null) {
+            if (bundle != null) {
                 updateDialogIds((String) bundle.get(QBServiceConsts.EXTRA_DIALOG_ID));
             }
         }
@@ -745,9 +747,9 @@ public class DenningMessage extends BaseLoaderFragment<List<DialogWrapper>> impl
             if (data != null) {
                 if (data instanceof Bundle) {
                     String observeKey = ((Bundle) data).getString(BaseManager.EXTRA_OBSERVE_KEY);
-                    Log.i(TAG, "CommonObserver update, key="+observeKey);
+                    Log.i(TAG, "CommonObserver update, key=" + observeKey);
                     if (observeKey.equals(dataManager.getMessageDataManager().getObserverKey())
-                            && (((Bundle) data).getSerializable(BaseManager.EXTRA_OBJECT) instanceof Message)){
+                            && (((Bundle) data).getSerializable(BaseManager.EXTRA_OBJECT) instanceof Message)) {
                         int action = ((Bundle) data).getInt(BaseManager.EXTRA_ACTION);
                         Log.i(TAG, "CommonObserver action =  " + action);
                         Message message = getObjFromBundle((Bundle) data);
@@ -757,8 +759,7 @@ public class DenningMessage extends BaseLoaderFragment<List<DialogWrapper>> impl
 
                             updateOrAddDialog(message.getDialogOccupant().getDialog().getDialogId(), action == BaseManager.CREATE_ACTION);
                         }
-                    }
-                    else if (observeKey.equals(dataManager.getQBChatDialogDataManager().getObserverKey())) {
+                    } else if (observeKey.equals(dataManager.getQBChatDialogDataManager().getObserverKey())) {
                         int action = ((Bundle) data).getInt(BaseManager.EXTRA_ACTION);
                         if (action == BaseManager.DELETE_ACTION
                                 || action == BaseManager.DELETE_BY_ID_ACTION) {
@@ -773,10 +774,10 @@ public class DenningMessage extends BaseLoaderFragment<List<DialogWrapper>> impl
                         if (dialogOccupant != null && dialogOccupant.getDialog() != null) {
                             updateOrAddDialog(dialogOccupant.getDialog().getDialogId(), false);
                         }
-                    } else if(observeKey.equals(dataManager.getDialogNotificationDataManager().getObserverKey())) {
+                    } else if (observeKey.equals(dataManager.getDialogNotificationDataManager().getObserverKey())) {
                         Bundle observableData = (Bundle) data;
                         DialogNotification dialogNotification = (DialogNotification) observableData.getSerializable(DialogNotificationDataManager.EXTRA_OBJECT);
-                        if(dialogNotification != null) {
+                        if (dialogNotification != null) {
                             updateOrAddDialog(dialogNotification.getDialogOccupant().getDialog().getDialogId(), true);
                         }
                     }
@@ -788,7 +789,7 @@ public class DenningMessage extends BaseLoaderFragment<List<DialogWrapper>> impl
         }
     }
 
-    private <T> T getObjFromBundle(Bundle data){
-        return (T)(data).getSerializable(BaseManager.EXTRA_OBJECT);
+    private <T> T getObjFromBundle(Bundle data) {
+        return (T) (data).getSerializable(BaseManager.EXTRA_OBJECT);
     }
 }

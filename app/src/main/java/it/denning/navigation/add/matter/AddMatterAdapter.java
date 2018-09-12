@@ -6,12 +6,14 @@ import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.chauthai.swipereveallayout.SwipeRevealLayout;
+import com.chauthai.swipereveallayout.ViewBinderHelper;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import net.objecthunter.exp4j.Expression;
@@ -31,8 +33,9 @@ import it.denning.R;
 import it.denning.general.DIAlert;
 import it.denning.general.DIConstants;
 import it.denning.general.DIHelper;
-import it.denning.model.AddMatterModel;
+import it.denning.general.MyCallbackInterface;
 import it.denning.model.AddSectionItemModel;
+import it.denning.model.AddingModel;
 import it.denning.model.BankGroup;
 import it.denning.model.CodeDescription;
 import it.denning.model.FormulaModel;
@@ -161,6 +164,10 @@ public class AddMatterAdapter extends BaseSectionAdapter {
 
     public MatterModel getModel() {
         return matter;
+    }
+
+    public AddingModel getAddingModel() {
+        return model;
     }
 
     public void adjustModelForUpdate(MatterModel matter) {
@@ -317,6 +324,10 @@ public class AddMatterAdapter extends BaseSectionAdapter {
         ImageButton addBtn;
         @BindView(R.id.add_cardview)
         CardView cardView;
+        @BindView(R.id.one_label_swipelayout)
+        SwipeRevealLayout swipeLayout;
+        @BindView(R.id.delete_btn)
+        ImageView deleteBtn;
 
         public GeneralAddViewHolder(View itemView) {
             super(itemView);
@@ -330,6 +341,10 @@ public class AddMatterAdapter extends BaseSectionAdapter {
         @BindView(R.id.search_general_description) TextView description;
         @BindView(R.id.search_last_rightBtn)
         ImageButton rightButton;
+        @BindView(R.id.one_label_swipelayout)
+        SwipeRevealLayout swipeLayout;
+        @BindView(R.id.delete_btn)
+        ImageView deleteBtn;
 
         public OneLabelTypeViewHolder(View itemView) {
             super(itemView);
@@ -345,6 +360,10 @@ public class AddMatterAdapter extends BaseSectionAdapter {
         @BindView(R.id.search_third) TextView textView3;
         @BindView(R.id.search_last_rightBtn)
         ImageView rightButton;
+        @BindView(R.id.one_label_swipelayout)
+        SwipeRevealLayout swipeLayout;
+        @BindView(R.id.delete_btn)
+        ImageView deleteBtn;
 
         public ThreeTypeViewHolder(View itemView) {
             super(itemView);
@@ -399,7 +418,7 @@ public class AddMatterAdapter extends BaseSectionAdapter {
         }
     }
 
-    private void displayOneRowAdd(OneRowAddViewHolder viewHolder, final int sectionIndex, final int itemIndex) {
+    private void displayOneRowAdd(final OneRowAddViewHolder viewHolder, final int sectionIndex, final int itemIndex) {
         String clickName = "Add Property";
         if (sectionIndex == PARTYGROUP) {
             clickName = "Add Party";
@@ -422,7 +441,7 @@ public class AddMatterAdapter extends BaseSectionAdapter {
         });
     }
 
-    private void displayGeneralAdd(GeneralAddViewHolder viewHolder, final int sectionIndex, final int itemIndex) {
+    private void displayGeneralAdd(final GeneralAddViewHolder viewHolder, final int sectionIndex, final int itemIndex) {
         LabelValueDetail labelValueDetail = model.items.get(sectionIndex).items.get(itemIndex);
         viewHolder.textView1.setText(labelValueDetail.label);
         viewHolder.textView2.setText(labelValueDetail.value);
@@ -445,9 +464,28 @@ public class AddMatterAdapter extends BaseSectionAdapter {
                 itemClickListener.onClick(v, sectionIndex, itemIndex, _clickName);
             }
         });
+
+        viewBinderHelper.bind(viewHolder.swipeLayout, String.valueOf(itemIndex));
+        viewHolder.deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DIAlert.showConfirm(context, R.string.warning_title, R.string.dlg_confirm_delete, new MyCallbackInterface() {
+                    @Override
+                    public void nextFunction() {
+                        deleteItem(sectionIndex, itemIndex);
+                    }
+
+                    @Override
+                    public void nextFunction(JsonElement jsonElement) {
+
+                    }
+                });
+                viewHolder.swipeLayout.close(true);
+            }
+        });
     }
 
-    private void displayThreeType(ThreeTypeViewHolder viewHolder, final int sectionIndex,final int itemIndex) {
+    private void displayThreeType(final ThreeTypeViewHolder viewHolder, final int sectionIndex,final int itemIndex) {
         LabelValueDetail labelValueDetail = model.items.get(sectionIndex).items.get(itemIndex);
         viewHolder.textView1.setText(labelValueDetail.label);
         viewHolder.textView2.setText(labelValueDetail.value);
@@ -458,15 +496,55 @@ public class AddMatterAdapter extends BaseSectionAdapter {
                 itemClickListener.onClick(v, sectionIndex, itemIndex, "Load Property");
             }
         });
+        viewBinderHelper.bind(viewHolder.swipeLayout, String.valueOf(itemIndex));
+        viewHolder.deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DIAlert.showConfirm(context, R.string.warning_title, R.string.dlg_confirm_delete, new MyCallbackInterface() {
+                    @Override
+                    public void nextFunction() {
+                        removeItem(sectionIndex, itemIndex);
+                    }
+
+                    @Override
+                    public void nextFunction(JsonElement jsonElement) {
+
+                    }
+                });
+                viewHolder.swipeLayout.close(true);
+            }
+        });
     }
 
-    private void displayOneType(OneLabelTypeViewHolder viewHolder, final int sectionIndex, final int itemIndex) {
+    private void displayOneType(final OneLabelTypeViewHolder viewHolder, final int sectionIndex, final int itemIndex) {
         LabelValueDetail labelValueDetail = model.items.get(sectionIndex).items.get(itemIndex);
         viewHolder.description.setText(labelValueDetail.value);
+
+
+        viewBinderHelper.setOpenOnlyOne(true);
+
         viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 itemClickListener.onClick(v, sectionIndex, itemIndex, "Load Party");
+            }
+        });
+        viewBinderHelper.bind(viewHolder.swipeLayout, String.valueOf(itemIndex));
+        viewHolder.deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DIAlert.showConfirm(context, R.string.warning_title, R.string.dlg_confirm_delete, new MyCallbackInterface() {
+                    @Override
+                    public void nextFunction() {
+                        removeItem(sectionIndex, itemIndex);
+                    }
+
+                    @Override
+                    public void nextFunction(JsonElement jsonElement) {
+
+                    }
+                });
+                viewHolder.swipeLayout.close(true);
             }
         });
     }

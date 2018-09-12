@@ -138,7 +138,6 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/javaPrecompile" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jniLibs" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/lint" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifests" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/multi-dex" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/prebuild" />
@@ -233,6 +232,7 @@
     <orderEntry type="library" name="Gradle: com.crashlytics.sdk.android:crashlytics-2.9.4" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-analytics-11.4.2" level="project" />
     <orderEntry type="library" name="Gradle: org.jxmpp:jxmpp-util-cache:0.4.2@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.chauthai.swipereveallayout:swipe-reveal-layout-1.4.1" level="project" />
     <orderEntry type="library" name="Gradle: com.hbb20:ccp-2.2.2" level="project" />
     <orderEntry type="library" name="Gradle: com.timehop.stickyheadersrecyclerview:library-0.4.2" level="project" />
     <orderEntry type="library" name="Gradle: com.hannesdorfmann.smoothprogressbar:library-1.0.0" level="project" />

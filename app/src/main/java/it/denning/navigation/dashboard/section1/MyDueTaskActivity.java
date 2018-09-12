@@ -180,7 +180,7 @@ public class MyDueTaskActivity extends GeneralActivity implements OnItemClickLis
     }
 
     private void loadData() {
-        String url  = baseUrl + curTopFilter + "&search=" + filter + "&page=" + page;
+        String url  = baseUrl + "?" + curTopFilter + "&search=" + filter + "&page=" + page;
         showActionBarProgress();
         NetworkManager.getInstance().sendPrivateGetRequest(url, new CompositeCompletion() {
             @Override

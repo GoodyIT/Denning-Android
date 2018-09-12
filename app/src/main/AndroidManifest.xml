@@ -411,6 +411,8 @@
         <activity android:name=".navigation.message.DenningSupportActivity" />
         <activity android:name=".navigation.home.settings.SettingsActivity" />
         <activity android:name=".navigation.home.settings.UpdatePassword" />
+        <activity android:name=".ui.activities.chats.GroupDialogDetailPositionActivity" />
+        <activity android:name=".ui.activities.profile.UserProfileActivity" />
 
         <meta-data
             tools:replace="android:value"

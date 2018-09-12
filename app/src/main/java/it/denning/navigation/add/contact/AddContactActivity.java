@@ -143,10 +143,10 @@ public class AddContactActivity extends MyBaseActivity implements
 //            return;
 //        }
 
-        if (isNameDuplicated) {
-            DIAlert.showSimpleAlert(this, R.string.alert_Name_duplicate);
-            return;
-        }
+//        if (isNameDuplicated) {
+//            DIAlert.showSimpleAlert(this, R.string.alert_Name_duplicate);
+//            return;
+//        }
 
         if (isOldIDDuplicated) {
             DIAlert.showSimpleAlert(this, R.string.alert_Old_ID_duplcate);

@@ -98,6 +98,7 @@ public class Dashboard extends Fragment implements DashboardSecondItemClickListe
         //change R.layout.yourlayoutfilename for each of your fragments
         ((MainActivity)getActivity()).hideDennigSupport();
         ((MainActivity)getActivity()).hideBottomBar();
+        ((MainActivity)getActivity()).showNavigation(false);
         return inflater.inflate(R.layout.fragment_dashboard, container, false);
     }
 

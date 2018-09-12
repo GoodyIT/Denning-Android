@@ -113,6 +113,7 @@ public class Home extends Fragment {
 
         ((MainActivity)getActivity()).hideDennigSupport();
         ((MainActivity)getActivity()).showBottomBar();
+        ((MainActivity)getActivity()).showNavigation(true);
     }
 
     @Override

@@ -11,25 +11,28 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.chauthai.swipereveallayout.SwipeRevealLayout;
+import com.chauthai.swipereveallayout.ViewBinderHelper;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import org.zakariya.stickyheaders.SectioningAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Handler;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import it.denning.R;
+import it.denning.general.DIAlert;
 import it.denning.general.DIConstants;
+import it.denning.general.MyCallbackInterface;
 import it.denning.model.AddingModel;
 import it.denning.model.CodeDescription;
 import it.denning.model.LabelValueDetail;
-import it.denning.navigation.add.quotation.AddQuotationAdapter;
-import it.denning.navigation.dashboard.section1.staffleave.leavependingapproval.LeavePendingAppAdapter;
 import it.denning.search.utils.OnSectionItemClickListener;
 import it.denning.search.utils.myfloatingedittext.MyFloatingEditText;
 import it.denning.utils.KeyboardUtils;
@@ -50,6 +53,7 @@ import static it.denning.general.DIConstants.TWO_COLUMN_TYPE;
  */
 
 public class BaseSectionAdapter extends SectioningAdapter {
+    protected final ViewBinderHelper viewBinderHelper = new ViewBinderHelper();
     final protected Context context;
     final protected OnSectionItemClickListener itemClickListener;
 
@@ -93,6 +97,10 @@ public class BaseSectionAdapter extends SectioningAdapter {
         ImageButton detailBtn;
         @BindView(R.id.add_cardview)
         CardView cardView;
+        @BindView(R.id.one_label_swipelayout)
+        SwipeRevealLayout swipeLayout;
+        @BindView(R.id.delete_btn)
+        ImageView deleteBtn;
 
         public GeneralTypeViewHolder(View itemView) {
             super(itemView);
@@ -134,6 +142,10 @@ public class BaseSectionAdapter extends SectioningAdapter {
         MyFloatingEditText editText;
         @BindView(R.id.add_cardview)
         CardView cardView;
+        @BindView(R.id.one_label_swipelayout)
+        SwipeRevealLayout swipeLayout;
+        @BindView(R.id.delete_btn)
+        ImageView deleteBtn;
         public DisableTypeViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
@@ -403,6 +415,12 @@ public class BaseSectionAdapter extends SectioningAdapter {
         viewHolder.rightEditText.setHint(labelValueDetail.rightView.label);
         viewHolder.rightEditText.setFloatingLabelText(labelValueDetail.rightView.label);
         viewHolder.rightEditText.setInputType(labelValueDetail.rightView.inputType);
+        viewHolder.rightEditText.setCloseListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteItemTwoColumn(sectionIndex, itemIndex, 1);
+            }
+        });
     }
 
     protected void displayLeftInputRightDetail(final LeftInputRightDetailViewHolder viewHolder, final int sectionIndex, final int itemIndex) {
@@ -412,6 +430,12 @@ public class BaseSectionAdapter extends SectioningAdapter {
         viewHolder.leftEditText.setHint(labelValueDetail.leftView.label);
         viewHolder.leftEditText.setFloatingLabelText(labelValueDetail.leftView.label);
         viewHolder.leftEditText.setInputType(labelValueDetail.leftView.inputType);
+        viewHolder.leftEditText.setCloseListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteItemTwoColumn(sectionIndex, itemIndex, 0);
+            }
+        });
 
         viewHolder.rightEditText.setText(labelValueDetail.rightView.value);
         viewHolder.rightEditText.setHint(labelValueDetail.rightView.label);
@@ -486,7 +510,7 @@ public class BaseSectionAdapter extends SectioningAdapter {
         });
     }
 
-    protected void displayInput(final InputTypeViewHolder viewHolder, final int sectionIndex, int itemIndex) {
+    protected void displayInput(final InputTypeViewHolder viewHolder, final int sectionIndex, final int itemIndex) {
         viewHolder.myCustomEditTextListener.updatePosition(sectionIndex, itemIndex);
         final LabelValueDetail labelValueDetail = model.items.get(sectionIndex).items.get(itemIndex);
         Log.d("Log inputtype", labelValueDetail.label + " -- " + labelValueDetail.value);
@@ -494,9 +518,15 @@ public class BaseSectionAdapter extends SectioningAdapter {
         viewHolder.editText.setHint(labelValueDetail.label);
         viewHolder.editText.setFloatingLabelText(labelValueDetail.label);
         viewHolder.editText.setInputType(labelValueDetail.inputType);
+        viewHolder.editText.setCloseListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteItem(sectionIndex, itemIndex);
+            }
+        });
     }
 
-    protected void displayDisableInput(final DisableTypeViewHolder viewHolder, final int sectionIndex, int itemIndex) {
+    protected void displayDisableInput(final DisableTypeViewHolder viewHolder, final int sectionIndex, final int itemIndex) {
         final LabelValueDetail labelValueDetail = model.items.get(sectionIndex).items.get(itemIndex);
         Log.d("Log inputtype", labelValueDetail.label + " -- " + labelValueDetail.value);
         viewHolder.editText.setText(labelValueDetail.value);
@@ -504,6 +534,24 @@ public class BaseSectionAdapter extends SectioningAdapter {
         viewHolder.editText.setFloatingLabelText(labelValueDetail.label);
         viewHolder.editText.setInputType(labelValueDetail.inputType);
         viewHolder.editText.setFocusable(false);
+        viewBinderHelper.bind(viewHolder.swipeLayout, String.valueOf(itemIndex));
+        viewHolder.deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DIAlert.showConfirm(context, R.string.warning_title, R.string.dlg_confirm_delete, new MyCallbackInterface() {
+                    @Override
+                    public void nextFunction() {
+                        deleteItem(sectionIndex, itemIndex);
+                    }
+
+                    @Override
+                    public void nextFunction(JsonElement jsonElement) {
+
+                    }
+                });
+                viewHolder.swipeLayout.close(true);
+            }
+        });
     }
 
     protected void displayGeneral(final GeneralTypeViewHolder viewHolder, final int sectionIndex, final int itemIndex) {
@@ -524,7 +572,27 @@ public class BaseSectionAdapter extends SectioningAdapter {
             });
         } else {
             viewHolder.detailBtn.setVisibility(View.INVISIBLE);
+            viewHolder.editText.setOnClickListener(null);
         }
+
+        viewBinderHelper.bind(viewHolder.swipeLayout, String.valueOf(itemIndex));
+        viewHolder.deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DIAlert.showConfirm(context, R.string.warning_title, R.string.dlg_confirm_delete, new MyCallbackInterface() {
+                    @Override
+                    public void nextFunction() {
+                        deleteItem(sectionIndex, itemIndex);
+                    }
+
+                    @Override
+                    public void nextFunction(JsonElement jsonElement) {
+
+                    }
+                });
+                viewHolder.swipeLayout.close(true);
+            }
+        });
     }
 
     protected void displaySelection(final SelectionTypeViewHolder viewHolder, final int sectionIndex, final int itemIndex) {
@@ -611,6 +679,26 @@ public class BaseSectionAdapter extends SectioningAdapter {
     public void updateItem(LabelValueDetail labelValueDetail, int sectionIndex, int itemIndex) {
         model.items.get(sectionIndex).items.set(itemIndex, labelValueDetail);
         notifySectionItemChanged(sectionIndex, itemIndex);
+    }
+
+    public void removeItem(int sectionIndex, int position) {
+        model.items.get(sectionIndex).items.remove(position);
+        notifySectionDataSetChanged(sectionIndex);
+    }
+
+    public void deleteItem(int sectionIndex, int position) {
+        model.items.get(sectionIndex).items.get(position).value = "";
+        notifySectionItemChanged(sectionIndex, position);
+        KeyboardUtils.hideKeyboard((Activity)context);
+    }
+
+    public void deleteItemTwoColumn(int sectionIndex, int position, int twoColumn) {
+        if (twoColumn == 0) {
+            model.items.get(sectionIndex).items.get(position).leftView.value = "";
+        } else {
+            model.items.get(sectionIndex).items.get(position).rightView.value = "";
+        }
+        notifySectionItemChanged(sectionIndex, position);
     }
 
     protected class MyCustomEditTextListener implements View.OnFocusChangeListener {

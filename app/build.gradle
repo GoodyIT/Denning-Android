@@ -170,6 +170,7 @@ dependencies {
     implementation "com.rockerhieu.emojicon:library:${rootProject.emojiconVersion}"
     implementation "com.soundcloud.android:android-crop:${rootProject.cropVersion}@aar"
     implementation 'com.marshalchen.ultimaterecyclerview:library:0.7.3'
+    implementation 'com.chauthai.swipereveallayout:swipe-reveal-layout:1.4.1'
 
     implementation 'com.squareup.okhttp3:okhttp:3.11.0'
     implementation 'com.squareup.moshi:moshi:1.5.0'

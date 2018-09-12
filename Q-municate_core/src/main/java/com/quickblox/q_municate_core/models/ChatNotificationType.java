@@ -4,7 +4,9 @@ public enum ChatNotificationType {
 
     CHAT_PHOTO(1),
     CHAT_NAME(2),
-    CHAT_OCCUPANTS(3);
+    CHAT_OCCUPANTS(3),
+    CHAT_TAG(4),
+    CHAT_POSITION(5);
 
     private int value;
 

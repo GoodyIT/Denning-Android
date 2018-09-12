@@ -19,7 +19,9 @@ import com.timehop.stickyheadersrecyclerview.StickyRecyclerHeadersDecoration;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import butterknife.OnClick;
 import it.denning.R;
+import it.denning.general.DIHelper;
 import it.denning.ui.adapters.chats.GroupChatMessagesAdapter;
 import it.denning.utils.ChatDialogUtils;
 
@@ -73,11 +75,18 @@ public class GroupDialogActivity extends BaseDialogActivity {
         scrollMessagesToBottom(0);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.group_dialog_menu, menu);
-        return true;
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        MenuInflater inflater = getMenuInflater();
+//        inflater.inflate(R.menu.group_dialog_menu, menu);
+//        return true;
+//    }
+
+    @OnClick(R.id.toolbar)
+    void openProfile(View view) {
+        if (DIHelper.canChangeGroupInfoforDialog(currentChatDialog)) {
+            GroupDialogDetailsActivity.start(this, currentChatDialog.getDialogId());
+        }
     }
 
     @Override
@@ -108,17 +117,17 @@ public class GroupDialogActivity extends BaseDialogActivity {
         checkMessageSendingPossibility(isNetworkAvailable());
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_group_details:
-                GroupDialogDetailsActivity.start(this, currentChatDialog.getDialogId());
-                break;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case R.id.action_group_details:
+//                GroupDialogDetailsActivity.start(this, currentChatDialog.getDialogId());
+//                break;
+//            default:
+//                return super.onOptionsItemSelected(item);
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 
     @Override
     protected void updateActionBar() {

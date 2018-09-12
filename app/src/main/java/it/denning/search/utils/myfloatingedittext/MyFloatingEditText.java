@@ -321,6 +321,12 @@ public class MyFloatingEditText extends AppCompatEditText {
     private List<METValidator> validators;
     private METLengthChecker lengthChecker;
 
+    private OnClickListener onClickListener;
+
+    public void setCloseListener(OnClickListener onClickListener) {
+        this.onClickListener = onClickListener;
+    }
+
     public MyFloatingEditText(Context context) {
         super(context);
         init(context, null);
@@ -1480,6 +1486,7 @@ public class MyFloatingEditText extends AppCompatEditText {
                     if (insideClearButton(event)) {
                         clearButtonTouched = true;
                         clearButtonClicking = true;
+                        onClickListener.onClick(getRootView());
                         return true;
                     }
                 case MotionEvent.ACTION_MOVE:

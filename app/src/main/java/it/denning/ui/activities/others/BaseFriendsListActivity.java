@@ -5,12 +5,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.quickblox.q_municate_core.models.AppSession;
 import com.quickblox.q_municate_core.service.QBService;
 import com.quickblox.q_municate_core.utils.UserFriendUtils;
 import com.quickblox.q_municate_db.managers.DataManager;
 import com.quickblox.q_municate_db.models.Friend;
+import com.quickblox.q_municate_user_service.QMUserService;
 import com.quickblox.q_municate_user_service.model.QMUser;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -79,8 +82,17 @@ public abstract class BaseFriendsListActivity extends BaseLoggableActivity {
     }
 
     protected List<QMUser> getFriendsList() {
-        List<Friend> friendsList = dataManager.getFriendDataManager().getAllSorted();
-        return UserFriendUtils.getUsersFromFriends(friendsList);
+//        List<Friend> fri  endsList = dataManager.getFriendDataManager().getAllSorted();
+//        return UserFriendUtils.getUsersFromFriends(friendsList);
+        List<QMUser> friendsList = QMUserService.getInstance().getUserCache().getAllSorted("full_name", true);
+        List<QMUser> userList = new ArrayList<>(friendsList.size());
+        for (QMUser friend : friendsList) {
+            if (friend.getEmail() != null && !friend.getEmail().contains("denning.com.my")) {
+
+                userList.add(friend);
+            }
+        }
+        return userList;
     }
 
     protected abstract FriendsAdapter getFriendsAdapter();

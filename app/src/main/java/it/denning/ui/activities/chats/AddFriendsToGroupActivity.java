@@ -8,11 +8,13 @@ import android.view.View;
 import com.quickblox.chat.QBChatService;
 import com.quickblox.chat.model.QBChatDialog;
 import com.quickblox.q_municate_core.core.command.Command;
+import com.quickblox.q_municate_core.models.AppSession;
 import com.quickblox.q_municate_core.qb.commands.chat.QBAddFriendsToGroupCommand;
 import com.quickblox.q_municate_core.service.QBServiceConsts;
 import com.quickblox.q_municate_core.utils.UserFriendUtils;
 import com.quickblox.q_municate_db.models.DialogOccupant;
 import com.quickblox.q_municate_db.models.Friend;
+import com.quickblox.q_municate_user_service.QMUserService;
 import com.quickblox.q_municate_user_service.model.QMUser;
 
 import java.io.Serializable;
@@ -70,19 +72,31 @@ public class AddFriendsToGroupActivity extends BaseFriendsListActivity {
     protected List<QMUser> getFriendsList() {
         qbDialog = (QBChatDialog) getIntent().getExtras().getSerializable(QBServiceConsts.EXTRA_DIALOG);
         qbDialog.initForChat(QBChatService.getInstance());
-        List<Friend> friendsList = dataManager.getFriendDataManager().getAllForGroupDetails(qbDialog.getOccupants());
-        if (!friendsList.isEmpty()) {
-            List<Integer> actualFriendIdsList = UserFriendUtils.getFriendIdsListFromList(friendsList);
-            List<DialogOccupant> dialogOccupantsList = dataManager.getDialogOccupantDataManager()
-                    .getActualDialogOccupantsByIds(qbDialog.getDialogId(), actualFriendIdsList);
-            if (!dialogOccupantsList.isEmpty()) {
-                friendsList.removeAll(UserFriendUtils.getFriendsListFromDialogOccupantsList(dialogOccupantsList));
+//        List<Friend> friendsList = dataManager.getFriendDataManager().getAllForGroupDetails(qbDialog.getOccupants());
+//        if (!friendsList.isEmpty()) {
+//            List<Integer> actualFriendIdsList = UserFriendUtils.getFriendIdsListFromList(friendsList);
+//            List<DialogOccupant> dialogOccupantsList = dataManager.getDialogOccupantDataManager()
+//                    .getActualDialogOccupantsByIds(qbDialog.getDialogId(), actualFriendIdsList);
+//            if (!dialogOccupantsList.isEmpty()) {
+//                friendsList.removeAll(UserFriendUtils.getFriendsListFromDialogOccupantsList(dialogOccupantsList));
+//            }
+//        }
+//        if (!friendsList.isEmpty()) {
+//            Collections.sort(friendsList, new FriendsComparator());
+//        }
+//        return UserFriendUtils.getUsersFromFriends(friendsList);
+
+        List<Integer> occupantsList = qbDialog.getOccupants();
+        List<QMUser> friendsList = QMUserService.getInstance().getUserCache().getAllSorted("full_name", true);
+        List<QMUser> userList = new ArrayList<>(friendsList.size());
+        for (QMUser friend : friendsList) {
+            if (friend.getEmail() != null && !friend.getEmail().contains("denning.com.my") && !occupantsList.contains(friend.getId())) {
+
+                userList.add(friend);
             }
         }
-        if (!friendsList.isEmpty()) {
-            Collections.sort(friendsList, new FriendsComparator());
-        }
-        return UserFriendUtils.getUsersFromFriends(friendsList);
+
+        return userList;
     }
 
     @Override

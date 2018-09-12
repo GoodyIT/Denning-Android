@@ -1,10 +1,12 @@
 package it.denning.ui.adapters.chats;
 
+import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.quickblox.chat.model.QBChatDialog;
 import com.quickblox.q_municate_core.models.AppSession;
 import com.quickblox.q_municate_core.qb.helpers.QBFriendListHelper;
 import com.quickblox.q_municate_core.utils.OnlineStatusUtils;
@@ -15,7 +17,12 @@ import com.quickblox.users.model.QBUser;
 
 import java.util.List;
 
+import it.denning.App;
 import it.denning.R;
+import it.denning.general.DIAlert;
+import it.denning.general.DIConstants;
+import it.denning.general.DIHelper;
+import it.denning.navigation.message.utils.OnMessageItemClickListener;
 import it.denning.ui.activities.base.BaseActivity;
 import it.denning.ui.adapters.base.BaseListAdapter;
 import it.denning.ui.views.roundedimageview.RoundedImageView;
@@ -24,12 +31,17 @@ import it.denning.utils.listeners.UserOperationListener;
 
 public class GroupDialogOccupantsAdapter extends BaseListAdapter<QMUser> {
 
-    private UserOperationListener userOperationListener;
+    private OnMessageItemClickListener userOperationListener;
     private QBFriendListHelper qbFriendListHelper;
+    private QBChatDialog qbChatDialog;
 
-    public GroupDialogOccupantsAdapter(BaseActivity baseActivity, UserOperationListener userOperationListener, List<QMUser> objectsList) {
+    public GroupDialogOccupantsAdapter(BaseActivity baseActivity, OnMessageItemClickListener userOperationListener, List<QMUser> objectsList) {
         super(baseActivity, objectsList);
         this.userOperationListener = userOperationListener;
+    }
+
+    public void setQbChatDialog(QBChatDialog qbChatDialog) {
+        this.qbChatDialog = qbChatDialog;
     }
 
     @Override
@@ -38,13 +50,13 @@ public class GroupDialogOccupantsAdapter extends BaseListAdapter<QMUser> {
         QMUser user = getItem(position);
 
         if (convertView == null) {
-            convertView = layoutInflater.inflate(R.layout.item_dialog_friend, null);
+            convertView = layoutInflater.inflate(R.layout.item_dialog_friend_role, null);
             viewHolder = new ViewHolder();
 
             viewHolder.avatarImageView = (RoundedImageView) convertView.findViewById(R.id.avatar_imageview);
             viewHolder.nameTextView = (TextView) convertView.findViewById(R.id.name_textview);
             viewHolder.onlineStatusTextView = (TextView) convertView.findViewById(R.id.status_textview);
-            viewHolder.addFriendImageView = (ImageView) convertView.findViewById(R.id.add_friend_imagebutton);
+            viewHolder.roleBtn = (Button) convertView.findViewById(R.id.role_button);
 
             convertView.setTag(viewHolder);
         } else {
@@ -60,20 +72,51 @@ public class GroupDialogOccupantsAdapter extends BaseListAdapter<QMUser> {
         viewHolder.nameTextView.setText(fullName);
 
         setStatus(viewHolder, user);
-        viewHolder.addFriendImageView.setVisibility(isFriend(user) ? View.GONE : View.VISIBLE);
+//        viewHolder.roleBtn.setVisibility(isFriend(user) ? View.GONE : View.VISIBLE);
+        String role = DIHelper.getCurrentUserRole(user, qbChatDialog);
+        int color = App.getInstance().getResources().getColor(R.color.md_deep_purple_100);
+        switch (role) {
+            case DIConstants.kRoleDenningTag:
+                role = "Denning";
+                color = App.getInstance().getResources().getColor(R.color.md_deep_purple_500);
+                break;
+            case DIConstants.kRoleAdminTag:
+                role = "Admin";
+                color = App.getInstance().getResources().getColor(R.color.colorAccent);
+                break;
+            case DIConstants.kRoleStaffTag:
+                role = "Staff";
+                color = App.getInstance().getResources().getColor(R.color.baby_blue);
+                break;
+            case DIConstants.kRoleReaderTag:
+                role = "Reader";
+                color = App.getInstance().getResources().getColor(R.color.babyGreen);
+                break;
+            default:
+                role = "Client";
+                color = App.getInstance().getResources().getColor(R.color.yellow_green);
+                break;
 
-        initListeners(viewHolder, user.getId());
+        }
+        viewHolder.roleBtn.setText(role);
+        viewHolder.roleBtn.setTextColor(color);
+
+        initListeners(viewHolder, user);
 
         displayAvatarImage(user.getAvatar(), viewHolder.avatarImageView);
 
         return convertView;
     }
 
-    private void initListeners(ViewHolder viewHolder, final int userId) {
-        viewHolder.addFriendImageView.setOnClickListener(new View.OnClickListener() {
+    private void initListeners(final ViewHolder viewHolder, final QMUser user) {
+        viewHolder.roleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                userOperationListener.onAddUserClicked(userId);
+                if (isMe(user)) {
+                    DIAlert.showSimpleAlert(App.getInstance(), R.string.warning_title, R.string.alert_role_client_change);
+                } else {
+                    userOperationListener.onMessageItemClick(v, 0, user);
+                }
             }
         });
     }
@@ -129,7 +172,7 @@ public class GroupDialogOccupantsAdapter extends BaseListAdapter<QMUser> {
 
         RoundedImageView avatarImageView;
         TextView nameTextView;
-        ImageView addFriendImageView;
+        Button roleBtn;
         TextView onlineStatusTextView;
     }
 }

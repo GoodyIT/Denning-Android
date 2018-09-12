@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.chauthai.swipereveallayout:swipe-reveal-layout-1.4.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/swipe-reveal-layout-1.4.1.aar/ca3a68e4df6cdee4da5de3166691c22c/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/swipe-reveal-layout-1.4.1.aar/ca3a68e4df6cdee4da5de3166691c22c/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.chauthai.swipereveallayout/swipe-reveal-layout/1.4.1/dbbf011f8bf33315c1933d0c73d539dbdf95b58a/swipe-reveal-layout-1.4.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

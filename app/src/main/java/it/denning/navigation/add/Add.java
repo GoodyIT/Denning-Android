@@ -52,6 +52,8 @@ public class Add extends Fragment implements OnSectionItemClickListener {
         //change R.layout.yourlayoutfilename for each of your fragments
         ((MainActivity)getActivity()).hideDennigSupport();
         ((MainActivity)getActivity()).hideBottomBar();
+        ((MainActivity)getActivity()).showNavigation(false);
+
         return inflater.inflate(R.layout.fragment_recyclerview, container, false);
     }
 

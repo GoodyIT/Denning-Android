@@ -168,24 +168,24 @@ public final class R {
         public static int messenger_button_send_white_small = 0x7f0f003b;
     }
     public static final class string {
-        public static int com_facebook_device_auth_instructions = 0x7f15004f;
-        public static int com_facebook_image_download_unknown_error = 0x7f150050;
-        public static int com_facebook_internet_permission_error_message = 0x7f150051;
-        public static int com_facebook_internet_permission_error_title = 0x7f150052;
-        public static int com_facebook_like_button_liked = 0x7f150053;
-        public static int com_facebook_like_button_not_liked = 0x7f150054;
-        public static int com_facebook_loading = 0x7f150055;
-        public static int com_facebook_loginview_cancel_action = 0x7f150056;
-        public static int com_facebook_loginview_log_in_button = 0x7f150057;
-        public static int com_facebook_loginview_log_in_button_long = 0x7f150058;
-        public static int com_facebook_loginview_log_out_action = 0x7f150059;
-        public static int com_facebook_loginview_log_out_button = 0x7f15005a;
-        public static int com_facebook_loginview_logged_in_as = 0x7f15005b;
-        public static int com_facebook_loginview_logged_in_using_facebook = 0x7f15005c;
-        public static int com_facebook_send_button_text = 0x7f15005d;
-        public static int com_facebook_share_button_text = 0x7f15005e;
-        public static int com_facebook_tooltip_default = 0x7f15005f;
-        public static int messenger_send_button_text = 0x7f15009c;
+        public static int com_facebook_device_auth_instructions = 0x7f150051;
+        public static int com_facebook_image_download_unknown_error = 0x7f150052;
+        public static int com_facebook_internet_permission_error_message = 0x7f150053;
+        public static int com_facebook_internet_permission_error_title = 0x7f150054;
+        public static int com_facebook_like_button_liked = 0x7f150055;
+        public static int com_facebook_like_button_not_liked = 0x7f150056;
+        public static int com_facebook_loading = 0x7f150057;
+        public static int com_facebook_loginview_cancel_action = 0x7f150058;
+        public static int com_facebook_loginview_log_in_button = 0x7f150059;
+        public static int com_facebook_loginview_log_in_button_long = 0x7f15005a;
+        public static int com_facebook_loginview_log_out_action = 0x7f15005b;
+        public static int com_facebook_loginview_log_out_button = 0x7f15005c;
+        public static int com_facebook_loginview_logged_in_as = 0x7f15005d;
+        public static int com_facebook_loginview_logged_in_using_facebook = 0x7f15005e;
+        public static int com_facebook_send_button_text = 0x7f15005f;
+        public static int com_facebook_share_button_text = 0x7f150060;
+        public static int com_facebook_tooltip_default = 0x7f150061;
+        public static int messenger_send_button_text = 0x7f15009e;
     }
     public static final class style {
         public static int Base_CardView = 0x7f160013;

@@ -284,10 +284,11 @@ public class AddContactAdapter extends BaseSectionAdapter {
 
         if (contact != null) {
             applyRuleToIDType(contact.getIdTypeCode());
-            enableOldICInput(false);
+//            enableOldICInput(false);
+        } else {
+            contact = new Contact();
         }
 
-        contact = new Contact();
         notifyAllSectionsDataSetChanged();
     }
 
@@ -318,7 +319,7 @@ public class AddContactAdapter extends BaseSectionAdapter {
             return phone;
         }
 
-        phone.replace("-", "").replace(")", "").replace("(", "");
+        phone = phone.replace("-", "").replace(")", "").replace("(", "");
 
         return "+" + phone;
     }
@@ -446,11 +447,12 @@ public class AddContactAdapter extends BaseSectionAdapter {
     private void displayRight(final RightButtonViewholder viewHolder, final int sectionIndex, final int itemIndex) {
         final LabelValueDetail labelValueDetail = model.items.get(sectionIndex).items.get(itemIndex);
         viewHolder.editText.setText(labelValueDetail.label);
-        if (labelValueDetail.value.equals("1")) {
-            viewHolder.rightCheckbox.setChecked(true);
-        } else {
+        if (labelValueDetail.value == null) {
             viewHolder.rightCheckbox.setChecked(false);
+        } else {
+            viewHolder.rightCheckbox.setChecked(true);
         }
+
         viewHolder.rightCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -534,41 +536,45 @@ public class AddContactAdapter extends BaseSectionAdapter {
                     }
                 }
 
-                checkIDValidation(input, itemIndex, R.string.alert_ID_duplicate, new DIGeneralInterface() {
-                    @Override
-                    public void completionBlock() {
-                        ((AddContactActivity) context).isIDDuplicated = false;
-                    }
-                }, new DIGeneralInterface() {
-                    @Override
-                    public void completionBlock() {
-                        ((AddContactActivity) context).isIDDuplicated = true;
-                    }
-                });
+                if (!input.equals(contact.IDNo)) {
+                    checkIDValidation(input, itemIndex, R.string.alert_ID_duplicate, new DIGeneralInterface() {
+                        @Override
+                        public void completionBlock() {
+                            ((AddContactActivity) context).isIDDuplicated = false;
+                        }
+                    }, new DIGeneralInterface() {
+                        @Override
+                        public void completionBlock() {
+                            ((AddContactActivity) context).isIDDuplicated = true;
+                        }
+                    });
+                }
             } else  if (itemIndex == OLD_IC) {
-                checkIDValidation(input, itemIndex, R.string.alert_ID_duplicate, new DIGeneralInterface() {
-                    @Override
-                    public void completionBlock() {
-                        ((AddContactActivity) context).isOldIDDuplicated = false;
-                    }
-                }, new DIGeneralInterface() {
-                    @Override
-                    public void completionBlock() {
-                        ((AddContactActivity) context).isOldIDDuplicated = true;
-                    }
-                });
+                if (!input.equals(contact.KPLama)) {
+                    checkIDValidation(input, itemIndex, R.string.alert_ID_duplicate, new DIGeneralInterface() {
+                        @Override
+                        public void completionBlock() {
+                            ((AddContactActivity) context).isOldIDDuplicated = false;
+                        }
+                    }, new DIGeneralInterface() {
+                        @Override
+                        public void completionBlock() {
+                            ((AddContactActivity) context).isOldIDDuplicated = true;
+                        }
+                    });
+                }
             } else if (itemIndex == NAME) {
-                checkIDValidation(input, itemIndex, R.string.alert_Name_duplicate, new DIGeneralInterface() {
-                    @Override
-                    public void completionBlock() {
-                        ((AddContactActivity) context).isNameDuplicated = false;
-                    }
-                }, new DIGeneralInterface() {
-                    @Override
-                    public void completionBlock() {
-                        ((AddContactActivity) context).isNameDuplicated = true;
-                    }
-                });
+//                checkIDValidation(input, itemIndex, R.string.alert_Name_duplicate, new DIGeneralInterface() {
+//                    @Override
+//                    public void completionBlock() {
+//                        ((AddContactActivity) context).isNameDuplicated = false;
+//                    }
+//                }, new DIGeneralInterface() {
+//                    @Override
+//                    public void completionBlock() {
+//                        ((AddContactActivity) context).isNameDuplicated = true;
+//                    }
+//                });
             } else {
                 input = input.substring(0, 1).toUpperCase() + input.substring(1);
             }
@@ -577,6 +583,9 @@ public class AddContactAdapter extends BaseSectionAdapter {
         }
 
         if (sectionIndex == CONTACT_INFO && itemIndex >= ADDRESS1 && itemIndex <= ADDRESS3) {
+            if (input.charAt(input.length()-1) == ',') {
+                return;
+            }
             input += ",";
         }
 

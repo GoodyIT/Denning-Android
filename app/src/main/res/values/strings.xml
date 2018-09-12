@@ -75,13 +75,14 @@
 
 
     <!-- User profile -->
-    <string name="user_profile_title">Info</string>
+    <string name="user_profile_title">Profile</string>
+    <string name="user_profile_email">Email</string>
     <string name="user_profile_mobile">Mobile</string>
     <string name="user_profile_send_message">Send Message</string>
     <string name="user_profile_audio_call">Audio Call</string>
     <string name="user_profile_video_call">Video Call</string>
     <string name="user_delete_chat_history">Delete Dialog</string>
-    <string name="user_remove_contact_and_chat_history">Remove Contact and Chat</string>
+    <string name="user_remove_contact_and_chat_history">Remove Contact</string>
     <string name="user_profile_remove_contact_and_chat_history">Do you really want to delete %1$s from your contact list with his chat?</string>
     <string name="user_profile_delete_chat_history">Do you really want to delete chat history with %1$s?</string>
     <string name="user_profile_success_contacts_deleting">You have deleted %1$s from your contacts</string>
@@ -255,6 +256,7 @@
     <string name="dlg_done">Done</string>
     <string name="dlg_logout">Logout</string>
     <string name="dlg_confirm">Are you sure?</string>
+    <string name="dlg_confirm_delete">Are you sure to delete this field?</string>
     <string name="dlg_need_permission">%1$s needs access to your %2$s so that you can finish this action</string>
     <string name="dlg_permission_storage">External Storage</string>
     <string name="dlg_permission_camera">Camera</string>
@@ -314,6 +316,7 @@
     <string name="dlg_audio_video_big">File mustn\u0027t be more than 100 MB</string>
     <string name="link_was_copied">Link was copied to clipboard</string>
     <string name="map_navigation">Navigation</string>
+    <string name="alert_delete_party">Do you want to remove this party?</string>
 
     <!--   Location Permissions   -->
     <string name="permission_rationale_location">Access to the location service is required to show your current location on the map.</string>
@@ -369,6 +372,7 @@
     <string name="general_success">Success</string>
     <string name="success_upload">Successfully Uploaded</string>
     <string name="alert_resend_passcode">Please call Law Firm if you forgot the passcode.</string>
+    <string name="alert_cannot_change_role">You cannot change your own role</string>
 
     <!--    Title      -->
     <string name="alert_title">Denning</string>
@@ -491,6 +495,7 @@
     <string name="please_wait">Please wait...</string>
     <string name="agree">Ok</string>
     <string name="access_restricted">Access Restricted.</string>
+    <string name="chat_access_restricted_text">Please contact your business service provider</string>
     <string name="access_restriceted_text">The function is only accessible by registered Denning User, please register.</string>
     <string name="alert_file_not_load">Please select the file to upload.</string>
     <string name="alert_filename_not_input">Please input the file name.</string>
@@ -542,6 +547,9 @@
     <string name="alert_save_property">Do you want to save property?</string>
     <string name="alert_update_property">Do you want to update property?</string>
     <string name="alert_please_log_in">You cannot upload file. please login into Denning.</string>
+    <string name="alert_role_self_change">You cannot change your own role.</string>
+    <string name="alert_role_denning_change">You cannot change the role of Denning users.</string>
+    <string name="alert_role_client_change">You cannot change the role of the client.</string>
     
     <!-- Calendar -->
     <string-array name="calendar_top_filter_titles">

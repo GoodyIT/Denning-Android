@@ -59,7 +59,7 @@ public class ChangePassword extends BaseActivity {
     protected @BindView(R.id.change_password_new)
     EditText newPasswordView;
 
-    protected @BindView(R.id.new_device_tac)
+    protected @BindView(R.id.change_password_confirm)
     EditText confirmPasswordView;
 
     protected @BindView(R.id.change_password_continue)
@@ -104,7 +104,7 @@ public class ChangePassword extends BaseActivity {
     @OnClick(R.id.change_password_continue)
     void changePassword() {
         if (newPasswordView.getText().toString().matches("\\w*") || confirmPasswordView.getText().toString().trim().length() == 0) {
-            Snackbar.make(changePasswordLayout, "Please input the all the fields", Snackbar.LENGTH_LONG).show();
+            Snackbar.make(changePasswordLayout, "You cannot set empty password", Snackbar.LENGTH_LONG).show();
             return;
         }
 

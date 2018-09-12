@@ -10,13 +10,11 @@ import android.os.Bundle;
 import android.support.v7.view.ActionMode;
 import android.text.Editable;
 import android.text.TextUtils;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -51,10 +49,12 @@ import java.util.List;
 import java.util.Set;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 import butterknife.OnTextChanged;
 import it.denning.R;
+import it.denning.general.DIHelper;
+import it.denning.navigation.message.utils.OnMessageItemClickListener;
 import it.denning.ui.activities.base.BaseLoggableActivity;
-import it.denning.ui.activities.profile.MyProfileActivity;
 import it.denning.ui.activities.profile.UserProfileActivity;
 import it.denning.ui.adapters.chats.GroupDialogOccupantsAdapter;
 import it.denning.ui.fragments.dialogs.base.TwoButtonsDialogFragment;
@@ -64,7 +64,6 @@ import it.denning.utils.ToastUtils;
 import it.denning.utils.helpers.MediaPickHelper;
 import it.denning.utils.image.ImageLoaderUtils;
 import it.denning.utils.listeners.OnMediaPickedListener;
-import it.denning.utils.listeners.UserOperationListener;
 import it.denning.utils.listeners.simple.SimpleActionModeCallback;
 import it.denning.utils.listeners.simple.SimpleTextWatcher;
 
@@ -74,7 +73,7 @@ public class GroupDialogDetailsActivity extends BaseLoggableActivity implements 
     public static final int RESULT_DELETE_GROUP = 2;
 
     @BindView(R.id.name_textview)
-    EditText groupNameEditText;
+    TextView groupNameEditText;
 
     @BindView(R.id.occupants_textview)
     TextView occupantsTextView;
@@ -99,7 +98,7 @@ public class GroupDialogDetailsActivity extends BaseLoggableActivity implements 
     private GroupDialogOccupantsAdapter groupDialogOccupantsAdapter;
     private List<DialogNotification.Type> currentNotificationTypeList;
     private ArrayList<Integer> newFriendIdsList;
-    private UserOperationAction friendOperationAction;
+    private OnMessageItemClickListener friendOperationAction;
     private BroadcastReceiver updatingDialogDetailsBroadcastReceiver;
     private List<QMUser> occupantsList;
     private int countOnlineFriends;
@@ -143,15 +142,15 @@ public class GroupDialogDetailsActivity extends BaseLoggableActivity implements 
         removeActions();
     }
 
-    @Override
-    public boolean dispatchKeyEvent(KeyEvent event) {
-        if (actionMode != null && event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
-            groupNameEditText.setText(groupNameCurrent != null ? groupNameCurrent : qbDialog.getName());
-            ((ActionMode) actionMode).finish();
-            return true;
-        }
-        return super.dispatchKeyEvent(event);
-    }
+//    @Override
+//    public boolean dispatchKeyEvent(KeyEvent event) {
+//        if (actionMode != null && event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+//            groupNameEditText.setText(groupNameCurrent != null ? groupNameCurrent : qbDialog.getName());
+//            ((ActionMode) actionMode).finish();
+//            return true;
+//        }
+//        return super.dispatchKeyEvent(event);
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -204,6 +203,22 @@ public class GroupDialogDetailsActivity extends BaseLoggableActivity implements 
             if (!s.toString().equals(groupNameOld)) {
                 startAction();
             }
+        }
+    }
+
+    @OnClick(R.id.name_layout)
+    void gotoGroupDetailPositionWithLayout() {
+        _gotoGroupDetailPosition();
+    }
+
+    @OnClick(R.id.add_detail_btn)
+    void gotoGroupDetailPositionWithButton() {
+        _gotoGroupDetailPosition();
+    }
+
+    void _gotoGroupDetailPosition() {
+        if (DIHelper.getInstance(getApplicationContext()).canChangeGroupNameforDialog(qbDialog)) {
+            GroupDialogDetailPositionActivity.start(this, qbDialog.getDialogId());
         }
     }
 
@@ -286,6 +301,7 @@ public class GroupDialogDetailsActivity extends BaseLoggableActivity implements 
         qbDialog.initForChat(QBChatService.getInstance());
         occupantsList = getUsersForGroupChat(qbDialog.getDialogId(), qbDialog.getOccupants());
         qbDialog.setOccupantsIds(ChatUtils.createOccupantsIdsFromUsersList(occupantsList));
+        groupDialogOccupantsAdapter.setQbChatDialog(qbDialog);
         groupDialogOccupantsAdapter.setNewData(occupantsList);
     }
 
@@ -431,7 +447,7 @@ public class GroupDialogDetailsActivity extends BaseLoggableActivity implements 
     private void updateCurrentData() {
         QBChatDialog qbChatDialog = dataManager.getQBChatDialogDataManager().getByDialogId(qbDialog.getDialogId());
         occupantsList = QMUserService.getInstance().getUserCache().getUsersByIDs(qbChatDialog.getOccupants());
-        groupNameCurrent = groupNameEditText.getText().toString();
+        groupNameEditText.setText(qbDialog.getName());
     }
 
     private void checkForSaving() {
@@ -449,12 +465,6 @@ public class GroupDialogDetailsActivity extends BaseLoggableActivity implements 
         if (!isUserDataCorrect()) {
             ToastUtils.longToast(R.string.dialog_details_name_not_entered);
             return;
-        }
-
-        if (!qbDialog.getName().equals(groupNameCurrent)) {
-            qbDialog.setName(groupNameCurrent);
-
-            currentNotificationTypeList.add(DialogNotification.Type.NAME_DIALOG);
         }
 
         File newAvatarFile = null;
@@ -497,7 +507,7 @@ public class GroupDialogDetailsActivity extends BaseLoggableActivity implements 
     private void startFriendProfile(QMUser selectedFriend) {
         QBUser currentUser = AppSession.getSession().getUser();
         if (currentUser.getId().intValue() == selectedFriend.getId().intValue()) {
-            MyProfileActivity.start(GroupDialogDetailsActivity.this);
+//            MyProfileActivity.start(GroupDialogDetailsActivity.this);
         } else {
             UserProfileActivity.start(GroupDialogDetailsActivity.this, selectedFriend.getId());
         }
@@ -558,11 +568,18 @@ public class GroupDialogDetailsActivity extends BaseLoggableActivity implements 
             dialogOccupantIdsSet.add(dialogOccupant.getUser().getId());
         }
 
+        QMUser me = null;
         for (QMUser qmUser : qmUsers) {
             if (dialogOccupantIdsSet.contains(qmUser.getId())) {
-                usersList.add(qmUser);
+                if (qmUser.getEmail().equals(AppSession.getSession().getUser().getEmail())) {
+                    me = qmUser;
+                    me.setFullName("You");
+                } else {
+                    usersList.add(qmUser);
+                }
             }
         }
+        usersList.add(0, me);
         return usersList;
     }
 
@@ -574,12 +591,18 @@ public class GroupDialogDetailsActivity extends BaseLoggableActivity implements 
         }
     }
 
-    private class UserOperationAction implements UserOperationListener {
+    private class UserOperationAction implements OnMessageItemClickListener {
 
         @Override
-        public void onAddUserClicked(int userId) {
+        public void onMessageItemClick(View view, int position, QMUser user) {
+            if (!DIHelper.isSuperUser(user.getEmail())) {
+                if (!DIHelper.getInstance(getApplicationContext()).canChangeGroupRoleforDialog(qbDialog, user)) {
+                    return;
+                }
+            }
+
             if (checkNetworkAvailableWithError()) {
-                addToFriendList(userId);
+
             }
         }
     }

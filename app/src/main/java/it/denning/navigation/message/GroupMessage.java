@@ -156,7 +156,7 @@ public class GroupMessage extends BaseLoaderFragment<List<DialogWrapper>> implem
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ((MainActivity)getActivity()).titleView.setText("Message");
+        ((MainActivity)getActivity()).titleView.setText("Denning Chats");
         ((MainActivity)getActivity()).hideBottomBar();
 
         Log.d(TAG, "onCreate");
