@@ -77,7 +77,7 @@ public class MediaPickHelperFragment extends Fragment {
                     listener.onMediaPicked(requestCode, Attachment.Type.LOCATION, location);
                 }
             } else if (requestCode == MediaUtils.DENNING_FILE_REQUEST_CODE) {
-                listener.onMediaPicked(requestCode, Attachment.Type.FILE, DISharedPreferences.file);
+                listener.onMediaPicked(requestCode, Attachment.Type.OTHER, DISharedPreferences.file);
             } else {
                 if ((requestCode == MediaUtils.CAMERA_PHOTO_REQUEST_CODE || requestCode == MediaUtils.CAMERA_VIDEO_REQUEST_CODE) && (data == null || data.getData() == null)) {
                     // Hacky way to get EXTRA_OUTPUT param to work.

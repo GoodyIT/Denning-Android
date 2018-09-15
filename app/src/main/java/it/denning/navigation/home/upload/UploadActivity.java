@@ -95,7 +95,7 @@ public class UploadActivity extends BaseLoggableActivity implements OnMediaPicke
 
     private MediaPickHelper mediaPickHelper;
     private String fileUrl;
-    private String key, fileNo1;
+    private String key, fileNo1, url;
     private int title;
     private SystemPermissionHelper systemPermissionHelper = new SystemPermissionHelper(this);
     protected Handler handler = new Handler();
@@ -107,9 +107,15 @@ public class UploadActivity extends BaseLoggableActivity implements OnMediaPicke
     }
 
     public static void start(Context context, String key, int title) {
+        start(context, key, title, "", "");
+    }
+
+    public static void start(Context context, String key, int title, String url, String defaultFileName) {
         Intent intent = new Intent(context, UploadActivity.class);
         intent.putExtra("key", key);
         intent.putExtra("title", title);
+        intent.putExtra("url", url);
+        intent.putExtra("defaultFileName", defaultFileName);
         context.startActivity(intent);
     }
 
@@ -193,7 +199,11 @@ public class UploadActivity extends BaseLoggableActivity implements OnMediaPicke
         if (DISharedPreferences.documentView.equals("upload")) {
             uploadUrl = DISharedPreferences.tempServerAPI;
         }
-        uploadUrl += DIConstants.MATTER_CLIENT_FILEFOLDER;
+        if (url.isEmpty()) {
+            uploadUrl += DIConstants.MATTER_CLIENT_FILEFOLDER;
+        } else {
+            uploadUrl += url;
+        }
 
         NetworkManager.getInstance().sendPrivatePostRequest(uploadUrl, jsonObject, new CompositeCompletion() {
             @Override
@@ -218,6 +228,7 @@ public class UploadActivity extends BaseLoggableActivity implements OnMediaPicke
         rightBtn.setEnabled(false);
         mediaPickHelper = new MediaPickHelper();
         key = getIntent().getStringExtra("key");
+        url = getIntent().getStringExtra("url");
 
         changeUIAndInfo();
     }

@@ -67,8 +67,8 @@ import it.denning.search.utils.ClearableAutoCompleteTextView;
 
 public class Home extends Fragment {
     private ArrayList<HomeMenu> homeMenuList;
-    private String[] menuNameList = {"News", "Updates", "Market", "Delivery", "Calculators", "Shared", "Forum", "Products", "Attendance", "Upload", "Calendar", "Top-Up"};
-    private Integer[] menuIconList = {R.drawable.icon_news, R.drawable.icon_updates, R.drawable.icon_market, R.drawable.icon_delivery, R.drawable.icon_calculator, R.drawable.icon_shared, R.drawable.icon_forum, R.drawable.icon_products, R.drawable.icon_attendance, R.drawable.icon_upload, R.drawable.icon_calendar, R.drawable.icon_topup};
+    private String[] menuNameList = {"News", "Property", "Market", "Services", "Calculators", "Jobs", "Forum", "Products", "Shared", "Upload", "Calendar", "Top-Up"};
+    private Integer[] menuIconList = {R.drawable.icon_news, R.drawable.icon_real_estate, R.drawable.icon_market, R.drawable.icon_services, R.drawable.icon_calculator, R.drawable.icon_jobs, R.drawable.icon_forum, R.drawable.icon_products, R.drawable.icon_shared, R.drawable.icon_upload, R.drawable.icon_calendar, R.drawable.icon_topup};
 
     @BindView(R.id.home_search)
     ClearableAutoCompleteTextView searchView;
@@ -224,10 +224,6 @@ public class Home extends Fragment {
                         gotoNews();
                         break;
 
-                    case "Updates":
-                        gotoUpdates();
-                        break;
-
                     case "Calculators":
                         gotoCalculators();
                         break;
@@ -244,12 +240,10 @@ public class Home extends Fragment {
                         gotoUpload();
                         break;
 
-                    case "Attendance":
-                        gotoAttendance();
-                        break;
-
+                    case "Property":
+                    case "Jobs":
                     case "Market":
-                    case "Delivery":
+                    case "Services":
                     case "Forum":
                     case "Products":
                     case "Top-Up":
@@ -267,8 +261,8 @@ public class Home extends Fragment {
         homeMenuList = new ArrayList();
 
         if (!DISharedPreferences.getInstance().isStaff()) {
-            menuNameList = new String[] {"News", "Calculators", "Shared", "Forum", "Products","Upload",};
-            menuIconList = new Integer[] {R.drawable.icon_news, R.drawable.icon_calculator, R.drawable.icon_shared, R.drawable.icon_forum, R.drawable.icon_products, R.drawable.icon_upload,};
+            menuNameList = new String[] {"News", "Calculators", "Forum", "Products", "Shared", "Upload",};
+            menuIconList = new Integer[] {R.drawable.icon_news, R.drawable.icon_calculator, R.drawable.icon_forum, R.drawable.icon_products, R.drawable.icon_shared, R.drawable.icon_upload,};
         }
 
         for (int i = 0; i < menuNameList.length; i++) {
@@ -278,30 +272,6 @@ public class Home extends Fragment {
             homeMenuList.add(homeMenu);
         }
         return homeMenuList;
-    }
-
-    private void gotoAttendance() {
-        if (!DISharedPreferences.getInstance().isStaff()) {
-            DIAlert.showSimpleAlertAndGotoLogin(getContext(), R.string.access_restricted, R.string.access_restricted_staff);
-            return;
-        }
-        String url = DIConstants.ATTENDANCE_GET_URL;
-
-        ((MainActivity)getActivity()).showProgress();
-        NetworkManager.getInstance().sendPrivateGetRequest(url, new CompositeCompletion() {
-            @Override
-            public void parseResponse(JsonElement jsonElement) {
-                ((MainActivity)getActivity()).hideProgress();
-                DISharedPreferences.attendance = new Gson().fromJson(jsonElement.getAsJsonObject(), Attendance.class);
-                AttendanceActivity.start(getContext());
-            }
-        }, new ErrorHandler() {
-            @Override
-            public void handleError(String error) {
-                ((MainActivity)getActivity()).hideProgress();
-                ErrorUtils.showError(getContext(), error);
-            }
-        });
     }
 
     private void gotoCalendar() {

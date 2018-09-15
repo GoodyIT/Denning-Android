@@ -185,7 +185,7 @@ public final class R {
         public static int com_facebook_send_button_text = 0x7f15005f;
         public static int com_facebook_share_button_text = 0x7f150060;
         public static int com_facebook_tooltip_default = 0x7f150061;
-        public static int messenger_send_button_text = 0x7f15009e;
+        public static int messenger_send_button_text = 0x7f15009f;
     }
     public static final class style {
         public static int Base_CardView = 0x7f160013;

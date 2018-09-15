@@ -12,6 +12,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.quickblox.q_municate_db.utils.ErrorUtils;
+
 import org.zakariya.stickyheaders.StickyHeaderLayoutManager;
 
 import butterknife.BindView;
@@ -19,7 +23,11 @@ import butterknife.ButterKnife;
 import it.denning.App;
 import it.denning.MainActivity;
 import it.denning.R;
+import it.denning.general.DIAlert;
+import it.denning.general.DIConstants;
+import it.denning.general.DISharedPreferences;
 import it.denning.general.MyNameCodeCallback;
+import it.denning.model.Attendance;
 import it.denning.model.NameCode;
 import it.denning.navigation.add.bill.AddBillActivity;
 import it.denning.navigation.add.contact.AddContactActivity;
@@ -29,6 +37,9 @@ import it.denning.navigation.add.matter.AddMatterActivity;
 import it.denning.navigation.add.property.AddPropertyActivity;
 import it.denning.navigation.add.quotation.AddQuotationActivity;
 import it.denning.navigation.add.receipt.AddReceiptActivity;
+import it.denning.navigation.home.attendance.AttendanceActivity;
+import it.denning.network.CompositeCompletion;
+import it.denning.network.ErrorHandler;
 import it.denning.network.NetworkManager;
 import it.denning.search.utils.OnSectionItemClickListener;
 
@@ -74,6 +85,30 @@ public class Add extends Fragment implements OnSectionItemClickListener {
         recyclerView.setHasFixedSize(true);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(addAdapter);
+    }
+
+    private void gotoAttendance() {
+        if (!DISharedPreferences.getInstance().isStaff()) {
+            DIAlert.showSimpleAlertAndGotoLogin(getContext(), R.string.access_restricted, R.string.access_restricted_staff);
+            return;
+        }
+        String url = DIConstants.ATTENDANCE_GET_URL;
+
+        ((MainActivity)getActivity()).showProgress();
+        NetworkManager.getInstance().sendPrivateGetRequest(url, new CompositeCompletion() {
+            @Override
+            public void parseResponse(JsonElement jsonElement) {
+                ((MainActivity)getActivity()).hideProgress();
+                DISharedPreferences.attendance = new Gson().fromJson(jsonElement.getAsJsonObject(), Attendance.class);
+                AttendanceActivity.start(getContext());
+            }
+        }, new ErrorHandler() {
+            @Override
+            public void handleError(String error) {
+                ((MainActivity)getActivity()).hideProgress();
+                ErrorUtils.showError(getContext(), error);
+            }
+        });
     }
 
     @Override
@@ -124,8 +159,13 @@ public class Add extends Fragment implements OnSectionItemClickListener {
                         break;
                 }
                 break;
+            case 3:
+                switch (itemIndex) {
+                    case 0:
+                        gotoAttendance();
+                        break;
+                }
+                break;
         }
     }
-
-
 }

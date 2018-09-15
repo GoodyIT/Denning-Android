@@ -20,6 +20,7 @@ public class AddModel {
         model.items.add(new AddSectionModel(DIConstants.first_add_labels, DIConstants.first_add_images));
         model.items.add(new AddSectionModel(DIConstants.second_add_labels, DIConstants.second_add_images));
         model.items.add(new AddSectionModel(DIConstants.third_add_labels, DIConstants.third_add_images));
+        model.items.add(new AddSectionModel(DIConstants.forth_add_labels, DIConstants.forth_add_images));
 
         return model;
     }

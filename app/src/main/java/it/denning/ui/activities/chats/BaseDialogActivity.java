@@ -1,5 +1,6 @@
 package it.denning.ui.activities.chats;
 
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -76,6 +77,7 @@ import com.rockerhieu.emojicon.EmojiconsFragment;
 import com.rockerhieu.emojicon.emoji.Emojicon;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
@@ -95,6 +97,11 @@ import it.denning.R;
 import it.denning.general.DIFileManager;
 import it.denning.general.DIHelper;
 import it.denning.general.DISharedPreferences;
+import it.denning.network.services.DownloadService;
+import it.denning.network.utils.Download;
+import it.denning.network.utils.DownloadCompleteInterface;
+import it.denning.network.utils.ProgressInterface;
+import it.denning.search.document.DocumentActivity;
 import it.denning.ui.activities.base.BaseLoggableActivity;
 import it.denning.ui.activities.location.MapsActivity;
 import it.denning.ui.activities.others.PreviewImageActivity;
@@ -117,7 +124,7 @@ import static it.denning.general.DIConstants.kChatClientsTag;
 
 public abstract class BaseDialogActivity extends BaseLoggableActivity implements
         EmojiconGridFragment.OnEmojiconClickedListener, EmojiconsFragment.OnEmojiconBackspaceClickedListener,
-        ChatUIHelperListener, OnMediaPickedListener {
+        ChatUIHelperListener, OnMediaPickedListener, ProgressInterface, DownloadCompleteInterface {
 
     private static final String TAG = BaseDialogActivity.class.getSimpleName();
     private static final int TYPING_DELAY = 1000;
@@ -703,7 +710,7 @@ public abstract class BaseDialogActivity extends BaseLoggableActivity implements
                             case IMAGE:
                             case AUDIO:
                             case VIDEO:
-                            case FILE:
+                            case OTHER:
                                 showProgress();
                                 QBLoadAttachFileCommand.start(BaseDialogActivity.this, (File) attachment, dialogId);
                                 break;
@@ -1320,10 +1327,48 @@ public abstract class BaseDialogActivity extends BaseLoggableActivity implements
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    new DIFileManager(BaseDialogActivity.this).openFile(qbAttachment.getUrl());
+//                    new DIFileManager(BaseDialogActivity.this).openFile(QBFile.getPrivateUrlForUID(qbAttachment.getId()));
+                    DownloadService downloadService =  new DownloadService(BaseDialogActivity.this, QBFile.getPrivateUrlForUID(qbAttachment.getId()), BaseDialogActivity.this, BaseDialogActivity.this);
+                    downloadService.initDownload();
+                    showActionBarProgress();
                 }
             });
         }
+    }
+
+    @Override
+    public void onProgress(final Download download) {
+        if (download.getProgress() == 100) {
+            hideActionBarProgress();
+        }
+    }
+
+    @Override
+    public void onComplete(final File file) {
+        if (DISharedPreferences.isDenningFile) {
+            DISharedPreferences.file = file;
+            DISharedPreferences.isDenningFile = false;
+            setResult(Activity.RESULT_OK, new Intent());
+            finish();
+        } else {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        hideActionBarProgress();
+                        new DIFileManager(BaseDialogActivity.this).openFile(file);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
+    }
+
+    @Override
+    public void onFailure(String error) {
+        ErrorUtils.showError(this, error);
+        hideActionBarProgress();
     }
 
     protected class RecordTouchListener implements QBRecordAudioButton.RecordTouchEventListener {

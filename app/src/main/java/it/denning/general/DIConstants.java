@@ -59,6 +59,7 @@ public class DIConstants {
 
     public static final String FILE_NAME_AUTOCOMPLETE_URL = "v1/table/cboDocumentName?search=";
     public static final String MATTER_CLIENT_FILEFOLDER = "v1/app/userClientFolder";
+    public static final String PROPERTY_FILE_FOLDER_URL = "v1/document/property/upload";
     public static final String FILE_NOTE_URL = "v1/table/Note";
     public static final String PAYMENT_RECORD = "v1/app/PaymentRecord/";
     public static final String SEARCH_TEMPLATE_CATEGORY = "v1/Table/cbotemplatecategory/only?search=";
@@ -296,6 +297,7 @@ public class DIConstants {
     public static final int GOVERNMENT_PTG_OFFICES = 6;
     public static final int LEGAL_FIRM = 7;
     public static final int DOCUMENT_FOR_CONTACT_TYPE = 8;
+    public static final int DOCUMENT_FOR_PROPERTY_TYPE = 9;
 
     public static final int SHARE_BRANCH_TYPE = 20;
 
@@ -408,11 +410,12 @@ public class DIConstants {
     public static String[] first_add_labels = {"Contact", "Property", "Matter"};
     public static String[] second_add_labels = {"Court Diary", "Office Diary", "Leave Application"};
     public static String[] third_add_labels = { "Quotation", "Tax Invoice", "Receipt"};
+    public static String[] forth_add_labels = {"Attendance"};
 
     public static int[] first_add_images = {R.drawable.icon_contact_blue, R.drawable.icon_property, R.drawable.icon_matter};
     public static int[] second_add_images = {R.drawable.icon_court, R.drawable.icon_court, R.drawable.icon_leave};
     public static int[] third_add_images = {R.drawable.icon_quotation, R.drawable.icon_taxinvoice, R.drawable.icon_receipt};
-
+    public static int[] forth_add_images = {R.drawable.icon_attendance};
 
     // Add Quotation , Bill
     String[] headers = {"Quotation Details", "Quotation Analysis"};

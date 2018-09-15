@@ -233,24 +233,24 @@ public final class R {
     }
     public static final class string {
         public static int app_name = 0x7f15001e;
-        public static int exo_controls_fastforward_description = 0x7f150080;
-        public static int exo_controls_next_description = 0x7f150081;
-        public static int exo_controls_pause_description = 0x7f150082;
-        public static int exo_controls_play_description = 0x7f150083;
-        public static int exo_controls_previous_description = 0x7f150084;
-        public static int exo_controls_repeat_all_description = 0x7f150085;
-        public static int exo_controls_repeat_off_description = 0x7f150086;
-        public static int exo_controls_repeat_one_description = 0x7f150087;
-        public static int exo_controls_rewind_description = 0x7f150088;
-        public static int exo_controls_stop_description = 0x7f150089;
-        public static int google_static_maps_key = 0x7f150097;
-        public static int map_color = 0x7f15009a;
-        public static int map_size = 0x7f15009b;
-        public static int map_type = 0x7f15009c;
-        public static int map_zoom = 0x7f15009d;
-        public static int path_pause = 0x7f1500a1;
-        public static int path_play = 0x7f1500a2;
-        public static int uri_scheme_map = 0x7f1500b1;
+        public static int exo_controls_fastforward_description = 0x7f150081;
+        public static int exo_controls_next_description = 0x7f150082;
+        public static int exo_controls_pause_description = 0x7f150083;
+        public static int exo_controls_play_description = 0x7f150084;
+        public static int exo_controls_previous_description = 0x7f150085;
+        public static int exo_controls_repeat_all_description = 0x7f150086;
+        public static int exo_controls_repeat_off_description = 0x7f150087;
+        public static int exo_controls_repeat_one_description = 0x7f150088;
+        public static int exo_controls_rewind_description = 0x7f150089;
+        public static int exo_controls_stop_description = 0x7f15008a;
+        public static int google_static_maps_key = 0x7f150098;
+        public static int map_color = 0x7f15009b;
+        public static int map_size = 0x7f15009c;
+        public static int map_type = 0x7f15009d;
+        public static int map_zoom = 0x7f15009e;
+        public static int path_pause = 0x7f1500a2;
+        public static int path_play = 0x7f1500a3;
+        public static int uri_scheme_map = 0x7f1500b2;
     }
     public static final class style {
         public static int AudioAttachDurationView = 0x7f160006;

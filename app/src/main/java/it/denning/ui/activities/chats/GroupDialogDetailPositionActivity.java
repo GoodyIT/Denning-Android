@@ -227,6 +227,9 @@ public class GroupDialogDetailPositionActivity extends BaseLoggableActivity {
 
         if (!groupPositionOld.equals(groupPositionCurrent)) {
             QBDialogCustomData customData = qbDialog.getCustomData();
+            if (customData == null) {
+                customData = new QBDialogCustomData();
+            }
             customData.put("position", groupPositionCurrent);
             customData.put("tag", groupTagOld);
             qbDialog.setCustomData(customData);

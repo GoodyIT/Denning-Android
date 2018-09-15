@@ -778,8 +778,8 @@ public final class R {
         public static int abc_toolbar_collapse_description = 0x7f15001d;
         public static int app_name = 0x7f15001e;
         public static int db_name = 0x7f150073;
-        public static int search_menu_title = 0x7f1500ac;
-        public static int status_bar_notification_info_overflow = 0x7f1500ad;
+        public static int search_menu_title = 0x7f1500ad;
+        public static int status_bar_notification_info_overflow = 0x7f1500ae;
     }
     public static final class style {
         public static int AlertDialog_AppCompat = 0x7f160001;

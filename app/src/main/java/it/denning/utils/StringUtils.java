@@ -88,6 +88,8 @@ public class StringUtils {
             attachmentType = Attachment.Type.VIDEO;
         } else if (mimeType.startsWith("text")) {
             attachmentType = Attachment.Type.DOC;
+        } else if (mimeType.startsWith("file")) {
+            attachmentType = Attachment.Type.FILE;
         } else {
             attachmentType = Attachment.Type.OTHER;
         }

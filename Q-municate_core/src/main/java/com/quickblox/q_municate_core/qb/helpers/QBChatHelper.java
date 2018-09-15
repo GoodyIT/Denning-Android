@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import android.util.Log;
+import android.webkit.MimeTypeMap;
 
 import com.quickblox.chat.JIDHelper;
 import com.quickblox.chat.QBChatService;
@@ -199,9 +200,11 @@ public class QBChatHelper extends BaseThreadPoolHelper{
                 messageBody = context.getString(R.string.dlg_attached_audio_last_message);
                 attachment = getAttachmentAudio((QBFile) attachmentObject, localPath);
                 break;
-            case DOC:
-                break;
             case OTHER:
+                break;
+            case FILE:
+                messageBody = context.getString(R.string.dlg_attached_denning_file_last_message);
+                attachment = getAttachmentFile((QBFile) attachmentObject, localPath);
                 break;
         }
 
@@ -343,6 +346,15 @@ public class QBChatHelper extends BaseThreadPoolHelper{
             attachment.setWidth(options.outWidth);
             attachment.setHeight(options.outHeight);
         }
+
+        return attachment;
+    }
+
+    private QBAttachment getAttachmentFile(QBFile file, String localPath) {
+        String fileExtension = MimeTypeMap.getFileExtensionFromUrl(localPath);
+        String mimeType = MimeTypeMap.getSingleton().getMimeTypeFromExtension(
+                fileExtension.toLowerCase());
+        QBAttachment attachment = getAttachment(file, "file", mimeType);
 
         return attachment;
     }

@@ -618,4 +618,10 @@
         <item>Islamic</item>
     </string-array>
 
+    <string-array name="role">
+        <item>Admin</item>
+        <item>Staff</item>
+        <item>Client</item>
+    </string-array>
+
 </resources>

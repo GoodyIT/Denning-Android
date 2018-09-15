@@ -113,7 +113,7 @@ public class GroupDialogOccupantsAdapter extends BaseListAdapter<QMUser> {
             @Override
             public void onClick(View v) {
                 if (isMe(user)) {
-                    DIAlert.showSimpleAlert(App.getInstance(), R.string.warning_title, R.string.alert_role_client_change);
+                    DIAlert.showSimpleAlert(context, R.string.warning_title, R.string.alert_role_client_change);
                 } else {
                     userOperationListener.onMessageItemClick(v, 0, user);
                 }

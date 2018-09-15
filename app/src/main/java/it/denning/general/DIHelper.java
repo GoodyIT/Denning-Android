@@ -37,6 +37,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Enumeration;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 
@@ -346,7 +347,10 @@ public class DIHelper {
     }
 
     public static List<String> getNotNullArray(Object object) {
-        return object != null ? Arrays.asList(object.toString()) : new ArrayList<String>();
+        if (object instanceof ArrayList) {
+            return (List<String>) object;
+        }
+        return object != null ? new LinkedList<String>(Arrays.asList(object.toString())) : new ArrayList<String>();
     }
 
     public static int determinSearchType(String formName) {
@@ -627,6 +631,15 @@ public class DIHelper {
         }
 
         return role;
+    }
+
+    public static String joinString(List<String> array) {
+        String result = "";
+        for (String val : array) {
+            result += val + ",";
+        }
+
+        return result;
     }
 
     public static Boolean isChatExpired(QBChatDialog dialog) {

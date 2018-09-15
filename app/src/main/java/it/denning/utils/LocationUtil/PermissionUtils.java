@@ -53,8 +53,6 @@ public class PermissionUtils
         this.current_activity= (Activity) context;
 
         permissionResultCallback= callback;
-
-
     }
 
 

@@ -9,6 +9,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+
 import org.zakariya.stickyheaders.SectioningAdapter;
 
 import java.util.List;
@@ -179,8 +184,8 @@ public class SearchAdapter extends SectioningAdapter {
             case DIConstants.GOVERNMENT_PTG_OFFICES:
             case DIConstants.LEGAL_FIRM:
             case DIConstants.PROPERTY_TYPE:
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_search_result, parent, false);
-                itemViewHolder =  new  GeneralTypeViewHolder(view);
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_search_contact, parent, false);
+                itemViewHolder =  new  ContactTypeViewHolder(view);
                 break;
 
             case DIConstants.MATTER_TYPE:
@@ -243,14 +248,28 @@ public class SearchAdapter extends SectioningAdapter {
     }
 
     private void displayGeneralSearchResult(SectioningAdapter.ItemViewHolder viewHolder, final SearchResultModel searchResultModel, final int sectionIndex) {
-        GeneralTypeViewHolder generalTypeViewHolder = (GeneralTypeViewHolder) viewHolder;
+        ContactTypeViewHolder generalTypeViewHolder = (ContactTypeViewHolder) viewHolder;
         generalTypeViewHolder.title.setText(searchResultModel.title);
-        generalTypeViewHolder.description.setText(searchResultModel.description);
+        generalTypeViewHolder.description.setText(getFormatedDesc(searchResultModel.json));
 
         generalTypeViewHolder.openMatterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 matterClickListener.onMatterClick(v, searchResultModel.key);
+            }
+        });
+
+        generalTypeViewHolder.contactFolderBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fileFolderClickListener.onFileFolderClick(v, searchResultModel.key, "Property Folder");
+            }
+        });
+
+        generalTypeViewHolder.uploadBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uploadClickListener.onUploadClick(v, searchResultModel.key, R.string.client_upload_title, DIConstants.PROPERTY_FILE_FOLDER_URL, searchResultModel.title);
             }
         });
 
@@ -263,17 +282,22 @@ public class SearchAdapter extends SectioningAdapter {
         });
     }
 
+    private String getFormatedDesc(String json) {
+        JsonArray jsonArray = new Gson().fromJson(json, JsonArray.class);
+        String str = "";
+        for (JsonElement obj : jsonArray) {
+            if (str != "") {
+                str += "\n";
+            }
+            str += obj.getAsJsonObject().get("label").getAsString() + ": " + obj.getAsJsonObject().get("value").getAsString();
+        }
+        return str;
+    }
+
     private void displayContactSearchResult(SectioningAdapter.ItemViewHolder viewHolder, final SearchResultModel searchResultModel, final int sectionIndex) {
         ContactTypeViewHolder generalTypeViewHolder = (ContactTypeViewHolder) viewHolder;
         generalTypeViewHolder.title.setText(searchResultModel.title);
-        generalTypeViewHolder.description.setText(searchResultModel.description);
-
-        generalTypeViewHolder.contactFolderBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fileFolderClickListener.onFileFolderClick(v, searchResultModel.key, "Contact Folder");
-            }
-        });
+        generalTypeViewHolder.description.setText(getFormatedDesc(searchResultModel.json));
 
         generalTypeViewHolder.openMatterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -282,10 +306,17 @@ public class SearchAdapter extends SectioningAdapter {
             }
         });
 
+        generalTypeViewHolder.contactFolderBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fileFolderClickListener.onFileFolderClick(v, searchResultModel.key, "Contact Folder");
+            }
+        });
+
         generalTypeViewHolder.uploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                uploadClickListener.onUploadClick(v, searchResultModel.key, R.string.client_upload_title);
+                uploadClickListener.onUploadClick(v, searchResultModel.key, R.string.client_upload_title, DIConstants.MATTER_CLIENT_FILEFOLDER, "");
             }
         });
 
@@ -354,7 +385,7 @@ public class SearchAdapter extends SectioningAdapter {
         matterTypeViewHolder.uploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                uploadClickListener.onUploadClick(v, searchResultModel.title,  R.string.business_upload_title);
+                uploadClickListener.onUploadClick(v, searchResultModel.title,  R.string.business_upload_title, DIConstants.MATTER_STAFF_FILEFOLDER, "");
             }
         });
 

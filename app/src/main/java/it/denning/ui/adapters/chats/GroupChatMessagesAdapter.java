@@ -1,26 +1,21 @@
 package it.denning.ui.adapters.chats;
 
-import android.net.Uri;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.quickblox.chat.model.QBAttachment;
 import com.quickblox.chat.model.QBChatDialog;
 import com.quickblox.q_municate_core.models.CombinationMessage;
 import com.quickblox.q_municate_db.models.State;
 import com.quickblox.ui.kit.chatmessage.adapter.QBMessagesAdapter;
 import com.quickblox.ui.kit.chatmessage.adapter.utils.LinkUtils;
 
-import java.io.File;
 import java.util.List;
 
 import it.denning.R;
 import it.denning.ui.activities.base.BaseActivity;
 import it.denning.utils.ColorUtils;
-import it.denning.utils.StringUtils;
 
 
 public class GroupChatMessagesAdapter extends BaseChatMessagesAdapter {

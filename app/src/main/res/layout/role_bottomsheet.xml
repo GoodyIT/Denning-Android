@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottomSheetLayout"
+    android:layout_width="match_parent"
+    android:layout_height="350dp"
+    android:background="@color/light_gray"
+    android:padding="@dimen/activity_vertical_margin"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="60dp"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+    <TextView
+        android:id="@+id/bottomSheetHeading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="User Role"
+        android:textAppearance="@android:style/TextAppearance.Large" />
+
+    <TextView
+        android:id="@+id/bottomSheetHeading2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bottomSheetHeading"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="Please select role to assign"
+        android:textAppearance="@android:style/TextAppearance.Large"
+        android:textColor="@color/bootstrap_gray"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/admin_role_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bottomSheetHeading2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Admin"
+        android:textAppearance="@android:style/TextAppearance.Large"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/staff_role_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/admin_role_textview"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:text="Staff"
+        android:textAppearance="@android:style/TextAppearance.Large"
+        android:textColor="@color/baby_blue"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/reader_role_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/staff_role_textview"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:text="Reader"
+        android:textAppearance="@android:style/TextAppearance.Large"
+        android:textColor="@color/babyGreen"
+        android:textSize="26sp" />
+
+    <Button
+        android:id="@+id/button_cancel"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/reader_role_textview"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/transparent"
+        android:text="Cancel"
+        android:textSize="18sp" />
+</RelativeLayout>

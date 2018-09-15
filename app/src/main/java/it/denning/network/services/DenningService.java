@@ -67,11 +67,14 @@ public interface DenningService {
     @GET("v1/app/contactFolder/{code}")
     Call<JsonElement> getDocumentFromContact(@Path("code") String code);
 
+    @GET("v1/document/property/dir/{code}")
+    Call<JsonElement> getDocumentFromProperty(@Path("code") String code);
+
     @GET("v1/app/matter/{code}")
     Call<JsonElement> getMatter(@Path("code") String code);
 
     /*
-        Deal with the buttons
+       Deal with the buttons
      */
 
     @GET

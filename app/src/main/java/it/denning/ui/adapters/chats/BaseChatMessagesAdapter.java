@@ -278,8 +278,8 @@ public class BaseChatMessagesAdapter extends QBMessagesAdapter<CombinationMessag
     protected void onBindViewAttachLeftHolder(QBMessagesAdapter.ImageAttachHolder holder, CombinationMessage chatMessage, int position) {
         updateMessageState(chatMessage, chatDialog);
         int valueType = this.getItemViewType(position);
-        if (valueType == CUSTOM_FILE_INCOMING_MESSAGE || valueType == CUSTOM_FILE_OUTGOING_MESSAGE) {
-            this.setDateSentAttach(holder, chatMessage);
+        if (valueType == CUSTOM_FILE_INCOMING_MESSAGE) {
+            super.setDateSentAttach(holder, chatMessage);
             String avatarUrl = this.obtainAvatarUrl(valueType, chatMessage);
             if(avatarUrl != null) {
                 this.displayAvatarImage(avatarUrl, holder.avatar);
@@ -293,10 +293,24 @@ public class BaseChatMessagesAdapter extends QBMessagesAdapter<CombinationMessag
     }
 
     @Override
+    protected void onBindViewCustomHolder(QBMessagesAdapter.QBMessageViewHolder holder, CombinationMessage chatMessage, int position) {
+//        holder = (QBMessagesAdapter.ImageAttachHolder) holder;
+//        super.setDateSentAttach(holder, chatMessage);
+//        int valueType = this.getItemViewType(position);
+//        String avatarUrl = this.obtainAvatarUrl(valueType, chatMessage);
+//        if(avatarUrl != null) {
+//            this.displayAvatarImage(avatarUrl, holder.avatar);
+//        }
+//        displayFileAttachment(holder, position);
+//        QBAttachment attachment = this.getQBAttach(position);
+//        setFileAttachClickListener(this.attachClickListener, holder, attachment, position);
+    }
+
+    @Override
     protected void onBindViewAttachRightHolder(QBMessagesAdapter.ImageAttachHolder holder, CombinationMessage chatMessage, int position) {
         int valueType = this.getItemViewType(position);
-        if (valueType == CUSTOM_FILE_INCOMING_MESSAGE || valueType == CUSTOM_FILE_OUTGOING_MESSAGE) {
-            this.setDateSentAttach(holder, chatMessage);
+        if (valueType == CUSTOM_FILE_OUTGOING_MESSAGE) {
+            super.setDateSentAttach(holder, chatMessage);
             String avatarUrl = this.obtainAvatarUrl(valueType, chatMessage);
             if(avatarUrl != null) {
                 this.displayAvatarImage(avatarUrl, holder.avatar);
@@ -309,7 +323,7 @@ public class BaseChatMessagesAdapter extends QBMessagesAdapter<CombinationMessag
         }
     }
 
-    protected void setFileAttachClickListener(QBChatAttachClickListener listener, QBMessagesAdapter.QBMessageViewHolder holder, QBAttachment qbAttachment, int position) {
+    protected void setFileAttachClickListener(QBChatAttachClickListener listener, QBMessagesAdapter.ImageAttachHolder holder, QBAttachment qbAttachment, int position) {
         if(listener != null) {
             holder.bubbleFrame.setOnClickListener(new QBItemClickListenerFilter(this.attachClickListener, qbAttachment, position));
         }

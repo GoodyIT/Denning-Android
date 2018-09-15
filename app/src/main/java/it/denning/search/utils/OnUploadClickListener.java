@@ -7,5 +7,5 @@ import android.view.View;
  */
 
 public interface OnUploadClickListener {
-    public void onUploadClick(View view, String code, int title);
+    public void onUploadClick(View view, String code, int title, String url, String defaultFileName);
 }

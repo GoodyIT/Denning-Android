@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.v7.view.ActionMode;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -15,14 +16,18 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.google.gson.JsonObject;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.quickblox.chat.QBChatService;
 import com.quickblox.chat.model.QBChatDialog;
+import com.quickblox.chat.model.QBDialogCustomData;
 import com.quickblox.core.exception.QBResponseException;
+import com.quickblox.customobjects.model.QBCustomObject;
 import com.quickblox.q_municate_core.core.command.Command;
 import com.quickblox.q_municate_core.models.AppSession;
 import com.quickblox.q_municate_core.qb.commands.chat.QBDeleteChatCommand;
@@ -52,6 +57,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import butterknife.OnTextChanged;
 import it.denning.R;
+import it.denning.general.DIConstants;
 import it.denning.general.DIHelper;
 import it.denning.navigation.message.utils.OnMessageItemClickListener;
 import it.denning.ui.activities.base.BaseLoggableActivity;
@@ -104,6 +110,7 @@ public class GroupDialogDetailsActivity extends BaseLoggableActivity implements 
     private int countOnlineFriends;
     private DataManager dataManager;
     private String dialogId;
+    private BottomSheetDialog bottomSheetDialog;
 
     public static void start(Activity context, String dialogId) {
         Intent intent = new Intent(context, GroupDialogDetailsActivity.class);
@@ -282,6 +289,9 @@ public class GroupDialogDetailsActivity extends BaseLoggableActivity implements 
         groupNameEditText.setText(groupNameCurrent != null ? groupNameCurrent : qbDialog.getName());
 
         updateCountOnlineFriends();
+
+        groupDialogOccupantsAdapter.setQbChatDialog(qbDialog);
+        groupDialogOccupantsAdapter.notifyDataSetChanged();
 
         occupantsTextView.setText(
                 getString(R.string.dialog_details_participants, qbDialog.getOccupants().size()));
@@ -595,16 +605,97 @@ public class GroupDialogDetailsActivity extends BaseLoggableActivity implements 
 
         @Override
         public void onMessageItemClick(View view, int position, QMUser user) {
-            if (!DIHelper.isSuperUser(user.getEmail())) {
-                if (!DIHelper.getInstance(getApplicationContext()).canChangeGroupRoleforDialog(qbDialog, user)) {
+            if (!DIHelper.isSuperUser(AppSession.getSession().getUser().getEmail())) {
+                if (!DIHelper.getInstance(GroupDialogDetailsActivity.this).canChangeGroupRoleforDialog(qbDialog, user)) {
                     return;
                 }
             }
 
             if (checkNetworkAvailableWithError()) {
-
+                openDialog(user);
             }
         }
+    }
+
+    private void changeUserRole(String toRole, QMUser user) {
+        String original_role = DIHelper.getCurrentUserRole(user, qbDialog);
+        if (toRole.equals(original_role)) {
+            return;
+        }
+
+        List<String> denningRole = DIHelper.getChatCustomDataArray(qbDialog, DIConstants.kRoleDenningTag);
+        List<String> adminRole = DIHelper.getChatCustomDataArray(qbDialog, DIConstants.kRoleAdminTag);
+        List<String> readerRole = DIHelper.getChatCustomDataArray(qbDialog, DIConstants.kRoleReaderTag);
+        List<String> normalRole = DIHelper.getChatCustomDataArray(qbDialog, DIConstants.kRoleStaffTag);
+
+        String userId = user.getId().toString();
+        if (toRole.equals(DIConstants.kRoleDenningTag)) {
+            if (!denningRole.contains(userId)) {
+                denningRole.add(userId);
+            }
+        } else if (toRole.equals(DIConstants.kRoleAdminTag)) {
+            if (!adminRole.contains(userId)) {
+                adminRole.add(userId);
+            }
+        } else if (toRole.equals(DIConstants.kRoleReaderTag)) {
+            if (!readerRole.contains(userId)) {
+                readerRole.add(userId);
+            }
+        } else if (toRole.equals(DIConstants.kRoleStaffTag)) {
+            if (!normalRole.contains(userId)) {
+                normalRole.add(userId);
+            }
+        }
+        QBDialogCustomData customData = qbDialog.getCustomData();
+        if (customData == null) {
+            customData = new QBDialogCustomData();
+        }
+        customData.put(DIConstants.kRoleDenningTag, DIHelper.joinString(denningRole));
+        customData.put(DIConstants.kRoleAdminTag, DIHelper.joinString(adminRole));
+        customData.put(DIConstants.kRoleReaderTag, DIHelper.joinString(readerRole));
+        customData.put(DIConstants.kRoleStaffTag, DIHelper.joinString(normalRole));
+        qbDialog.setCustomData(customData);
+        updateGroupDialog(null);
+    }
+
+    private void openDialog(final QMUser user) {
+
+        View view = getLayoutInflater().inflate(R.layout.role_bottomsheet, null);
+        bottomSheetDialog = new BottomSheetDialog(this);
+        bottomSheetDialog.setContentView(view);
+        TextView admin_role = (TextView) view.findViewById(R.id.admin_role_textview);
+        TextView staff_role = (TextView) view.findViewById(R.id.staff_role_textview);
+        TextView reader_role = (TextView) view.findViewById(R.id.reader_role_textview);
+        Button cancel_button = (Button) view.findViewById(R.id.button_cancel);
+
+        admin_role.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeUserRole(DIConstants.kRoleAdminTag, user);
+                bottomSheetDialog.dismiss();
+            }
+        });
+        staff_role.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeUserRole(DIConstants.kRoleStaffTag, user);
+                bottomSheetDialog.dismiss();
+            }
+        });
+        reader_role.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeUserRole(DIConstants.kRoleReaderTag, user);
+                bottomSheetDialog.dismiss();
+            }
+        });
+        cancel_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottomSheetDialog.dismiss();
+            }
+        });
+        bottomSheetDialog.show();
     }
 
     private class AddFriendSuccessAction implements Command {

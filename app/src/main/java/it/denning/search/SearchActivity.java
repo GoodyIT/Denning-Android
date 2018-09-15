@@ -376,6 +376,10 @@ public class SearchActivity extends BaseActivity implements OnItemClickListener,
                 documentTitle = "Contact Folder";
                 mSingle = mSearchService.getDocumentFromContact(currentCode);
                 break;
+            case DIConstants.DOCUMENT_FOR_PROPERTY_TYPE:
+                documentTitle = "Contact Folder";
+                mSingle = mSearchService.getDocumentFromProperty(currentCode);
+                break;
         }
     }
 
@@ -514,8 +518,10 @@ public class SearchActivity extends BaseActivity implements OnItemClickListener,
         documentTitle = type;
         if (documentTitle.equals("File Folder")) {
             currentSearch = DIConstants.DOCUMENT_TYPE;
-        } else {
+        } else if (documentTitle.equals("Contact Folder")) {
             currentSearch = DIConstants.DOCUMENT_FOR_CONTACT_TYPE;
+        } else {
+            currentSearch = DIConstants.DOCUMENT_FOR_PROPERTY_TYPE;
         }
 
         gotoDocumentActivity();
@@ -685,8 +691,8 @@ public class SearchActivity extends BaseActivity implements OnItemClickListener,
     }
 
     @Override
-    public void onUploadClick(View view, String code, int title) {
-        UploadActivity.start(this, code, title);
+    public void onUploadClick(View view, String code, int title, String url, String defaultFileName) {
+        UploadActivity.start(this, code, title, url, defaultFileName);
     }
 }
 

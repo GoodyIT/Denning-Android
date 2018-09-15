@@ -22,6 +22,7 @@
     <string name="cht_update_group_position_message">%1$s has changed the chat position to %2$s</string>
     <string name="cht_update_group_tag_message">%1$s has changed the chat type to %2$s</string>
     <string name="dlg_attached_audio_last_message">Voice attachment</string>
+    <string name="dlg_attached_denning_file_last_message">Denning File attachment</string>
     <string name="dlg_attached_last_message">Attachment</string>
     <string name="dlg_attached_video_last_message">Video attachment</string>
     <string name="dlg_cancel">Cancel</string>
