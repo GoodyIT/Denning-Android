@@ -113,6 +113,10 @@ public class Add extends Fragment implements OnSectionItemClickListener {
 
     @Override
     public void onClick(View view, int sectionIndex, int itemIndex, String name) {
+        if (DISharedPreferences.getInstance().isSessionExpired) {
+            DIAlert.showSimpleAlert(getActivity(), R.string.warning_title, R.string.alert_session_expired);
+            return;
+        }
         switch (sectionIndex) {
             case 0:
                 switch (itemIndex) {

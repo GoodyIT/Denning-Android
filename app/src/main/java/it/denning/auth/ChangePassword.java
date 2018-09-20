@@ -103,7 +103,7 @@ public class ChangePassword extends BaseActivity {
 
     @OnClick(R.id.change_password_continue)
     void changePassword() {
-        if (newPasswordView.getText().toString().matches("\\w*") || confirmPasswordView.getText().toString().trim().length() == 0) {
+        if (newPasswordView.getText().toString().isEmpty() || confirmPasswordView.getText().toString().isEmpty()) {
             Snackbar.make(changePasswordLayout, "You cannot set empty password", Snackbar.LENGTH_LONG).show();
             return;
         }

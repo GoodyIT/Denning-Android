@@ -31,6 +31,7 @@ import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -40,6 +41,7 @@ import java.util.Enumeration;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 import it.denning.App;
 import it.denning.R;
@@ -110,8 +112,8 @@ public class DIHelper {
     }
 
     public static String toCustomDate(String date) {
-        if (date.trim().length() == 0) {
-            return date;
+        if (date == null || date.trim().length() == 0) {
+            return "";
         }
         SimpleDateFormat sdf = new SimpleDateFormat("dd MM yyyy");
         Date testDate = null;
@@ -126,8 +128,8 @@ public class DIHelper {
     }
 
     public static String toMySQLDateFormat(String date) {
-        if (date.trim().length() == 0) {
-            return date;
+        if (date == null || date.trim().length() == 0) {
+            return "";
         }
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
         Date testDate = null;
@@ -142,8 +144,8 @@ public class DIHelper {
     }
 
     public static String toMySQLDateFormat2(String date) {
-        if (date.trim().length() == 0) {
-            return date;
+        if (date == null || date.trim().length() == 0) {
+            return "";
         }
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy hh:mm");
         Date testDate = null;
@@ -168,8 +170,8 @@ public class DIHelper {
     }
 
     public static String convertToSimpleDateFormat(String date) {
-        if (date.trim().length() == 0) {
-            return date;
+        if (date == null || date.trim().length() == 0) {
+            return "";
         }
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         Date testDate = null;
@@ -179,7 +181,7 @@ public class DIHelper {
             ex.printStackTrace();
         }
 
-        SimpleDateFormat newFormat = new SimpleDateFormat("d MMM yyy");
+        SimpleDateFormat newFormat = new SimpleDateFormat("dd MMM yyy");
         return  newFormat.format(testDate);
     }
 
@@ -277,6 +279,33 @@ public class DIHelper {
         calendar.set(Calendar.MINUTE, minute);
         SimpleDateFormat sdf = new SimpleDateFormat("hh:mm");
         return sdf.format(calendar.getTime());
+    }
+
+    public static float calcDateDiff(String _startDate, String _endDate) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
+        Date startDate = null;
+        try {
+            startDate = sdf.parse(_startDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Date endDate = null;
+        try {
+            endDate = sdf.parse(_endDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        //milliseconds
+        long different = endDate.getTime() - startDate.getTime();
+
+       Calendar c = Calendar.getInstance();
+       c.setTimeInMillis(different);
+       int year = c.get(Calendar.YEAR);
+       int month = c.get(Calendar.MONTH);
+       int days = c.get(Calendar.DAY_OF_WEEK);
+
+       float yearsHeld = year + month / 12.0f + days / 365.0f;
+       return  Float.valueOf(String.format("%.3f", yearsHeld));
     }
 
     public static String getIPWAN() {
@@ -571,6 +600,14 @@ public class DIHelper {
         DecimalFormat formatter = (DecimalFormat) NumberFormat.getInstance(Locale.US);
         formatter.applyPattern("#,###,###,###,###.00");
         return formatter.format(Double.valueOf(value));
+    }
+
+    public static float toFloat(String value) {
+        float result = 0.0f;
+        if (!value.isEmpty()) {
+          result =  Float.valueOf(value.replace(",", ""));
+        }
+        return result;
     }
 
     public static String UriToBase64(Uri uri) {
@@ -1232,5 +1269,48 @@ public class DIHelper {
 
     public static Boolean isSuperUser(String email) {
         return email.equals("tmho@denning.com.m") || email.equals("jingpiow@denning.com.my");
+    }
+
+
+    // Calculate Legal Fee
+    public static float[] calcLoanAndLegal(float priceValue) {
+        float legalCost = 0;
+        if (priceValue  >= 500000) {
+            legalCost  += 500000* 0.01;
+        } else {
+            legalCost  += priceValue * 0.01;
+            legalCost = Math.max(legalCost,500.0f);
+        }
+        priceValue  -= 500000;
+
+        if (priceValue  > 0 && priceValue  < 500000){
+            legalCost  += priceValue *0.008;
+        } else if (priceValue  >= 500000) {
+            legalCost  += 500000*0.008;
+        }
+        priceValue  -= 500000;
+
+        if (priceValue  > 0 && priceValue  < 2000000){
+            legalCost  += priceValue *0.007;
+        } else if (priceValue  >= 2000000) {
+            legalCost  += 2000000*0.007;
+        }
+        priceValue  -= 2000000;
+
+        if (priceValue  > 0 && priceValue  < 2000000){
+            legalCost  += priceValue *0.006;
+        } else if (priceValue  >= 2000000) {
+            legalCost  += 2000000*0.006;
+        }
+        priceValue  -= 2000000;
+
+        if (priceValue  > 0 && priceValue  < 2500000){
+            legalCost  += priceValue *0.005;
+        } else if (priceValue  >= 2500000) {
+            legalCost  += 2500000*0.005;
+        }
+        priceValue  -= 2500000;
+
+        return new float[]{(priceValue), (legalCost)};
     }
 }

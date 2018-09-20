@@ -27,6 +27,7 @@ import retrofit2.Response;
 
 public class DownloadService  {
     private   String url;
+    private  String fileName;
     private  Context mContext;
     private  ProgressInterface progressInterface;
     private  DownloadCompleteInterface downloadCompleteInterface;
@@ -40,12 +41,21 @@ public class DownloadService  {
 
     public DownloadService(Context mContext, String url, ProgressInterface progressInterface, DownloadCompleteInterface downloadCompleteInterface) {
         this.url = url;
+        this.fileName = "";
         this.mContext = mContext;
         this.progressInterface = progressInterface;
         this.downloadCompleteInterface = downloadCompleteInterface;
     }
 
-    public void initDownload(){
+    public DownloadService(Context mContext, String url, String fileName, ProgressInterface progressInterface, DownloadCompleteInterface downloadCompleteInterface) {
+        this.url = url;
+        this.fileName = fileName;
+        this.mContext = mContext;
+        this.progressInterface = progressInterface;
+        this.downloadCompleteInterface = downloadCompleteInterface;
+    }
+
+        public void initDownload(){
 
         DenningService mService = new RetrofitHelper(mContext).getPrivateService();
         CompositeDisposable mCompositeDisposable = new CompositeDisposable();
@@ -92,7 +102,11 @@ public class DownloadService  {
         if (!outputDir.exists()) {
             outputDir.mkdirs();
         }
-        outputFile = new File(outputDir, DIHelper.getFileName(url));
+        if (fileName.isEmpty()) {
+            outputFile = new File(outputDir, DIHelper.getFileName(url));
+        } else {
+            outputFile = new File(outputDir, fileName);
+        }
 
         OutputStream output = new FileOutputStream(outputFile);
         long total = 0;

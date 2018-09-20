@@ -19,7 +19,9 @@ import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import org.zakariya.stickyheaders.StickyHeaderLayoutManager;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import it.denning.R;
 import it.denning.general.DIAlert;
@@ -52,6 +54,7 @@ public class AddContactActivity extends MyBaseActivity implements
     public boolean isSaved = false, isDuplicationChecking = false, isIDDuplicated = false, isNameDuplicated = false, isOldIDDuplicated = false;
     private boolean isUpdateMode = false;
     private DatePickerDialog dpd;
+    private int selectedSection, selectedItem;
 
     public static void start(Context context, Contact model) {
         Intent i = new Intent(context, AddContactActivity.class);
@@ -80,7 +83,7 @@ public class AddContactActivity extends MyBaseActivity implements
     }
 
     private void setupRecyclerView() {
-        adapter = new AddContactAdapter(this, this);
+        adapter = new AddContactAdapter(this, this, contact);
         recyclerView.setLayoutManager(new StickyHeaderLayoutManager());
         recyclerView.addItemDecoration(new it.denning.general.DividerItemDecoration(ContextCompat.getDrawable(this, R.drawable.item_decorator)));
         recyclerView.setHasFixedSize(true);
@@ -90,6 +93,8 @@ public class AddContactActivity extends MyBaseActivity implements
 
     @Override
     public void onClick(View view, int sectionIndex, int itemIndex, String name) {
+        selectedSection = sectionIndex;
+        selectedItem = itemIndex;
         switch (name) {
             case "ID Type *":
                 gotoIDType();
@@ -360,14 +365,27 @@ public class AddContactActivity extends MyBaseActivity implements
     }
 
     private void showDateOfBirth() {
-        Calendar now = Calendar.getInstance();
-        if (dpd == null) {
-            dpd = DatePickerDialog.newInstance(
-                    this,
-                    now
-            );
-            dpd.setVersion(DatePickerDialog.Version.VERSION_2);
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
+        Date testDate = null;
+        String date = adapter.getAddingModel().items.get(selectedSection).items.get(selectedItem).value;
+        if (date.isEmpty()) {
+            calendar = Calendar.getInstance();
+        } else {
+            try {
+                testDate = sdf.parse(date);
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
+
+            calendar = Calendar.getInstance();
+            calendar.setTime(testDate);
         }
+        dpd = DatePickerDialog.newInstance(
+                this,
+                calendar
+        );
+        dpd.setVersion(DatePickerDialog.Version.VERSION_2);
         dpd.show(getFragmentManager(), "Datepickerdialog");
     }
 

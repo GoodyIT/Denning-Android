@@ -24,4 +24,8 @@ public class StaffModel implements Serializable{
     public String nickName;
     public String userID;
     public String KPLama;
+
+    public String getCode() {
+        return code == null ? "" : code;
+    }
 }

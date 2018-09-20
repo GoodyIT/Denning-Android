@@ -199,13 +199,13 @@ public class AddQuotationActivity extends MyBaseActivity implements OnSectionIte
     }
 
     private void calculateTax() {
-        if (!isPresetSelected()) {
-            return;
-        }
-
-        if (!isFileNoSelected()) {
-            return;
-        }
+//        if (!isPresetSelected()) {
+//            return;
+//        }
+//
+//        if (!isFileNoSelected()) {
+//            return;
+//        }
 
         JsonObject params = adapter.buildCalcParams();
         showProgress();

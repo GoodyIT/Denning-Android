@@ -112,8 +112,6 @@ public class AddMatterActivity extends MyBaseActivity implements
         }
     }
 
-
-
     @Override
     public void onClick(View view, int sectionIndex, int itemIndex, String name) {
         selectedSection = sectionIndex;
@@ -461,7 +459,7 @@ public class AddMatterActivity extends MyBaseActivity implements
             if (resultCode == AppCompatActivity.RESULT_OK) {
                 // do something with the result
                 StaffModel model = (StaffModel) data.getSerializableExtra("model");
-                adapter.updateParty(new LabelValueDetail(model.name, model.code, true), selectedSection, selectedItem);
+                adapter.updateParty(new LabelValueDetail("", model.name, model.code, DIConstants.ONE_TYPE), selectedSection, selectedItem);
             }
         } else if (requestCode == DIConstants.PROPERTY_ADD_REQUEST_CODE) {
             if (resultCode == AppCompatActivity.RESULT_OK) {

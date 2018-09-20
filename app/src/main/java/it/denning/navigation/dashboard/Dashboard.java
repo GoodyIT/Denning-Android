@@ -32,6 +32,7 @@ import butterknife.ButterKnife;
 import it.denning.App;
 import it.denning.MainActivity;
 import it.denning.R;
+import it.denning.general.DIAlert;
 import it.denning.general.DIConstants;
 import it.denning.general.DIHelper;
 import it.denning.general.DISharedPreferences;
@@ -224,6 +225,10 @@ public class Dashboard extends Fragment implements DashboardSecondItemClickListe
 
     @Override
     public void onSecondItemClick(String viewType, int position, String value, String api) {
+        if (DISharedPreferences.getInstance().isSessionExpired) {
+            DIAlert.showSimpleAlert(getActivity(), R.string.warning_title, R.string.alert_session_expired);
+            return;
+        }
         switch (viewType) {
             case "new_matters":
                 gotoNextActivity(FileListingActivity.class, value, api);

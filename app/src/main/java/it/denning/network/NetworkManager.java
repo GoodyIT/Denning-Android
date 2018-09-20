@@ -132,6 +132,7 @@ public class NetworkManager {
             public void onFailure(Call<JsonElement> call, Throwable e) {
                 if (e instanceof HttpException && ((HttpException) e).code() == 408) {
                     errorHandler.handleError("Session expired. Please log in again.");
+                    DISharedPreferences.getInstance().isSessionExpired = true;
                 } else if (e instanceof SocketTimeoutException){
                     errorHandler.handleError("Cannot reach the server.");
                 } else if (e instanceof HttpException && ((HttpException) e).code() == 400) {

@@ -218,6 +218,10 @@ public class Home extends Fragment {
         home_gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (DISharedPreferences.getInstance().isSessionExpired) {
+                    DIAlert.showSimpleAlert(getActivity(), R.string.warning_title, R.string.alert_session_expired);
+                    return;
+                }
                 String menuName = menuNameList[position];
                 switch (menuName) {
                     case "News":
@@ -279,6 +283,7 @@ public class Home extends Fragment {
             DIAlert.showSimpleAlertAndGotoLogin(getContext(), R.string.access_restricted, R.string.access_restricted_staff);
             return;
         }
+
         String url = DIConstants.EVENT_LATEST_URL + "?dateStart=" + DIHelper.todayF() +
                 "&dateEnd=" + DIHelper.todayF() + "&filterBy=1court&search=&page=1";
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:id="@+id/search_bank_layout"
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/search_bank_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -40,17 +41,19 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="20dp"
                         android:layout_weight="2"
-                        android:gravity="right|end"
+                        android:gravity="left|start"
                         android:text="Sale Price (+)"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
                     <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/sale_price_textview"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:gravity="center"
                         android:inputType="numberDecimal"
+                        android:tag="1"
                         app:backgroundTint="@color/colorAccent" />
                 </LinearLayout>
                 <LinearLayout
@@ -78,17 +81,20 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="20dp"
                         android:layout_weight="2"
-                        android:gravity="right|end"
+                        android:gravity="left|start"
                         android:text="Sale Commission (-)"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
-                    <TextView
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/sale_commission_textview"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
                         android:layout_weight="3"
-                        android:gravity="center" />
+                        android:gravity="center"
+                        android:inputType="numberDecimal"
+                        android:tag="2"
+                        app:backgroundTint="@color/colorAccent" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -114,17 +120,19 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="20dp"
                         android:layout_weight="2"
-                        android:gravity="right|end"
+                        android:gravity="left|start"
                         android:text="Legal Costs (-)"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
                     <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/legal_costs_textview"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:gravity="center"
                         android:inputType="numberDecimal"
+                        android:tag="3"
                         app:backgroundTint="@color/colorAccent" />
                 </LinearLayout>
                 <LinearLayout
@@ -151,17 +159,19 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="20dp"
                         android:layout_weight="2"
-                        android:gravity="right|end"
+                        android:gravity="left|start"
                         android:text="Renovation &amp; Improvements (-)"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
                     <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/renovation_textview"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:gravity="center"
                         android:inputType="numberDecimal"
+                        android:tag="4"
                         app:backgroundTint="@color/colorAccent" />
                 </LinearLayout>
                 <LinearLayout
@@ -188,12 +198,13 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="20dp"
                         android:layout_weight="2"
-                        android:gravity="right|end"
+                        android:gravity="left|start"
                         android:text="Net Disposal Price (=)"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/net_disposal_textview"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -238,17 +249,19 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="20dp"
                         android:layout_weight="2"
-                        android:gravity="right|end"
+                        android:gravity="left|start"
                         android:text="Purchase Price (+)"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
                     <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/purchase_price_textview"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:gravity="center"
                         android:inputType="numberDecimal"
+                        android:tag="11"
                         app:backgroundTint="@color/colorAccent" />
                 </LinearLayout>
                 <LinearLayout
@@ -276,17 +289,20 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="20dp"
                         android:layout_weight="2"
-                        android:gravity="right|end"
+                        android:gravity="left|start"
                         android:text="Purchase Commission (-)"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
-                    <TextView
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/purchase_commision_textview"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
                         android:layout_weight="3"
-                        android:gravity="center" />
+                        android:gravity="center"
+                        android:inputType="numberDecimal"
+                        android:tag="12"
+                        app:backgroundTint="@color/colorAccent" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -312,17 +328,19 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="20dp"
                         android:layout_weight="2"
-                        android:gravity="right|end"
+                        android:gravity="left|start"
                         android:text="Legal Costs &amp; Stamp Duty (-)"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
                     <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/legal_stamp_textview"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:gravity="center"
                         android:inputType="numberDecimal"
+                        android:tag="13"
                         app:backgroundTint="@color/colorAccent" />
                 </LinearLayout>
                 <LinearLayout
@@ -349,17 +367,19 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="20dp"
                         android:layout_weight="2"
-                        android:gravity="right|end"
+                        android:gravity="left|start"
                         android:text="Other costs incurred (+)"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
                     <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/other_costs_textview"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:gravity="center"
                         android:inputType="numberDecimal"
+                        android:tag="14"
                         app:backgroundTint="@color/colorAccent" />
                 </LinearLayout>
                 <LinearLayout
@@ -386,12 +406,13 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="20dp"
                         android:layout_weight="2"
-                        android:gravity="right|end"
+                        android:gravity="left|start"
                         android:text="Net Acquisition Price (=)"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/net_acquisition_textview"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -436,12 +457,13 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="20dp"
                         android:layout_weight="2"
-                        android:gravity="right|end"
+                        android:gravity="left|start"
                         android:text="Gain / Loss (A - B)"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/gain_loss_textview"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -473,12 +495,13 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="20dp"
                         android:layout_weight="2"
-                        android:gravity="right|end"
+                        android:gravity="left|start"
                         android:text="Date of Disposal"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
                     <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/date_disposal_textview"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
@@ -510,12 +533,13 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="20dp"
                         android:layout_weight="2"
-                        android:gravity="right|end"
+                        android:gravity="left|start"
                         android:text="Date of Acquisition"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
                     <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/date_acquisition_textview"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
@@ -547,12 +571,13 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="20dp"
                         android:layout_weight="2"
-                        android:gravity="right|end"
+                        android:gravity="bottom|left|start"
                         android:text="Number of Years Held (P)"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
                     <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/number_of_year_textview"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
@@ -584,12 +609,13 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="20dp"
                         android:layout_weight="2"
-                        android:gravity="right|end"
+                        android:gravity="left|start"
                         android:text="State of TaxPayer"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/state_taxpayer_textview"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -635,12 +661,13 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="20dp"
                         android:layout_weight="2"
-                        android:gravity="right|end"
+                        android:gravity="left|start"
                         android:text="Tax Payable"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/tax_payable_textview"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -673,12 +700,13 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="20dp"
                         android:layout_weight="2"
-                        android:gravity="right|end"
+                        android:gravity="left|right|start"
                         android:text="Tax Rate (%)"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/tax_rate_textview"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -695,6 +723,7 @@
                 android:orientation="horizontal">
 
                 <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/calculate_btn"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -707,6 +736,7 @@
                     android:textStyle="bold" />
 
                 <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/reset_btn"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"

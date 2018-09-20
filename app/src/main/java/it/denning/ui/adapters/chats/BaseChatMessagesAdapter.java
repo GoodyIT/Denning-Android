@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.MimeTypeMap;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -256,9 +257,12 @@ public class BaseChatMessagesAdapter extends QBMessagesAdapter<CombinationMessag
 
     protected void displayFileAttachment(final QBMessagesAdapter.ImageAttachHolder holder, int position) {
         QBAttachment attachment = this.getQBAttach(position);
-        int resId = StringUtils.getAttachImage(attachment.getContentType());
-        int preferredImageWidth = (int)this.context.getResources().getDimension(com.quickblox.ui.kit.chatmessage.adapter.R.dimen.attach_image_width_preview);
-        int preferredImageHeight = (int)this.context.getResources().getDimension(com.quickblox.ui.kit.chatmessage.adapter.R.dimen.attach_image_height_preview);
+        String fileExtension = MimeTypeMap.getFileExtensionFromUrl(attachment.getName());
+        String mimeType = MimeTypeMap.getSingleton().getMimeTypeFromExtension(
+                fileExtension.toLowerCase());
+        int resId = StringUtils.getAttachImage(mimeType);
+        int preferredImageWidth = 40;
+        int preferredImageHeight = 40;
         Glide.with(this.context).load(resId).override(preferredImageWidth, preferredImageHeight).dontTransform().error(com.quickblox.ui.kit.chatmessage.adapter.R.drawable.ic_error).into(((QBMessagesAdapter.BaseImageAttachHolder)holder).attachImageView);
 
         final CombinationMessage chatMessage = getItem(position);

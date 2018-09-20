@@ -489,7 +489,22 @@
     <string name="due_task_title">Staff Due Task</string>
     <string name="transaction_detail_title">Transaction Detail</string>
     <string name="select_a_relation">Select a Relation</string>
+    <string name="select_a_margin">Select a Margin</string>
+    <string name="select_loan_type">Select a type</string>
+    <string name="select_state_of_taxpayer">Select an option</string>
     <string name="denning_support_title">Denning Support</string>
+    <string name="alert_price_required">Please input the price or market value to calculate stamp duty</string>
+    <string name="alert_relatinship_required">Please select the relationship you want to apply for.</string>
+    <string name="alert_loan_margin_required">Please select the loan margin you want to apply for.</string>
+    <string name="alert_legal_negotiate">Legal fee is negotiable for such price</string>
+    <string name="alert_monthly_rent_required">Please input the monthly rent to calculate stamp duty.</string>
+    <string name="alert_terms_tenancy_required">Please input the terms of tenancy to calculate stamp duty.</string>
+    <string name="alert_sale_consideration_required">Please input the sale consideration to calculate stamp duty.</string>
+    <string name="alert_nta_required">Please input NTA to calculate stamp duty.</string>
+    <string name="alert_per_required">Please input PER to calculate stamp duty.</string>
+    <string name="alert_loan_amount_required">Please input the loan amount value or loan period in year to calculate stamp duty.</string>
+    <string name="alert_required_all">Please input all the values before calculation.</string>
+
 
     <!--    Alert Content   -->
     <string name="please_wait">Please wait...</string>
@@ -608,8 +623,10 @@
         <item>Husband-Wife (0%)</item>
         <item>Parents-Child (50%)</item>
         <item>Grandparent-Grandchild (50%)</item>
+        <item>Administrator-Beneficiary (RM10)</item>
+        <item>Executor-Beneficiary (RM10)</item>
         <item>Trustee-Beneficiary (RM10)</item>
-        <item>No Consideration(Gift) (100%)</item>
+        <item>Trustee-Trustee (RM10)flat</item>
         <item>Others (RM10)</item>
     </string-array>
 
@@ -618,6 +635,18 @@
         <item>Islamic</item>
     </string-array>
 
+    <string-array name="tenancy_type">
+        <item>Tenancy</item>
+        <item>Lease</item>
+    </string-array>
+    
+    <string-array name="state_of_taxprayer">
+        <item>Malaysian Individual / PR</item>
+        <item>Malaysian Company</item>
+        <item>Foreigner</item>
+        <item>Foreign Company</item>
+    </string-array>
+    
     <string-array name="role">
         <item>Admin</item>
         <item>Staff</item>

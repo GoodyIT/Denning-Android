@@ -166,9 +166,7 @@ public class AddMatterAdapter extends BaseSectionAdapter {
         return matter;
     }
 
-    public AddingModel getAddingModel() {
-        return model;
-    }
+
 
     public void adjustModelForUpdate(MatterModel matter) {
         this.matter = matter;
@@ -683,46 +681,46 @@ public class AddMatterAdapter extends BaseSectionAdapter {
 
         List<LabelValueDetail> matterInfo = model.items.get(MATTER_INFO).items;
         JsonObject branch = new JsonObject();
-        branch.addProperty("code", matterInfo.get(BRANCH).code);
+        branch.addProperty("code", matterInfo.get(BRANCH).getCode());
         params.add("branch", branch);
 
         if (!matterInfo.get(REF2).value.isEmpty() && !matterInfo.get(REF2).value.equals(matter.getManualNo())) {
             params.addProperty("manualNo", matterInfo.get(REF2).value);
         }
 
-        if (!matterInfo.get(PRIMARY_CLIENT).code.isEmpty() && !matterInfo.get(PRIMARY_CLIENT).code.equals(matter.primaryClient.code)) {
+        if (!matterInfo.get(PRIMARY_CLIENT).getCode().isEmpty() && !matterInfo.get(PRIMARY_CLIENT).getCode().equals(matter.getPrimaryClientCode())) {
             JsonObject primary = new JsonObject();
-            primary.addProperty("code", matterInfo.get(PRIMARY_CLIENT).code);
+            primary.addProperty("code", matterInfo.get(PRIMARY_CLIENT).getCode());
             params.add("primaryClient", primary);
         }
 
-        if (!matterInfo.get(MATTER).code.isEmpty() && !matterInfo.get(MATTER).code.equals(matter.matter.code)) {
+        if (!matterInfo.get(MATTER).getCode().isEmpty() && !matterInfo.get(MATTER).getCode().equals(matter.matter.code)) {
             JsonObject model = new JsonObject();
-            model.addProperty("code", matterInfo.get(MATTER).code);
+            model.addProperty("code", matterInfo.get(MATTER).getCode());
             params.add("matter", model);
         }
 
-        if (!matterInfo.get(PARTNER_IN_CHARGE).code.isEmpty() && !matterInfo.get(PARTNER_IN_CHARGE).code.equals(matter.partner.code)) {
+        if (!matterInfo.get(PARTNER_IN_CHARGE).getCode().isEmpty() && !matterInfo.get(PARTNER_IN_CHARGE).getCode().equals(matter.getPartnerCode())) {
             JsonObject model = new JsonObject();
-            model.addProperty("code", matterInfo.get(PARTNER_IN_CHARGE).code);
+            model.addProperty("code", matterInfo.get(PARTNER_IN_CHARGE).getCode());
             params.add("partner", model);
         }
 
-        if (!matterInfo.get(LA_IN_CHARGE).code.isEmpty() && !matterInfo.get(LA_IN_CHARGE).code.equals(matter.legalAssistant.code)) {
+        if (!matterInfo.get(LA_IN_CHARGE).getCode().isEmpty() && !matterInfo.get(LA_IN_CHARGE).getCode().equals(matter.getLACode())) {
             JsonObject model = new JsonObject();
-            model.addProperty("code", matterInfo.get(LA_IN_CHARGE).code);
+            model.addProperty("code", matterInfo.get(LA_IN_CHARGE).getCode());
             params.add("legalAssistant", model);
         }
 
-        if (!matterInfo.get(CLERK_IN_CHARGE).code.isEmpty() && !matterInfo.get(CLERK_IN_CHARGE).code.equals(matter.clerk.code)) {
+        if (!matterInfo.get(CLERK_IN_CHARGE).getCode().isEmpty() && !matterInfo.get(CLERK_IN_CHARGE).getCode().equals(matter.getClerkCode())) {
             JsonObject model = new JsonObject();
-            model.addProperty("code", matterInfo.get(CLERK_IN_CHARGE).code);
+            model.addProperty("code", matterInfo.get(CLERK_IN_CHARGE).getCode());
             params.add("clerk", model);
         }
 
-        if (!matterInfo.get(FILE_STATUS).code.isEmpty() && !matterInfo.get(FILE_STATUS).code.equals(matter.fileStatus.code)) {
+        if (!matterInfo.get(FILE_STATUS).getCode().isEmpty() && !matterInfo.get(FILE_STATUS).getCode().equals(matter.getFileStatusCode())) {
             JsonObject model = new JsonObject();
-            model.addProperty("code", matterInfo.get(FILE_STATUS).code);
+            model.addProperty("code", matterInfo.get(FILE_STATUS).getCode());
             params.add("fileStatus", model);
         }
 
@@ -757,46 +755,46 @@ public class AddMatterAdapter extends BaseSectionAdapter {
 
         List<LabelValueDetail> matterInfo = model.items.get(MATTER_INFO).items;
         JsonObject branch = new JsonObject();
-        branch.addProperty("code", matterInfo.get(BRANCH).code);
+        branch.addProperty("code", matterInfo.get(BRANCH).getCode());
         params.add("branch", branch);
 
         if (!matterInfo.get(REF2).value.equals(matter.getManualNo())) {
             params.addProperty("manualNo", matterInfo.get(REF2).value);
         }
 
-        if (!matterInfo.get(PRIMARY_CLIENT).code.equals(matter.primaryClient.code)) {
+        if (!matterInfo.get(PRIMARY_CLIENT).getCode().equals(matter.primaryClient.getCode())) {
             JsonObject primary = new JsonObject();
-            primary.addProperty("code", matterInfo.get(PRIMARY_CLIENT).code);
+            primary.addProperty("code", matterInfo.get(PRIMARY_CLIENT).getCode());
             params.add("primaryClient", primary);
         }
 
-        if ( !matterInfo.get(MATTER).code.equals(matter.matter.code)) {
+        if ( !matterInfo.get(MATTER).getCode().equals(matter.matter.getCode())) {
             JsonObject model = new JsonObject();
-            model.addProperty("code", matterInfo.get(MATTER).code);
+            model.addProperty("code", matterInfo.get(MATTER).getCode());
             params.add("matter", model);
         }
 
-        if ( !matterInfo.get(PARTNER_IN_CHARGE).code.equals(matter.partner.code)) {
+        if ( !matterInfo.get(PARTNER_IN_CHARGE).getCode().equals(matter.partner.getCode())) {
             JsonObject model = new JsonObject();
-            model.addProperty("code", matterInfo.get(PARTNER_IN_CHARGE).code);
+            model.addProperty("code", matterInfo.get(PARTNER_IN_CHARGE).getCode());
             params.add("partner", model);
         }
 
-        if ( !matterInfo.get(LA_IN_CHARGE).code.equals(matter.legalAssistant.code)) {
+        if ( !matterInfo.get(LA_IN_CHARGE).getCode().equals(matter.getLACode())) {
             JsonObject model = new JsonObject();
-            model.addProperty("code", matterInfo.get(LA_IN_CHARGE).code);
+            model.addProperty("code", matterInfo.get(LA_IN_CHARGE).getCode());
             params.add("legalAssistant", model);
         }
 
-        if ( !matterInfo.get(CLERK_IN_CHARGE).code.equals(matter.clerk.code)) {
+        if ( !matterInfo.get(CLERK_IN_CHARGE).getCode().equals(matter.getClerkCode())) {
             JsonObject model = new JsonObject();
-            model.addProperty("code", matterInfo.get(CLERK_IN_CHARGE).code);
+            model.addProperty("code", matterInfo.get(CLERK_IN_CHARGE).getCode());
             params.add("clerk", model);
         }
 
-        if ( !matterInfo.get(FILE_STATUS).code.equals(matter.fileStatus.code)) {
+        if ( !matterInfo.get(FILE_STATUS).getCode().equals(matter.getFileStatusCode())) {
             JsonObject model = new JsonObject();
-            model.addProperty("code", matterInfo.get(FILE_STATUS).code);
+            model.addProperty("code", matterInfo.get(FILE_STATUS).getCode());
             params.add("fileStatus", model);
         }
 
@@ -848,16 +846,16 @@ public class AddMatterAdapter extends BaseSectionAdapter {
         JsonArray propertyList = new JsonArray();
         if (matter.propertyGroup.size() >= property.size()-1) {
             for (int i = 1; i < property.size(); i++) {
-                if (!property.get(i).code.equals(matter.propertyGroup.get(i-1).code)) {
+                if (!property.get(i).code.equals(matter.propertyGroup.get(i-1).getCode())) {
                     JsonObject code = new JsonObject();
-                    code.addProperty("code", property.get(i).code);
+                    code.addProperty("code", property.get(i).getCode());
                     propertyList.add(code);
                 }
             }
         } else {
             for (int i = 1; i < property.size(); i++) {
                 JsonObject code = new JsonObject();
-                code.addProperty("code", property.get(i).code);
+                code.addProperty("code", property.get(i).getCode());
                 propertyList.add(code);
             }
         }
@@ -892,12 +890,12 @@ public class AddMatterAdapter extends BaseSectionAdapter {
         List<LabelValueDetail> solicitors = model.items.get(SOLICITORS).items;
         JsonArray jsonArray = new JsonArray();
         for (int i = 0; i < solicitors.size(); i++) {
-            if (!solicitors.get(i).code.equals(matter.solicitorsGroup.get(i).getCode())) {
+            if (!solicitors.get(i).getCode().equals(matter.solicitorsGroup.get(i).getCode())) {
                 JsonObject jsonObject = new JsonObject();
                 jsonObject.addProperty("groupName", solicitors.get(i).label);
                 jsonObject.addProperty("reference", solicitors.get(i).otherValue1);
                 JsonObject code = new JsonObject();
-                code.addProperty("code", solicitors.get(i).code);
+                code.addProperty("code", solicitors.get(i).getCode());
                 jsonObject.add("solicitor", code);
                 jsonArray.add(jsonObject);
             }
@@ -911,11 +909,11 @@ public class AddMatterAdapter extends BaseSectionAdapter {
         List<LabelValueDetail> banks = model.items.get(BANKS).items;
         JsonArray bankArray = new JsonArray();
         for (int i = 0; i < banks.size(); i++) {
-            if (!banks.get(i).code.equals(matter.bankGroup.get(i).getBankCode())) {
+            if (!banks.get(i).getCode().equals(matter.bankGroup.get(i).getBankCode())) {
                 JsonObject jsonObject = new JsonObject();
                 jsonObject.addProperty("groupName", banks.get(i).label);
                 JsonObject code = new JsonObject();
-                code.addProperty("code", banks.get(i).code);
+                code.addProperty("code", banks.get(i).getCode());
                 jsonObject.add("bank", code);
                 bankArray.add(jsonObject);
             }
@@ -979,16 +977,16 @@ public class AddMatterAdapter extends BaseSectionAdapter {
                 target.addAll(partyGroup.party);
                 if (partyGroup.party.size() >= codeList.size()) {
                     for (int j = 0; j < codeList.size(); j++) {
-                        if (!codeList.get(j).code.equals(partyGroup.party.get(j).code)) {
+                        if (!codeList.get(j).getCode().equals(partyGroup.party.get(j).getCode())) {
                             JsonObject code = new JsonObject();
-                            code.addProperty("code", codeList.get(i).code);
+                            code.addProperty("code", codeList.get(i).getCode());
                             partyParam.add(code);
                         }
                     }
                 } else {
                     for (int j = 0; j < codeList.size(); j++) {
                         JsonObject code = new JsonObject();
-                        code.addProperty("code", codeList.get(i).code);
+                        code.addProperty("code", codeList.get(i).getCode());
                         partyParam.add(code);
                     }
                 }

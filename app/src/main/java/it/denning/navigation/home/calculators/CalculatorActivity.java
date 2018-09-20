@@ -88,10 +88,10 @@ public class CalculatorActivity extends BaseActivity implements OnItemClickListe
                 IncomeTaxActivity.start(this);
                 break;
             case 2:
-                LoanAmortisationActivity.start(this);
+                RealPropertyActivity.start(this);
                 break;
             case 3:
-                RealPropertyActivity.start(this);
+                LoanAmortisationActivity.start(this);
                 break;
         }
     }

@@ -375,6 +375,14 @@ public class AddPropertyAdapter extends BaseSectionAdapter {
     }
 
     @Override
+    public boolean doesSectionHaveHeader(int sectionIndex) {
+        if (sectionIndex == 0) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
     public void updateDataFromInput(String input, int sectionIndex, int itemIndex) {
         super.updateDataFromInput(input, sectionIndex, itemIndex);
 
@@ -460,12 +468,12 @@ public class AddPropertyAdapter extends BaseSectionAdapter {
                 return false;
             }
 
-            if (getRightValue(MORE_SARATA, PARCEL_NO).trim().length() == 0) {
+            if (getValue(MORE_SARATA, PARCEL_NO).trim().length() == 0) {
                 DIAlert.showSimpleAlert(context, R.string.alert_parcel_no);
                 return false;
             }
 
-            if (getRightValue(MORE_SARATA, STOREY_NO).trim().length() == 0) {
+            if (getValue(MORE_SARATA, STOREY_NO).trim().length() == 0) {
                 DIAlert.showSimpleAlert(context, R.string.alert_storey_no);
                 return false;
             }

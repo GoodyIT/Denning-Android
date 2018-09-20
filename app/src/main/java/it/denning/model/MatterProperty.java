@@ -18,4 +18,8 @@ public class MatterProperty implements Serializable {
     public TypeValue lotPT;
     public String address;
     public TypeValue area;
+
+    public String getCode() {
+        return code == null ? "" : code;
+    }
 }

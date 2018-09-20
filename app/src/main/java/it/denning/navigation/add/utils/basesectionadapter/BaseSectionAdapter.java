@@ -70,6 +70,10 @@ public class BaseSectionAdapter extends SectioningAdapter {
         model = new AddingModel();
     }
 
+    public AddingModel getAddingModel() {
+        return model;
+    }
+
     protected JsonObject buildSaveParam() {
         return null;
     }
@@ -711,6 +715,9 @@ public class BaseSectionAdapter extends SectioningAdapter {
 
         @Override
         public void onFocusChange(View v, final boolean hasFocus) {
+            if (hasFocus) {
+                return;
+            }
             updateDataFromInput(((EditText)v).getText().toString(), sectionIndex, itemIndex);
             KeyboardUtils.hideKeyboard(v);
 
@@ -718,9 +725,7 @@ public class BaseSectionAdapter extends SectioningAdapter {
             handler.postDelayed(new Runnable() {
                 public void run(){
                     //change adapter contents
-                    if (!hasFocus) {
-                        notifySectionItemChanged(sectionIndex, itemIndex);
-                    }
+                    notifySectionItemChanged(sectionIndex, itemIndex);
                 }
             }, 300);
         }

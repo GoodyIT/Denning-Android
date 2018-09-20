@@ -88,7 +88,7 @@ public class StringUtils {
             attachmentType = Attachment.Type.VIDEO;
         } else if (mimeType.startsWith("text")) {
             attachmentType = Attachment.Type.DOC;
-        } else if (mimeType.startsWith("file")) {
+        } else if (mimeType.startsWith("application/msword") || mimeType.startsWith("application/vnd.openxmlformats") || mimeType.startsWith("application/pdf")) {
             attachmentType = Attachment.Type.FILE;
         } else {
             attachmentType = Attachment.Type.OTHER;
@@ -131,8 +131,18 @@ public class StringUtils {
     }
 
     public static int getAttachImage(String contentType) {
+        int resId = -1;
+        if (contentType == null) {
+            resId =  R.drawable.icon_attach_file;
+        } else if (contentType.startsWith("application/pdf")) {
+            resId =  R.drawable.icon_attach_pdf;
+        } else if (contentType.startsWith("application/msword") || contentType.startsWith("application/vnd.openxmlformats") ) {
+            resId =  R.drawable.icon_attach_word;
+        } else {
+          resId =  R.drawable.icon_attach_file;
+        }
 
-        return R.drawable.icon_attach_file;
+        return resId;
     }
 
 }

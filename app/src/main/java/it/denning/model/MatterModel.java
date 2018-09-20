@@ -76,6 +76,10 @@ public class MatterModel implements Serializable {
         return fileStatus.description;
     }
 
+    public String getFileStatusCode() {
+        return fileStatus == null ? "" : fileStatus.getCode();
+    }
+
     public CodeDescription getFileStatus() {
          return fileStatus == null ? new CodeDescription() : fileStatus;
     }
@@ -86,6 +90,10 @@ public class MatterModel implements Serializable {
         }
 
         return primaryClient.name;
+    }
+
+    public String getPrimaryClientCode() {
+        return primaryClient == null ? "" : primaryClient.getCode();
     }
 
     public String getContactCode() {
@@ -122,6 +130,10 @@ public class MatterModel implements Serializable {
         }
 
         return partner.nickName;
+    }
+
+    public String getPartnerCode() {
+        return partner == null ? "" : partner.getCode();
     }
 
     public String getLegalAssistantName() {
@@ -206,5 +218,9 @@ public class MatterModel implements Serializable {
 
     public String getBranchCode() {
         return branch != null ? branch.code : "";
+    }
+
+    public String getLACode() {
+        return legalAssistant == null ? "" : legalAssistant.getCode();
     }
 }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Environment;
 import android.support.v4.content.FileProvider;
 
 import java.io.File;
@@ -102,4 +103,12 @@ public class DIFileManager {
     }
 
 
+    public static Boolean isFileExisting(String url) {
+        File outputDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + DIFileManager.folderName);
+        if (!outputDir.exists()) {
+            outputDir.mkdirs();
+        }
+        File outputFile = new File(outputDir, DIHelper.getFileName(url));
+        return outputFile.exists();
+    }
 }

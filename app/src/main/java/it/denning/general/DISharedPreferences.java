@@ -92,6 +92,8 @@ public class DISharedPreferences {
     public static String keyword = "";
     public static boolean isDenningFile = false;
 
+    public static Boolean isSessionExpired = false;
+
     public static String documentView = "nothing";
     public static String tempServerAPI = "";
     public static String tempTheCode = "";

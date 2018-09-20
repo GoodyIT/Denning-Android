@@ -19,4 +19,8 @@ public class MatterCodeModel implements Serializable{
     public String groupName5;
     public String isRental;
     public String turnAround;
+
+    public String getCode() {
+        return code == null ? "" : code;
+    }
 }

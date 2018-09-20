@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.SystemClock;
@@ -322,7 +323,7 @@ public abstract class BaseDialogActivity extends BaseLoggableActivity implements
 
     private void checkLoginToChatOrShowError() {
         if (!QBChatService.getInstance().isLoggedIn()){
-            showSnackbar(R.string.error_disconnected, Snackbar.LENGTH_INDEFINITE);
+//            showSnackbar(R.string.error_disconnected, Snackbar.LENGTH_INDEFINITE);
         }
     }
 
@@ -1328,7 +1329,8 @@ public abstract class BaseDialogActivity extends BaseLoggableActivity implements
                 @Override
                 public void run() {
 //                    new DIFileManager(BaseDialogActivity.this).openFile(QBFile.getPrivateUrlForUID(qbAttachment.getId()));
-                    DownloadService downloadService =  new DownloadService(BaseDialogActivity.this, QBFile.getPrivateUrlForUID(qbAttachment.getId()), BaseDialogActivity.this, BaseDialogActivity.this);
+                    String url = QBFile.getPrivateUrlForUID(qbAttachment.getId());
+                    DownloadService downloadService =  new DownloadService(BaseDialogActivity.this, url, qbAttachment.getName(), BaseDialogActivity.this, BaseDialogActivity.this);
                     downloadService.initDownload();
                     showActionBarProgress();
                 }

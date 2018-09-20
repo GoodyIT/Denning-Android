@@ -110,7 +110,6 @@ public class MainActivity extends BaseActivity
 
     public static void start(Context context) {
         Intent intent = new Intent(context, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         context.startActivity(intent);
     }
 
@@ -214,6 +213,7 @@ public class MainActivity extends BaseActivity
     @Override
     protected void onResume() {
         super.onResume();
+        changeUI();
         addActions();
     }
 
@@ -335,7 +335,8 @@ public class MainActivity extends BaseActivity
         getSupportFragmentManager().addOnBackStackChangedListener(
                 new FragmentManager.OnBackStackChangedListener() {
                     public void onBackStackChanged() {
-
+                     //   onBack();
+                        Log.i("home", "back");
                     }
                 });
     }
@@ -487,6 +488,10 @@ public class MainActivity extends BaseActivity
     }
 
     private void displaySelectedScreenByTabID(int tabID) {
+        if (DISharedPreferences.getInstance().isSessionExpired) {
+            DIAlert.showSimpleAlert(this, R.string.warning_title, R.string.alert_session_expired);
+            return;
+        }
         nvDrawer.setCheckedItem(tabID);
         //creating fragment object
         Fragment fragment = null;
@@ -651,19 +656,20 @@ public class MainActivity extends BaseActivity
     }
 
     private void changeUI() {
-        displaySelectedScreen(1);
+        if (bottomBar != null) {
+            displaySelectedScreen(1);
 
-        // Change the bottom bar & navigation drawer
-        if (!isChatInitializedAndUserLoggedIn() && !DISharedPreferences.getInstance(this).isLoggedIn()) {
-            bottomBar.setItems(R.xml.bottombar_tabs_unregistered);
-            nvDrawer.getMenu().findItem(R.id.nav_add).setVisible(false);
-            nvDrawer.getMenu().findItem(R.id.nav_dashboard).setVisible(false);
-        } else {
-            bottomBar.setItems(R.xml.bottombar_tabs);
-            nvDrawer.getMenu().findItem(R.id.nav_add).setVisible(true);
-            nvDrawer.getMenu().findItem(R.id.nav_dashboard).setVisible(true);
+            // Change the bottom bar & navigation drawer
+            if (!isChatInitializedAndUserLoggedIn() && !DISharedPreferences.getInstance(this).isLoggedIn()) {
+                bottomBar.setItems(R.xml.bottombar_tabs_unregistered);
+                nvDrawer.getMenu().findItem(R.id.nav_add).setVisible(false);
+                nvDrawer.getMenu().findItem(R.id.nav_dashboard).setVisible(false);
+            } else {
+                bottomBar.setItems(R.xml.bottombar_tabs);
+                nvDrawer.getMenu().findItem(R.id.nav_add).setVisible(true);
+                nvDrawer.getMenu().findItem(R.id.nav_dashboard).setVisible(true);
+            }
         }
-
     }
 
     private boolean checkToLoginChat() {

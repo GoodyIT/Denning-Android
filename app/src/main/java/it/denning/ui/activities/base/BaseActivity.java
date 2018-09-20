@@ -735,7 +735,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ActionBa
     protected void performLoginChatFailAction(Bundle bundle) {
         blockUI(true);
         hideSnackBar(R.string.dialog_loading_dialogs);
-        showSnackbar(R.string.error_disconnected, Snackbar.LENGTH_INDEFINITE, Priority.MAX);
+//        showSnackbar(R.string.error_disconnected, Snackbar.LENGTH_INDEFINITE, Priority.MAX);
     }
 
     @Override
@@ -768,7 +768,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ActionBa
             public void connectionClosedOnError(Exception e) {
                 onChatDisconnected(e);
                 blockUI(true);
-                showSnackbar(R.string.error_disconnected, Snackbar.LENGTH_INDEFINITE, Priority.MAX);
+//                showSnackbar(R.string.error_disconnected, Snackbar.LENGTH_INDEFINITE, Priority.MAX);
             }
 
             @Override

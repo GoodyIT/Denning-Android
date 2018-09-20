@@ -40,12 +40,13 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="20dp"
                         android:layout_weight="2"
-                        android:gravity="right|end"
+                        android:gravity="left|start"
                         android:text="Loan Amount (RM)"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
                     <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/loan_amount_textview"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
@@ -78,12 +79,13 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="20dp"
                         android:layout_weight="2"
-                        android:gravity="right|end"
+                        android:gravity="left|start"
                         android:text="Annual Interest Rate (%)"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
                     <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/annual_interest_textview"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
@@ -115,12 +117,13 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="20dp"
                         android:layout_weight="2"
-                        android:gravity="right|end"
+                        android:gravity="left|start"
                         android:text="Loan Period in Year"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
                     <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/loan_period_textview"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
@@ -153,7 +156,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:layout_marginLeft="12dp"
-                    android:text="RESULT" />
+                    android:text="RESULTS" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -167,12 +170,13 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="20dp"
                         android:layout_weight="2"
-                        android:gravity="right|end"
+                        android:gravity="left|start"
                         android:text="Monthly Installment (RM)"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/monthly_installment_textview"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -205,12 +209,13 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="20dp"
                         android:layout_weight="2"
-                        android:gravity="right|end"
+                        android:gravity="left|start"
                         android:text="Number of Months"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/number_of_months_textview"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -243,12 +248,13 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="20dp"
                         android:layout_weight="2"
-                        android:gravity="right|end"
+                        android:gravity="left|start"
                         android:text="Total Interest (RM)"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/total_textview"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -265,6 +271,7 @@
                 android:orientation="horizontal">
 
                 <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/calculate_btn"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -277,6 +284,7 @@
                     android:textStyle="bold" />
 
                 <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/reset_btn"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"

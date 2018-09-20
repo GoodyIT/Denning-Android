@@ -96,12 +96,16 @@ public class AddContactAdapter extends BaseSectionAdapter {
 
     private boolean onBind;
 
-    public AddContactAdapter(Context context, OnSectionItemClickListener itemClickListener) {
+    public AddContactAdapter(Context context, OnSectionItemClickListener itemClickListener, Contact contact) {
         super(context, itemClickListener);
-        this.contact = ((AddContactActivity)context).contact;
+        this.contact = contact;
         titles = Arrays.asList(new String[]{"Personal Info", "Contact Info", "Other Info", "Company Info", "Invitation"});
         buildModel();
 
+    }
+
+    public Contact getContact() {
+        return contact;
     }
 
     public void buildModel() {
@@ -239,7 +243,7 @@ public class AddContactAdapter extends BaseSectionAdapter {
 
         labelValueDetail = new LabelValueDetail("Date of Birth", "", DIConstants.GENERAL_TYPE);
         if (contact != null) {
-            labelValueDetail.value = contact.dateOfBirth;
+            labelValueDetail.value = DIHelper.convertToSimpleDateFormat(contact.dateOfBirth);
         }
         sectionItemModel.items.add(labelValueDetail);
 

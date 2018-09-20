@@ -15,8 +15,8 @@ import it.denning.navigation.dashboard.section1.staffleave.leaveapp.DashboardLea
  */
 
 public class LegalCostPageAdapter extends FragmentPagerAdapter {
-    private static int NUM_ITEMS = 3;
-    String[] titles = {"SPA", "Loan", "Tenancy/Lease"};
+    private static int NUM_ITEMS = 4;
+    String[] titles = {"SPA", "Loan", "Tenancy", "Shares"};
 
     public LegalCostPageAdapter(FragmentManager fm) {
         super(fm);
@@ -31,6 +31,8 @@ public class LegalCostPageAdapter extends FragmentPagerAdapter {
                 return LoanFragment.newInstance();
             case 2:
                 return TenancyFragment.newInstance();
+            case 3:
+                return SharesFragment.newInstance();
             default:
                 return null;
         }

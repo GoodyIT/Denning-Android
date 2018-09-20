@@ -203,6 +203,7 @@ public class SignInActivity extends BaseAuthActivity {
     }
 
     void gotoNextStepAfterLogin(JsonObject jsonObject) {
+        DISharedPreferences.getInstance().isSessionExpired = false;
         hideProgress();
         FirmURLModel firmURLModel = new Gson().fromJson(jsonObject, FirmURLModel.class);
         DISharedPreferences.getInstance().saveUserInfoFromResponse(firmURLModel);

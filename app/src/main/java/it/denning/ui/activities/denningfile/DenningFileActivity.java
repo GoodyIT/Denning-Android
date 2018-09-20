@@ -407,6 +407,7 @@ public class DenningFileActivity extends BaseLoggableActivity implements OnItemC
                 if (!response.isSuccessful()) {
                     if (response.code() == 408){
                         ErrorUtils.showError(DenningFileActivity.this,"Session expired. Please log in again.");
+                        DISharedPreferences.getInstance().isSessionExpired = true;
 //                        DIAlert.showSimpleAlertAndGotoLogin(DenningFileActivity.this, R.string.warning_title, R.string.alert_session_expired);
                     } else {
                         ErrorUtils.showError(DenningFileActivity.this, response.message());
