@@ -525,7 +525,7 @@ public class AddQuotationAdapter extends SectioningAdapter {
         @Override
         public void onFocusChange(View v, final boolean hasFocus) {
             updateDataFromInput(((EditText)v).getText().toString(), sectionIndex, itemIndex);
-            KeyboardUtils.hideKeyboard(v);
+//            KeyboardUtils.hideKeyboard(v);
 
             android.os.Handler mHandler = ((AddQuotationActivity)context).getWindow().getDecorView().getHandler();
             mHandler.post(new Runnable() {

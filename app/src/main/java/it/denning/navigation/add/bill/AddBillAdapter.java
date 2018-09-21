@@ -489,7 +489,7 @@ public class AddBillAdapter extends SectioningAdapter {
     }
 
     public boolean isPresetSelected() {
-        return !model.items.get(0).items.get(5).isEmptyCode() && !model.items.get(0).items.get(2).value.matches("\\w*");
+        return !model.items.get(0).items.get(5).isEmptyCode();
     }
 
     public JsonObject buildSaveParams() {
@@ -530,9 +530,12 @@ public class AddBillAdapter extends SectioningAdapter {
 
         @Override
         public void onFocusChange(View v, final boolean hasFocus) {
+            if (hasFocus) {
+                return;
+            }
             updateDataFromInput(((EditText)v).getText().toString(), sectionIndex, itemIndex);
-            KeyboardUtils.hideKeyboard(v);
-            android.os.Handler mHandler = ((AddBillActivity)context).getWindow().getDecorView().getHandler();
+//            KeyboardUtils.hideKeyboard(v);
+            android.os.Handler mHandler = new android.os.Handler();
             mHandler.post(new Runnable() {
                 public void run(){
                     //change adapter contents

@@ -26,7 +26,7 @@ public interface DenningService {
     Call<JsonElement> queryGeneralSearchKeywords(@Query("search") String keyword);
 
     @GET("v1/generalSearch")
-    Call<JsonElement> queryGeneralSearch(@Query("search") String keyword, @Query("category") Integer category, @Query("page") Integer page,  @Query("isAutoComplete") Integer isAutoComplete);
+    Call<JsonElement> queryGeneralSearch(@Query("ca") String keyword, @Query("category") Integer category, @Query("page") Integer page,  @Query("isAutoComplete") Integer isAutoComplete);
 
     @GET("denningapi/v1/publicSearch")
     Call<JsonElement> queryPublicSearch(@Query("search") String keyword, @Query("category") Integer category, @Query("page") Integer page, @Query("isAutoComplete") Integer isAutoComplete);

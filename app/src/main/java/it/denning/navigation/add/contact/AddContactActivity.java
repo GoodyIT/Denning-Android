@@ -349,19 +349,25 @@ public class AddContactActivity extends MyBaseActivity implements
     }
 
     private void gotoOccupation() {
-        SpinnerDialog dialog = new SpinnerDialog(this, DIConstants.CONTACT_OCCUPATION_URL, "description", R.string.occupation_title);
-        dialog.bindOnSpinerListener(new OnSpinerItemClick() {
-            @Override
-            public void onClick(String item, int position) {
-                adapter.updateDataAndRefresh(item, adapter.OTHER_INFO, adapter.OCCUPATION);
-            }
-
-            @Override
-            public void onClick(JsonObject object) {
-            }
-        });
-
-        dialog.showSpinerDialog();
+//        SpinnerDialog dialog = new SpinnerDialog(this, DIConstants.CONTACT_OCCUPATION_URL, "description", R.string.occupation_title);
+//        dialog.bindOnSpinerListener(new OnSpinerItemClick() {
+//            @Override
+//            public void onClick(String item, int position) {
+//                adapter.updateDataAndRefresh(item, adapter.OTHER_INFO, adapter.OCCUPATION);
+//            }
+//
+//            @Override
+//            public void onClick(JsonObject object) {
+//            }
+//        });
+//
+//        dialog.showSpinerDialog();
+        Intent i = new Intent(this, GeneralListActivity.class);
+        i.putExtra("title", R.string.occupation_title);
+        i.putExtra("url", DIConstants.CONTACT_OCCUPATION_URL);
+        i.putExtra("code", "code");
+        i.putExtra("value", "description");
+        startActivityForResult(i, DIConstants.OCCUPATION_REQUEST_CODE);
     }
 
     private void showDateOfBirth() {
@@ -415,6 +421,12 @@ public class AddContactActivity extends MyBaseActivity implements
                 // do something with the result
                 CodeDescription accountType = (CodeDescription) data.getSerializableExtra("model");
                 adapter.updateCodeDescData(accountType, adapter.OTHER_INFO, adapter.IRD_BRANCH);
+            }
+        } else if (requestCode == DIConstants.OCCUPATION_REQUEST_CODE) {
+            if (resultCode == AppCompatActivity.RESULT_OK) {
+                // do something with the result
+                CodeDescription accountType = (CodeDescription) data.getSerializableExtra("model");
+                adapter.updateCodeDescData(accountType, adapter.OTHER_INFO, adapter.OCCUPATION);
             }
         }
     }

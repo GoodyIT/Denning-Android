@@ -222,7 +222,7 @@ public class AddContactAdapter extends BaseSectionAdapter {
         labelValueDetail.leftView = new LabelValueDetail("HTTP://", "", false);
         labelValueDetail.inputType = InputType.TYPE_TEXT_VARIATION_WEB_EDIT_TEXT;
         if (contact != null) {
-            labelValueDetail.value = contact.website;
+            labelValueDetail.leftView.value = contact.website;
         }
         sectionItemModel.items.add(labelValueDetail);
 

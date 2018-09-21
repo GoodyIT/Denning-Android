@@ -394,6 +394,7 @@ public class DIConstants {
     public static final int PROJECT_HOUSING_REQUEST_CODE = 29;
     public static final int MASTER_TITLE_REQUEST_CODE = 30;
     public static final int AREA_TYPE_REQUEST_CODE = 31;
+    public static final int OCCUPATION_REQUEST_CODE = 32;
 
     public static final int PERMISSION_REQUEST_CODE = 1;
 
