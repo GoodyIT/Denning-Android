@@ -465,10 +465,10 @@ public class AddQuotationAdapter extends SectioningAdapter {
         JsonObject jsonObject = new JsonObject();
 
         jsonObject.addProperty("isRental", isRental);
-        jsonObject.addProperty("spaPrice", DIHelper.toNumber(model.items.get(0).items.get(5).value));
-        jsonObject.addProperty("spaLoan", DIHelper.toNumber(model.items.get(0).items.get(6).value));
-        jsonObject.addProperty("rentalMonth", DIHelper.toNumber(model.items.get(0).items.get(7).value));
-        jsonObject.addProperty( "rentalPrice ", DIHelper.toNumber( model.items.get(0).items.get(8).value));
+        jsonObject.addProperty("spaPrice", DIHelper.toNumber(model.items.get(0).items.get(5).value).replace(",", ""));
+        jsonObject.addProperty("spaLoan", DIHelper.toNumber(model.items.get(0).items.get(6).value).replace(",", ""));
+        jsonObject.addProperty("rentalMonth", DIHelper.toNumber(model.items.get(0).items.get(7).value).replace(",", ""));
+        jsonObject.addProperty( "rentalPrice ", DIHelper.toNumber(model.items.get(0).items.get(8).value).replace(",", ""));
         JsonObject presetCode = new JsonObject();
         presetCode.addProperty( "code", model.items.get(0).items.get(4).code);
         jsonObject.add( "presetCode", presetCode);

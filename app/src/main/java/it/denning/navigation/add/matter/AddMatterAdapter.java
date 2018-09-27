@@ -166,8 +166,6 @@ public class AddMatterAdapter extends BaseSectionAdapter {
         return matter;
     }
 
-
-
     public void adjustModelForUpdate(MatterModel matter) {
         this.matter = matter;
         isUpdateMode = true;

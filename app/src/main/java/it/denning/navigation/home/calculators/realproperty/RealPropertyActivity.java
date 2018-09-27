@@ -1,5 +1,6 @@
 package it.denning.navigation.home.calculators.realproperty;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -69,6 +70,7 @@ public class RealPropertyActivity extends BaseActivity implements DatePickerDial
     TextView taxRateTextview;
 
     private String taxPayer_sel = "";
+    private int taxPayer_sel_index = 0;
     private float taxRate = -1.0f;
     private DatePickerDialog dpd;
     private String selectedDateRow = "Disposal";
@@ -101,8 +103,13 @@ public class RealPropertyActivity extends BaseActivity implements DatePickerDial
         initActionBar();
     }
 
+    @SuppressLint("ResourceType")
     private void initFields() {
         toolbarTitle.setText(getString(R.string.real_property_gains_tax));
+
+        taxPayer_sel = getResources().getStringArray(R.array.state_of_taxprayer)[taxPayer_sel_index];
+        stateTaxpayerTextview.setText(taxPayer_sel);
+
         netDisposalListener = new MyCustomEditTextListener();
         salePriceTextview.setOnFocusChangeListener(netDisposalListener);
         saleCommissionTextview.setOnFocusChangeListener(netDisposalListener);
@@ -119,11 +126,12 @@ public class RealPropertyActivity extends BaseActivity implements DatePickerDial
         new MaterialDialog.Builder(this)
                 .title(R.string.select_state_of_taxpayer)
                 .items(R.array.state_of_taxprayer)
-                .itemsCallbackSingleChoice(-1, new MaterialDialog.ListCallbackSingleChoice() {
+                .itemsCallbackSingleChoice(taxPayer_sel_index, new MaterialDialog.ListCallbackSingleChoice() {
                     @Override
                     public boolean onSelection(MaterialDialog dialog, View itemView, int which, CharSequence text) {
                         stateTaxpayerTextview.setText(text);
                         taxPayer_sel = String.valueOf(text);
+                        taxPayer_sel_index = which;
                         return true;
                     }
                 })

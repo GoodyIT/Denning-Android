@@ -232,14 +232,14 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_weight="2"
+                            android:layout_weight="3"
                             android:gravity="center" />
 
                         <LinearLayout
                             android:id="@+id/calculator_loan_margin"
                             android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2">
 
                             <android.support.v7.widget.AppCompatEditText
                                 android:id="@+id/legal_fee_margin_textview"

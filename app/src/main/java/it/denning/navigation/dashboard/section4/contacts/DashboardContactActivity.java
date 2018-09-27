@@ -118,6 +118,7 @@ public class DashboardContactActivity extends MySearchBaseActivity implements On
         });
     }
 
+
     private void searchData(String query) {
         page = 1;
         filter = query;

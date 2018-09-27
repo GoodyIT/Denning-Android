@@ -124,6 +124,10 @@ public class Home extends Fragment {
             public boolean onTouch(View v, MotionEvent event) {
                 if (!userTouchedView) {
                     //YOUR CASE 2
+                    if (DISharedPreferences.getInstance().isSessionExpired) {
+                        DIAlert.showSimpleAlert(getActivity(), R.string.warning_title, R.string.alert_session_expired);
+                        return true;
+                    }
                     gotoSearch();
                     userTouchedView = true;
                     v.clearFocus();

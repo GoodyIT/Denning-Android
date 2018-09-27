@@ -599,7 +599,9 @@ public class DIHelper {
         value = value.replace(",", "");
         DecimalFormat formatter = (DecimalFormat) NumberFormat.getInstance(Locale.US);
         formatter.applyPattern("#,###,###,###,###.00");
-        return formatter.format(Double.valueOf(value));
+        String result = formatter.format(Double.valueOf(value));
+
+        return result.equals(".00") ? "0.00" : result;
     }
 
     public static float toFloat(String value) {

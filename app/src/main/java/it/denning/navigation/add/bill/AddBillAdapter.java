@@ -469,10 +469,10 @@ public class AddBillAdapter extends SectioningAdapter {
         JsonObject jsonObject = new JsonObject();
 
         jsonObject.addProperty("isRental", isRental);
-        jsonObject.addProperty("spaPrice", model.items.get(0).items.get(6).value.replace(",", ""));
-        jsonObject.addProperty("spaLoan", model.items.get(0).items.get(7).value.replace(",", ""));
-        jsonObject.addProperty("rentalMonth", model.items.get(0).items.get(8).value.replace(",", ""));
-        jsonObject.addProperty( "rentalPrice ", model.items.get(0).items.get(9).value.replace(",", ""));
+        jsonObject.addProperty("spaPrice", model.items.get(0).items.get(6).value.replace(",", "").replace(",", ""));
+        jsonObject.addProperty("spaLoan", model.items.get(0).items.get(7).value.replace(",", "").replace(",", ""));
+        jsonObject.addProperty("rentalMonth", model.items.get(0).items.get(8).value.replace(",", "").replace(",", ""));
+        jsonObject.addProperty( "rentalPrice ", model.items.get(0).items.get(9).value.replace(",", "").replace(",", ""));
         JsonObject presetCode = new JsonObject();
         presetCode.addProperty( "code", model.items.get(0).items.get(5).code);
         jsonObject.add( "presetCode", presetCode);

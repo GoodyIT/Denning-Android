@@ -1,6 +1,7 @@
 package it.denning.navigation.add.utils.coramlist;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
@@ -22,8 +23,7 @@ import it.denning.R;
 import it.denning.general.DIConstants;
 import it.denning.general.EndlessRecyclerViewScrollListener;
 import it.denning.model.Coram;
-import it.denning.model.CourtDiaryCourt;
-import it.denning.navigation.add.utils.courtdiarycourtlist.CourtDiaryCourtListAdapter;
+import it.denning.navigation.add.property.AddPropertyActivity;
 import it.denning.network.CompositeCompletion;
 import it.denning.network.ErrorHandler;
 import it.denning.network.NetworkManager;
@@ -57,7 +57,7 @@ public class CoramListActivity extends MySearchBaseActivity implements OnItemCli
     }
 
     private void initFields() {
-        toolbarTitle.setText(R.string.select_court_title);
+        toolbarTitle.setText(R.string.select_coram_title);
 
         setupRecyclerView();
     }

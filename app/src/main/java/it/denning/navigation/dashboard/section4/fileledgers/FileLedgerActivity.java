@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.view.MotionEvent;
 import android.view.View;
@@ -31,6 +32,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import it.denning.R;
 import it.denning.general.DISharedPreferences;
+import it.denning.general.EndlessRecyclerViewScrollListener;
 import it.denning.model.BankReconModel;
 import it.denning.navigation.dashboard.section4.bankrecon.BankReconAdapter;
 import it.denning.navigation.dashboard.util.GeneralActivity;
@@ -59,6 +61,7 @@ public class FileLedgerActivity extends GeneralActivity implements OnItemClickLi
 
     FileLedgerAdapter adapter;
     ArrayList<BankReconModel> modelArrayList;
+    private EndlessRecyclerViewScrollListener scrollListener;
     int page = 1, selectedIndex = 0;
     String filter= "";
 
@@ -74,6 +77,7 @@ public class FileLedgerActivity extends GeneralActivity implements OnItemClickLi
         getSelectedIndex();
         setupFilter();
         setupSearchView();
+        setupEndlessScroll();
         loadData();
     }
 
@@ -115,6 +119,19 @@ public class FileLedgerActivity extends GeneralActivity implements OnItemClickLi
                 return false;
             }
         });
+    }
+
+    private void setupEndlessScroll() {
+        scrollListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                // Triggered only when new data needs to be appended to the list
+                // Add whatever code is needed to append new items to the bottom of the list
+                loadData();
+            }
+        };
+        dashboardList.clearOnScrollListeners();
+        dashboardList.addOnScrollListener(scrollListener);
     }
 
     void searchQuery(String query) {
@@ -164,7 +181,7 @@ public class FileLedgerActivity extends GeneralActivity implements OnItemClickLi
                 }
             });
         }
-        filterTabbar.getTabAt(selectedIndex).select();
+//        filterTabbar.getTabAt(selectedIndex).select();
     }
 
     void applyFilter(TabLayout.Tab tab) {
@@ -209,11 +226,10 @@ public class FileLedgerActivity extends GeneralActivity implements OnItemClickLi
 
     @Override
     public void onClick(View view, int position) {
-        position--;
         Intent i = new Intent(this, FileLedgerDetailActivity.class);
-        i.putExtra("api", modelArrayList.get(position).API);
+        i.putExtra("api", adapter.getModel().get(position).API);
         Bundle bundle = new Bundle();
-        bundle.putSerializable("model", modelArrayList.get(position));
+        bundle.putSerializable("model", adapter.getModel().get(position));
         i.putExtras(bundle);
         startActivity(i);
     }

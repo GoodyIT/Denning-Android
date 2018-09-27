@@ -50,6 +50,8 @@ public class Contact implements Serializable{
 
     public AddressModel address;
     public String contactPerson;
+
+    @SerializedName("webSite")
     public String website;
     public String registeredOffice;
     public String title;

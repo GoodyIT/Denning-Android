@@ -1,5 +1,6 @@
 package it.denning.navigation.home.calculators.legalcost;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -33,17 +34,19 @@ public class LoanFragment extends Fragment {
 
     private float[] loan_type_array = {0.005f, (0.005f*0.8f)};
     private float loan_type_sel = 0.005f;
+    private int loan_type_sel_index = 0;
 
     @OnClick(R.id.loan_type_textview)
     void chooseType() {
         new MaterialDialog.Builder(getContext())
                 .title(R.string.select_loan_type)
                 .items(R.array.loan_type)
-                .itemsCallbackSingleChoice(-1, new MaterialDialog.ListCallbackSingleChoice() {
+                .itemsCallbackSingleChoice(loan_type_sel_index, new MaterialDialog.ListCallbackSingleChoice() {
                     @Override
                     public boolean onSelection(MaterialDialog dialog, View itemView, int which, CharSequence text) {
                         type.setText(text);
                         loan_type_sel = loan_type_array[which];
+                        loan_type_sel_index = which;
                         return true;
                     }
                 })
@@ -57,11 +60,13 @@ public class LoanFragment extends Fragment {
         return fragment;
     }
 
+    @SuppressLint("ResourceType")
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
-        type.setText("Conventional");
+        type.setText(getResources().getStringArray(R.array.loan_type)[loan_type_sel_index]);
+        loan_type_sel = loan_type_array[loan_type_sel_index];
     }
 
     @Override

@@ -1,5 +1,6 @@
 package it.denning.navigation.home.calculators.legalcost;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -53,22 +54,25 @@ public class SPAFragment extends Fragment {
 
     private float relationship_sel = -2.0f;
     private float[] relationship_sel_array = {1, 0, 0.5f, 0.5f, -1, -1, -1, -1, -1};
+    private int relationship_sel_index = 0;
 //    private ArrayList<String> loan_margin_array = new ArrayList<>();
 //    private ArrayList<Integer> loan_margin_int_array = new ArrayList<>();
     private int margin_sel;
     private float[] loan_type_array = {0.005f, (0.005f*0.8f)};
     private float loan_type_sel;
+    private int loan_type_sel_index = 0;
 
     @OnClick(R.id.spa_relationship_textview)
     void chooseRelationship() {
         new MaterialDialog.Builder(getContext())
                 .title(R.string.select_a_relation)
                 .items(R.array.spa_relationship)
-                .itemsCallbackSingleChoice(-1, new MaterialDialog.ListCallbackSingleChoice() {
+                .itemsCallbackSingleChoice(relationship_sel_index, new MaterialDialog.ListCallbackSingleChoice() {
                     @Override
                     public boolean onSelection(MaterialDialog dialog, View itemView, int which, CharSequence text) {
                         relationship.setText(text);
                         relationship_sel = relationship_sel_array[which];
+                        relationship_sel_index = which;
                         return true;
                     }
                 })
@@ -77,34 +81,18 @@ public class SPAFragment extends Fragment {
                 .show();
     }
 
-//    @OnClick(R.id.loan_margin_textview)
-//    void chooseLoanMargin() {
-//        new MaterialDialog.Builder(getContext())
-//                .title(R.string.select_a_margin)
-//                .items(loan_margin_array)
-//                .itemsCallbackSingleChoice(-1, new MaterialDialog.ListCallbackSingleChoice() {
-//                    @Override
-//                    public boolean onSelection(MaterialDialog dialog, View itemView, int which, CharSequence text) {
-//                        loanMarginTextview.setText(text);
-//                        margin_sel = loan_margin_int_array.get(which);
-//                        return true;
-//                    }
-//                })
-//                .positiveText(R.string.dlg_ok)
-//                .show();
-//    }
-
     @OnClick(R.id.loan_type_textview)
     void chooseLoanType() {
         new MaterialDialog.Builder(getContext())
                 .title(R.string.select_loan_type)
                 .items(R.array.loan_type)
                 .negativeText(R.string.dlg_cancel)
-                .itemsCallbackSingleChoice(-1, new MaterialDialog.ListCallbackSingleChoice() {
+                .itemsCallbackSingleChoice(loan_type_sel_index, new MaterialDialog.ListCallbackSingleChoice() {
                     @Override
                     public boolean onSelection(MaterialDialog dialog, View itemView, int which, CharSequence text) {
                         loanTypeTexview.setText(text);
                         loan_type_sel = loan_type_array[which];
+                        loan_type_sel_index = which;
                         return true;
                     }
                 })
@@ -117,6 +105,7 @@ public class SPAFragment extends Fragment {
         return fragment;
     }
 
+    @SuppressLint("ResourceType")
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -129,9 +118,10 @@ public class SPAFragment extends Fragment {
 //            loan_margin_array.add(String.valueOf(i + "%"));
 //            loan_margin_int_array.add(i);
 //        }
-        relationship.setText("Administrator-Beneficiary (RM10)");
-        relationship_sel = -1;
-        loanTypeTexview.setText("Conventional");
+        relationship.setText(getResources().getStringArray(R.array.spa_relationship)[relationship_sel_index]);
+        relationship_sel = relationship_sel_array[relationship_sel_index];
+        loanTypeTexview.setText(getResources().getStringArray(R.array.loan_type)[loan_type_sel_index]);
+        loan_type_sel = loan_type_array[loan_type_sel_index];
         loanMarginTextview.setText("1");
     }
 

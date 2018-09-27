@@ -33,6 +33,10 @@ public class FileLedgerAdapter extends SectioningAdapter {
         this.clickListener = clickListener;
     }
 
+    public List<BankReconModel> getModel() {
+        return modelArrayList;
+    }
+
     public class ItemViewHolder extends SectioningAdapter.ItemViewHolder  implements View.OnClickListener{
         @BindView(R.id.first_textview)
         TextView firstValue;

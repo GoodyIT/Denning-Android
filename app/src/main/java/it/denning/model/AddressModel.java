@@ -1,5 +1,7 @@
 package it.denning.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -16,6 +18,8 @@ public class AddressModel implements Serializable {
     public String line1;
     public String line2;
     public String line3;
+
+    @SerializedName("postcode")
     public String postCode;
     public String state;
 }

@@ -369,7 +369,9 @@ public class AddPropertyAdapter extends BaseSectionAdapter {
 
         model.items.add(sectionItemModel);
 
-        property = new Property();
+        if (property == null) {
+            property = new Property();
+        }
 
         notifyAllSectionsDataSetChanged();
     }
@@ -697,7 +699,7 @@ public class AddPropertyAdapter extends BaseSectionAdapter {
         }
 
         // Project
-        List<LabelValueDetail> project = model.items.get(UNIT_PARCEL_DETAILS).items;
+        List<LabelValueDetail> project = model.items.get(PROJECT).items;
         newObject = new JsonObject();
         isChanged = false;
         if (!isEqual(project.get(PROJECT_NAME).code, property.getProjectCode())) {

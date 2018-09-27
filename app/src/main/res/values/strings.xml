@@ -453,6 +453,7 @@
     <string name="select_property_title">Select Property</string>
     <string name="select_case_type_title">Select Case Type</string>
     <string name="select_court_title">Select Court</string>
+    <string name="select_coram_title">Select Coram</string>
     <string name="add_court_diary_title">Add Court Diary</string>
     <string name="update_court_diary_title">Update Court Diary</string>
     <string name="add_office_diary_title">Add Office Diary</string>

@@ -39,6 +39,7 @@ public class TenancyFragment extends Fragment {
     TextView totalTextview;
 
     private float type_sel = 0.25f;
+    private int type_sel_index = 0;
     private float[] type_int_array = {0.25f, 0.5f};
 
     public static TenancyFragment newInstance() {
@@ -50,7 +51,8 @@ public class TenancyFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
-        type.setText("Tenancy");
+        type.setText(getResources().getStringArray(R.array.tenancy_type)[type_sel_index]);
+        type_sel = type_int_array[type_sel_index];
     }
 
     @Override
@@ -70,6 +72,7 @@ public class TenancyFragment extends Fragment {
                     public boolean onSelection(MaterialDialog dialog, View itemView, int which, CharSequence text) {
                         type.setText(text);
                         type_sel = type_int_array[which];
+                        type_sel_index = which;
                         return true;
                     }
                 })

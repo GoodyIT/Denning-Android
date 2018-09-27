@@ -213,7 +213,9 @@ public class MainActivity extends BaseActivity
     @Override
     protected void onResume() {
         super.onResume();
-        changeUI();
+        if (getIntent() != null && getIntent().getStringExtra("fragment") != null && getIntent().getStringExtra("fragment").contains("Home")) {
+            changeUI();
+        }
         addActions();
     }
 
@@ -221,6 +223,8 @@ public class MainActivity extends BaseActivity
     protected void onPause() {
         super.onPause();
         removeActions();
+        String current = getSupportFragmentManager().findFragmentById(R.id.content_frame).toString();
+        getIntent().putExtra("fragment", current);
     }
 
     @Override
@@ -362,10 +366,11 @@ public class MainActivity extends BaseActivity
 
     @Override
     public void onBackPressed() {
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.content_frame);
         if (mDrawer != null && mDrawer.isDrawerOpen(GravityCompat.START)) {
             mDrawer.closeDrawers();
         } else {
-            super.onBackPressed();
+            onBack();
         }
     }
 
