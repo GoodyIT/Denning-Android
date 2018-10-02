@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.provider.Settings;
 import android.text.format.DateFormat;
+import android.text.format.Formatter;
 import android.util.Base64;
 
 import com.quickblox.chat.model.QBChatDialog;
@@ -26,9 +28,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
+import java.net.UnknownHostException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -46,6 +50,8 @@ import java.util.concurrent.TimeUnit;
 import it.denning.App;
 import it.denning.R;
 import it.denning.model.ChatFirmModel;
+
+import static android.content.Context.WIFI_SERVICE;
 
 /**
  * Created by denningit on 18/04/2017.
@@ -336,8 +342,15 @@ public class DIHelper {
     }
 
     public static String getIPLAN() {
-
-        return "test LAN";
+//        String ip = "";
+//        try {
+//           ip = Inet4Address.getLocalHost().getHostAddress().toString();
+//        } catch (UnknownHostException e) {
+//            e.printStackTrace();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+        return DISharedPreferences.getInstance().getIp();
     }
 
     public static String getOS() {

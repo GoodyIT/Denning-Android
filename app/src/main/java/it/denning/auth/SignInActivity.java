@@ -147,27 +147,29 @@ public class SignInActivity extends BaseAuthActivity {
         param.addProperty("email", email);
         param.addProperty("password", password);
 
-        if (isChatInitializedAndUserLoggedIn()) {
-            ServiceManager.getInstance().logout(new Subscriber<Void>() {
-                @Override
-                public void onCompleted() {
+        _signin(param);
 
-                }
-
-                @Override
-                public void onError(Throwable e) {
-                    ErrorUtils.showError(SignInActivity.this, e);
-                    hideProgress();
-                }
-
-                @Override
-                public void onNext(Void aVoid) {
-                    _signin(param);
-                }
-            });
-        } else {
-            _signin(param);
-        }
+//        if (isChatInitializedAndUserLoggedIn()) {
+//            ServiceManager.getInstance().logout(new Subscriber<Void>() {
+//                @Override
+//                public void onCompleted() {
+//
+//                }
+//
+//                @Override
+//                public void onError(Throwable e) {
+//                    ErrorUtils.showError(SignInActivity.this, e);
+//                    hideProgress();
+//                }
+//
+//                @Override
+//                public void onNext(Void aVoid) {
+//                    _signin(param);
+//                }
+//            });
+//        } else {
+//
+//        }
     }
 
     void _signin(JsonObject param) {

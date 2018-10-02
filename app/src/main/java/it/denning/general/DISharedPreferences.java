@@ -3,7 +3,9 @@ package it.denning.general;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.location.Location;
+import android.net.wifi.WifiManager;
 import android.preference.PreferenceManager;
+import android.text.format.Formatter;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -34,6 +36,8 @@ import it.denning.model.MatterSimple;
 import it.denning.model.News;
 import it.denning.model.Property;
 
+import static android.content.Context.WIFI_SERVICE;
+
 /**
  * Created by denningit on 20/04/2017.
  */
@@ -61,6 +65,7 @@ public class DISharedPreferences {
     public static String CLIENT_CONTACT_KEY     = "denning.client.contact";
     public static String FAVORITE_STAFF_KEY     = "denning.favorite.staff";
     public static String FAVORITE_CLIENT_KEY    = "denning.favorite.client";
+    public static String IP_KEY                 = "denning.ip";
 
     public static String GENERAL_SEARCH = "General Search";
     public static String PUBLIC_SEARCH = "Public Search";
@@ -229,6 +234,14 @@ public class DISharedPreferences {
         Gson gson = new Gson();
         String json = gson.toJson(list);
         saveValue(key, json);
+    }
+
+    public void setIp(String ip) {
+        saveValue(IP_KEY, ip);
+    }
+
+    public String getIp() {
+       return getValue(IP_KEY, "").toString();
     }
 
     public ArrayList<String> getArrayList(String key){

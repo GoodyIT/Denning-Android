@@ -209,7 +209,7 @@ public class NetworkManager {
         JsonObject json = new JsonObject();
 
         json.addProperty("ipWAN", DIHelper.getIPWAN());
-        json.addProperty("ipLAN", DIHelper.getIPLAN());
+        json.addProperty("ipLAN", DISharedPreferences.getInstance().getIp());
         json.addProperty("OS", DIHelper.getOS());
         json.addProperty("device", DIHelper.getDevice());
         json.addProperty("deviceName", DIHelper.getDeviceName());

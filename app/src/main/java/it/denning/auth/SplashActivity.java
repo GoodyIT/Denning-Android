@@ -2,12 +2,15 @@ package it.denning.auth;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.text.format.Formatter;
 import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.quickblox.q_municate_core.models.AppSession;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -17,6 +20,7 @@ import it.denning.R;
 import it.denning.general.DIAlert;
 import it.denning.general.DIConstants;
 import it.denning.general.DIHelper;
+import it.denning.general.DISharedPreferences;
 import it.denning.general.MyCallbackInterface;
 import it.denning.model.Agreement;
 import it.denning.network.CompositeCompletion;
@@ -49,6 +53,9 @@ public class SplashActivity extends BaseAuthActivity {
     }
 
     private void loadAgreement() {
+        WifiManager wm = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
+        String ip = Formatter.formatIpAddress(wm.getConnectionInfo().getIpAddress());
+        DISharedPreferences.getInstance().setIp(ip);
         final JsonObject param = new JsonObject();
         param.addProperty("email", "");
         param.addProperty("MAC", DIHelper.getMAC(this));

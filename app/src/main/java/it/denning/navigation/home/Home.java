@@ -335,6 +335,7 @@ public class Home extends Fragment {
         FirmURLModel firmURLModel = new Gson().fromJson(jsonObject, FirmURLModel.class);
         DISharedPreferences.getInstance(getContext()).saveUserInfoFromResponse(firmURLModel);
 
+        DISharedPreferences.isSessionExpired = false;
         branchDialog = new MaterialDialog.Builder(getContext())
                 .title(R.string.branch_title)
                 // second parameter is an optional layout manager. Must be a LinearLayoutManager or GridLayoutManager.

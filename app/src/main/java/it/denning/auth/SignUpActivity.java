@@ -21,12 +21,15 @@ import android.widget.RelativeLayout;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.hbb20.CountryCodePicker;
+import com.quickblox.core.QBEntityCallback;
+import com.quickblox.core.exception.QBResponseException;
 import com.quickblox.q_municate_core.core.command.Command;
 import com.quickblox.q_municate_core.qb.commands.rest.QBSignUpCommand;
 import com.quickblox.q_municate_core.service.QBServiceConsts;
 import com.quickblox.q_municate_db.managers.DataManager;
 import com.quickblox.q_municate_db.utils.ErrorUtils;
 import com.quickblox.q_municate_user_service.model.QMUser;
+import com.quickblox.users.QBUsers;
 import com.quickblox.users.model.QBUser;
 
 import java.io.File;
@@ -36,9 +39,11 @@ import java.io.IOException;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import it.denning.MainActivity;
 import it.denning.R;
 import it.denning.general.DIConstants;
 import it.denning.general.DISharedPreferences;
+import it.denning.general.MyCallbackInterface;
 import it.denning.model.LegalFirm;
 import it.denning.network.CompositeCompletion;
 import it.denning.network.ErrorHandler;
@@ -168,6 +173,10 @@ public class SignUpActivity extends BaseAuthActivity {
             Snackbar.make(signupLayout, "Please input the all the fields", Snackbar.LENGTH_LONG).show();
             return;
         }
+        if (isLawyerChk.isChecked() && selectedLawfirm == null) {
+            Snackbar.make(signupLayout, "Please select lawfirm you belong to if you are an laywer.", Snackbar.LENGTH_LONG).show();
+            return;
+        }
 
         String phone = ccp.getFullNumberWithPlus();
         final JsonObject json = new JsonObject();
@@ -175,7 +184,12 @@ public class SignUpActivity extends BaseAuthActivity {
         json.addProperty("name", userName.getText().toString());
         json.addProperty("hpNumber", phone);
         json.addProperty("isLawyer", isLawyerChk.isChecked());
-        json.addProperty("firmCode", selectedLawfirm.code);
+        if (isLawyerChk.isChecked()) {
+            json.addProperty("firmCode", selectedLawfirm.code);
+        } else {
+            json.addProperty("firmCode", 0);
+        }
+
         showProgress();
         NetworkManager.getInstance().sendPublicPostRequest(DIConstants.AUTH_SIGNUP_URL, json, new CompositeCompletion() {
             @Override
@@ -204,12 +218,27 @@ public class SignUpActivity extends BaseAuthActivity {
 
         appSharedHelper.saveUsersImportInitialized(false);
         DataManager.getInstance().clearAllTables();
-        Uri uri = Uri.parse("android.resource://it.denning/raw/ic_launcher");
-        final File file = MediaUtils.getCreatedFileFromUri(uri);
-        runOnUiThread(new Runnable() {
+//        Uri uri = Uri.parse("android.resource://it.denning/raw/ic_launcher");
+//        final File file = MediaUtils.getCreatedFileFromUri(uri);
+//        runOnUiThread(new Runnable() {
+//            @Override
+//            public void run() {
+//                QBSignUpCommand.start(SignUpActivity.this, qbUser, null);
+//            }
+//        });
+        QBUsers.signUpSignInTask(qbUser).performAsync(new QBEntityCallback<QBUser>() {
             @Override
-            public void run() {
-                QBSignUpCommand.start(SignUpActivity.this, qbUser, file);
+            public void onSuccess(QBUser user, Bundle bundle) {
+                hideProgress();
+                appSharedHelper.saveUsersImportInitialized(false);
+                gotoMain(user);
+                finish();
+            }
+
+            @Override
+            public void onError(QBResponseException e) {
+                hideProgress();
+                ErrorUtils.showError(SignUpActivity.this, e.getMessage());
             }
         });
     }
@@ -222,11 +251,20 @@ public class SignUpActivity extends BaseAuthActivity {
     protected void gotoMain(QBUser user) {
         appSharedHelper.saveFirstAuth(true);
         appSharedHelper.saveSavedRememberMe(true);
-//        startMainActivity(user, null);
+        startMainActivity(user, new MyCallbackInterface() {
+            @Override
+            public void nextFunction() {
+                MainActivity.start(SignUpActivity.this);
+                finish();
+            }
+
+            @Override
+            public void nextFunction(JsonElement jsonElement) {
+
+            }
+        });
 
         // senalyticsHelper.pushAnalyticsData(SignUpActivity.this, user, "User Sign Up");
-
-        finish();
     }
 
     private void _updateUser(QBUser user, File file) {
@@ -253,7 +291,10 @@ public class SignUpActivity extends BaseAuthActivity {
     private void performSignUpSuccessAction(Bundle bundle) throws IOException {
         File image = (File) bundle.getSerializable(QBServiceConsts.EXTRA_FILE);
         QBUser user = (QBUser) bundle.getSerializable(QBServiceConsts.EXTRA_USER);
-        _updateUser(user, image);
+       // _updateUser(user, image);
+        hideProgress();
+        gotoMain(user);
+        finish();
     }
 
     private class SignUpSuccessAction implements Command {

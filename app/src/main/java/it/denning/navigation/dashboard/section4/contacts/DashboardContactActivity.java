@@ -46,6 +46,7 @@ public class DashboardContactActivity extends MySearchBaseActivity implements On
     private String filter = "";
     private int page = 1;
     private boolean hasCallback = false;
+    private boolean fromSearch = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +86,7 @@ public class DashboardContactActivity extends MySearchBaseActivity implements On
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
                 // Triggered only when new data needs to be appended to the list
                 // Add whatever code is needed to append new items to the bottom of the list
+                fromSearch = false;
                 loadData();
             }
         };
@@ -118,11 +120,10 @@ public class DashboardContactActivity extends MySearchBaseActivity implements On
         });
     }
 
-
     private void searchData(String query) {
         page = 1;
         filter = query;
-        adapter.clear();
+        fromSearch = true;
         loadData();
     }
 
@@ -131,6 +132,9 @@ public class DashboardContactActivity extends MySearchBaseActivity implements On
         SearchResultModel[] accountTypes = new Gson().fromJson(jsonElement, SearchResultModel[].class);
         if (accountTypes.length > 0) {
             page++;
+        }
+        if (fromSearch) {
+            adapter.clear();
         }
         adapter.swapItems(Arrays.asList(accountTypes));
     }
