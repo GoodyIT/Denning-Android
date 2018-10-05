@@ -51,7 +51,7 @@
             android:foregroundTint="@android:color/darker_gray"
             android:hint="Username"
             android:inputType="textEmailAddress"
-            android:textColor="@android:color/darker_gray" />
+            android:textColor="@color/text_color_black" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -72,7 +72,7 @@
             android:foregroundTint="@android:color/darker_gray"
             android:hint="Email"
             android:inputType="textEmailAddress"
-            android:textColor="@android:color/darker_gray" />
+            android:textColor="@color/text_color_black" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
@@ -125,7 +125,7 @@
             android:foregroundTint="@android:color/darker_gray"
             android:hint="Mobile"
             android:inputType="phone"
-            android:textColor="@android:color/darker_gray" />
+            android:textColor="@color/text_color_black" />
     </LinearLayout>
 
     <CheckBox

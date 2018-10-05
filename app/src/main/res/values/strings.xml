@@ -613,7 +613,7 @@
     </string-array>
 
     <string-array name="calculators">
-        <item>Stamp Duty amp Legal Cost</item>
+        <item>Stamp Duty &amp; Legal Costs</item>
         <item>Income Tax</item>
         <item>Real Property Gains Tax</item>
         <item>Loan amortisation</item>

@@ -117,7 +117,7 @@
                     style="@style/SegmentedButtons_Attach"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="File" />
+                    android:text="Matter" />
 
                 <RadioButton
                     android:id="@+id/attach_contact"

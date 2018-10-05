@@ -112,7 +112,7 @@ public class DashboardAttendanceActivity extends GeneralActivity implements OnIt
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                searchQuery(newText);
+             //   searchQuery(newText);
                 return false;
             }
         });

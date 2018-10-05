@@ -86,7 +86,7 @@ public class BankReconActivity extends GeneralActivity implements OnItemClickLis
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                searchQuery(newText);
+             //   searchQuery(newText);
                 return false;
             }
         });

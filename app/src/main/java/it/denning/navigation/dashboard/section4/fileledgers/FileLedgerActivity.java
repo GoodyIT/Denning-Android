@@ -33,6 +33,7 @@ import butterknife.OnClick;
 import it.denning.R;
 import it.denning.general.DISharedPreferences;
 import it.denning.general.EndlessRecyclerViewScrollListener;
+import it.denning.general.OnBottomReachedListener;
 import it.denning.model.BankReconModel;
 import it.denning.navigation.dashboard.section4.bankrecon.BankReconAdapter;
 import it.denning.navigation.dashboard.util.GeneralActivity;
@@ -77,7 +78,7 @@ public class FileLedgerActivity extends GeneralActivity implements OnItemClickLi
         getSelectedIndex();
         setupFilter();
         setupSearchView();
-        setupEndlessScroll();
+//        setupEndlessScroll();
         loadData();
     }
 
@@ -106,7 +107,7 @@ public class FileLedgerActivity extends GeneralActivity implements OnItemClickLi
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                searchQuery(newText);
+//                searchQuery(newText);
                 return false;
             }
         });
@@ -127,7 +128,7 @@ public class FileLedgerActivity extends GeneralActivity implements OnItemClickLi
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
                 // Triggered only when new data needs to be appended to the list
                 // Add whatever code is needed to append new items to the bottom of the list
-                loadData();
+
             }
         };
         dashboardList.clearOnScrollListeners();
@@ -150,6 +151,13 @@ public class FileLedgerActivity extends GeneralActivity implements OnItemClickLi
         dashboardList.setHasFixedSize(true);
         dashboardList.setItemAnimator(new DefaultItemAnimator());
         dashboardList.setAdapter(adapter);
+
+        adapter.setOnBottomReachedListener(new OnBottomReachedListener() {
+            @Override
+            public void onBottomReached(int position) {
+                loadData();
+            }
+        });
 
         dashboardList.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -211,7 +219,6 @@ public class FileLedgerActivity extends GeneralActivity implements OnItemClickLi
                 hidewActionBarProgress();
             }
         });
-
     }
 
     void displayResult(List<BankReconModel> newList) {

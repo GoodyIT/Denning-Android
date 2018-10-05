@@ -96,7 +96,7 @@ public class StaffDueTaskActivity extends GeneralActivity implements OnItemClick
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                searchData(newText);
+              //  searchData(newText);
                 return false;
             }
         });

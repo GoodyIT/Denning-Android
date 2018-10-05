@@ -108,7 +108,7 @@ public class SimpleMatterActivity extends MySearchBaseActivity implements OnItem
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                searchData(newText);
+            //    searchData(newText);
                 return false;
             }
         });

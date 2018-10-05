@@ -52,6 +52,9 @@ import it.denning.R;
 import it.denning.model.ChatFirmModel;
 
 import static android.content.Context.WIFI_SERVICE;
+import static java.util.Calendar.DATE;
+import static java.util.Calendar.MONTH;
+import static java.util.Calendar.YEAR;
 
 /**
  * Created by denningit on 18/04/2017.
@@ -287,6 +290,12 @@ public class DIHelper {
         return sdf.format(calendar.getTime());
     }
 
+    public static Calendar getCalendar(Date date) {
+        Calendar cal = Calendar.getInstance(Locale.US);
+        cal.setTime(date);
+        return cal;
+    }
+
     public static float calcDateDiff(String _startDate, String _endDate) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
         Date startDate = null;
@@ -302,16 +311,10 @@ public class DIHelper {
             e.printStackTrace();
         }
         //milliseconds
-        long different = endDate.getTime() - startDate.getTime();
+        float difference = Math.abs(endDate.getTime() - startDate.getTime());
+        float differenceyears = difference / 31540000.0f / 1000.0f;
 
-       Calendar c = Calendar.getInstance();
-       c.setTimeInMillis(different);
-       int year = c.get(Calendar.YEAR);
-       int month = c.get(Calendar.MONTH);
-       int days = c.get(Calendar.DAY_OF_WEEK);
-
-       float yearsHeld = year + month / 12.0f + days / 365.0f;
-       return  Float.valueOf(String.format("%.3f", yearsHeld));
+       return  Float.valueOf(String.format("%.3f", differenceyears));
     }
 
     public static String getIPWAN() {
@@ -614,7 +617,7 @@ public class DIHelper {
         formatter.applyPattern("#,###,###,###,###.00");
         String result = formatter.format(Double.valueOf(value));
 
-        return result.equals(".00") ? "0.00" : result;
+        return result.equals(".00") ? "0.00" : result.equals("-.00") ? "-.00": result;
     }
 
     public static float toFloat(String value) {

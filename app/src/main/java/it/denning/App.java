@@ -22,6 +22,8 @@ import com.quickblox.q_municate_user_cache.QMUserCacheImpl;
 import com.quickblox.q_municate_user_service.QMUserService;
 import com.quickblox.q_municate_user_service.cache.QMUserCache;
 
+import net.danlew.android.joda.JodaTimeAndroid;
+
 import io.fabric.sdk.android.Fabric;
 import it.denning.utils.ActivityLifecycleHandler;
 import it.denning.utils.StringObfuscator;
@@ -56,6 +58,7 @@ public class App extends MultiDexApplication {
         initFabric();
         initApplication();
         registerActivityLifecycleCallbacks(new ActivityLifecycleHandler());
+        JodaTimeAndroid.init(this);
 
         TypefaceProvider.registerDefaultIconSets();
     }

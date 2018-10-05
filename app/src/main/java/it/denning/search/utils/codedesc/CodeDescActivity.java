@@ -77,7 +77,7 @@ public class CodeDescActivity extends MySearchBaseActivity implements OnClickLis
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                searchData(newText);
+              //  searchData(newText);
                 return false;
             }
         });

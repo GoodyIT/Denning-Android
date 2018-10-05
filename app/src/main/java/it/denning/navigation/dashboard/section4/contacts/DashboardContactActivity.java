@@ -22,6 +22,7 @@ import it.denning.R;
 import it.denning.general.DIConstants;
 import it.denning.general.DISharedPreferences;
 import it.denning.general.EndlessRecyclerViewScrollListener;
+import it.denning.general.OnBottomReachedListener;
 import it.denning.model.Contact;
 import it.denning.model.SearchResultModel;
 import it.denning.network.CompositeCompletion;
@@ -59,7 +60,7 @@ public class DashboardContactActivity extends MySearchBaseActivity implements On
 
         setupSearchView();
 
-        setupEndlessScroll();
+//        setupEndlessScroll();
         loadData();
     }
 
@@ -78,6 +79,13 @@ public class DashboardContactActivity extends MySearchBaseActivity implements On
         recyclerView.setHasFixedSize(true);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
+
+        adapter.setOnBottomReachedListener(new OnBottomReachedListener() {
+            @Override
+            public void onBottomReached(int position) {
+                loadData();
+            }
+        });
     }
 
     private void setupEndlessScroll() {
@@ -105,7 +113,7 @@ public class DashboardContactActivity extends MySearchBaseActivity implements On
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                searchData(newText);
+//                searchData(newText);
                 return false;
             }
         });

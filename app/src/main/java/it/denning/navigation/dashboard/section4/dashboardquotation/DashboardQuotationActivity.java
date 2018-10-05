@@ -118,7 +118,7 @@ public class DashboardQuotationActivity extends BaseActivity implements OnItemCl
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                searchData(newText);
+             //   searchData(newText);
                 return false;
             }
         });

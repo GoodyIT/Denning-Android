@@ -272,7 +272,7 @@ public class DenningMessage extends BaseLoaderFragment<List<DialogWrapper>> impl
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                search(newText);
+              //  search(newText);
                 return false;
             }
         });

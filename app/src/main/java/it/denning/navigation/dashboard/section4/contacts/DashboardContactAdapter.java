@@ -14,6 +14,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import it.denning.R;
+import it.denning.general.OnBottomReachedListener;
 import it.denning.model.SearchResultModel;
 import it.denning.search.utils.OnItemClickListener;
 
@@ -25,9 +26,16 @@ public class DashboardContactAdapter extends SectioningAdapter {
     private final List<SearchResultModel> modelArrayList;
     private final OnItemClickListener clickListener;
 
+    OnBottomReachedListener onBottomReachedListener;
+
     public DashboardContactAdapter(List<SearchResultModel> modelArrayList, OnItemClickListener clickListener) {
         this.modelArrayList = modelArrayList;
         this.clickListener = clickListener;
+    }
+
+    public void setOnBottomReachedListener(OnBottomReachedListener onBottomReachedListener){
+
+        this.onBottomReachedListener = onBottomReachedListener;
     }
 
     public List<SearchResultModel> getModels() {
@@ -112,6 +120,12 @@ public class DashboardContactAdapter extends SectioningAdapter {
                 clickListener.onClick(v, itemIndex);
             }
         });
+
+        if (itemIndex == modelArrayList.size() - 1){
+
+            onBottomReachedListener.onBottomReached(itemIndex);
+
+        }
     }
 
     @SuppressLint("SetTextI18n")

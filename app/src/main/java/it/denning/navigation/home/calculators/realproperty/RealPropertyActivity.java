@@ -62,7 +62,7 @@ public class RealPropertyActivity extends BaseActivity implements DatePickerDial
     @BindView(R.id.number_of_year_textview)
     AppCompatEditText numberOfYearTextview;
     @BindView(R.id.state_taxpayer_textview)
-    TextView stateTaxpayerTextview;
+    AppCompatEditText stateTaxpayerTextview;
 
     @BindView(R.id.tax_payable_textview)
     TextView taxPayableTextview;
@@ -74,7 +74,7 @@ public class RealPropertyActivity extends BaseActivity implements DatePickerDial
     private float taxRate = -1.0f;
     private DatePickerDialog dpd;
     private String selectedDateRow = "Disposal";
-    private String acquisitionDate, disposalDate;
+    private String acquisitionDate = "", disposalDate = "";
     private float numberOfYears;
 
     public MyCustomEditTextListener netDisposalListener, netAcquisitionListener;
@@ -145,8 +145,10 @@ public class RealPropertyActivity extends BaseActivity implements DatePickerDial
         String date = DIHelper.getBirthday(datePickerDialog.getSelectedDay());
         if (selectedDateRow.equals("Disposal")) {
             disposalDate = date;
+            dateDisposalTextview.setText(disposalDate);
         } else {
             acquisitionDate = date;
+            dateAcquisitionTextview.setText(acquisitionDate);
         }
 
         if (!disposalDate.isEmpty() && !acquisitionDate.isEmpty()) {
@@ -238,16 +240,11 @@ public class RealPropertyActivity extends BaseActivity implements DatePickerDial
         float otherCosts = DIHelper.toFloat(otherCostsTextview.getText().toString());
         float netAcquisition = DIHelper.toFloat(netAcquisitionTextview.getText().toString());
         float gainLoss = DIHelper.toFloat(gainLossTextview.getText().toString());
-        float dateDisposal = DIHelper.toFloat(dateDisposalTextview.getText().toString());
-        float dateAcquisition = DIHelper.toFloat(dateAcquisitionTextview.getText().toString());
+        String dateDisposal = dateDisposalTextview.getText().toString();
+        String dateAcquisition = dateAcquisitionTextview.getText().toString();
         float numberOfYearsHeld = DIHelper.toFloat(numberOfYearTextview.getText().toString());
-        float stateTaxpayer = DIHelper.toFloat(stateTaxpayerTextview.getText().toString());
 
-        if (salePrice == 0 || saleCommision == 0 || legalCosts == 0 || renovation == 0||
-                netDisposal == 0 || purchaseCommission == 0 || purchasePrice == 0 ||
-                legalStamp == 0 || otherCosts == 0 || netAcquisition == 0 ||
-                gainLoss == 0 || dateDisposal == 0 || dateAcquisition == 0 ||
-                numberOfYearsHeld == 0 || stateTaxpayer == 0) {
+        if (dateDisposal.isEmpty()|| dateAcquisition.isEmpty()) {
             DIAlert.showSimpleAlert(this, R.string.warning_title, R.string.alert_required_all);
             return;
         }
@@ -311,48 +308,49 @@ public class RealPropertyActivity extends BaseActivity implements DatePickerDial
             if (hasFocus) {
                 return;
             }
-            float salePrice = 0, saleCommision = 0, legalCosts = 0, renovation = 0;
-            float purchasePrice = 0, purchaseCommission = 0, legalStamp = 0, otherCosts = 0;
 
             float value = DIHelper.toFloat(((AppCompatEditText)v).getText().toString());
             String valueWithComma = DIHelper.addThousandsSeparator(String.valueOf(value));
             switch (Integer.valueOf(v.getTag().toString())) {
                 case 1:
-                    salePrice = value;
                     salePriceTextview.setText(valueWithComma);
                     break;
                 case 2:
-                    saleCommision = value;
                     saleCommissionTextview.setText(valueWithComma);
                     break;
                 case 3:
-                    legalCosts = value;
                     legalCostsTextview.setText(valueWithComma);
                     break;
                 case 4:
-                    renovation = value;
                     renovationTextview.setText(valueWithComma);
                     break;
                 case 11:
-                    purchaseCommission = value;
-                    purchaseCommisionTextview.setText(valueWithComma);
-                    break;
-                case 12:
-                    purchasePrice = value;
                     purchasePriceTextview.setText(valueWithComma);
                     break;
+                case 12:
+                    purchaseCommisionTextview.setText(valueWithComma);
+                    break;
                 case 13:
-                    legalStamp = value;
                     legalStampTextview.setText(valueWithComma);
                     break;
                 case 14:
-                    otherCosts = value;
                     otherCostsTextview.setText(valueWithComma);
                     break;
             }
+            float salePrice = DIHelper.toFloat(salePriceTextview.getText().toString());
+            float saleCommision = DIHelper.toFloat(saleCommissionTextview.getText().toString());
+            float legalCosts = DIHelper.toFloat(legalCostsTextview.getText().toString());
+            float renovation = DIHelper.toFloat(renovationTextview.getText().toString());
+
+            float purchasePrice = DIHelper.toFloat(purchasePriceTextview.getText().toString());
+            float purchaseCommission = DIHelper.toFloat(purchaseCommisionTextview.getText().toString());
+            float legalStamp = DIHelper.toFloat(legalStampTextview.getText().toString());
+            float otherCosts = DIHelper.toFloat(otherCostsTextview.getText().toString());
 
             final float netDisposal = salePrice - saleCommision - legalCosts - renovation;
             final float netAcquisition = purchasePrice - purchaseCommission - legalStamp - otherCosts;
+            final float gainLoss = netDisposal - netAcquisition;
+            gainLossTextview.setText(DIHelper.addThousandsSeparator(String.format("%.2f", gainLoss)));
             android.os.Handler handler = new android.os.Handler();
             handler.postDelayed(new Runnable() {
                 public void run(){

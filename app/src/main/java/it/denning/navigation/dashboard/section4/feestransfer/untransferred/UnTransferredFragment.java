@@ -95,7 +95,7 @@ public class UnTransferredFragment extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                searchQuery(newText);
+             //   searchQuery(newText);
                 return false;
             }
         });

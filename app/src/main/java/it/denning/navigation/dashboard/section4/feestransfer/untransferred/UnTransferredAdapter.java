@@ -130,10 +130,10 @@ public class UnTransferredAdapter extends SectioningAdapter {
         holder.firstTextView.setText(model.fileNo);
         holder.firstBottomTextView.setText(model.fileName);
         holder.secondTextView.setText(model.invoiceNo);
-        holder.thirdTextView.setText(model.fee);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            holder.thirdTextView.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
-        }
+        holder.thirdTextView.setText(DIHelper.addThousandsSeparator(model.fee));
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+//            holder.thirdTextView.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
+//        }
     }
 
     public void addItems(List<FeesUnTransferModel> items) {

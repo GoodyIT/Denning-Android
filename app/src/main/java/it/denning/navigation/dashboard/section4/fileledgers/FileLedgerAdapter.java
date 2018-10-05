@@ -15,6 +15,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import it.denning.R;
+import it.denning.general.OnBottomReachedListener;
 import it.denning.model.BankReconModel;
 import it.denning.search.utils.OnItemClickListener;
 
@@ -27,10 +28,17 @@ public class FileLedgerAdapter extends SectioningAdapter {
     private final Context mContext;
     private final OnItemClickListener clickListener;
 
+    OnBottomReachedListener onBottomReachedListener;
+
     public FileLedgerAdapter(List<BankReconModel> modelArrayList, Context mContext, OnItemClickListener clickListener) {
         this.modelArrayList = modelArrayList;
         this.mContext = mContext;
         this.clickListener = clickListener;
+    }
+
+    public void setOnBottomReachedListener(OnBottomReachedListener onBottomReachedListener){
+
+        this.onBottomReachedListener = onBottomReachedListener;
     }
 
     public List<BankReconModel> getModel() {
@@ -117,7 +125,17 @@ public class FileLedgerAdapter extends SectioningAdapter {
         if (!model.credit.equals("0.00")) {
             customViewHolder.thirdValue.setText(model.credit + " (CR)");
         } else {
-            customViewHolder.thirdValue.setText(model.debit + " (DR)");
+            String debit = model.debit;
+            if (!model.debit.trim().equals("0.00")) {
+                debit += " (DR)";
+            }
+            customViewHolder.thirdValue.setText(debit);
+        }
+
+        if (itemIndex == modelArrayList.size() - 1){
+
+            onBottomReachedListener.onBottomReached(itemIndex);
+
         }
     }
 
