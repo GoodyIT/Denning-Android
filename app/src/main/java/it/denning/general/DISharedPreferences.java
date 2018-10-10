@@ -66,6 +66,7 @@ public class DISharedPreferences {
     public static String FAVORITE_STAFF_KEY     = "denning.favorite.staff";
     public static String FAVORITE_CLIENT_KEY    = "denning.favorite.client";
     public static String IP_KEY                 = "denning.ip";
+    public static String USER_CODE_KEY          = "denning.user.code";
 
     public static String GENERAL_SEARCH = "General Search";
     public static String PUBLIC_SEARCH = "Public Search";
@@ -220,6 +221,7 @@ public class DISharedPreferences {
         saveValue(SERVERAPI_SHARED_KEY, firmModel.APIServer);
         saveValue(FIRMNAME_SHARED_KEY, firmModel.LawFirm.name);
         saveValue(FIRMCITY_SHARED_KEY, firmModel.LawFirm.address.city);
+        saveValue(USER_CODE_KEY, firmModel.theCode);
     }
 
     public void setUserAgreement() {
@@ -249,6 +251,10 @@ public class DISharedPreferences {
         String json = (String)getValue(key, null);
         Type type = new TypeToken<ArrayList<ChatFirmModel>>() {}.getType();
         return gson.fromJson(json, type);
+    }
+
+    public String getUserCode() {
+        return (String) getValue(USER_CODE_KEY, "0");
     }
 
     public String getServerAPI() {

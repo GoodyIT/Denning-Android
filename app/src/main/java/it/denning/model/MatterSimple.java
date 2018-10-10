@@ -9,7 +9,7 @@ import java.util.List;
  * Created by denningit on 2018-01-16.
  */
 
-public class MatterSimple{
+public class MatterSimple implements Serializable {
     public String dateOpen;
     public String systemNo;
     public String referenceNo;

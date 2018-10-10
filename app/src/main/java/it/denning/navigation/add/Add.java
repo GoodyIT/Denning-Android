@@ -28,6 +28,7 @@ import it.denning.general.DIConstants;
 import it.denning.general.DISharedPreferences;
 import it.denning.general.MyNameCodeCallback;
 import it.denning.model.Attendance;
+import it.denning.model.MenuModel;
 import it.denning.model.NameCode;
 import it.denning.navigation.add.bill.AddBillActivity;
 import it.denning.navigation.add.contact.AddContactActivity;
@@ -74,11 +75,33 @@ public class Add extends Fragment implements OnSectionItemClickListener {
         ButterKnife.bind(this, view);
         ((MainActivity)getActivity()).titleView.setText(R.string.add_title);
 
-        setupRecyclerView();
+        getDynamicMenu();
     }
 
-    private void setupRecyclerView() {
-        AddAdapter addAdapter = new AddAdapter(this);
+    private void parseDynamicMenu(JsonElement jsonElement) {
+        MenuModel[] models = new Gson().fromJson(jsonElement, MenuModel[].class);
+        setupRecyclerView(models);
+    }
+
+    private void getDynamicMenu() {
+        ((MainActivity)getActivity()).showActionBarProgress();
+        NetworkManager.getInstance().sendPrivateGetRequest(DIConstants.ADD_DYNAMIC_MENU, new CompositeCompletion() {
+            @Override
+            public void parseResponse(JsonElement jsonElement) {
+                ((MainActivity)getActivity()).hideActionBarProgress();
+                parseDynamicMenu(jsonElement);
+            }
+        }, new ErrorHandler() {
+            @Override
+            public void handleError(String error) {
+                ((MainActivity)getActivity()).hideActionBarProgress();
+                ErrorUtils.showError(getActivity(), error);
+            }
+        });
+    }
+
+    private void setupRecyclerView(MenuModel[] models) {
+        AddAdapter addAdapter = new AddAdapter(this, models);
         recyclerView.setLayoutManager(new StickyHeaderLayoutManager());
         recyclerView.addItemDecoration(new it.denning.general.DividerItemDecoration(ContextCompat.getDrawable(App.getInstance(), R.drawable.item_decorator)));
 
@@ -117,58 +140,41 @@ public class Add extends Fragment implements OnSectionItemClickListener {
             DIAlert.showSimpleAlert(getActivity(), R.string.warning_title, R.string.alert_session_expired);
             return;
         }
-        switch (sectionIndex) {
-            case 0:
-                switch (itemIndex) {
-                    case 0: // Contact
-                        AddContactActivity.start(getActivity(), null);
-                        break;
-                    case 1: // Property
-                        AddPropertyActivity.start(getActivity(), null);
-                        break;
-                    case 2: // Matter
-                        AddMatterActivity.start(getActivity(), null);
-                        break;
-                }
+        switch (name) {
+            case "add_contact":
+                AddContactActivity.start(getActivity(), null);
                 break;
-            case 1:
-                switch (itemIndex) {
-                    case 0: // Court Diary
-                        DiaryActivity.start(getActivity(), R.string.add_court_diary_title);
-                        break;
-                    case 1: // Office Diary
-                        DiaryActivity.start(getActivity(), R.string.add_office_diary_title);
-                        break;
-                    case 2: // Leave Application
-                        NetworkManager.getInstance().getSubmittedBy(new MyNameCodeCallback() {
-                            @Override
-                            public void next(NameCode value) {
-                                LeaveApplicationActivity.start(getActivity(), value);
-                            }
-                        });
-
-                        break;
-                }
+            case "add_property": // Property
+                AddPropertyActivity.start(getActivity(), null);
                 break;
-            case 2:
-                switch (itemIndex) {
-                    case 0: // Quotation
-                        AddQuotationActivity.start(getActivity());
-                        break;
-                    case 1: // Tax Invoice
-                        AddBillActivity.start(getActivity(), true, null);
-                        break;
-                    case 2: // Receipt
-                        AddReceiptActivity.start(getActivity(), null);
-                        break;
-                }
+            case "add_matter": // Matter
+                AddMatterActivity.start(getActivity(), null);
                 break;
-            case 3:
-                switch (itemIndex) {
-                    case 0:
-                        gotoAttendance();
-                        break;
-                }
+            case "add_court": // Court Diary
+                DiaryActivity.start(getActivity(), R.string.add_court_diary_title);
+                break;
+            case "add_office": // Office Diary
+                DiaryActivity.start(getActivity(), R.string.add_office_diary_title);
+                break;
+            case "add_leave": // Leave Application
+                NetworkManager.getInstance().getSubmittedBy(new MyNameCodeCallback() {
+                    @Override
+                    public void next(NameCode value) {
+                        LeaveApplicationActivity.start(getActivity(), value);
+                    }
+                });
+                break;
+            case "add_quotation": // Quotation
+                AddQuotationActivity.start(getActivity());
+                break;
+            case "add_invoice": // Tax Invoice
+                AddBillActivity.start(getActivity(), true, null);
+                break;
+            case "add_receipt": // Receipt
+                AddReceiptActivity.start(getActivity(), null);
+                break;
+            case "add_attendance":
+                gotoAttendance();
                 break;
         }
     }

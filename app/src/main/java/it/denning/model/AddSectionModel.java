@@ -10,13 +10,14 @@ import it.denning.R;
  */
 
 public class AddSectionModel {
-    public List<LabelIconModel> items = new ArrayList<>();
+    public List<LabelIconOpenFormModel> items = new ArrayList<>();
 
-    public AddSectionModel(String[] labels, int[] images) {
-        for (int i = 0; i < labels.length; i++) {
-            LabelIconModel labelIconModel = new LabelIconModel();
-            labelIconModel.image = images[i];
-            labelIconModel.label = labels[i];
+    public AddSectionModel(ArrayList<String> labels, ArrayList<Integer> images, ArrayList<String> openForms) {
+        for (int i = 0; i < labels.size(); i++) {
+            LabelIconOpenFormModel labelIconModel = new LabelIconOpenFormModel();
+            labelIconModel.image = images.get(i);
+            labelIconModel.label = labels.get(i);
+            labelIconModel.openForm = openForms.get(i);
             items.add(labelIconModel);
         }
     }

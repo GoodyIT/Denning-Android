@@ -16,6 +16,8 @@ import it.denning.R;
 import it.denning.model.AddModel;
 import it.denning.model.AddSectionModel;
 import it.denning.model.LabelIconModel;
+import it.denning.model.LabelIconOpenFormModel;
+import it.denning.model.MenuModel;
 import it.denning.search.utils.OnItemClickListener;
 import it.denning.search.utils.OnSectionItemClickListener;
 
@@ -27,9 +29,9 @@ public class AddAdapter extends SectioningAdapter {
     final private OnSectionItemClickListener itemClickListener;
     private AddModel addModel;
 
-    public AddAdapter(OnSectionItemClickListener itemClickListener) {
+    public AddAdapter(OnSectionItemClickListener itemClickListener, MenuModel[] models) {
         this.itemClickListener = itemClickListener;
-        addModel = AddModel.build();
+        addModel = AddModel.build(models);
     }
 
     public class HeaderViewHolder extends SectioningAdapter.HeaderViewHolder {
@@ -113,13 +115,13 @@ public class AddAdapter extends SectioningAdapter {
     }
 
     private void displayGeneral(GeneralTypeViewHolder viewHolder, final int sectionIndex, final int itemIndex) {
-        final LabelIconModel model = addModel.items.get(sectionIndex).items.get(itemIndex);
+        final LabelIconOpenFormModel model = addModel.items.get(sectionIndex).items.get(itemIndex);
         viewHolder.label.setText(model.label);
         viewHolder.imageButton.setImageResource(model.image);
         viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                itemClickListener.onClick(v, sectionIndex, itemIndex, model.label);
+                itemClickListener.onClick(v, sectionIndex, itemIndex, model.openForm);
             }
         });
     }

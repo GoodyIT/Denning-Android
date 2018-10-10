@@ -3,6 +3,7 @@ package it.denning.share;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
@@ -27,9 +28,11 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.quickblox.q_municate_db.utils.ErrorUtils;
+import com.squareup.moshi.Json;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 import butterknife.BindView;
@@ -52,12 +55,15 @@ import it.denning.network.ErrorHandler;
 import it.denning.network.NetworkManager;
 import it.denning.network.RetrofitHelper;
 import it.denning.network.services.DenningService;
+import it.denning.search.SearchActivity;
 import it.denning.search.utils.ClearableAutoCompleteTextView;
 import it.denning.search.utils.OnItemClickListener;
 import it.denning.ui.activities.base.BaseLoggableActivity;
 import it.denning.utils.KeyboardUtils;
 import it.denning.utils.MediaUtils;
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by denningit on 22/04/2017.
@@ -94,6 +100,8 @@ public class DenningShareActivity extends BaseLoggableActivity implements OnItem
     Integer currentSearch;
     String  currentCode;
     String fileNo1, url;
+    ArrayList<Parcelable> dataList = new ArrayList<>();
+    JsonObject uploadParam = new JsonObject();
 
     DenningShareAdapter denningShareAdapter;
     LinearLayoutManager searchLayoutManager;
@@ -137,40 +145,38 @@ public class DenningShareActivity extends BaseLoggableActivity implements OnItem
         String type = intent.getType();
 
         if (Intent.ACTION_SEND.equals(action) && type != null) {
-            if ("text/plain".equals(type)) {
-            } else if (type.startsWith("image/")) {
-            }
+            dataList.add( getIntent().getParcelableExtra(Intent.EXTRA_STREAM));
         } else if (Intent.ACTION_SEND_MULTIPLE.equals(action) && type != null) {
-            if (type.startsWith("image/")) {
-            }
-        } else {
-            // Handle other intents, such as being started from the home screen
+           dataList.addAll(getIntent().getParcelableArrayListExtra(Intent.EXTRA_STREAM));
         }
-  //      buildParam();
+    }
+
+    private JsonArray buildShareItems() {
+        JsonArray jsonArray = new JsonArray();
+        for (Parcelable uri : dataList) {
+            String mimeType = getContentResolver().getType((Uri) uri);
+            String fileData = DIHelper.UriToBase64((Uri) uri);
+            int fileLength = fileData.length();
+            String fileName = ((Uri) uri).getLastPathSegment();
+
+            JsonObject document = new JsonObject();
+            document.addProperty("FileName", fileName);
+            document.addProperty("MimeType", mimeType);
+            document.addProperty("dateCreate", DIHelper.todayWithTime());
+            document.addProperty("dateModify", DIHelper.todayWithTime());
+            document.addProperty("fileLength", fileLength);
+            document.addProperty("remarks", "file from Android");
+            document.addProperty("base64", fileData);
+            jsonArray.add(document);
+        }
+        return jsonArray;
     }
 
     private JsonObject buildParam() {
-        Uri returnUri = getIntent().getData();
-        String mimeType = getContentResolver().getType(returnUri);
-        String fileData = DIHelper.UriToBase64(returnUri);
-        int fileLength = fileData.length();
-        String fileName = getIntent().getData().getLastPathSegment();
-
-        JsonObject document = new JsonObject();
-        document.addProperty("FileName", fileName);
-        document.addProperty("MimeType", mimeType);
-        document.addProperty("dateCreate", DIHelper.todayWithTime());
-        document.addProperty("dateModify", DIHelper.todayWithTime());
-        document.addProperty("fileLength", fileLength);
-        document.addProperty("remarks", "file from Android");
-        document.addProperty("base64", fileData);
-        JsonArray documents = new JsonArray();
-        documents.add(document);
 
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("fileNo1", fileNo1);
-        jsonObject.add("documents", documents);
-
+        jsonObject.add("documents", buildShareItems());
         return jsonObject;
     }
 
@@ -179,6 +185,7 @@ public class DenningShareActivity extends BaseLoggableActivity implements OnItem
         if (url.matches("\\w*") && fileNo1.trim().length() == 0) {
             return;
         }
+//        showActionBarProgress();
         showProgress();
 
         if (DISharedPreferences.getInstance().isStaff()) {
@@ -204,7 +211,7 @@ public class DenningShareActivity extends BaseLoggableActivity implements OnItem
             }, new ErrorHandler() {
                 @Override
                 public void handleError(String error) {
-                    hideProgress();
+//                    hideProgress();
                     ErrorUtils.showError(getApplicationContext(), error);
                 }
             });
@@ -259,12 +266,10 @@ public class DenningShareActivity extends BaseLoggableActivity implements OnItem
 
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
         }
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-
         }
 
         @Override
@@ -313,6 +318,22 @@ public class DenningShareActivity extends BaseLoggableActivity implements OnItem
 
         if (DISharedPreferences.getInstance().isStaff()) {
             searchView.addTextChangedListener(new AutoCompleteTextWatcher());
+
+            searchView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                @Override
+                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                    if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
+                        KeyboardUtils.hideKeyboard(DenningShareActivity.this);
+                        currentKeyword = v.getText().toString();
+                        isAutoComplete = 1;
+                        denningShareAdapter.clear();
+                        page = 1;
+                        getSearchResult();
+                    }
+                    return false;
+                }
+            });
+
 
             searchView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
                 @Override
@@ -517,29 +538,28 @@ public class DenningShareActivity extends BaseLoggableActivity implements OnItem
     }
 
     private void excecuteCompositeDisposable(final CompositeCompletion completion) {
-//        mCompositeDisposable.add(mSingle
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .map(new Function<JsonElement, JsonElement>() {
-//                    @Override
-//                    public JsonElement apply(JsonElement jsonElement) throws Exception {
-//                        return jsonElement;
-//                    }
-//                })
-//                .subscribeWith(new DisposableSingleObserver<JsonElement>() {
-//                    @Override
-//                    public void onSuccess(JsonElement jsonElement) {
-//                        completion.parseResponse(jsonElement);
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//                        hideProgress();
-//                        hideHorizontalProgress();
-//                        ErrorUtils.showError(DenningShareActivity.this, e.getMessage());
-//                    }
-//                })
-//        );
+        mSingle.enqueue(new Callback<JsonElement>() {
+            @Override
+            public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
+                if (!response.isSuccessful()) {
+                    if (response.code() == 408) {
+                        ErrorUtils.showError(DenningShareActivity.this,"Session expired. Please log in again.");
+                        DISharedPreferences.getInstance().isSessionExpired = true;
+                    } else {
+                        ErrorUtils.showError(DenningShareActivity.this, response.message());
+                    }
+                } else {
+                    completion.parseResponse(response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JsonElement> call, Throwable e) {
+                hideProgress();
+                hideHorizontalProgress();
+                ErrorUtils.showError(DenningShareActivity.this, e.getMessage());
+            }
+        });
     }
 
     @Override

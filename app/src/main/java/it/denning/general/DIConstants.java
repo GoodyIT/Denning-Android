@@ -2,6 +2,7 @@ package it.denning.general;
 
 import java.util.List;
 
+import it.denning.App;
 import it.denning.R;
 
 /**
@@ -251,6 +252,8 @@ public class DIConstants {
 
     public static final String  MATTER_STAFF_FILEFOLDER = "v1/app/matter/fileFolder";
 
+    public static final String  ADD_DYNAMIC_MENU = "v1/app/menu?strUserID=";
+
     /*
     *   Chat Tags
     * */
@@ -413,7 +416,7 @@ public class DIConstants {
     public static String[] third_add_labels = { "Quotation", "Tax Invoice", "Receipt"};
     public static String[] forth_add_labels = {"Attendance"};
 
-    public static int[] first_add_images = {R.drawable.icon_contact_blue, R.drawable.icon_property, R.drawable.icon_matter};
+    public static int[] first_add_images = {App.getInstance().getResources().getIdentifier("icon_court", "drawable", App.getInstance().getPackageName()), R.drawable.icon_property, R.drawable.icon_matter};
     public static int[] second_add_images = {R.drawable.icon_court, R.drawable.icon_court, R.drawable.icon_leave};
     public static int[] third_add_images = {R.drawable.icon_quotation, R.drawable.icon_taxinvoice, R.drawable.icon_receipt};
     public static int[] forth_add_images = {R.drawable.icon_attendance};
