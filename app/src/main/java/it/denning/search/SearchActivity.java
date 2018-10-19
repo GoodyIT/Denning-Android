@@ -3,49 +3,26 @@ package it.denning.search;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.OrientationHelper;
-import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.*;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-
+import android.widget.*;
+import butterknife.BindView;
+import butterknife.OnClick;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.quickblox.q_municate_db.utils.ErrorUtils;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import butterknife.BindView;
-import butterknife.OnClick;
 import io.reactivex.disposables.CompositeDisposable;
 import it.denning.R;
-import it.denning.general.DIAlert;
 import it.denning.general.DIConstants;
 import it.denning.general.DIHelper;
 import it.denning.general.DISharedPreferences;
 import it.denning.general.EndlessRecyclerViewScrollListener;
-import it.denning.model.Accounts;
-import it.denning.model.Bank;
-import it.denning.model.Contact;
-import it.denning.model.DocumentModel;
-import it.denning.model.LegalFirm;
-import it.denning.model.MatterModel;
-import it.denning.model.Property;
-import it.denning.model.SearchKeyword;
-import it.denning.model.SearchResultModel;
+import it.denning.model.*;
 import it.denning.navigation.add.property.AddPropertyActivity;
 import it.denning.navigation.home.upload.UploadActivity;
 import it.denning.network.CompositeCompletion;
@@ -60,21 +37,16 @@ import it.denning.search.legal_firm.LegalFirmActivity;
 import it.denning.search.matter.MatterActivity;
 import it.denning.search.paymentrecord.PaymentRecordActivity;
 import it.denning.search.template.TemplateActivity;
-import it.denning.search.utils.ClearableAutoCompleteTextView;
-import it.denning.search.utils.OnAccountsClickListener;
-import it.denning.search.utils.OnFileFolderClickListener;
-import it.denning.search.utils.OnFileNoteClickListener;
-import it.denning.search.utils.OnItemClickListener;
-import it.denning.search.utils.OnPaymentRecordClickListener;
-import it.denning.search.utils.OnRelatedMatterClickListener;
-import it.denning.search.utils.OnTemplateClickListener;
-import it.denning.search.utils.OnUploadClickListener;
-import it.denning.search.utils.SearchAdapter;
+import it.denning.search.utils.*;
 import it.denning.ui.activities.base.BaseActivity;
 import it.denning.utils.KeyboardUtils;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by denningit on 22/04/2017.
@@ -118,6 +90,7 @@ public class SearchActivity extends BaseActivity implements OnItemClickListener,
     Integer currentSearch;
     String  currentCode;
     String  documentTitle = "Contact Folder";
+    private Boolean isTapped = false;
 
     SearchAdapter searchAdapter;
     LinearLayoutManager searchLayoutManager;
@@ -157,6 +130,14 @@ public class SearchActivity extends BaseActivity implements OnItemClickListener,
         super.onStop();
         if (mCompositeDisposable != null) {
             mCompositeDisposable.clear();
+        }
+    }
+
+    @Override
+    protected  void onStart() {
+        super.onStart();
+        if (isTapped != null) {
+            isTapped = false;
         }
     }
 
@@ -453,6 +434,10 @@ public class SearchActivity extends BaseActivity implements OnItemClickListener,
 
     @Override
     public void onClick(View view, int position) {
+        if (isTapped) {
+            return;
+        }
+        isTapped = true;
         final SearchResultModel searchResultModel = searchAdapter.getModelArrayList().get(position);
         currentCode = searchResultModel.key;
         mCompositeDisposable.clear();
@@ -509,11 +494,19 @@ public class SearchActivity extends BaseActivity implements OnItemClickListener,
 
     @Override
     public void onFileNoteClick(View view, String code, String title) {
+        if (isTapped) {
+            return;
+        }
+        isTapped = true;
         FileNoteActivity.start(this, code, title);
     }
 
     @Override
     public void onFileFolderClick(View view, String code, String type) {
+        if (isTapped) {
+            return;
+        }
+        isTapped = true;
         currentCode = code;
         documentTitle = type;
         if (documentTitle.equals("File Folder")) {
@@ -529,38 +522,20 @@ public class SearchActivity extends BaseActivity implements OnItemClickListener,
 
     @Override
     public void onPaymentRecordClick(View view, String code) {
+        if (isTapped) { return; }
+        isTapped = true;
         PaymentRecordActivity.start(this, code);
     }
 
     @Override
-    public void onTemplateClick(View view, String code, String tittle) {
-        TemplateActivity.start(this, code, tittle);
+    public void onTemplateClick(View view, String code, String title) {
+        if (isTapped) { return; }
+        isTapped = true;
+        title  = DIHelper.separateNameIntoTwo(title)[1];
+        TemplateActivity.start(this, code, title);
     }
 
     private void excecuteCompositeDisposable(final CompositeCompletion completion) {
-//        mCompositeDisposable.add(mSingle
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .map(new Function<JsonElement, JsonElement>() {
-//                    @Override
-//                    public JsonElement apply(JsonElement jsonElement) throws Exception {
-//                        return jsonElement;
-//                    }
-//                })
-//                .subscribeWith(new DisposableSingleObserver<JsonElement>() {
-//                    @Override
-//                    public void onSuccess(JsonElement jsonElement) {
-//                        completion.parseResponse(jsonElement);
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//                        hideProgress();
-//                        hideHorizontalProgress();
-//                        ErrorUtils.showError(SearchActivity.this, e.getMessage());
-//                    }
-//                })
-//        );
         mSingle.enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
@@ -686,6 +661,8 @@ public class SearchActivity extends BaseActivity implements OnItemClickListener,
 
     @Override
     public void onMatterClick(View view, String code) {
+        if (isTapped) { return; }
+        isTapped = true;
         currentCode = code;
         mCompositeDisposable.clear();
         gotoContactActivity("matter");
@@ -693,6 +670,9 @@ public class SearchActivity extends BaseActivity implements OnItemClickListener,
 
     @Override
     public void onUploadClick(View view, String code, int title, String url, String defaultFileName) {
+        if (isTapped) { return; }
+        isTapped = true;
+        code = code.split(":")[1];
         UploadActivity.start(this, code, title, url, defaultFileName);
     }
 }

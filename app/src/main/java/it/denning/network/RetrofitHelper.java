@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import it.denning.general.DISharedPreferences;
-import it.denning.navigation.message.DenningSupport;
 import it.denning.network.services.DenningService;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;

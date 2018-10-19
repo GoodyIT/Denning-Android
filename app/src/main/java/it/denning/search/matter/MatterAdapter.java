@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import it.denning.search.utils.*;
 import org.zakariya.stickyheaders.SectioningAdapter;
 
 import java.util.HashMap;
@@ -27,12 +28,6 @@ import it.denning.model.MatterProperty;
 import it.denning.model.PartyGroup;
 import it.denning.model.MatterModel;
 import it.denning.model.SolicitorGroup;
-import it.denning.search.utils.OnAccountsClickListener;
-import it.denning.search.utils.OnDetailItemClickListener;
-import it.denning.search.utils.OnFileFolderClickListener;
-import it.denning.search.utils.OnFileNoteClickListener;
-import it.denning.search.utils.OnMatterCodeClickListener;
-import it.denning.search.utils.OnPaymentRecordClickListener;
 
 /**
  * Created by denningit on 27/04/2017.
@@ -47,6 +42,8 @@ public class MatterAdapter extends SectioningAdapter {
     OnFileNoteClickListener fileNoteClickListener;
     OnPaymentRecordClickListener paymentRecordClickListener;
     OnMatterCodeClickListener matterCodeClickListener;
+    OnTemplateClickListener templateClickListener;
+    OnUploadClickListener uploadClickListener;
     Map<Integer, Integer> typeSet;
     int numberOfFirstGeneralTypeHolders;
 
@@ -57,13 +54,22 @@ public class MatterAdapter extends SectioningAdapter {
         this.numberOfFirstGeneralTypeHolders = 5;
     }
 
-    public void setClickListeners(OnMatterCodeClickListener matterCodeClickListener, OnDetailItemClickListener itemClickListener, OnFileFolderClickListener fileFolderClickListener, OnAccountsClickListener accountsClickListener, OnFileNoteClickListener fileNoteClickListener, OnPaymentRecordClickListener paymentRecordClickListener) {
+    public void setClickListeners(OnMatterCodeClickListener matterCodeClickListener,
+                                  OnDetailItemClickListener itemClickListener,
+                                  OnFileFolderClickListener fileFolderClickListener,
+                                  OnAccountsClickListener accountsClickListener,
+                                  OnFileNoteClickListener fileNoteClickListener,
+                                  OnPaymentRecordClickListener paymentRecordClickListener,
+                                  OnTemplateClickListener templateClickListener,
+                                  OnUploadClickListener uploadClickListener) {
         this.itemClickListener = itemClickListener;
         this.accountsClickListener = accountsClickListener;
         this.fileFolderClickListener = fileFolderClickListener;
         this.fileNoteClickListener = fileNoteClickListener;
         this.paymentRecordClickListener = paymentRecordClickListener;
         this.matterCodeClickListener = matterCodeClickListener;
+        this.templateClickListener = templateClickListener;
+        this.uploadClickListener = uploadClickListener;
     }
 
     public class GeneralTypeViewHolder extends SectioningAdapter.ItemViewHolder{
@@ -88,6 +94,8 @@ public class MatterAdapter extends SectioningAdapter {
         @BindView(R.id.search_matter_openFolderBtn) Button openFolderBtn;
         @BindView(R.id.search_matter_filenoteBtn) Button fileNoteBtn;
         @BindView(R.id.search_matter_paymentRecordBtn) Button paymentRecordBtn;
+        @BindView(R.id.search_matter_templateBtn) Button templateBtn;
+        @BindView(R.id.search_matter_uploadBtn) Button uploadBtn;
 
         public MatterLastTypeViewHolder(View itemView) {
             super(itemView);
@@ -430,8 +438,11 @@ public class MatterAdapter extends SectioningAdapter {
                 setupOnclickForCardview(viewHolder, "property", propertyCode);
                 break;
 
-            default:
+            case DIConstants.MATTER_FILES_LEDGERS:
                 displayMatterLast(viewHolder, itemIndex);
+                break;
+
+            default:
                 break;
         }
     }
@@ -613,6 +624,7 @@ public class MatterAdapter extends SectioningAdapter {
     void displayMatterLast(SectioningAdapter.ItemViewHolder holder, final int position) {
         MatterLastTypeViewHolder matterLasterTypeViewHolder = (MatterLastTypeViewHolder) holder;
         final String code = mRelatedMatter.systemNo;
+        final String title = mRelatedMatter.systemNo + " (" + mRelatedMatter.clientName() + ")";
         matterLasterTypeViewHolder.openFolderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -638,6 +650,20 @@ public class MatterAdapter extends SectioningAdapter {
             @Override
             public void onClick(View v) {
                 paymentRecordClickListener.onPaymentRecordClick(v, code);
+            }
+        });
+
+        matterLasterTypeViewHolder.uploadBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uploadClickListener.onUploadClick(v, title, R.string.business_upload_title, DIConstants.MATTER_STAFF_FILEFOLDER, "");
+            }
+        });
+
+        matterLasterTypeViewHolder.templateBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                templateClickListener.onTemplateClick(v, code, mRelatedMatter.clientName());
             }
         });
     }

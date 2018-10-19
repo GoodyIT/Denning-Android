@@ -191,11 +191,11 @@ public class DocumentAdapter extends SectioningAdapter {
 
     private void setImageOnFile(ImageView fileImage, String ext) {
         if (DIHelper.isDocFile(ext)) {
-            fileImage.setImageResource(R.mipmap.ic_doc);
+            fileImage.setImageResource(R.drawable.ic_doc);
         } else if (DIHelper.isPDFFile(ext)) {
-            fileImage.setImageResource(R.mipmap.ic_pdf);
+            fileImage.setImageResource(R.drawable.ic_pdf);
         } else if (DIHelper.isImageFile(ext)) {
-            fileImage.setImageResource(R.mipmap.ic_png);
+            fileImage.setImageResource(R.drawable.ic_png);
         } else if (DIHelper.isWebFile(ext)) {
             fileImage.setImageResource(R.mipmap.ic_web);
         }

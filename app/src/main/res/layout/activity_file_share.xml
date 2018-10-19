@@ -100,22 +100,15 @@
                 android:orientation="horizontal"
                 segmentedgroup:sc_border_width="1dp"
                 segmentedgroup:sc_corner_radius="5dp"
-                segmentedgroup:sc_tint_color="@color/white">
+                segmentedgroup:sc_tint_color="#FF3B2F">
 
-                <RadioButton
-                    android:id="@+id/attach_all"
-                    style="@style/SegmentedButtons_Attach"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:soundEffectsEnabled="false"
-                    android:text="All" />
 
                 <RadioButton
                     android:id="@+id/attach_file"
                     style="@style/SegmentedButtons_Attach"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:checked="true"
                     android:text="Matter" />
 
                 <RadioButton
@@ -124,6 +117,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Contact" />
+
+                <RadioButton
+                    android:id="@+id/attach_property"
+                    style="@style/SegmentedButtons_Attach"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Property" />
 
                 <RadioButton
                     android:id="@+id/transit_btn"

@@ -154,7 +154,7 @@ public class AddMatterAdapter extends BaseSectionAdapter {
     private void updateTitles() {
         titles = new ArrayList<>();
         if (isUpdateMode) {
-            String[] __titles = {"Matter Information", "Remarks", "Case Details", "Properties", "PartyGroup", "Solicitors", "Banks", "Important RM", "Important Dates", "Text Group"};
+            String[] __titles = {"Matter Information", "Remarks", "Case Details", "Properties", "Parties", "Solicitors", "Banks", "Important RM", "Important Dates", "Text Group"};
             titles.addAll(Arrays.asList(__titles));
         } else {
             String[] __titles = {"Matter Information"};
@@ -678,9 +678,12 @@ public class AddMatterAdapter extends BaseSectionAdapter {
         JsonObject params = new JsonObject();
 
         List<LabelValueDetail> matterInfo = model.items.get(MATTER_INFO).items;
-        JsonObject branch = new JsonObject();
-        branch.addProperty("code", matterInfo.get(BRANCH).getCode());
-        params.add("branch", branch);
+
+        if (!matterInfo.get(BRANCH).getCode().equals(matter.getBranchCode())) {
+            JsonObject branch = new JsonObject();
+            branch.addProperty("code", matterInfo.get(BRANCH).getCode());
+            params.add("branch", branch);
+        }
 
         if (!matterInfo.get(REF2).value.isEmpty() && !matterInfo.get(REF2).value.equals(matter.getManualNo())) {
             params.addProperty("manualNo", matterInfo.get(REF2).value);

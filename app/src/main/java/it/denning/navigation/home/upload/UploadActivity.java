@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
@@ -40,10 +42,13 @@ import it.denning.general.DIConstants;
 import it.denning.general.DIHelper;
 import it.denning.general.DISharedPreferences;
 import it.denning.model.DocumentModel;
+import it.denning.navigation.add.utils.simplespinerdialog.SimpleSpinnerDialog;
+import it.denning.navigation.add.utils.simplespinerdialog.SpinnerDialog;
 import it.denning.network.CompositeCompletion;
 import it.denning.network.ErrorHandler;
 import it.denning.network.NetworkManager;
 import it.denning.search.utils.ClearableAutoCompleteTextView;
+import it.denning.search.utils.OnSpinerItemClick;
 import it.denning.tasks.GetFilepathFromUriTask;
 import it.denning.ui.activities.base.BaseLoggableActivity;
 import it.denning.ui.activities.others.PreviewImageActivity;
@@ -66,7 +71,7 @@ public class UploadActivity extends BaseLoggableActivity implements OnMediaPicke
     protected TextView toolbarTitle;
 
     @BindView(R.id.rename_autocomplete)
-    protected ClearableAutoCompleteTextView renameAutocomplete;
+    protected TextView renameAutocomplete;
 
     @BindView(R.id.remarks_textview)
     protected TextView remarks;
@@ -156,7 +161,7 @@ public class UploadActivity extends BaseLoggableActivity implements OnMediaPicke
 
     @OnClick(R.id.preview_imageview)
     void previewImage() {
-        if (fileUrl.trim().length() == 0) {
+        if (fileUrl != null && fileUrl.trim().length() == 0) {
             return;
         }
         PreviewImageActivity.start(this, fileUrl);
@@ -243,75 +248,42 @@ public class UploadActivity extends BaseLoggableActivity implements OnMediaPicke
                 fileNo1 = key;
             }
         } else {
-            uploadToLabel.setText(key.split(":")[1]);
-            fileNo1 = DIHelper.separateNameIntoTwo(key.split(":")[1])[0];
+            uploadToLabel.setText(key);
+            fileNo1 = DIHelper.separateNameIntoTwo(key)[0];
         }
     }
 
     private void setupAutoComplete() {
-        renameAutocomplete.setShowAlways(true);
-        renameAutocomplete.setHint("File Name");
-        renameAutocomplete.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+
+        renameAutocomplete.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
-                    KeyboardUtils.hideKeyboard(UploadActivity.this);
-                    renameAutocomplete.setText(v.getText().toString());
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN)
+                {
+                    showFileNameAutocomplete();
+                    v.clearFocus();
                 }
-                return false;
+
+                return true;
             }
         });
 
-        renameAutocomplete.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                if (editable.toString().trim().length() != 0) {
-                    displayRenameSuggestions(editable.toString().trim());
-                }
-            }
-        });
-
-        renameAutocomplete.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                renameAutocomplete.setText(parent.getItemAtPosition(position).toString());
-                KeyboardUtils.hideKeyboard(UploadActivity.this);
-                renameAutocomplete.dismissDropDown();
-
-            }
-        });
     }
 
-    private void displayItems(JsonArray jsonArray) {
-        JsonObject[] jsonObjects = new Gson().fromJson(jsonArray, JsonObject[].class);
-
-        List<String> keywordList = new ArrayList<>();
-        for (JsonObject object : jsonObjects) {
-            keywordList.add(object.get("strSuggestedFilename").getAsString());
-        }
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, keywordList);
-        renameAutocomplete.setAdapter(adapter);
-        if (keywordList.size() > 0) {
-            renameAutocomplete.showDropDownIfFocused();
-        }
-    }
-
-    private void displayRenameSuggestions(String string) {
-        String url = DIConstants.FILE_NAME_AUTOCOMPLETE_URL + string;
-        NetworkManager.getInstance().sendPrivateGetRequestWithoutError(url, new CompositeCompletion() {
+    private void showFileNameAutocomplete() {
+        SpinnerDialog dialog = new SpinnerDialog(this, DIConstants.FILE_NAME_AUTOCOMPLETE_URL, "strSuggestedFilename", R.string.fine_name_title);
+        dialog.bindOnSpinerListener(new OnSpinerItemClick() {
             @Override
-            public void parseResponse(JsonElement jsonElement) {
-                displayItems(jsonElement.getAsJsonArray());
+            public void onClick(String item, int position) {
+                renameAutocomplete.setText(item);
             }
-        }, this);
+
+            @Override
+            public void onClick(JsonObject object) {
+            }
+        });
+
+        dialog.showSpinerDialog();
     }
 
     @Override

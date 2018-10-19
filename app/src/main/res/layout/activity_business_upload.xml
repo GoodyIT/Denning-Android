@@ -190,7 +190,7 @@
                 android:layout_marginLeft="8dp"
                 android:orientation="horizontal"
                 android:background="@color/light_gray"/>
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -199,35 +199,26 @@
 
                 <TextView
 
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginRight="12dp"
-                    android:layout_marginStart="12dp"
-                    android:layout_toLeftOf="@+id/rename_autocomplete"
-                    android:textSize="16sp"
-                    android:text="Rename File"
-                    android:textColor="@color/black"
-                    android:id="@+id/textView2" />
+                        android:layout_width="95dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginStart="8dp"
+                        android:textSize="16sp"
+                        android:text="Rename File"
+                        android:textColor="@color/black"
+                        android:id="@+id/textView2"
+                />
 
-                <it.denning.search.utils.ClearableAutoCompleteTextView
-                    android:id="@+id/rename_autocomplete"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:hint="Rename File"
-                    android:textColor="@color/black"
-                    android:src="@mipmap/ic_detail_gray"
-                    android:textAlignment="textEnd"
-                    android:layout_gravity = "end"
-                    android:textSize="14sp" />
-            </RelativeLayout>
+                <TextView
+                        android:id="@+id/rename_autocomplete"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Touch to change File Name"
+                        android:layout_marginLeft="5dp"
+                        android:textColor="@color/black"
+                        android:src="@mipmap/ic_detail_gray"
+                        android:textSize="14sp"/>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

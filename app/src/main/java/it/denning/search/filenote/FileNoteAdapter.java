@@ -13,6 +13,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import it.denning.R;
 import it.denning.general.DIHelper;
+import it.denning.general.OnBottomReachedListener;
 import it.denning.model.FileNote;
 import it.denning.search.utils.OnItemClickListener;
 
@@ -23,6 +24,7 @@ import it.denning.search.utils.OnItemClickListener;
 public class FileNoteAdapter extends RecyclerView.Adapter<FileNoteAdapter.FileNoteViewHolder>{
     private final List<FileNote> modelList;
     private final OnItemClickListener clickListener;
+    OnBottomReachedListener onBottomReachedListener;
 
     public static class FileNoteViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.name_textview)
@@ -48,6 +50,11 @@ public class FileNoteAdapter extends RecyclerView.Adapter<FileNoteAdapter.FileNo
         this.clickListener = clickListener;
     }
 
+    //    public void setOnBottomReachedListener(OnBottomReachedListener onBottomReachedListener){
+    //
+    //        this.onBottomReachedListener = onBottomReachedListener;
+    //    }
+
     @Override
     public FileNoteViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.
@@ -68,6 +75,11 @@ public class FileNoteAdapter extends RecyclerView.Adapter<FileNoteAdapter.FileNo
                 clickListener.onClick(view, holder.getLayoutPosition());
             }
         });
+
+//        if (position > 0 && position == modelList.size() - 1){
+//
+//            onBottomReachedListener.onBottomReached(position);
+//        }
     }
 
     @Override
@@ -77,6 +89,11 @@ public class FileNoteAdapter extends RecyclerView.Adapter<FileNoteAdapter.FileNo
 
     public List<FileNote> getModelList() {
         return modelList;
+    }
+
+    public void clear() {
+        modelList.clear();
+        notifyDataSetChanged();
     }
 
     public void updateAdapter(List<FileNote> items) {

@@ -157,7 +157,7 @@ public class DenningShareActivity extends BaseLoggableActivity implements OnItem
             String mimeType = getContentResolver().getType((Uri) uri);
             String fileData = DIHelper.UriToBase64((Uri) uri);
             int fileLength = fileData.length();
-            String fileName = ((Uri) uri).getLastPathSegment();
+            String fileName = ((Uri) uri).getLastPathSegment() + '.' + MediaUtils.getExtensionFromUri((Uri) uri);
 
             JsonObject document = new JsonObject();
             document.addProperty("FileName", fileName);
@@ -389,19 +389,19 @@ public class DenningShareActivity extends BaseLoggableActivity implements OnItem
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 int checkedIndex = 0;
                 switch (checkedId) {
-                    case R.id.attach_all:
-                        checkedIndex = 0;
-                        break;
                     case R.id.attach_file:
                         checkedIndex = 1;
                         break;
                     case R.id.attach_contact:
                         checkedIndex = 2;
                         break;
+                    case R.id.attach_property:
+                        checkedIndex = 3;
+                        break;
                     case R.id.transit_btn:
                         uploadBtn.setEnabled(true);
                         fileNo1 = "Transit Folder";
-                        checkedIndex = 3;
+                        checkedIndex = 4;
                         url = DISharedPreferences.getInstance().getServerAPI() + DIConstants.MATTER_STAFF_TRANSIT_FOLDER;
                         break;
                 }
@@ -522,10 +522,13 @@ public class DenningShareActivity extends BaseLoggableActivity implements OnItem
             Integer type = DIHelper.determinSearchType(searchResultModel.form);
             switch (type) {
                 case DIConstants.MATTER_TYPE:
-                    url = DISharedPreferences.getInstance().getServerAPI() + DIConstants.MATTER_STAFF_CONTACT_FOLDER;
+                    url = DISharedPreferences.getInstance().getServerAPI() + DIConstants.MATTER_STAFF_FILEFOLDER;
                     break;
                 case DIConstants.CONTACT_TYPE:
-                    url = DISharedPreferences.getInstance().getServerAPI() + DIConstants.MATTER_STAFF_FILEFOLDER;
+                    url = DISharedPreferences.getInstance().getServerAPI() + DIConstants.MATTER_STAFF_CONTACT_FOLDER;
+                    break;
+                case DIConstants.PROPERTY_TYPE:
+                    url = DISharedPreferences.getInstance().getServerAPI() + DIConstants.PROPERTY_FILE_FOLDER_URL;
                     break;
                 default:
                     break;

@@ -1,5 +1,6 @@
 package it.denning.search.filenote;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -58,11 +59,11 @@ public class NewFileNoteActivity extends BaseActivity {
     private FileNote fileNote;
     private MaterialDialog dialog;
 
-    public static void start(Context context, String fileName, String fileNo) {
+    public static void start(Activity context, String fileName, String fileNo) {
         Intent intent = new Intent(context, NewFileNoteActivity.class);
         intent.putExtra("fileNo", fileNo);
         intent.putExtra("fileName", fileName);
-        context.startActivity(intent);
+        context.startActivityForResult(intent, DIConstants.REQUEST_CODE);
     }
 
     @Override

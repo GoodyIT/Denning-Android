@@ -8,53 +8,44 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.view.View;
-
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.quickblox.q_municate_db.utils.ErrorUtils;
-
-import org.zakariya.stickyheaders.StickyHeaderLayoutManager;
-
 import it.denning.R;
 import it.denning.general.DIConstants;
 import it.denning.general.DISharedPreferences;
-import it.denning.model.Accounts;
-import it.denning.model.Bank;
-import it.denning.model.CodeDescription;
-import it.denning.model.Contact;
-import it.denning.model.LegalFirm;
-import it.denning.model.MatterCodeModel;
-import it.denning.model.MatterModel;
-import it.denning.model.Property;
-import it.denning.model.StaffModel;
+import it.denning.model.*;
 import it.denning.navigation.add.matter.AddMatterActivity;
 import it.denning.navigation.add.property.AddPropertyActivity;
-import it.denning.navigation.add.utils.contactlist.ContactListActivity;
+import it.denning.navigation.home.upload.UploadActivity;
 import it.denning.network.CompositeCompletion;
 import it.denning.network.ErrorHandler;
 import it.denning.network.NetworkManager;
 import it.denning.search.MatterCode.MatterCodeActivity;
-import it.denning.search.SearchActivity;
 import it.denning.search.accounts.AccountsActivity;
 import it.denning.search.bank.BankActivity;
 import it.denning.search.contact.SearchContactActivity;
+import it.denning.search.document.DocumentActivity;
 import it.denning.search.filenote.FileNoteActivity;
 import it.denning.search.legal_firm.LegalFirmActivity;
 import it.denning.search.paymentrecord.PaymentRecordActivity;
-import it.denning.search.property.PropertyActivity;
-import it.denning.search.utils.OnAccountsClickListener;
-import it.denning.search.utils.OnDetailItemClickListener;
-import it.denning.search.utils.OnFileFolderClickListener;
-import it.denning.search.utils.OnFileNoteClickListener;
-import it.denning.search.utils.OnMatterCodeClickListener;
-import it.denning.search.utils.OnPaymentRecordClickListener;
+import it.denning.search.template.TemplateActivity;
+import it.denning.search.utils.*;
 import it.denning.ui.activities.base.MyBaseActivity;
+import org.zakariya.stickyheaders.StickyHeaderLayoutManager;
 
 /**
  * Created by denningit on 27/04/2017.
  */
 
-public class MatterActivity extends MyBaseActivity implements OnMatterCodeClickListener, OnDetailItemClickListener, OnFileFolderClickListener, OnAccountsClickListener, OnFileNoteClickListener, OnPaymentRecordClickListener {
+public class MatterActivity extends MyBaseActivity implements OnMatterCodeClickListener,
+        OnDetailItemClickListener,
+        OnFileFolderClickListener,
+        OnAccountsClickListener,
+        OnFileNoteClickListener,
+        OnPaymentRecordClickListener,
+        OnTemplateClickListener,
+        OnUploadClickListener {
     private  MatterModel relatedMatter;
 
     public static void start(Context context, MatterModel relatedMatter) {
@@ -86,7 +77,7 @@ public class MatterActivity extends MyBaseActivity implements OnMatterCodeClickL
         recyclerView.addItemDecoration(new it.denning.general.DividerItemDecoration(ContextCompat.getDrawable(this, R.drawable.item_decorator)));
         recyclerView.setHasFixedSize(true);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        matterAdapter.setClickListeners(this, this, this, this, this, this);
+        matterAdapter.setClickListeners(this, this, this, this, this, this, this, this);
 
         recyclerView.setAdapter(matterAdapter);
     }
@@ -142,16 +133,18 @@ public class MatterActivity extends MyBaseActivity implements OnMatterCodeClickL
     void openFileFolder(String code) {
         String url= DIConstants.MATTER_GET_URL + code + "/fileFolder";
 
-        showSnackbar(R.string.general_loading, Snackbar.LENGTH_INDEFINITE);
+        showActionBarProgress();
         NetworkManager.getInstance().sendPrivateGetRequest(url, new CompositeCompletion() {
             @Override
             public void parseResponse(JsonElement jsonElement) {
-                hideSnackBar();
+                hideActionBarProgress();
+                DISharedPreferences.getInstance().documentModel = new Gson().fromJson(jsonElement, DocumentModel.class);
+                DocumentActivity.start(MatterActivity.this, "File Folder");
             }
         }, new ErrorHandler() {
             @Override
             public void handleError(String error) {
-                hideSnackBar();
+                hideActionBarProgress();
                 ErrorUtils.showError(MatterActivity.this, error);
             }
         });
@@ -259,5 +252,15 @@ public class MatterActivity extends MyBaseActivity implements OnMatterCodeClickL
                 relatedMatter = (MatterModel) data.getSerializableExtra("model");
             }
         }
+    }
+
+    @Override
+    public void onTemplateClick(View view, String code, String title) {
+        TemplateActivity.start(this, code, title);
+    }
+
+    @Override
+    public void onUploadClick(View view, String code, int title, String url, String defaultFileName) {
+        UploadActivity.start(this, code, title, url, defaultFileName);
     }
 }

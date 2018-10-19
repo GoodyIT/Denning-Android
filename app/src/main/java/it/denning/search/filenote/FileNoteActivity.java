@@ -175,4 +175,13 @@ public class FileNoteActivity extends BaseActivity implements OnItemClickListene
         DISharedPreferences.fileNote = fileNoteAdapter.getModelList().get(position);
         NewFileNoteActivity.start(this, name, code);
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == DIConstants.REQUEST_CODE) {
+            page = 1;
+            fileNoteAdapter.clear();
+            loadFileNotes();
+        }
+    }
 }

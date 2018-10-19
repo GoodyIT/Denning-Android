@@ -122,7 +122,7 @@ public class Home extends Fragment {
         searchView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if (!userTouchedView) {
+                if (!userTouchedView && event.getAction() == MotionEvent.ACTION_DOWN) {
                     //YOUR CASE 2
                     if (DISharedPreferences.getInstance().isSessionExpired) {
                         DIAlert.showSimpleAlert(getActivity(), R.string.warning_title, R.string.alert_session_expired);
@@ -198,6 +198,7 @@ public class Home extends Fragment {
 
     private void gotoSearch() {
         Intent myIntent = new Intent(getActivity(), SearchActivity.class);
+        myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(myIntent);
     }
 
@@ -333,6 +334,10 @@ public class Home extends Fragment {
     private void showBranch(JsonObject jsonObject) {
         ((MainActivity)getActivity()).hideProgress();
         FirmURLModel firmURLModel = new Gson().fromJson(jsonObject, FirmURLModel.class);
+        if (firmURLModel.catDenning == null) {
+            DIAlert.showSimpleAlert(getContext(), R.string.alert_no_branch);
+            return;
+        }
         DISharedPreferences.getInstance(getContext()).saveUserInfoFromResponse(firmURLModel);
 
         DISharedPreferences.isSessionExpired = false;

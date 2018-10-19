@@ -24,6 +24,7 @@ import it.denning.R;
 import it.denning.general.DIAlert;
 import it.denning.general.DIHelper;
 import it.denning.navigation.dashboard.section1.staffleave.leaveapp.DashboardLeaveAppFragment;
+import it.denning.navigation.home.calculators.realproperty.RealPropertyActivity;
 import it.denning.navigation.home.util.MinMaxFilter;
 
 public class SPAFragment extends Fragment {
@@ -53,7 +54,7 @@ public class SPAFragment extends Fragment {
     TextView grandTotalTextview;
 
     private float relationship_sel = -2.0f;
-    private float[] relationship_sel_array = {1, 0, 0.5f, 0.5f, -1, -1, -1, -1, -1};
+    private float[] relationship_sel_array = {1, 0, 0.5f, 0.5f, 1, 1, -1, -1, -1, -1, -1};
     private int relationship_sel_index = 0;
 //    private ArrayList<String> loan_margin_array = new ArrayList<>();
 //    private ArrayList<Integer> loan_margin_int_array = new ArrayList<>();
@@ -122,7 +123,10 @@ public class SPAFragment extends Fragment {
         relationship_sel = relationship_sel_array[relationship_sel_index];
         loanTypeTexview.setText(getResources().getStringArray(R.array.loan_type)[loan_type_sel_index]);
         loan_type_sel = loan_type_array[loan_type_sel_index];
-        loanMarginTextview.setText("1");
+        loanMarginTextview.setText("90");
+
+        priceTextview.setOnFocusChangeListener(new MyCustomEditTextListener());
+        loanMarginTextview.setOnFocusChangeListener(new MyCustomEditTextListener());
     }
 
     @OnClick(R.id.reset_btn)

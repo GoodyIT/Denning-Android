@@ -132,7 +132,7 @@ public class FileLedgerAdapter extends SectioningAdapter {
             customViewHolder.thirdValue.setText(debit);
         }
 
-        if (itemIndex == modelArrayList.size() - 1){
+        if (itemIndex > 0 && itemIndex == modelArrayList.size() - 1){
 
             onBottomReachedListener.onBottomReached(itemIndex);
 

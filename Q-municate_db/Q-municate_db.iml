@@ -123,8 +123,8 @@
     <orderEntry type="library" name="Gradle: org.jxmpp:jxmpp-core:0.4.2@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.j256.ormlite:ormlite-android:5.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: de.measite.minidns:minidns:0.1.7@jar" level="project" />
-    <orderEntry type="module" module-name="q-municate_base_cache" />
-    <orderEntry type="module" module-name="q-municate_base_service" />
     <orderEntry type="module" module-name="q-municate_user_service" />
+    <orderEntry type="module" module-name="q-municate_base_service" />
+    <orderEntry type="module" module-name="q-municate_base_cache" />
   </component>
 </module>

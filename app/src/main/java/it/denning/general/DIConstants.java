@@ -17,7 +17,7 @@ public class DIConstants {
 
     public static final String  GOOGLE_MAP_REVERSE_URL  = "maps/api/geocode/json?key=AIzaSyAxOQtqe1t0TkVgmYV1t7Y_JWFERGEpcuU&latlng=";
 
-    public static final String kDIAgreementUrl = "http://denningsoft.dlinkddns.com/denningwcf/v1/table/eulaAPP";
+    public static final String kDIAgreementUrl = "https://denningonline.com.my/denningapi/v1/table/eulaAPP";
     public static final String kDIAgreementGetUrl = "denningapi/v1/table/eulaAPP";
 
     public static final String HOME_ADS_GET_URL = "denningapi/v1/advertisement";
@@ -71,7 +71,7 @@ public class DIConstants {
 
     public static final String GENERAL_KEYWORD_SEARCH_URL = "v1/generalSearch/keyword?search=";
     public static final String GENERAL_SEARCH_URL = "v1/generalSearch?search=";
-    public static final String[] GeneralSearchFilter = {"All", "Contacts", "Related Matter", "Property", "Bank", "Government Offices", "Legal Firm", "Documents"};
+    public static final String[] GeneralSearchFilter = {"All", "Contacts", "Related Matters", "Property", "Bank", "Government Offices", "Legal Firm", "Documents"};
     public static final int[] GeneralSearchCategory = {0, 1, 2, 4, 8, 16, 32, 64};
 
     public static final String GENERAL_SESSION_ID  = "{334E910C-CC68-4784-9047-0F23D37C9CF9}";

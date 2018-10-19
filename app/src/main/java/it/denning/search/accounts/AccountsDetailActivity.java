@@ -116,23 +116,26 @@ public class AccountsDetailActivity extends BaseActivity implements RadioGroup.O
     private void setupFilter() {
         for (int i = 0; i < accounts.ledgerArrayList.size(); i++) {
             filterTabLayout.addTab(filterTabLayout.newTab().setText(accounts.ledgerArrayList.get(i).accountName));
-            filterTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-                @Override
-                public void onTabSelected(TabLayout.Tab tab) {
-                    getAccountFromFilter(tab);
-                }
-
-                @Override
-                public void onTabUnselected(TabLayout.Tab tab) {
-
-                }
-
-                @Override
-                public void onTabReselected(TabLayout.Tab tab) {
-
-                }
-            });
         }
+        filterTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                getAccountFromFilter(tab);
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+        TabLayout.Tab tab = filterTabLayout.getTabAt(selectedIndex);
+        tab.select();
+        filterTabLayout.setScrollPosition(selectedIndex, 0f, true);
     }
 
     private void getAccountFromFilter(TabLayout.Tab tab) {

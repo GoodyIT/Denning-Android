@@ -78,7 +78,7 @@
                         android:background="@drawable/selector_button_red_oval"
                         android:paddingLeft="3dp"
                         android:paddingRight="3dp"
-                        android:text="Related Matter"
+                        android:text="Related Matters"
                         android:textColor="@android:color/white" />
 
                     <Button

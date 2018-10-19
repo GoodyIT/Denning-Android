@@ -366,6 +366,7 @@
 
     <string name="alert_log_in">Please log in to use this function</string>
     <string name="alert_shared_folder">You cannot access this folder. please subscribe dening user</string>
+    <string name="alert_no_branch">There is no branch</string>
     <string name="alert_client">Sorry, only client can use this function</string>
     <string name="alert_no_access_to_firm">You have no access privilege to this firm.</string>
     <string name="general_loading">Loading...</string>
@@ -402,6 +403,7 @@
     <string name="payment_record_title">Payment Record</string>
     <string name="template_title">Template</string>
     <string name="accounts_title">Accounts</string>
+    <string name="fine_name_title">File Name</string>
     <string name="new_device_title">TAC Confirmation</string>
     <string name="password_confirm_title">Password Confirmation</string>
     <string name="client_upload_title">Upload to Contact Folder</string>
@@ -622,8 +624,10 @@
     <string-array name="spa_relationship">
         <item>Seller-Purchaser (100%)</item>
         <item>Husband-Wife (0%)</item>
-        <item>Parents-Child (50%)</item>
-        <item>Grandparent-Grandchild (50%)</item>
+        <item>Parents-Children (50%)</item>
+        <item>Grandparents-Grandchildren (50%)</item>
+        <item>Love &amp; Affections (100%)</item>
+        <item>Gift / No Consideration (100%)</item>
         <item>Administrator-Beneficiary (RM10)</item>
         <item>Executor-Beneficiary (RM10)</item>
         <item>Trustee-Beneficiary (RM10)</item>

@@ -73,7 +73,7 @@ public class FileLedgerDetailActivity extends GeneralActivity implements OnItemC
         Bundle bundle = getIntent().getExtras();
         model = (BankReconModel) bundle.getSerializable("model");
 
-        segmentedGroup.setOnCheckedChangeListener(this);
+            segmentedGroup.setOnCheckedChangeListener(this);
         updateHeaderAndFooter();
         parseURL();
         setupList();

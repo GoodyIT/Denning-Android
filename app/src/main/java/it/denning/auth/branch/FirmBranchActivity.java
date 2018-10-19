@@ -112,6 +112,7 @@ public class FirmBranchActivity extends AppCompatActivity implements OnItemClick
                     DISharedPreferences.getInstance().saveSessionID(firmURLModel.sessionID);
                     DISharedPreferences.getInstance().saveServerAPI(firmModel);
                     MainActivity.start(FirmBranchActivity.this);
+                    finish();
                 } else {
                     ErrorUtils.showError(FirmBranchActivity.this, getApplicationContext().getResources().getString(R.string.alert_no_access_to_firm));
                 }

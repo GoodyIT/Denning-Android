@@ -36,7 +36,7 @@ public class DenningShareAdapter extends SectioningAdapter {
     private List<ParentModel> searchModelList, filteredArrayList = new ArrayList<>();
     private final Context mContext;
     private OnItemClickListener clickListener;
-    public int tab = 0;
+    public int tab = 1;
     private static CheckBox lastChecked = null;
     private static int lastCheckedPos = 0;
 
@@ -179,6 +179,9 @@ public class DenningShareAdapter extends SectioningAdapter {
             case DIConstants.MATTER_TYPE:
                 headerName = "Matter";
                 break;
+            case DIConstants.PROPERTY_TYPE:
+                headerName = "Property";
+                break;
 
             default:
                 headerName = "";
@@ -188,10 +191,8 @@ public class DenningShareAdapter extends SectioningAdapter {
     }
 
     public void filterSearchList() {
-        if (tab == 3) {
+        if (tab == 4) {
             filteredArrayList = new ArrayList<>();
-        } else if (tab == 0) { // All
-            filteredArrayList.addAll(searchModelList);
         } else  {
             List<ParentModel> newList = new ArrayList<>();
             for (int i = 0; i < searchModelList.size(); i++) {
@@ -199,7 +200,9 @@ public class DenningShareAdapter extends SectioningAdapter {
                 Integer type = DIHelper.determinSearchType(model.form);
                 if (tab == 1 && type == DIConstants.MATTER_TYPE) { // File
                     newList.add(model);
-                } else if (type == DIConstants.CONTACT_TYPE){ // Contact
+                } else if (tab == 2 && type == DIConstants.CONTACT_TYPE){ // Contact
+                    newList.add(model);
+                } else if (tab == 3 && type == DIConstants.PROPERTY_TYPE) {
                     newList.add(model);
                 }
             }

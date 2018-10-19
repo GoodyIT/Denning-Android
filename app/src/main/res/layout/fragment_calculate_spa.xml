@@ -269,24 +269,24 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="SPA"
-                            android:textColor="@color/babyGreen"
-                            android:textSize="14sp" />
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="Transfer"
+                                android:textColor="@color/colorAccent"
+                                android:textSize="14sp"/>
 
                         <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="Loan"
-                            android:textColor="@color/babyGreen"
-                            android:textSize="14sp" />
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="Loan"
+                                android:textColor="@color/colorAccent"
+                                android:textSize="14sp"/>
                     </LinearLayout>
                 </LinearLayout>
                 <LinearLayout

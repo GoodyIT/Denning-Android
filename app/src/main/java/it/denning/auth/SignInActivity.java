@@ -212,8 +212,10 @@ public class SignInActivity extends BaseAuthActivity {
         DISharedPreferences.getInstance().saveUserPassword(passwordEditTExt.getText().toString());
         if (firmURLModel.statusCode == 250) {
             NewDeviceLogin.start(this);
+            finish();
         } else if (firmURLModel.statusCode  == 280) {
            ChangePassword.start(this);
+            finish();
         } else {
             manageUserType(firmURLModel);
         }
@@ -236,6 +238,7 @@ public class SignInActivity extends BaseAuthActivity {
             staffSignIn();
         } else {
             FirmBranchActivity.start(this);
+            finish();
         }
     }
 

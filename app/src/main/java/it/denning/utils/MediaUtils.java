@@ -252,7 +252,7 @@ public class MediaUtils {
         }
     }
 
-    private static String getExtensionFromUri(Uri uri) {
+    public static String getExtensionFromUri(Uri uri) {
         String mimeType = StringUtils.getMimeType(uri);
         MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
         return mimeTypeMap.getExtensionFromMimeType(mimeType);

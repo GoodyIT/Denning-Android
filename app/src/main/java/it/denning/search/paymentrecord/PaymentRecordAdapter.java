@@ -88,10 +88,10 @@ public class PaymentRecordAdapter extends SectioningAdapter {
                 count = paymentRecord.section1.size();
                 break;
             case 1:
-                count = paymentRecord.section2.size();
+                count = paymentRecord.section3.size();
                 break;
             case 2:
-                count = paymentRecord.section3.size();
+                count = paymentRecord.section2.size();
                 break;
         }
 
@@ -146,10 +146,10 @@ public class PaymentRecordAdapter extends SectioningAdapter {
                 displayFirstSection(viewHolder, itemIndex);
                 break;
             case 1:
-                displayItemSection(viewHolder, paymentRecord.section2.get(itemIndex));
+                displayItemSection(viewHolder, paymentRecord.section3.get(itemIndex));
                 break;
             case 2:
-                displayItemSection(viewHolder, paymentRecord.section3.get(itemIndex));
+                displayItemSection(viewHolder, paymentRecord.section2.get(itemIndex));
                 break;
         }
     }

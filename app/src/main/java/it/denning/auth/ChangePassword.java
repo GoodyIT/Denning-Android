@@ -122,6 +122,7 @@ public class ChangePassword extends BaseActivity {
         if (firmURLModel.statusCode == 200) {
             manageUserType(firmURLModel);
         } else {
+            finish();
             MainActivity.start(this);
         }
     }
@@ -132,6 +133,7 @@ public class ChangePassword extends BaseActivity {
             manageFirmURL(firmURLModel.catDenning);
         } else {
             // go to main activity - remove signin activity
+            finish();
             MainActivity.start(this);
         }
     }
@@ -153,6 +155,7 @@ public class ChangePassword extends BaseActivity {
                 if (firmURLModel.statusCode == 200) {
                     DISharedPreferences.getInstance().saveSessionID(firmURLModel.sessionID);
                     MainActivity.start(getApplicationContext());
+                    finish();
                 } else {
                     ErrorUtils.showError(getApplicationContext(), getApplicationContext().getResources().getString(R.string.alert_no_access_to_firm));
                 }

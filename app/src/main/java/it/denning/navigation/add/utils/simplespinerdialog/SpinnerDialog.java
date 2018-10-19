@@ -167,7 +167,9 @@ public class SpinnerDialog {
         }
         items = new ArrayList<>();
         for (JsonObject jsonObject : jsonObjects) {
-            items.add(jsonObject.get(key).getAsString());
+            if (jsonObject.get(key) != null) {
+                items.add(jsonObject.get(key).getAsString());
+            }
         }
 
         adapter.clear();

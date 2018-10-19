@@ -97,9 +97,12 @@ public class NewDeviceLogin extends BaseActivity {
         json.addProperty("hpNumber", DISharedPreferences.getInstance(this).getPhoneNumber());
         json.addProperty("reason", "from new device login");
 
+        showProgress();
+
         NetworkManager.getInstance().sendPublicPostRequest(DIConstants.AUTH_SMS_NEW, json, new CompositeCompletion() {
             @Override
             public void parseResponse(JsonElement jsonElement) {
+                hideProgress();
                 Snackbar.make(newDeviceLayout, "Successfully requested TAC code.", Snackbar.LENGTH_LONG).show();
             }
         }, new ErrorHandler() {
@@ -115,6 +118,8 @@ public class NewDeviceLogin extends BaseActivity {
         json.addProperty("email", DISharedPreferences.getInstance(this).getEmail());
         json.addProperty("activationCode", tacInputView.getText().toString());
 
+        showProgress();
+
         NetworkManager.getInstance().sendPublicPostRequest(DIConstants.AUTH_SMS_NEW, json, new CompositeCompletion() {
             @Override
             public void parseResponse(JsonElement jsonElement) {
@@ -129,6 +134,7 @@ public class NewDeviceLogin extends BaseActivity {
     }
 
     private void manageResponse(JsonObject jsonObject) {
+        hideProgress();
         FirmURLModel firmURLModel = new Gson().fromJson(jsonObject, FirmURLModel.class);
         DISharedPreferences.getInstance(this).saveUserInfoFromNewDeviceLogin(firmURLModel);
         if (firmURLModel.statusCode == 200) {
@@ -169,6 +175,7 @@ public class NewDeviceLogin extends BaseActivity {
                     DISharedPreferences.getInstance().saveUserInfoFromResponse(firmURLModel);
                     DISharedPreferences.getInstance().saveSessionID(firmURLModel.sessionID);
                     MainActivity.start(NewDeviceLogin.this);
+                    finish();
                 } else {
                     ErrorUtils.showError(NewDeviceLogin.this, getApplicationContext().getResources().getString(R.string.alert_no_access_to_firm));
                 }
@@ -182,6 +189,7 @@ public class NewDeviceLogin extends BaseActivity {
     }
 
     private void manageError(String error) {
+        hideProgress();
         ErrorUtils.showError(getApplicationContext(), error);
         if (QBChatService.getInstance().isLoggedIn()) {
             try {

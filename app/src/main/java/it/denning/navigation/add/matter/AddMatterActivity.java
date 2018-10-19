@@ -4,12 +4,15 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import butterknife.BindView;
+import butterknife.OnClick;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.quickblox.q_municate_db.utils.ErrorUtils;
@@ -64,6 +67,10 @@ import it.denning.ui.activities.base.MyBaseActivity;
 public class AddMatterActivity extends MyBaseActivity implements
         OnSectionItemClickListener,
         DatePickerDialog.OnDateSetListener {
+
+    @BindView(R.id.button_edit)
+    FloatingActionButton floatingActionButton;
+
     AddMatterAdapter adapter;
     public MatterModel matter;
     public boolean isSaved = false;
@@ -90,6 +97,7 @@ public class AddMatterActivity extends MyBaseActivity implements
         matter = (MatterModel) getIntent().getSerializableExtra("model");
         isUpdateMode = matter != null;
         updateTitle();
+        floatingActionButton.setVisibility(View.VISIBLE);
     }
 
     private void updateTitle() {
@@ -103,6 +111,7 @@ public class AddMatterActivity extends MyBaseActivity implements
     private void setupRecyclerView() {
         adapter = new AddMatterAdapter(this, this, isUpdateMode);
         recyclerView.setLayoutManager(new StickyHeaderLayoutManager());
+        recyclerView.setNestedScrollingEnabled(false);
         recyclerView.addItemDecoration(new it.denning.general.DividerItemDecoration(ContextCompat.getDrawable(this, R.drawable.item_decorator)));
         recyclerView.setHasFixedSize(true);
         recyclerView.setItemAnimator(null);
@@ -111,6 +120,7 @@ public class AddMatterActivity extends MyBaseActivity implements
             adapter.adjustModelForUpdate(matter);
         }
     }
+
 
     @Override
     public void onClick(View view, int sectionIndex, int itemIndex, String name) {
@@ -186,8 +196,9 @@ public class AddMatterActivity extends MyBaseActivity implements
         ErrorUtils.showError(this, error);
     }
 
-    private void saveMatter() {
-        findViewById(R.id.search_bank_layout).requestFocus();
+    @OnClick(R.id.button_edit)
+    void saveMatter() {
+//        findViewById(R.id.search_bank_layout).requestFocus();
 
 //        if (isSaved) {
 //            return;
@@ -257,7 +268,7 @@ public class AddMatterActivity extends MyBaseActivity implements
         ErrorUtils.showError(this, "Successfully Updated");
     }
 
-    private void _update() {
+    void _update() {
         showProgress();
         String url = DISharedPreferences.getInstance().getServerAPI() + DIConstants.MATTER_SAVE_URL;
         NetworkManager.getInstance().sendPrivatePutRequest(url, adapter.buildUpdateParam(), new CompositeCompletion() {

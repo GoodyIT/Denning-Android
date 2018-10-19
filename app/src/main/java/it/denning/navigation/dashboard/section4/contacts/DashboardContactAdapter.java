@@ -121,7 +121,7 @@ public class DashboardContactAdapter extends SectioningAdapter {
             }
         });
 
-        if (itemIndex == modelArrayList.size() - 1){
+        if (itemIndex > 0 && itemIndex == modelArrayList.size() - 1){
 
             onBottomReachedListener.onBottomReached(itemIndex);
 

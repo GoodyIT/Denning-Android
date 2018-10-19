@@ -151,8 +151,8 @@ public class TemplateActivity extends BaseActivity implements OnItemClickListene
         toolbarTitle.setText(getString(R.string.template_title));
         code = getIntent().getStringExtra("code");
         title = getIntent().getStringExtra("title");
-        name = DIHelper.separateNameIntoTwo(title)[1];
-        toolbarSubTitle.setText(name + "  " + code);
+
+        toolbarSubTitle.setText(title + "  " + code);
 
 
         categoryBtn.setBootstrapBrand(new CustomBootstrapStyle(this));
