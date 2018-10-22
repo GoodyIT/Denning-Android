@@ -9,8 +9,11 @@ import android.webkit.WebView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import it.denning.R;
 import it.denning.auth.branch.FirmBranchActivity;
+import it.denning.network.NetworkManager;
+import it.denning.utils.KeyboardUtils;
 
 /**
  * Created by denningit on 2017-12-09.
@@ -19,6 +22,13 @@ import it.denning.auth.branch.FirmBranchActivity;
 public class AdsViwerActivity extends AppCompatActivity {
     @BindView(R.id.document_webview)
     WebView webView;
+
+    @Override
+    public void onBackPressed()
+    {
+        KeyboardUtils.hideKeyboard(this);
+        finish();
+    }
 
     public static void start(Context context, String url) {
         Intent myIntent = new Intent(context, AdsViwerActivity.class);

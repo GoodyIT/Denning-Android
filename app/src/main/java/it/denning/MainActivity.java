@@ -484,12 +484,16 @@ public class MainActivity extends BaseActivity
         // Set action bar title
         setTitle(menuItem.getTitle());
         int[] tabList = {R.id.nav_home, R.id.nav_add, R.id.nav_dashboard, R.id.nav_message};
+        Boolean isBottomNavSelected = false;
         for (int i : tabList) {
             if (i == menuItem.getItemId()) {
                 bottomBar.setDefaultTab(menuItem.getItemId());
+                isBottomNavSelected = true;
             }
         }
-        displaySelectedScreenByTabID(menuItem.getItemId());
+        if (!isBottomNavSelected) {
+            displaySelectedScreenByTabID(menuItem.getItemId());
+        }
     }
 
     private void displaySelectedScreenByTabID(int tabID) {
@@ -540,14 +544,12 @@ public class MainActivity extends BaseActivity
                 break;
         }
 
-        if (position != -1) {
-            displaySelectedScreen(position);
-        } else {
-            if (position == 1) {
-                replaceFragment(fragment);
-            } else {
+        if (position == 2 || position == 3 || position == 4) {
+            if(checkToLoginChat()){
                 replaceFragment(fragment);
             }
+        } else {
+            replaceFragment(fragment);
         }
 
         mDrawer.closeDrawers();
