@@ -269,6 +269,8 @@ public class DISharedPreferences {
         return (String) getValue(EMAIL_SHARED_KEY, "");
     }
 
+    public String getTheCode() { return (String) getValue(USER_CODE_KEY, ""); }
+
     public String getUsername() {
         return (String) getValue(USERNAME_SHARED_KEY, "");
     }

@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import com.quickblox.q_municate_db.utils.ErrorUtils;
 import it.denning.R;
 import it.denning.general.DIAlert;
 import it.denning.general.DIHelper;
@@ -74,6 +75,7 @@ public class SPAFragment extends Fragment {
                         relationship.setText(text);
                         relationship_sel = relationship_sel_array[which];
                         relationship_sel_index = which;
+                        calc();
                         return true;
                     }
                 })
@@ -94,6 +96,7 @@ public class SPAFragment extends Fragment {
                         loanTypeTexview.setText(text);
                         loan_type_sel = loan_type_array[which];
                         loan_type_sel_index = which;
+                        calc();
                         return true;
                     }
                 })
@@ -127,6 +130,7 @@ public class SPAFragment extends Fragment {
 
         priceTextview.setOnFocusChangeListener(new MyCustomEditTextListener());
         loanMarginTextview.setOnFocusChangeListener(new MyCustomEditTextListener());
+        loanAmountTextview.setOnFocusChangeListener(new MyCustomEditTextListener());
     }
 
     @OnClick(R.id.reset_btn)
@@ -151,17 +155,21 @@ public class SPAFragment extends Fragment {
         float backPrice = priceValue;
         float loanMargin = DIHelper.toFloat(loanMarginTextview.getText().toString());
         if (priceValue == 0) {
-            DIAlert.showSimpleAlert(getActivity(), R.string.warning_title, R.string.alert_price_required);
+//            DIAlert.showSimpleAlert(getActivity(), R.string.warning_title, R.string.alert_price_required);
+            ErrorUtils.showError(getContext(), R.string.alert_price_required);
+                    priceTextview.requestFocus();
             return;
         }
 
         if (relationship_sel == -2.0f) {
-            DIAlert.showSimpleAlert(getActivity(), R.string.warning_title, R.string.alert_price_required);
+//            DIAlert.showSimpleAlert(getActivity(), R.string.warning_title, R.string.alert_price_required);
+            ErrorUtils.showError(getContext(), R.string.alert_price_required);
             return;
         }
 
         if (loanMargin == 0) {
-            DIAlert.showSimpleAlert(getActivity(), R.string.warning_title, R.string.alert_loan_margin_required);
+//            DIAlert.showSimpleAlert(getActivity(), R.string.warning_title, R.string.alert_loan_margin_required);
+            ErrorUtils.showError(getContext(), R.string.alert_loan_margin_required);
             return;
         }
 
@@ -225,7 +233,11 @@ public class SPAFragment extends Fragment {
     protected class MyCustomEditTextListener implements View.OnFocusChangeListener {
         @Override
         public void onFocusChange(View v, final boolean hasFocus) {
-            if (hasFocus) {
+            if (hasFocus || !isVisible() || isDetached()) {
+                return;
+            }
+            if (v.getTag().toString().equals("2")) { // Loan Margin
+                calc();
                 return;
             }
             float value = DIHelper.toFloat(((AppCompatEditText)v).getText().toString());
@@ -235,10 +247,12 @@ public class SPAFragment extends Fragment {
                 case 1:
                     priceTextview.setText(valueWithComma);
                     break;
-                case 2:
+                case 3:
                     loanAmountTextview.setText(valueWithComma);
                     break;
             }
+
+            calc();
         }
     }
 }

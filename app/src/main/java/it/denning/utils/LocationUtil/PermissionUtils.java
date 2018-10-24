@@ -117,7 +117,7 @@ public class PermissionUtils
             if (!listPermissionsNeeded.isEmpty())
             {
                 ActivityCompat.requestPermissions(current_activity, listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]),request_code);
-                return false;
+                return true;
             }
         }
 
@@ -196,9 +196,6 @@ public class PermissionUtils
                         permissionResultCallback.PermissionGranted(req_code);
 
                     }
-
-
-
                 }
                 break;
         }

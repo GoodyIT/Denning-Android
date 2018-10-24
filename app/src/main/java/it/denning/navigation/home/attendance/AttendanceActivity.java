@@ -166,11 +166,7 @@ public class AttendanceActivity extends BaseActivity implements GoogleApiClient.
         permissionUtils.check_permission(permissions,"Need GPS permission for getting your location",1);
 
         // check availability of play services
-        if (checkPlayServices()) {
 
-            // Building the GoogleApi client
-            buildGoogleApiClient();
-        }
     }
 
     private void updateHeaderInfo() {
@@ -564,6 +560,12 @@ public class AttendanceActivity extends BaseActivity implements GoogleApiClient.
     public void PermissionGranted(int request_code) {
         Log.i("PERMISSION","GRANTED");
         isPermissionGranted=true;
+
+        if (checkPlayServices()) {
+
+            // Building the GoogleApi client
+            buildGoogleApiClient();
+        }
     }
 
     @Override

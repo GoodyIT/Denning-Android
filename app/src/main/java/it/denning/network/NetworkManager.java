@@ -180,6 +180,11 @@ public class NetworkManager {
         });
     }
 
+    public void sendPublicCustomGetRequest(String url, final  CompositeCompletion completion, final ErrorHandler errorHandler) {
+        mSingle = getPublicService().getCustomRequest(url);
+        sendRequest(completion, errorHandler);
+    }
+
     public void sendPublicGetRequest(String url, final CompositeCompletion completion, final ErrorHandler errorHandler) {
         mSingle = getPublicService().getRequest(url);
         sendRequest(completion, errorHandler);

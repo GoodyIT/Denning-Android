@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.quickblox.q_municate_db.utils.ErrorUtils;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import java.text.ParseException;
@@ -132,6 +133,7 @@ public class RealPropertyActivity extends BaseActivity implements DatePickerDial
                         stateTaxpayerTextview.setText(text);
                         taxPayer_sel = String.valueOf(text);
                         taxPayer_sel_index = which;
+                        calc();
                         return true;
                     }
                 })
@@ -155,6 +157,8 @@ public class RealPropertyActivity extends BaseActivity implements DatePickerDial
             numberOfYears = DIHelper.calcDateDiff(disposalDate, acquisitionDate);
             numberOfYearTextview.setText(String.valueOf(numberOfYears));
         }
+
+        calc();
     }
 
     @OnClick(R.id.date_disposal_textview)
@@ -229,23 +233,30 @@ public class RealPropertyActivity extends BaseActivity implements DatePickerDial
 
     @OnClick(R.id.calculate_btn)
     void calc() {
-        float saleCommision = DIHelper.toFloat(saleCommissionTextview.getText().toString());
         float salePrice = DIHelper.toFloat(salePriceTextview.getText().toString());
+        float saleCommission = DIHelper.toFloat(saleCommissionTextview.getText().toString());
         float legalCosts = DIHelper.toFloat(legalCostsTextview.getText().toString());
         float renovation = DIHelper.toFloat(renovationTextview.getText().toString());
-        float netDisposal = DIHelper.toFloat(netDisposalTextview.getText().toString());
-        float purchaseCommission = DIHelper.toFloat(purchaseCommisionTextview.getText().toString());
+
         float purchasePrice = DIHelper.toFloat(purchasePriceTextview.getText().toString());
+        float purchaseCommission = DIHelper.toFloat(purchaseCommisionTextview.getText().toString());
         float legalStamp = DIHelper.toFloat(legalStampTextview.getText().toString());
         float otherCosts = DIHelper.toFloat(otherCostsTextview.getText().toString());
-        float netAcquisition = DIHelper.toFloat(netAcquisitionTextview.getText().toString());
-        float gainLoss = DIHelper.toFloat(gainLossTextview.getText().toString());
+
+        final float netDisposal = salePrice - saleCommission - legalCosts - renovation;
+        final float netAcquisition = purchasePrice - purchaseCommission - legalStamp - otherCosts;
+        final float gainLoss = netDisposal - netAcquisition;
+        gainLossTextview.setText(DIHelper.addThousandsSeparator(String.format("%.2f", gainLoss)));
+        netDisposalTextview.setText(DIHelper.addThousandsSeparator(String.format("%.2f", netDisposal)));
+        netAcquisitionTextview.setText(DIHelper.addThousandsSeparator(String.format("%.2f", netAcquisition)));
         String dateDisposal = dateDisposalTextview.getText().toString();
         String dateAcquisition = dateAcquisitionTextview.getText().toString();
-        float numberOfYearsHeld = DIHelper.toFloat(numberOfYearTextview.getText().toString());
+//        float numberOfYearsHeld = DIHelper.toFloat(numberOfYearTextview.getText().toString());
 
         if (dateDisposal.isEmpty()|| dateAcquisition.isEmpty()) {
-            DIAlert.showSimpleAlert(this, R.string.warning_title, R.string.alert_required_all);
+//            DIAlert.showSimpleAlert(this, R.string.warning_title, R.string.alert_required_all);
+            ErrorUtils.showError(this, R.string.alert_required_all);
+
             return;
         }
 
@@ -337,28 +348,8 @@ public class RealPropertyActivity extends BaseActivity implements DatePickerDial
                     otherCostsTextview.setText(valueWithComma);
                     break;
             }
-            float salePrice = DIHelper.toFloat(salePriceTextview.getText().toString());
-            float saleCommision = DIHelper.toFloat(saleCommissionTextview.getText().toString());
-            float legalCosts = DIHelper.toFloat(legalCostsTextview.getText().toString());
-            float renovation = DIHelper.toFloat(renovationTextview.getText().toString());
 
-            float purchasePrice = DIHelper.toFloat(purchasePriceTextview.getText().toString());
-            float purchaseCommission = DIHelper.toFloat(purchaseCommisionTextview.getText().toString());
-            float legalStamp = DIHelper.toFloat(legalStampTextview.getText().toString());
-            float otherCosts = DIHelper.toFloat(otherCostsTextview.getText().toString());
-
-            final float netDisposal = salePrice - saleCommision - legalCosts - renovation;
-            final float netAcquisition = purchasePrice - purchaseCommission - legalStamp - otherCosts;
-            final float gainLoss = netDisposal - netAcquisition;
-            gainLossTextview.setText(DIHelper.addThousandsSeparator(String.format("%.2f", gainLoss)));
-            android.os.Handler handler = new android.os.Handler();
-            handler.postDelayed(new Runnable() {
-                public void run(){
-                    //change adapter contents
-                    netDisposalTextview.setText(DIHelper.addThousandsSeparator(String.format("%.2f", netDisposal)));
-                    netAcquisitionTextview.setText(DIHelper.addThousandsSeparator(String.format("%.2f", netAcquisition)));
-                }
-            }, 300);
+            calc();
         }
     }
 }

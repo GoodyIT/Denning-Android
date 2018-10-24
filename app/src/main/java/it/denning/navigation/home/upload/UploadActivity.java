@@ -183,7 +183,7 @@ public class UploadActivity extends BaseLoggableActivity implements OnMediaPicke
 
         String fileData = DIHelper.bitmapToBase64(MediaUtils.getBitmapFromFile(fileUrl));
         int fileLength = fileData.length();
-        String fileName = "IMG_" + Uri.parse(fileUrl).getLastPathSegment();
+        String fileName =  Uri.parse(fileUrl).getLastPathSegment() + '.' + MediaUtils.getExtensionFromUri( Uri.parse(fileUrl));
 
         JsonObject document = new JsonObject();
         document.addProperty("FileName", fileName);
@@ -206,6 +206,7 @@ public class UploadActivity extends BaseLoggableActivity implements OnMediaPicke
         }
         if (url.isEmpty()) {
             uploadUrl += DIConstants.MATTER_CLIENT_FILEFOLDER;
+            jsonObject.addProperty("fileNo1", DISharedPreferences.getInstance().getTheCode());
         } else {
             uploadUrl += url;
         }

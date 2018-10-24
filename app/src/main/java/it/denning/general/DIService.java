@@ -78,7 +78,7 @@ public class DIService {
 
     public static void fetchContacts(final DIMessageInterface messageInterface) {
         String url  = DIConstants.CHAT_GET_URL + DISharedPreferences.getInstance().getEmail();
-        NetworkManager.getInstance().sendPublicGetRequest(url, new CompositeCompletion() {
+        NetworkManager.getInstance().sendPublicCustomGetRequest(url, new CompositeCompletion() {
             @Override
             public void parseResponse(JsonElement jsonElement) {
                 manageResponse(jsonElement, messageInterface);

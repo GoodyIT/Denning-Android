@@ -497,6 +497,7 @@
     <string name="select_state_of_taxpayer">Select an option</string>
     <string name="denning_support_title">Denning Support</string>
     <string name="alert_price_required">Please input the price or market value to calculate stamp duty</string>
+    <string name="alert_loan_required">Please input the loan amount to calculate</string>
     <string name="alert_relatinship_required">Please select the relationship you want to apply for.</string>
     <string name="alert_loan_margin_required">Please select the loan margin you want to apply for.</string>
     <string name="alert_legal_negotiate">Legal fee is negotiable for such price</string>

@@ -87,6 +87,9 @@ public interface DenningService {
     @PUT
     Call<JsonElement> putRequest(@Url String url, @Body JsonObject body);
 
+    @GET
+    Call<JsonElement> getCustomRequest(@Url String url);
+
     @GET("{url}")
     Call<JsonElement> getRequest(@Path("url") String url);
 

@@ -13,6 +13,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import com.quickblox.q_municate_db.utils.ErrorUtils;
 import it.denning.R;
 import it.denning.general.DIAlert;
 import it.denning.general.DIHelper;
@@ -45,6 +46,10 @@ public class SharesFragment extends Fragment {
         ButterKnife.bind(this, view);
         legalFeeMarginTextview.setFilters(new InputFilter[]{ new MinMaxFilter("1", "100")});
         legalFeeMarginTextview.setText(String.valueOf(1));
+
+        saleConsiderationTextview.setOnFocusChangeListener(new MyCustomEditTextListener());
+        ntaTextview.setOnFocusChangeListener(new MyCustomEditTextListener());
+        perTextview.setOnFocusChangeListener(new MyCustomEditTextListener());
     }
 
     @Override
@@ -70,15 +75,18 @@ public class SharesFragment extends Fragment {
         float nta = DIHelper.toFloat(ntaTextview.getText().toString());
         float per = DIHelper.toFloat(perTextview.getText().toString());
         if (saleConsideration == 0) {
-            DIAlert.showSimpleAlert(getActivity(), R.string.warning_title, R.string.alert_sale_consideration_required);
+//            DIAlert.showSimpleAlert(getActivity(), R.string.warning_title, R.string.alert_sale_consideration_required);
+            ErrorUtils.showError(getContext(), R.string.alert_sale_consideration_required);
             return;
         }
         if (nta == 0) {
-            DIAlert.showSimpleAlert(getActivity(), R.string.warning_title, R.string.alert_nta_required);
+//            DIAlert.showSimpleAlert(getActivity(), R.string.warning_title, R.string.alert_nta_required);
+            ErrorUtils.showError(getContext(), R.string.alert_nta_required);
             return;
         }
         if (per == 0) {
-            DIAlert.showSimpleAlert(getActivity(), R.string.warning_title, R.string.alert_per_required);
+//            DIAlert.showSimpleAlert(getActivity(), R.string.warning_title, R.string.alert_per_required);
+            ErrorUtils.showError(getContext(), R.string.alert_per_required);
             return;
         }
         float hightestValue = Math.max(saleConsideration, nta);
@@ -91,5 +99,36 @@ public class SharesFragment extends Fragment {
         stampTextview.setText(DIHelper.addThousandsSeparator(String.format("%.2f", stampDuty)));
         legalFeeTextview.setText(DIHelper.addThousandsSeparator(String.format("%.2f", legalFee)));
         totalTextview.setText(DIHelper.addThousandsSeparator(String.format("%.2f", total)));
+    }
+
+    protected class MyCustomEditTextListener implements View.OnFocusChangeListener {
+        @Override
+        public void onFocusChange(View v, final boolean hasFocus) {
+            if (hasFocus || !isVisible() || isDetached()) {
+                return;
+            }
+
+            if (v.getTag().toString().equals("4")) { // Loan Margin
+                calc();
+                return;
+            }
+
+            float value = DIHelper.toFloat(((AppCompatEditText)v).getText().toString());
+            String valueWithComma = DIHelper.addThousandsSeparator(String.valueOf(value));
+
+            switch (Integer.valueOf(v.getTag().toString())) {
+                case 1:
+                    saleConsiderationTextview.setText(valueWithComma);
+                    break;
+                case 2:
+                    ntaTextview.setText(valueWithComma);
+                    break;
+                case 3:
+                    perTextview.setText(valueWithComma);
+                    break;
+            }
+
+            calc();
+        }
     }
 }

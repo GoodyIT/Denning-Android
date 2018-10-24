@@ -90,7 +90,7 @@ public class DIConstants {
 
     public static final String DASHBOARD_COMPLETION_TRACKING_HEADER_GET_URL = "v1/app/dashboard/spaCompletionDate";
 
-    public static final String CHAT_GET_URL = "denningapi/v2/chat/contact?userid=";
+    public static final String CHAT_GET_URL = "https://denningonline.com.my/denningapi/v2/chat/contact?userid=";
 
     public static final String CHAT_ADD_FAVORITE = "https://www.denningonline.com.my/denningapi/v1/chat/contact/fav";
 

@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 
+import com.quickblox.q_municate_db.utils.ErrorUtils;
 import org.w3c.dom.Text;
 
 import butterknife.BindView;
@@ -53,6 +54,9 @@ public class TenancyFragment extends Fragment {
         ButterKnife.bind(this, view);
         type.setText(getResources().getStringArray(R.array.tenancy_type)[type_sel_index]);
         type_sel = type_int_array[type_sel_index];
+
+        monthlyRentTextview.setOnFocusChangeListener(new MyCustomEditTextListener());
+        termsTenancyTextview.setOnFocusChangeListener(new MyCustomEditTextListener());
     }
 
     @Override
@@ -73,6 +77,7 @@ public class TenancyFragment extends Fragment {
                         type.setText(text);
                         type_sel = type_int_array[which];
                         type_sel_index = which;
+                        calc();
                         return true;
                     }
                 })
@@ -96,18 +101,21 @@ public class TenancyFragment extends Fragment {
     void calc() {
         float monthlyRent = DIHelper.toFloat(monthlyRentTextview.getText().toString());
         if (monthlyRent == 0) {
-            DIAlert.showSimpleAlert(getActivity(), R.string.warning_title, R.string.alert_monthly_rent_required);
+//            DIAlert.showSimpleAlert(getActivity(), R.string.warning_title, R.string.alert_monthly_rent_required);
+            ErrorUtils.showError(getContext(), R.string.alert_monthly_rent_required);
             return;
         }
+        float annualRent = monthlyRent / 12f;
+        annualRentRextview.setText(DIHelper.addThousandsSeparator(String.format("%.2f", annualRent)));
 
         float termsTenancy = DIHelper.toFloat(termsTenancyTextview.getText().toString());
         if (termsTenancy == 0) {
-            DIAlert.showSimpleAlert(getActivity(), R.string.warning_title, R.string.alert_terms_tenancy_required);
+//            DIAlert.showSimpleAlert(getActivity(), R.string.warning_title, R.string.alert_terms_tenancy_required);
+            ErrorUtils.showError(getContext(), R.string.alert_terms_tenancy_required);
             return;
         }
 
-        float stampDuty = 0;
-        float annualRent = DIHelper.toFloat(annualRentRextview.getText().toString());
+        float stampDuty;
         if (annualRent <= 2400) {
             stampDuty = 0;
         }
@@ -126,5 +134,30 @@ public class TenancyFragment extends Fragment {
         stampDutyTextview.setText(DIHelper.addThousandsSeparator(String.format("%.2f", stampDuty)));
         legalFeeTextview.setText(DIHelper.addThousandsSeparator(String.format("%.2f", legalFee)));
         totalTextview.setText(DIHelper.addThousandsSeparator(String.format("%.2f", total)));
+    }
+
+    protected class MyCustomEditTextListener implements View.OnFocusChangeListener {
+        @Override
+        public void onFocusChange(View v, final boolean hasFocus) {
+            if (hasFocus || !isVisible() || isDetached()) {
+                return;
+            }
+
+            if (v.getTag().toString().equals("2")) { // Terms of tenancy
+                calc();
+                return;
+            }
+
+            float value = DIHelper.toFloat(((AppCompatEditText)v).getText().toString());
+            String valueWithComma = DIHelper.addThousandsSeparator(String.valueOf(value));
+
+            switch (Integer.valueOf(v.getTag().toString())) {
+                case 1:
+                    monthlyRentTextview.setText(valueWithComma);
+                    break;
+            }
+
+            calc();
+        }
     }
 }

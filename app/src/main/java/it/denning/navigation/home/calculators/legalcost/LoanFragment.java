@@ -15,6 +15,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import com.quickblox.q_municate_db.utils.ErrorUtils;
 import it.denning.R;
 import it.denning.general.DIAlert;
 import it.denning.general.DIHelper;
@@ -47,6 +48,7 @@ public class LoanFragment extends Fragment {
                         type.setText(text);
                         loan_type_sel = loan_type_array[which];
                         loan_type_sel_index = which;
+                        calc();
                         return true;
                     }
                 })
@@ -67,6 +69,8 @@ public class LoanFragment extends Fragment {
         ButterKnife.bind(this, view);
         type.setText(getResources().getStringArray(R.array.loan_type)[loan_type_sel_index]);
         loan_type_sel = loan_type_array[loan_type_sel_index];
+
+        loanTextview.setOnFocusChangeListener(new MyCustomEditTextListener());
     }
 
     @Override
@@ -90,7 +94,8 @@ public class LoanFragment extends Fragment {
         float priceValue = DIHelper.toFloat(loanTextview.getText().toString());
         float backPrice = priceValue;
         if (priceValue == 0) {
-            DIAlert.showSimpleAlert(getActivity(), R.string.warning_title, R.string.alert_price_required);
+//            DIAlert.showSimpleAlert(getActivity(), R.string.warning_title, R.string.alert_loan_required);
+            ErrorUtils.showError(getContext(), R.string.alert_loan_required);
             return;
         }
 
@@ -98,11 +103,32 @@ public class LoanFragment extends Fragment {
         priceValue = DIHelper.calcLoanAndLegal(backPrice)[0];
         float legalFee = DIHelper.calcLoanAndLegal(backPrice)[1];
         if (priceValue > 0) {
-            DIAlert.showSimpleAlert(getActivity(), R.string.warning_title, R.string.alert_legal_negotiate);
+//            DIAlert.showSimpleAlert(getActivity(), R.string.warning_title, R.string.alert_legal_negotiate);
+            ErrorUtils.showError(getContext(), R.string.alert_legal_negotiate);
         }
         float totalLoan = (stampDuty+legalFee);
         stampTextview.setText(DIHelper.addThousandsSeparator(String.format("%.2f", stampDuty)));
         legalFeeTextview.setText(DIHelper.addThousandsSeparator(String.format("%.2f", legalFee)));
         totalTextview.setText(DIHelper.addThousandsSeparator(String.format("%.2f", totalLoan)));
+    }
+
+    protected class MyCustomEditTextListener implements View.OnFocusChangeListener {
+        @Override
+        public void onFocusChange(View v, final boolean hasFocus) {
+            if (hasFocus || !isVisible() || isDetached()) {
+                return;
+            }
+
+            float value = DIHelper.toFloat(((AppCompatEditText)v).getText().toString());
+            String valueWithComma = DIHelper.addThousandsSeparator(String.valueOf(value));
+
+            switch (Integer.valueOf(v.getTag().toString())) {
+                case 1:
+                    loanTextview.setText(valueWithComma);
+                    break;
+            }
+
+            calc();
+        }
     }
 }
