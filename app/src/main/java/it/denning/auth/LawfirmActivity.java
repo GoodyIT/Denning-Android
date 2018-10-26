@@ -26,6 +26,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.quickblox.q_municate_db.utils.ErrorUtils;
 
+import it.denning.model.StaffModel;
 import org.json.JSONArray;
 import org.json.JSONException;
 
@@ -112,7 +113,7 @@ public class LawfirmActivity extends MySearchBaseActivity implements OnItemClick
         loadData();
     }
     private void setupRecyclerView() {
-        adapter = new LawfirmAdapter(new ArrayList<LegalFirm>(), this);
+        adapter = new LawfirmAdapter(new ArrayList<StaffModel>(), this);
         linearLayoutManager = new LinearLayoutManager(this, OrientationHelper.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.addItemDecoration(new it.denning.general.DividerItemDecoration(ContextCompat.getDrawable(this, R.drawable.item_decorator)));
@@ -136,7 +137,7 @@ public class LawfirmActivity extends MySearchBaseActivity implements OnItemClick
 
     private void manageResponse(JsonArray jsonArray) {
         hideActionBarProgress();
-        LegalFirm[] values = new Gson().fromJson(jsonArray, LegalFirm[].class);
+        StaffModel[] values = new Gson().fromJson(jsonArray, StaffModel[].class);
         if (values.length > 0) {
             page++;
         }
@@ -171,7 +172,7 @@ public class LawfirmActivity extends MySearchBaseActivity implements OnItemClick
     public void onClick(View view, int position) {
         Intent returnIntent = new Intent();
         returnIntent.putExtra("lawfirm", adapter.getModel().get(position));
-        setResult(Activity.RESULT_OK,returnIntent);
+        setResult(Activity.RESULT_OK, returnIntent);
         finish();
     }
 }

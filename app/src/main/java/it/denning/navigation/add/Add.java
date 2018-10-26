@@ -142,7 +142,7 @@ public class Add extends Fragment implements OnSectionItemClickListener {
         }
         switch (name) {
             case "add_contact":
-                AddContactActivity.start(getActivity(), null);
+                AddContactActivity.start(getActivity());
                 break;
             case "add_property": // Property
                 AddPropertyActivity.start(getActivity(), null);

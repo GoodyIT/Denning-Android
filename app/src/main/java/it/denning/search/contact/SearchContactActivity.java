@@ -72,7 +72,8 @@ public class SearchContactActivity extends MyBaseActivity implements OnClickList
     }
 
     public void editContact() {
-        AddContactActivity.start(this, contact);
+        DISharedPreferences.contact = contact;
+        AddContactActivity.start(this);
     }
 
     @Override

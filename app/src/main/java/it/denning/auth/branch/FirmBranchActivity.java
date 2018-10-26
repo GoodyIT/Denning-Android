@@ -142,6 +142,7 @@ public class FirmBranchActivity extends AppCompatActivity implements OnItemClick
 
     private DocumentModel saveSessionAndGetFolder(JsonObject response) {
         DISharedPreferences.getInstance(this).saveSessionID(response.get("sessionID").getAsString());
+        DISharedPreferences.getInstance(this).saveTheCode(response.get("theCode").getAsString());
         return new Gson().fromJson(response, DocumentModel.class);
     }
 
@@ -151,8 +152,9 @@ public class FirmBranchActivity extends AppCompatActivity implements OnItemClick
             FirmPasswordConfirmActivity.start(this, firmURLModel.LawFirm.address.city, firmURLModel.LawFirm.name);
         } else {
             if (DISharedPreferences.documentView.equals("upload")) {
+                finish();
                 UploadActivity.start(
-                        FirmBranchActivity.this, null, R.string.client_upload_title);
+                        FirmBranchActivity.this, response.get("theCode").getAsString(), R.string.client_upload_title);
             } else {
                 if (documentModel.folders == null || documentModel.folders.size() == 0) {
                     ErrorUtils.showError(this, "There is no shared folder for you");

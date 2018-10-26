@@ -100,7 +100,7 @@ public class UploadActivity extends BaseLoggableActivity implements OnMediaPicke
 
     private MediaPickHelper mediaPickHelper;
     private String fileUrl;
-    private String key, fileNo1, url;
+    private String key, fileNo1, url, fileName;
     private int title;
     private SystemPermissionHelper systemPermissionHelper = new SystemPermissionHelper(this);
     protected Handler handler = new Handler();
@@ -183,7 +183,6 @@ public class UploadActivity extends BaseLoggableActivity implements OnMediaPicke
 
         String fileData = DIHelper.bitmapToBase64(MediaUtils.getBitmapFromFile(fileUrl));
         int fileLength = fileData.length();
-        String fileName =  Uri.parse(fileUrl).getLastPathSegment() + '.' + MediaUtils.getExtensionFromUri( Uri.parse(fileUrl));
 
         JsonObject document = new JsonObject();
         document.addProperty("FileName", fileName);
@@ -292,8 +291,10 @@ public class UploadActivity extends BaseLoggableActivity implements OnMediaPicke
         canPerformLogout.set(true);
         if(ValidationUtils.validateAttachment(getSupportFragmentManager(), getResources().getStringArray(R.array.supported_attachment_types), type, attachment)){
             fileUrl = attachment.toString();
+//            fileName =  Uri.parse(fileUrl).getLastPathSegment() + '.' + MediaUtils.getExtensionFromUri( Uri.parse(fileUrl));
+            fileName = Uri.parse(fileUrl).getLastPathSegment();
             Glide.with(this).load(fileUrl).into(imageView);
-            renameAutocomplete.setText(DIHelper.generateFileName());
+            renameAutocomplete.setText(fileName);
             rightBtn.setEnabled(true);
         }
     }

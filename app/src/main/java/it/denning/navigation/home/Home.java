@@ -86,6 +86,7 @@ public class Home extends Fragment {
     public static View.OnClickListener onClickListener;
     private MaterialDialog branchDialog;
     static AdsModel[] adsModelList;
+    private Boolean isTapped = false;
 
     @Nullable
     @Override
@@ -114,6 +115,11 @@ public class Home extends Fragment {
         ((MainActivity)getActivity()).hideDennigSupport();
         ((MainActivity)getActivity()).showBottomBar();
         ((MainActivity)getActivity()).showNavigation(true);
+    }
+
+    @OnClick(R.id.add_link)
+    private void tapAddsLink() {
+        
     }
 
     @Override

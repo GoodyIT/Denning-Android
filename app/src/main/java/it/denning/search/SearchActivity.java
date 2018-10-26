@@ -672,7 +672,6 @@ public class SearchActivity extends BaseActivity implements OnItemClickListener,
     public void onUploadClick(View view, String code, int title, String url, String defaultFileName) {
         if (isTapped) { return; }
         isTapped = true;
-        code = code.split(":")[1];
         UploadActivity.start(this, code, title, url, defaultFileName);
     }
 }

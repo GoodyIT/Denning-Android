@@ -107,17 +107,29 @@
         android:orientation="vertical"
         android:background="@color/cardview_shadow_start_color"/>
 
-    <com.synnapps.carouselview.CarouselView
-        android:id="@+id/carouselView"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        app:indicatorVisibility="gone"
-        app:fillColor="#FFFFFFFF"
-        app:pageColor="#00000000"
-        app:radius="6dp"
-        app:slideInterval="3000"
-        app:strokeColor="#FF777777"
-        app:strokeWidth="1dp"/>
+        android:layout_height="wrap_content">
+        <com.synnapps.carouselview.CarouselView
+                android:id="@+id/carouselView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                app:indicatorVisibility="gone"
+                app:fillColor="#FFFFFFFF"
+                app:pageColor="#00000000"
+                app:radius="6dp"
+                app:slideInterval="3000"
+                app:strokeColor="#FF777777"
+                app:strokeWidth="1dp"/>
+        <TextView android:id="@+id/add_link"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Visit Ads"
+                  android:textColor="@color/accent" android:layout_gravity="right" android:layout_marginRight="12dp"
+                  android:layout_marginTop="5dp" android:textStyle="bold"/>
+    </FrameLayout>
+
+
 
 </LinearLayout>

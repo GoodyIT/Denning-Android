@@ -51,6 +51,7 @@
                     android:layout_toStartOf="@+id/search_type"
                     android:background="@drawable/bg_white_rounded"
                     android:elevation="1dp"
+                    imeOptions="actionNone"
                     android:ems="10"
                     android:hint="Denning Search"
                     android:inputType="textNoSuggestions"

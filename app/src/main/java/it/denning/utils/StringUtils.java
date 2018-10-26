@@ -101,8 +101,8 @@ public class StringUtils {
         return Attachment.Type.IMAGE.equals(StringUtils.getAttachmentTypeByFile(file));
     }
 
-    public static String getMimeType(Uri uri) {
-        String mimeType;
+        public static String getMimeType(Uri uri) {
+            String mimeType;
         if (uri.getScheme().equals(ContentResolver.SCHEME_CONTENT)) {
             ContentResolver cr = App.getInstance().getContentResolver();
             mimeType = cr.getType(uri);

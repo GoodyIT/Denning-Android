@@ -132,7 +132,8 @@ public class MediaPickHelperFragment extends Fragment {
         this.listener = listener;
     }
 
-    private boolean isResultFromMediaPick(int requestCode, int resultCode, Intent data) {
+    private boolean
+    isResultFromMediaPick(int requestCode, int resultCode, Intent data) {
         return resultCode == Activity.RESULT_OK && ((requestCode == MediaUtils.CAMERA_PHOTO_REQUEST_CODE || requestCode == MediaUtils.DENNING_FILE_REQUEST_CODE || requestCode == MediaUtils.CAMERA_VIDEO_REQUEST_CODE) || (requestCode == MediaUtils.GALLERY_REQUEST_CODE && data != null)
                 || (requestCode == MediaUtils.IMAGE_VIDEO_LOCATION_REQUEST_CODE && data != null));
     }

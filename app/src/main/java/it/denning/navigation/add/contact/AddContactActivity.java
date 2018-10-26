@@ -56,9 +56,8 @@ public class AddContactActivity extends MyBaseActivity implements
     private DatePickerDialog dpd;
     private int selectedSection, selectedItem;
 
-    public static void start(Context context, Contact model) {
+    public static void start(Context context) {
         Intent i = new Intent(context, AddContactActivity.class);
-        i.putExtra("model", model);
         context.startActivity(i);
     }
 
@@ -73,7 +72,7 @@ public class AddContactActivity extends MyBaseActivity implements
     }
 
     private void initFields() {
-        contact = (Contact) getIntent().getSerializableExtra("model");
+        contact =  DISharedPreferences.contact;
         isUpdateMode = contact != null;
         if (isUpdateMode) {
             toolbarTitle.setText(R.string.update_contact_title);

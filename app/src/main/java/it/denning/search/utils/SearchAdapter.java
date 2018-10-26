@@ -385,7 +385,7 @@ public class SearchAdapter extends SectioningAdapter {
         matterTypeViewHolder.uploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                uploadClickListener.onUploadClick(v, searchResultModel.title,  R.string.business_upload_title, DIConstants.MATTER_STAFF_FILEFOLDER, "");
+                uploadClickListener.onUploadClick(v, searchResultModel.title.split(":")[1],  R.string.business_upload_title, DIConstants.MATTER_STAFF_FILEFOLDER, "");
             }
         });
 

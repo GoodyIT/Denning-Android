@@ -207,6 +207,10 @@ public class DISharedPreferences {
         saveValue(SESSIONID_SHARED_KEY, sessionID);
     }
 
+    public void saveTheCode(String theCode) {
+        saveValue(USER_CODE_KEY, theCode);
+    }
+
     public  void saveUserInfoFromNewDeviceLogin(FirmURLModel firmURLModel) {
         getFirmServerArrayFromResponse(firmURLModel);
 

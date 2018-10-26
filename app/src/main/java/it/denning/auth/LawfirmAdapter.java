@@ -14,6 +14,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import it.denning.R;
 import it.denning.model.LegalFirm;
+import it.denning.model.StaffModel;
 import it.denning.search.utils.OnItemClickListener;
 
 /**
@@ -21,15 +22,15 @@ import it.denning.search.utils.OnItemClickListener;
  */
 
 public class LawfirmAdapter extends RecyclerView.Adapter {
-    ArrayList<LegalFirm> legalFirmArrayList = new ArrayList<>();
+    ArrayList<StaffModel> legalFirmArrayList = new ArrayList<>();
     OnItemClickListener itemClickListener;
 
-    LawfirmAdapter(ArrayList<LegalFirm> legalFirmArrayList, OnItemClickListener itemClickListener) {
+    LawfirmAdapter(ArrayList<StaffModel> legalFirmArrayList, OnItemClickListener itemClickListener) {
         this.legalFirmArrayList.addAll(legalFirmArrayList);
         this.itemClickListener = itemClickListener;
     }
 
-    public List<LegalFirm> getModel() {
+    public List<StaffModel> getModel() {
         return  legalFirmArrayList;
     }
 
@@ -61,8 +62,9 @@ public class LawfirmAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         LawfirmViewHolder lawfirmViewHolder = (LawfirmViewHolder) holder;
-        lawfirmViewHolder.lawfirmName.setText(legalFirmArrayList.get(position).name);
-        lawfirmViewHolder.temp1.setText("");
+        StaffModel model = legalFirmArrayList.get(position);
+        lawfirmViewHolder.lawfirmName.setText(model.name);
+        lawfirmViewHolder.temp1.setText(model.address.city);
         lawfirmViewHolder.temp2.setText("");
         lawfirmViewHolder.cardview.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +79,7 @@ public class LawfirmAdapter extends RecyclerView.Adapter {
         return legalFirmArrayList.size();
     }
 
-    public void addItems(List<LegalFirm> items) {
+    public void addItems(List<StaffModel> items) {
         legalFirmArrayList.addAll(items);
         notifyDataSetChanged();
     }

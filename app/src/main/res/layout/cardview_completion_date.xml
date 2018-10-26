@@ -39,12 +39,12 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:layout_margin="1dp"
-                        android:text="File No"
-                        android:textColor="@color/accent" />
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_margin="1dp"
+                            android:text="Matter"
+                            android:textColor="@color/accent"/>
                     <TextView
                         android:id="@+id/file_no_textview"
                         android:layout_width="wrap_content"
@@ -66,12 +66,12 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:layout_margin="1dp"
-                        android:text="File Name"
-                        android:textColor="@color/accent" />
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_margin="1dp"
+                            android:text="Client"
+                            android:textColor="@color/accent"/>
 
                     <TextView
                         android:id="@+id/file_name_textview"
@@ -159,12 +159,12 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:layout_margin="1dp"
-                        android:text="Days to Complete"
-                        android:textColor="@color/accent" />
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_margin="1dp"
+                            android:text="Days to C.D"
+                            android:textColor="@color/accent"/>
 
                     <TextView
                         android:id="@+id/daystocomplete_textview"

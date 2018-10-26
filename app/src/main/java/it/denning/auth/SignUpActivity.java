@@ -45,6 +45,8 @@ import it.denning.general.DIConstants;
 import it.denning.general.DISharedPreferences;
 import it.denning.general.MyCallbackInterface;
 import it.denning.model.LegalFirm;
+import it.denning.model.StaffModel;
+import it.denning.navigation.add.utils.solicitorlist.SolicitorListActivity;
 import it.denning.network.CompositeCompletion;
 import it.denning.network.ErrorHandler;
 import it.denning.network.NetworkManager;
@@ -73,7 +75,7 @@ public class SignUpActivity extends BaseAuthActivity {
 
     @BindView(R.id.signup_layout)
     RelativeLayout signupLayout;
-    LegalFirm selectedLawfirm;
+    StaffModel selectedLawfirm;
     private SignUpSuccessAction signUpSuccessAction;
     private UpdateUserSuccessAction updateUserSuccessAction;
     private int MY_REQUEST_CODE = 1;
@@ -117,7 +119,7 @@ public class SignUpActivity extends BaseAuthActivity {
         if (requestCode == DIConstants.REQUEST_CODE) {
 
             if (resultCode == AppCompatActivity.RESULT_OK) {
-                selectedLawfirm = (LegalFirm)data.getSerializableExtra("lawfirm");
+                selectedLawfirm = (StaffModel)data.getSerializableExtra("lawfirm");
                 // do something with the result
                 firmSelectBtn.setText(selectedLawfirm.name);
             } else if (resultCode == AppCompatActivity.RESULT_CANCELED) {
@@ -254,7 +256,7 @@ public class SignUpActivity extends BaseAuthActivity {
         startMainActivity(user, new MyCallbackInterface() {
             @Override
             public void nextFunction() {
-                MainActivity.start(SignUpActivity.this);
+                SignInActivity.start(SignUpActivity.this);
                 finish();
             }
 
