@@ -87,6 +87,7 @@ public class Home extends Fragment {
     private MaterialDialog branchDialog;
     static AdsModel[] adsModelList;
     private Boolean isTapped = false;
+    private Boolean isAdsdisplayed = false;
 
     @Nullable
     @Override
@@ -118,8 +119,10 @@ public class Home extends Fragment {
     }
 
     @OnClick(R.id.add_link)
-    private void tapAddsLink() {
-        
+    void tapAddsLink() {
+        if (!isAdsdisplayed) return;
+        AdsModel adsModel = adsModelList[0];
+        AdsViwerActivity.start(getContext(), adsModel.URL);
     }
 
     @Override
@@ -168,6 +171,7 @@ public class Home extends Fragment {
 
     private void displayAds(JsonElement jsonElement) {
         adsModelList = new Gson().fromJson(jsonElement, AdsModel[].class);
+        isAdsdisplayed  = true;
 
         carouselView.setImageListener(new ImageListener() {
             @Override
@@ -177,13 +181,13 @@ public class Home extends Fragment {
             }
         });
 
-        carouselView.setImageClickListener(new ImageClickListener() {
-            @Override
-            public void onClick(int position) {
-                AdsModel adsModel = adsModelList[position];
-                AdsViwerActivity.start(getContext(), adsModel.URL);
-            }
-        });
+//        carouselView.setImageClickListener(new ImageClickListener() {
+//            @Override
+//            public void onClick(int position) {
+//                AdsModel adsModel = adsModelList[position];
+//                AdsViwerActivity.start(getContext(), adsModel.URL);
+//            }
+//        });
 
         carouselView.setPageCount(adsModelList.length);
     }
