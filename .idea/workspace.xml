@@ -21,8 +21,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5d691f3-9667-4a91-a0a4-05c325d93859" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/Home.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/generated/source/buildConfig/debug/com/quickblox/q_municate_db/BuildConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Q-municate_db/build/generated/source/buildConfig/debug/com/quickblox/q_municate_db/BuildConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/generated/source/buildConfig/release/com/quickblox/q_municate_db/BuildConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Q-municate_db/build/generated/source/buildConfig/release/com/quickblox/q_municate_db/BuildConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/release/com/quickblox/q_municate_db/BuildConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/Q-municate_db/build/intermediates/classes/release/com/quickblox/q_municate_db/BuildConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/intermediate-jars/release/classes.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Q-municate_db/build/intermediates/intermediate-jars/release/classes.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/manifests/aapt/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Q-municate_db/build/intermediates/manifests/aapt/debug/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/manifests/aapt/debug/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/Q-municate_db/build/intermediates/manifests/aapt/debug/output.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/manifests/aapt/release/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Q-municate_db/build/intermediates/manifests/aapt/release/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/manifests/aapt/release/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/Q-municate_db/build/intermediates/manifests/aapt/release/output.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/manifests/full/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Q-municate_db/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/manifests/full/debug/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/Q-municate_db/build/intermediates/manifests/full/debug/output.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/manifests/full/release/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Q-municate_db/build/intermediates/manifests/full/release/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/manifests/full/release/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/Q-municate_db/build/intermediates/manifests/full/release/output.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/standard/release/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/standard/release/output.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/com/google/firebase/group-index.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/com/google/firebase/group-index.xml" afterDir="false" />
     </list>
     <ignored path="Android-Denning.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -82,14 +98,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Home.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Home.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/Home.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="189" column="13" lean-forward="true" selection-start-line="183" selection-start-column="10" selection-end-line="189" selection-end-column="13" />
+            <state relative-caret-position="705">
+              <caret line="106" column="19" selection-start-line="106" selection-start-column="19" selection-end-line="106" selection-end-column="19" />
               <folding>
                 <marker date="1540582677089" expanded="true" signature="6509:6807" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="385">
+              <caret line="53" column="30" lean-forward="true" selection-start-line="53" selection-start-column="30" selection-end-line="53" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -118,13 +143,13 @@
       </file>
       <file leaf-file-name="fragment_home.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1860">
               <caret line="124" column="43" selection-start-line="124" selection-start-column="35" selection-end-line="124" selection-end-column="43" />
             </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
           </provider>
         </entry>
       </file>
@@ -11258,9 +11283,9 @@
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/contact/AddContactActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/general/DISharedPreferences.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/auth/branch/FirmBranchActivity.java" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/Home.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
       </list>
     </option>
   </component>
@@ -11276,18 +11301,20 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView">
+      <pane id="PackagesPane">
         <subPane>
           <expand>
             <path>
-              <item name="Denning-Android" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="Denning-Android" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
             </path>
-            <path>
-              <item name="Denning-Android" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Q-municate_db" type="feadf853:AndroidModuleNode" />
-            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
             <path>
               <item name="Denning-Android" type="1abcf292:AndroidViewProjectNode" />
               <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
@@ -11312,17 +11339,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Denning-Android" type="58d84e3e:PackageViewProjectNode" />
-              <item name="app" type="616d4139:PackageViewModuleNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -11347,7 +11364,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.XML" />
     <property name="show.do.not.ask.upgrade.gradle.plugin" value="2.3.3" />
-    <property name="sync.plugin.last.upgrade.timestamp" value="1540537217297" />
+    <property name="sync.plugin.last.upgrade.timestamp" value="1540931624561" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
@@ -11723,7 +11740,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info anchor="bottom" id="Android Profiler" order="7" weight="0.32673267" />
+      <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" weight="0.32673267" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49713877" weight="0.32549506" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info id="Image Layers" order="5" />
@@ -11737,7 +11754,7 @@
       <window_info id="Captures" order="3" weight="0.19957082" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48294434" weight="0.19092219" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48294434" visible="true" weight="0.19092219" />
       <window_info anchor="bottom" id="Build" order="13" sideWeight="0.48705035" weight="0.58457714" />
       <window_info anchor="right" id="Gradle" order="9" weight="0.3297568" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24964234" />
@@ -12546,13 +12563,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/cardview_search_last.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="33" column="48" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="48" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/model/LegalFirm.java">
@@ -12695,10 +12712,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
-          <folding>
-            <element signature="e#1302#1303#0" expanded="true" />
-            <element signature="e#1337#1338#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -12748,13 +12761,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
           <caret line="52" column="43" selection-start-line="52" selection-start-column="43" selection-end-line="52" selection-end-column="43" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/branch/HomeBranchAdapter.java">
@@ -12817,10 +12830,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/cardview_completion_date.xml">
-      <provider selected="true" editor-type-id="android-designer2">
+      <provider editor-type-id="text-editor">
         <state />
       </provider>
-      <provider editor-type-id="text-editor">
+      <provider selected="true" editor-type-id="android-designer2">
         <state />
       </provider>
     </entry>
@@ -12843,13 +12856,6 @@
             <element signature="e#3790#3791#0" expanded="true" />
             <element signature="e#3837#3838#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -12894,22 +12900,29 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1860">
           <caret line="124" column="43" selection-start-line="124" selection-start-column="35" selection-end-line="124" selection-end-column="43" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/Home.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="189" column="13" lean-forward="true" selection-start-line="183" selection-start-column="10" selection-end-line="189" selection-end-column="13" />
+        <state relative-caret-position="705">
+          <caret line="106" column="19" selection-start-line="106" selection-start-column="19" selection-end-line="106" selection-end-column="19" />
           <folding>
             <marker date="1540582677089" expanded="true" signature="6509:6807" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="53" column="30" lean-forward="true" selection-start-line="53" selection-start-column="30" selection-end-line="53" selection-end-column="30" />
         </state>
       </provider>
     </entry>
