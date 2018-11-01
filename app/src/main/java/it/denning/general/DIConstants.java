@@ -71,7 +71,7 @@ public class DIConstants {
 
     public static final String GENERAL_KEYWORD_SEARCH_URL = "v1/generalSearch/keyword?search=";
     public static final String GENERAL_SEARCH_URL = "v1/generalSearch?search=";
-    public static final String[] GeneralSearchFilter = {"All", "Contacts", "Related Matters", "Property", "Bank", "Government Offices", "Legal Firm", "Documents"};
+    public static final String[] GeneralSearchFilter = {"All", "Contacts", "Matters", "Property", "Bank", "Government Offices", "Legal Firm", "Documents"};
     public static final int[] GeneralSearchCategory = {0, 1, 2, 4, 8, 16, 32, 64};
 
     public static final String GENERAL_SESSION_ID  = "{334E910C-CC68-4784-9047-0F23D37C9CF9}";

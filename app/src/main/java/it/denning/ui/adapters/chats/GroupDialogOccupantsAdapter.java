@@ -137,9 +137,10 @@ public class GroupDialogOccupantsAdapter extends BaseListAdapter<QMUser> {
                 user = userFromDb;
             }
 
+            long milisecond = user.getLastRequestAt() != null ? user.getLastRequestAt().getTime() : 0;
             viewHolder.onlineStatusTextView.setText(context.getString(R.string.last_seen,
-                    DateUtils.toTodayYesterdayShortDateWithoutYear2(user.getLastRequestAt().getTime()),
-                    DateUtils.formatDateSimpleTime(user.getLastRequestAt().getTime())));
+                    DateUtils.toTodayYesterdayShortDateWithoutYear2(milisecond),
+                    DateUtils.formatDateSimpleTime(milisecond)));
             viewHolder.onlineStatusTextView.setTextColor(context.getResources().getColor(R.color.dark_gray));
         }
     }

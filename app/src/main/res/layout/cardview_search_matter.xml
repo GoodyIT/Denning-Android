@@ -81,8 +81,7 @@
                                 android:layout_marginRight="12dp"
                                 android:layout_weight="0.3"
                                 android:background="@drawable/badge_circle_red"
-                                android:text="File Folders"
-                                android:textColor="@android:color/white" />
+                                android:textColor="@android:color/white" android:text="File Folder"/>
 
                         <Button
                                 android:id="@+id/search_matter_accountsBtn"
@@ -132,8 +131,8 @@
                                 android:layout_marginTop="8dp"
                                 android:layout_weight="0.3"
                                 android:background="@drawable/badge_circle_red"
-                                android:text="Uploads"
-                                android:textColor="@android:color/white" />
+                                android:text="Upload"
+                                android:textColor="@android:color/white"/>
 
                         <Button
                                 android:id="@+id/search_matter_templateBtn"
