@@ -117,7 +117,7 @@ public class PermissionUtils
             if (!listPermissionsNeeded.isEmpty())
             {
                 ActivityCompat.requestPermissions(current_activity, listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]),request_code);
-                return true;
+                return false;
             }
         }
 
@@ -157,7 +157,7 @@ public class PermissionUtils
                             {
                                 Log.i("Go to settings","and enable permissions");
                                 permissionResultCallback.NeverAskAgain(req_code);
-                                Toast.makeText(current_activity, "Go to settings and enable permissions", Toast.LENGTH_LONG).show();
+//                                Toast.makeText(current_activity, "Go to settings and enable permissions", Toast.LENGTH_LONG).show();
                                 return;
                             }
                         }

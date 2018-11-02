@@ -434,9 +434,7 @@ public class SearchActivity extends BaseActivity implements OnItemClickListener,
 
     @Override
     public void onClick(View view, int position) {
-        if (isTapped) {
-            return;
-        }
+        if (isTapped) { return; }
         isTapped = true;
         final SearchResultModel searchResultModel = searchAdapter.getModelArrayList().get(position);
         currentCode = searchResultModel.key;

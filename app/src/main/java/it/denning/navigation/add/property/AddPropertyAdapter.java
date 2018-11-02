@@ -507,6 +507,7 @@ public class AddPropertyAdapter extends BaseSectionAdapter {
 
     @Override
     protected JsonObject buildSaveParam() {
+        focusedEditText.clearFocus();
         JsonObject params = new JsonObject();
 
         List<LabelValueDetail> main = model.items.get(MAIN_SECTION).items;

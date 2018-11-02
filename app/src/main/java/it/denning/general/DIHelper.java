@@ -37,14 +37,7 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Enumeration;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 import it.denning.App;
@@ -89,11 +82,13 @@ public class DIHelper {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         SimpleDateFormat mdformat = new SimpleDateFormat("dd MMM yyyy ");
+        mdformat.setTimeZone(TimeZone.getDefault());
         return mdformat.format(calendar.getTime());
     }
 
     public static String todayWithTime() {
         SimpleDateFormat mdformat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        mdformat.setTimeZone(TimeZone.getDefault());
         return mdformat.format(new Date());
     }
 
@@ -101,6 +96,7 @@ public class DIHelper {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         SimpleDateFormat mdformat = new SimpleDateFormat("yyyy-MM-dd");
+        mdformat.setTimeZone(TimeZone.getDefault());
         return mdformat.format(calendar.getTime());
     }
 

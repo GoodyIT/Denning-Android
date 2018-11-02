@@ -128,7 +128,7 @@ public class AddContactActivity extends MyBaseActivity implements
                 break;
         }
 
-        findViewById(R.id.search_bank_layout).requestFocus();
+//        findViewById(R.id.search_bank_layout).requestFocus();
     }
 
     private void manageError(String error) {
@@ -137,7 +137,7 @@ public class AddContactActivity extends MyBaseActivity implements
     }
 
     private void saveContact() {
-        findViewById(R.id.search_bank_layout).requestFocus();
+//        findViewById(R.id.search_bank_layout).requestFocus();
 
         if (isSaved) {
             return;

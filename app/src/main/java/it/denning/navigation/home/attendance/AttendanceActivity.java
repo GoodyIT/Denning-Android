@@ -126,6 +126,7 @@ public class AttendanceActivity extends BaseActivity implements GoogleApiClient.
     PermissionUtils permissionUtils;
 
     boolean isPermissionGranted = false;
+    private Boolean isTapped = false;
 
     public static void start(Context context) {
         Intent intent = new Intent(context, AttendanceActivity.class);
@@ -135,6 +136,14 @@ public class AttendanceActivity extends BaseActivity implements GoogleApiClient.
     @Override
     protected int getContentResId() {
         return R.layout.activity_attendance;
+    }
+
+    @Override
+    protected  void onStart() {
+        super.onStart();
+        if (isTapped != null) {
+            isTapped = false;
+        }
     }
 
     @Override
@@ -256,6 +265,13 @@ public class AttendanceActivity extends BaseActivity implements GoogleApiClient.
         attendance = new Gson().fromJson(jsonObject, Attendance.class);
         updateHeaderInfo();
         adapter.addItems(attendance.theListing);
+        isTapped = false;
+    }
+
+    private void handleErrorResponse(String error) {
+        hideActionBarProgress();
+        ErrorUtils.showError(AttendanceActivity.this, error);
+        isTapped = false;
     }
 
     @OnClick(R.id.break_btn)
@@ -269,6 +285,8 @@ public class AttendanceActivity extends BaseActivity implements GoogleApiClient.
     }
 
     public void _breakFunc() {
+        if (isTapped) { return; }
+        isTapped = true;
         showActionBarProgress();
         if (!isBreaking) {
             NetworkManager.getInstance().attendanceStartBreak(mLastLocation, currentLocation, new CompositeCompletion() {
@@ -279,8 +297,7 @@ public class AttendanceActivity extends BaseActivity implements GoogleApiClient.
             }, new ErrorHandler() {
                 @Override
                 public void handleError(String error) {
-                    hideActionBarProgress();
-                    ErrorUtils.showError(AttendanceActivity.this, error);
+                    handleErrorResponse(error);
                 }
             });
         } else {
@@ -292,8 +309,7 @@ public class AttendanceActivity extends BaseActivity implements GoogleApiClient.
             }, new ErrorHandler() {
                 @Override
                 public void handleError(String error) {
-                    hideActionBarProgress();
-                    ErrorUtils.showError(AttendanceActivity.this, error);
+                   handleErrorResponse(error);
                 }
             });
         }
@@ -310,6 +326,8 @@ public class AttendanceActivity extends BaseActivity implements GoogleApiClient.
     }
 
     public void _clockFunc() {
+        if (isTapped) { return; }
+        isTapped = true;
         showActionBarProgress();
         if (!isAttended) {
             NetworkManager.getInstance().attendanceClockIn(mLastLocation, currentLocation, new CompositeCompletion() {
@@ -320,8 +338,7 @@ public class AttendanceActivity extends BaseActivity implements GoogleApiClient.
             }, new ErrorHandler() {
                 @Override
                 public void handleError(String error) {
-                    hideActionBarProgress();
-                    ErrorUtils.showError(AttendanceActivity.this, error);
+                    handleErrorResponse(error);
                 }
             });
         } else {
@@ -333,8 +350,7 @@ public class AttendanceActivity extends BaseActivity implements GoogleApiClient.
             }, new ErrorHandler() {
                 @Override
                 public void handleError(String error) {
-                    hideActionBarProgress();
-                    ErrorUtils.showError(AttendanceActivity.this, error);
+                    handleErrorResponse(error);
                 }
             });
         }
@@ -581,5 +597,6 @@ public class AttendanceActivity extends BaseActivity implements GoogleApiClient.
     @Override
     public void NeverAskAgain(int request_code) {
         Log.i("PERMISSION","NEVER ASK AGAIN");
+        isPermissionGranted=true;
     }
 }

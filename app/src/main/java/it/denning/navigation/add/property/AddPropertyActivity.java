@@ -164,7 +164,7 @@ public class AddPropertyActivity extends MyBaseActivity implements
                 break;
         }
 
-        findViewById(R.id.search_bank_layout).requestFocus();
+//        findViewById(R.id.search_bank_layout).requestFocus();
     }
 
     private void manageError(String error) {
@@ -173,11 +173,11 @@ public class AddPropertyActivity extends MyBaseActivity implements
     }
 
     private void saveContact() {
-        findViewById(R.id.search_bank_layout).requestFocus();
+//        findViewById(R.id.search_bank_layout).requestFocus();
 
-        if (isSaved) {
-            return;
-        }
+//        if (isSaved) {
+//            return;
+//        }
 
         if (!adapter.isValidProceed()) {
             return;

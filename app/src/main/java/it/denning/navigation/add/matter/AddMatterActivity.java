@@ -188,7 +188,7 @@ public class AddMatterActivity extends MyBaseActivity implements
                 break;
         }
 
-        findViewById(R.id.search_bank_layout).requestFocus();
+//        findViewById(R.id.search_bank_layout).requestFocus();
     }
 
     private void manageError(String error) {

@@ -675,6 +675,8 @@ public class AddMatterAdapter extends BaseSectionAdapter {
     }
 
     public JsonObject _buildSaveParams() {
+        focusedEditText.clearFocus();
+
         JsonObject params = new JsonObject();
 
         List<LabelValueDetail> matterInfo = model.items.get(MATTER_INFO).items;

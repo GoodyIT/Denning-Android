@@ -3,7 +3,9 @@ package it.denning.navigation.add.utils.basesectionadapter;
 import android.app.Activity;
 import android.content.Context;
 import android.support.v7.widget.CardView;
+import android.text.Editable;
 import android.text.InputType;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -63,6 +65,7 @@ public class BaseSectionAdapter extends SectioningAdapter {
     protected int NEXT_END_DATE_TIME = 1;
     protected AddingModel model;
     protected List<String> titles = new ArrayList<>();
+    protected EditText focusedEditText;
 
     public BaseSectionAdapter(Context context, OnSectionItemClickListener itemClickListener) {
         this.context = context;
@@ -201,11 +204,14 @@ public class BaseSectionAdapter extends SectioningAdapter {
         @BindView(R.id.right_edittext)
         MyFloatingEditText rightEditText;
         public MyCustomEditTextListener myCustomEditTextListener;
+        public MyTextWatcher myTextWatcher;
         public LeftInputRightDetailViewHolder(View itemView, MyCustomEditTextListener myCustomEditTextListener) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             this.myCustomEditTextListener = myCustomEditTextListener;
+            this.myTextWatcher = new MyTextWatcher();
             leftEditText.setOnFocusChangeListener(myCustomEditTextListener);
+//            leftEditText.addTextChangedListener(this.myTextWatcher);
         }
     }
 
@@ -429,6 +435,7 @@ public class BaseSectionAdapter extends SectioningAdapter {
 
     protected void displayLeftInputRightDetail(final LeftInputRightDetailViewHolder viewHolder, final int sectionIndex, final int itemIndex) {
         viewHolder.myCustomEditTextListener.updatePosition(sectionIndex, itemIndex);
+        viewHolder.myTextWatcher.updatePosition(sectionIndex, itemIndex);
         final LabelValueDetail labelValueDetail = model.items.get(sectionIndex).items.get(itemIndex);
         viewHolder.leftEditText.setText(labelValueDetail.leftView.value);
         viewHolder.leftEditText.setHint(labelValueDetail.leftView.label);
@@ -716,11 +723,43 @@ public class BaseSectionAdapter extends SectioningAdapter {
         @Override
         public void onFocusChange(View v, final boolean hasFocus) {
             if (hasFocus) {
+                focusedEditText = (EditText)v;
                 return;
             }
             updateDataFromInput(((EditText)v).getText().toString(), sectionIndex, itemIndex);
             KeyboardUtils.hideKeyboard(v);
 
+            android.os.Handler handler = new android.os.Handler();
+            handler.postDelayed(new Runnable() {
+                public void run(){
+                    //change adapter contents
+                    notifySectionItemChanged(sectionIndex, itemIndex);
+                }
+            }, 300);
+        }
+    }
+
+    protected class MyTextWatcher implements TextWatcher {
+        protected int sectionIndex, itemIndex;
+
+        public void updatePosition(int sectionIndex, int itemIndex) {
+            this.sectionIndex = sectionIndex;
+            this.itemIndex = itemIndex;
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            updateDataFromInput(s.toString(), sectionIndex, itemIndex);
             android.os.Handler handler = new android.os.Handler();
             handler.postDelayed(new Runnable() {
                 public void run(){
