@@ -409,6 +409,7 @@ public class SearchActivity extends BaseActivity implements OnItemClickListener,
     }
 
     private void getSearchResult() {
+        searchView.dismissDropDown();
         showHorizontalProgress();
         currentSearch = DIConstants.DENNING_SEARCH;
         determineSearchType();

@@ -8,11 +8,11 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.SearchView;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.quickblox.q_municate_db.utils.ErrorUtils;

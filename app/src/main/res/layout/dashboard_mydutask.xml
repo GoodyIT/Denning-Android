@@ -71,7 +71,7 @@
             app:tabSelectedTextColor="@color/accent"
             app:tabTextColor="@android:color/white" />
 
-        <android.support.v7.widget.SearchView
+        <SearchView
             android:id="@+id/dashboard_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -51,7 +51,7 @@ public class AddContactActivity extends MyBaseActivity implements
         DatePickerDialog.OnDateSetListener {
     AddContactAdapter adapter;
     Contact contact;
-    public boolean isSaved = false, isDuplicationChecking = false, isIDDuplicated = false, isNameDuplicated = false, isOldIDDuplicated = false;
+    public boolean isSaved = false, isIDDuplicated = false, isNameDuplicated = false, isOldIDDuplicated = false;
     private boolean isUpdateMode = false;
     private DatePickerDialog dpd;
     private int selectedSection, selectedItem;
@@ -143,9 +143,9 @@ public class AddContactActivity extends MyBaseActivity implements
             return;
         }
 
-//        if (isDuplicationChecking) {
-//            return;
-//        }
+        if (DISharedPreferences.isDuplicationChecking) {
+            return;
+        }
 
 //        if (isNameDuplicated) {
 //            DIAlert.showSimpleAlert(this, R.string.alert_Name_duplicate);
@@ -157,7 +157,7 @@ public class AddContactActivity extends MyBaseActivity implements
             return;
         }
 
-        if (isIDDuplicated) {
+        if (DISharedPreferences.isIDDuplicated) {
             DIAlert.showSimpleAlert(this, R.string.alert_ID_duplicate);
             return;
         }

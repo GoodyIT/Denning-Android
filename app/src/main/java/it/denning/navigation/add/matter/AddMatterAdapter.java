@@ -174,9 +174,9 @@ public class AddMatterAdapter extends BaseSectionAdapter {
         updateData(matter.systemNo, MATTER_INFO, FILE_NO);
         updateData("Update", MATTER_INFO, UPDATE_BUTTON);
         updateData(matter.getManualNo(), MATTER_INFO, REF2);
-        updateCodeDescDataWithoutRefresh(new CodeDescription(matter.primaryClient.code, matter.getPrimaryClientName()), MATTER_INFO, PRIMARY_CLIENT);
+        updateCodeDescDataWithoutRefresh(new CodeDescription(matter.getPrimaryClientCode(), matter.getPrimaryClientName()), MATTER_INFO, PRIMARY_CLIENT);
         updateCodeDescDataWithoutRefresh(matter.getFileStatus(), MATTER_INFO, FILE_STATUS);
-        updateCodeDescDataWithoutRefresh(new CodeDescription(matter.partner.code, matter.partner.name), MATTER_INFO, PARTNER_IN_CHARGE);
+        updateCodeDescDataWithoutRefresh(new CodeDescription(matter.getPartnerCode(), matter.getPartnerName()), MATTER_INFO, PARTNER_IN_CHARGE);
         updateCodeDescDataWithoutRefresh(new CodeDescription(matter.getLegalAssistantCode(), matter.getLegalAssistantName()), MATTER_INFO, LA_IN_CHARGE);
         updateCodeDescDataWithoutRefresh(new CodeDescription(matter.getClerkCode(), matter.getClerkName()), MATTER_INFO, CLERK_IN_CHARGE);
         updateCodeDescDataWithoutRefresh(new CodeDescription(matter.getMatterFormCode(), matter.getMatterDesc()), MATTER_INFO, MATTER);
@@ -634,6 +634,7 @@ public class AddMatterAdapter extends BaseSectionAdapter {
 
     public void updateProperty(LabelValueDetail labelValueDetail, int sectionIndex, int itemIndex) {
         labelValueDetail.is3Rows = true;
+        labelValueDetail.viewType = DIConstants.THREE_TYPE;
         labelValueDetail.label = "Property " + (model.items.get(sectionIndex).items.size());
         if (itemIndex == 0) {
             model.items.get(sectionIndex).items.add(labelValueDetail);

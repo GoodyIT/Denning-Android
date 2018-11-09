@@ -1,51 +1,34 @@
 package it.denning.navigation.dashboard.section4.bankandcash;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.SearchView;
 import android.widget.TextView;
-
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.quickblox.q_municate_db.utils.ErrorUtils;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.zakariya.stickyheaders.StickyHeaderLayoutManager;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.quickblox.q_municate_db.utils.ErrorUtils;
 import it.denning.R;
-import it.denning.general.DISharedPreferences;
 import it.denning.general.EndlessRecyclerViewScrollListener;
-import it.denning.general.OkHttpUtils;
 import it.denning.model.BankReconModel;
-import it.denning.navigation.dashboard.section4.fileledgers.FileLedgerAdapter;
 import it.denning.navigation.dashboard.section4.fileledgers.FileLedgerDetailActivity;
 import it.denning.navigation.dashboard.util.GeneralActivity;
 import it.denning.network.CompositeCompletion;
 import it.denning.network.ErrorHandler;
 import it.denning.network.NetworkManager;
 import it.denning.search.utils.OnItemClickListener;
-import okhttp3.Call;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by hothongmee on 10/09/2017.

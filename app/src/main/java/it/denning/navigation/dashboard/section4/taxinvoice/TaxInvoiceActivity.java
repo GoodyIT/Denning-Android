@@ -8,29 +8,20 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.SearchView;
 import android.widget.TextView;
-
+import butterknife.BindView;
+import butterknife.OnClick;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.quickblox.q_municate_db.utils.ErrorUtils;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import butterknife.BindView;
-import butterknife.OnClick;
 import it.denning.R;
 import it.denning.general.DIConstants;
 import it.denning.general.DIFileManager;
@@ -44,10 +35,14 @@ import it.denning.network.services.DownloadService;
 import it.denning.network.utils.Download;
 import it.denning.network.utils.DownloadCompleteInterface;
 import it.denning.network.utils.ProgressInterface;
-import it.denning.search.document.DocumentActivity;
 import it.denning.search.utils.OnItemClickListener;
 import it.denning.ui.activities.base.BaseActivity;
 import it.denning.utils.KeyboardUtils;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by hothongmee on 10/09/2017.

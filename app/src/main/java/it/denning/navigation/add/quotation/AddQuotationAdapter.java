@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.google.gson.JsonObject;
 
+import it.denning.navigation.add.utils.basesectionadapter.BaseSectionAdapter;
 import org.zakariya.stickyheaders.SectioningAdapter;
 
 import butterknife.BindView;
@@ -109,12 +110,15 @@ public class AddQuotationAdapter extends SectioningAdapter {
         @BindView(R.id.add_cardview)
         CardView cardView;
         public MyCustomEditTextListener myCustomEditTextListener;
+        public MyTextWatcher myTextWatcher;
         public InputTypeViewHolder(View itemView, MyCustomEditTextListener myCustomEditTextListener) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             this.myCustomEditTextListener = myCustomEditTextListener;
+            this.myTextWatcher = new MyTextWatcher();
             editText.setInputType(InputType.TYPE_CLASS_NUMBER);
             editText.setOnFocusChangeListener(myCustomEditTextListener);
+            editText.addTextChangedListener(this.myTextWatcher);
         }
     }
 
@@ -307,6 +311,7 @@ public class AddQuotationAdapter extends SectioningAdapter {
             itemIndex += 2;
         }
         viewHolder.myCustomEditTextListener.updatePosition(sectionIndex, itemIndex);
+        viewHolder.myTextWatcher.updatePosition(sectionIndex, itemIndex);
         final LabelValueDetail labelValueDetail = model.items.get(sectionIndex).items.get(itemIndex);
         Log.d("Log inputtype", labelValueDetail.label + " -- " + labelValueDetail.value);
         viewHolder.editText.setText(labelValueDetail.value);
@@ -536,6 +541,37 @@ public class AddQuotationAdapter extends SectioningAdapter {
                     }
                 }
             });
+        }
+    }
+
+    protected class MyTextWatcher implements TextWatcher {
+        protected int sectionIndex, itemIndex;
+
+        public void updatePosition(int sectionIndex, int itemIndex) {
+            this.sectionIndex = sectionIndex;
+            this.itemIndex = itemIndex;
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            updateDataFromInput(s.toString(), sectionIndex, itemIndex);
+            android.os.Handler handler = new android.os.Handler();
+//            handler.postDelayed(new Runnable() {
+////                public void run(){
+////                    //change adapter contents
+////                    notifySectionItemChanged(sectionIndex, itemIndex);
+////                }
+////            }, 300);
         }
     }
 }

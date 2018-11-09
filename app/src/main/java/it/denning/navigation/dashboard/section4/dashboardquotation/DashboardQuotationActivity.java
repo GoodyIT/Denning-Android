@@ -8,26 +8,19 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.SearchView;
 import android.widget.TextView;
-
+import butterknife.BindView;
+import butterknife.OnClick;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.quickblox.q_municate_db.utils.ErrorUtils;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import butterknife.BindView;
-import butterknife.OnClick;
 import it.denning.R;
 import it.denning.general.EndlessRecyclerViewScrollListener;
 import it.denning.model.BillModel;
 import it.denning.model.TaxInvoiceModel;
-import it.denning.navigation.dashboard.section4.taxinvoice.TaxInvoiceActivity;
-import it.denning.navigation.dashboard.section4.taxinvoice.TaxInvoiceAdapter;
 import it.denning.navigation.dashboard.section4.viewquotation.ViewQuotationActivity;
 import it.denning.network.CompositeCompletion;
 import it.denning.network.ErrorHandler;
@@ -35,6 +28,9 @@ import it.denning.network.NetworkManager;
 import it.denning.search.utils.OnItemClickListener;
 import it.denning.ui.activities.base.BaseActivity;
 import it.denning.utils.KeyboardUtils;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by denningit on 2018-02-09.

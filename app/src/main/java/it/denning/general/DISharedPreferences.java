@@ -103,6 +103,8 @@ public class DISharedPreferences {
     public static String documentView = "nothing";
     public static String tempServerAPI = "";
     public static String tempTheCode = "";
+    public static Boolean isIDDuplicated = false;
+    public static Boolean isDuplicationChecking = false;
 
     /* Search Models */
     public static Bank bank = null;

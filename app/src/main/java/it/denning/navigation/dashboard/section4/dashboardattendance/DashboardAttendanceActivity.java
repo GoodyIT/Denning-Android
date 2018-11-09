@@ -1,42 +1,25 @@
 package it.denning.navigation.dashboard.section4.dashboardattendance;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SearchView;
 import android.widget.TextView;
-
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.quickblox.q_municate_db.utils.ErrorUtils;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.zakariya.stickyheaders.StickyHeaderLayoutManager;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.quickblox.q_municate_db.utils.ErrorUtils;
 import it.denning.R;
 import it.denning.general.DIConstants;
-import it.denning.general.DISharedPreferences;
 import it.denning.general.EndlessRecyclerViewScrollListener;
-import it.denning.general.OkHttpUtils;
 import it.denning.model.StaffOnlineModel;
 import it.denning.model.ThreeItemModel;
 import it.denning.navigation.dashboard.section4.dashboard_attendance_detail.DashboardAttendanceDetailActivity;
@@ -45,9 +28,11 @@ import it.denning.network.CompositeCompletion;
 import it.denning.network.ErrorHandler;
 import it.denning.network.NetworkManager;
 import it.denning.search.utils.OnItemClickListener;
-import okhttp3.Call;
-import okhttp3.Request;
-import okhttp3.Response;
+import org.zakariya.stickyheaders.StickyHeaderLayoutManager;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by hothongmee on 09/11/2017.

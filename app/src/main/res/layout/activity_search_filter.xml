@@ -34,7 +34,7 @@
 
     </android.support.design.widget.TabLayout>
 
-    <android.support.v7.widget.SearchView
+    <SearchView
         android:id="@+id/general_search"
         android:layout_width="match_parent"
         android:layout_below="@+id/appbarLayout"
@@ -42,6 +42,7 @@
         android:layout_marginLeft="3dp"
         android:layout_marginRight="3dp"
         android:layout_marginTop="3dp"
+        android:iconifiedByDefault="false"
         android:background="@drawable/bg_gray_rounded"
         android:queryHint="Search" />
 

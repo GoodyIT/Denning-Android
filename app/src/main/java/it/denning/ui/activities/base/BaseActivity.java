@@ -1,11 +1,6 @@
 package it.denning.ui.activities.base;
 
-import android.content.BroadcastReceiver;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.ServiceConnection;
+import android.content.*;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,13 +20,12 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.util.SparseArray;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-
+import butterknife.ButterKnife;
 import com.quickblox.auth.model.QBProvider;
 import com.quickblox.auth.session.QBSessionManager;
 import com.quickblox.chat.QBChatService;
@@ -45,26 +39,13 @@ import com.quickblox.q_municate_core.qb.helpers.QBFriendListHelper;
 import com.quickblox.q_municate_core.service.QBService;
 import com.quickblox.q_municate_core.service.QBServiceConsts;
 import com.quickblox.q_municate_core.utils.ConnectivityUtils;
-import com.quickblox.q_municate_db.managers.DataManager;
 import com.quickblox.q_municate_db.utils.ErrorUtils;
 import com.quickblox.q_municate_user_service.model.QMUser;
-
-import org.jivesoftware.smack.ConnectionListener;
-import org.jivesoftware.smack.XMPPConnection;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import butterknife.ButterKnife;
 import it.denning.App;
 import it.denning.R;
+import it.denning.auth.SplashActivity;
 import it.denning.network.NetworkManager;
 import it.denning.ui.activities.authorization.LandingActivity;
-import it.denning.auth.SplashActivity;
 import it.denning.ui.activities.call.CallActivity;
 import it.denning.ui.activities.chats.GroupDialogActivity;
 import it.denning.ui.activities.chats.PrivateDialogActivity;
@@ -82,6 +63,10 @@ import it.denning.utils.helpers.SharedHelper;
 import it.denning.utils.helpers.notification.NotificationManagerHelper;
 import it.denning.utils.listeners.ServiceConnectionListener;
 import it.denning.utils.listeners.UserStatusChangingListener;
+import org.jivesoftware.smack.ConnectionListener;
+import org.jivesoftware.smack.XMPPConnection;
+
+import java.util.*;
 
 public abstract class BaseActivity extends AppCompatActivity implements ActionBarBridge, ConnectionBridge, LoadingBridge, SnackbarBridge {
 

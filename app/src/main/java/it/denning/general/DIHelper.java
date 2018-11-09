@@ -609,6 +609,12 @@ public class DIHelper {
 
     public static String addThousandsSeparator(String value) {
         value = value.replace(",", "");
+        try {
+            Float test = Float.parseFloat(value);
+        } catch (Exception e) {
+            return value;
+        }
+
         DecimalFormat formatter = (DecimalFormat) NumberFormat.getInstance(Locale.US);
         formatter.applyPattern("#,###,###,###,###.00");
         String result = formatter.format(Double.valueOf(value));

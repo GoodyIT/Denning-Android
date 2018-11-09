@@ -135,7 +135,7 @@ public class AddQuotationActivity extends MyBaseActivity implements OnSectionIte
                 break;
         }
 
-        findViewById(R.id.search_bank_layout).requestFocus();
+//        findViewById(R.id.search_bank_layout).requestFocus();
     }
 
     private void manageError(String error) {
@@ -224,7 +224,7 @@ public class AddQuotationActivity extends MyBaseActivity implements OnSectionIte
     }
 
     private void saveQuotation() {
-        findViewById(R.id.search_bank_layout).requestFocus();
+//        findViewById(R.id.search_bank_layout).requestFocus();
 
         if (isSaved) {
             return;

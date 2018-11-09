@@ -106,8 +106,8 @@ public class DashboardQuotationAdapter extends SectioningAdapter {
     public void onBindItemViewHolder(SectioningAdapter.ItemViewHolder viewHolder, int sectionIndex, final int itemIndex, int itemType) {
         TaxInvoiceModel model = modelArrayList.get(itemIndex);
         ItemViewHolder customViewHolder = (ItemViewHolder) viewHolder;
-        customViewHolder.firstValue.setText(model.invoiceNo + "/n" + model.issueToName);
-        customViewHolder.secondValue.setText(model.fileNo + "/n" + model.fileName);
+        customViewHolder.firstValue.setText(model.invoiceNo + "\n" + model.issueToName);
+        customViewHolder.secondValue.setText(model.fileNo + "\n" + model.fileName);
         customViewHolder.thirdValue.setText(model.amount);
         customViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override

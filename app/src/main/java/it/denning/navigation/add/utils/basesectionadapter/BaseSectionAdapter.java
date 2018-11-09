@@ -1,7 +1,10 @@
 package it.denning.navigation.add.utils.basesectionadapter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.CardView;
 import android.text.Editable;
 import android.text.InputType;
@@ -21,6 +24,8 @@ import com.chauthai.swipereveallayout.ViewBinderHelper;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
+import it.denning.App;
+import it.denning.general.DISharedPreferences;
 import org.zakariya.stickyheaders.SectioningAdapter;
 
 import java.util.ArrayList;
@@ -135,12 +140,15 @@ public class BaseSectionAdapter extends SectioningAdapter {
         @BindView(R.id.add_cardview)
         CardView cardView;
         public MyCustomEditTextListener myCustomEditTextListener;
+        public MyTextWatcher myTextWatcher;
         public InputTypeViewHolder(View itemView, MyCustomEditTextListener myCustomEditTextListener) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             this.myCustomEditTextListener = myCustomEditTextListener;
+            this.myTextWatcher = new MyTextWatcher();
             editText.setInputType(InputType.TYPE_CLASS_TEXT);
             editText.setOnFocusChangeListener(myCustomEditTextListener);
+            editText.addTextChangedListener(this.myTextWatcher);
         }
     }
 
@@ -190,11 +198,14 @@ public class BaseSectionAdapter extends SectioningAdapter {
         @BindView(R.id.right_edittext)
         MyFloatingEditText rightEditText;
         public MyCustomEditTextListener myCustomEditTextListener;
+        public MyTextWatcher myTextWatcher;
         public LeftDetailRightInputViewHolder(View itemView, MyCustomEditTextListener myCustomEditTextListener) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            this.myTextWatcher = new MyTextWatcher();
             this.myCustomEditTextListener = myCustomEditTextListener;
             rightEditText.setOnFocusChangeListener(myCustomEditTextListener);
+            rightEditText.addTextChangedListener(this.myTextWatcher);
         }
     }
 
@@ -211,7 +222,7 @@ public class BaseSectionAdapter extends SectioningAdapter {
             this.myCustomEditTextListener = myCustomEditTextListener;
             this.myTextWatcher = new MyTextWatcher();
             leftEditText.setOnFocusChangeListener(myCustomEditTextListener);
-//            leftEditText.addTextChangedListener(this.myTextWatcher);
+            leftEditText.addTextChangedListener(this.myTextWatcher);
         }
     }
 
@@ -407,6 +418,7 @@ public class BaseSectionAdapter extends SectioningAdapter {
 
     protected void displayLeftDetailRightInput(final LeftDetailRightInputViewHolder viewHolder, final int sectionIndex, final int itemIndex) {
         viewHolder.myCustomEditTextListener.updatePosition(sectionIndex, itemIndex);
+        viewHolder.myTextWatcher.updatePosition(sectionIndex, itemIndex);
         final LabelValueDetail labelValueDetail = model.items.get(sectionIndex).items.get(itemIndex);
         viewHolder.leftEditText.setText(labelValueDetail.leftView.value);
         viewHolder.leftEditText.setHint(labelValueDetail.leftView.label);
@@ -521,14 +533,22 @@ public class BaseSectionAdapter extends SectioningAdapter {
         });
     }
 
+    @SuppressLint("NewApi")
     protected void displayInput(final InputTypeViewHolder viewHolder, final int sectionIndex, final int itemIndex) {
         viewHolder.myCustomEditTextListener.updatePosition(sectionIndex, itemIndex);
+        viewHolder.myTextWatcher.updatePosition(sectionIndex, itemIndex);
         final LabelValueDetail labelValueDetail = model.items.get(sectionIndex).items.get(itemIndex);
         Log.d("Log inputtype", labelValueDetail.label + " -- " + labelValueDetail.value);
+
         viewHolder.editText.setText(labelValueDetail.value);
         viewHolder.editText.setHint(labelValueDetail.label);
         viewHolder.editText.setFloatingLabelText(labelValueDetail.label);
         viewHolder.editText.setInputType(labelValueDetail.inputType);
+        if (DISharedPreferences.isIDDuplicated && sectionIndex == 0 && itemIndex == 1) {
+            viewHolder.editText.setBackgroundColor(App.getInstance().getColor(R.color.yellow_green));
+        } else {
+            viewHolder.editText.setBackgroundColor(App.getInstance().getColor(R.color.white));
+        }
         viewHolder.editText.setCloseListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -726,7 +746,11 @@ public class BaseSectionAdapter extends SectioningAdapter {
                 focusedEditText = (EditText)v;
                 return;
             }
-            updateDataFromInput(((EditText)v).getText().toString(), sectionIndex, itemIndex);
+            String value = ((EditText)v).getText().toString();
+            if (getValue(sectionIndex, itemIndex).toLowerCase().equals(value.toLowerCase())) {
+                return;
+            }
+            updateDataFromInput(value, sectionIndex, itemIndex);
             KeyboardUtils.hideKeyboard(v);
 
             android.os.Handler handler = new android.os.Handler();
@@ -749,24 +773,17 @@ public class BaseSectionAdapter extends SectioningAdapter {
 
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
         }
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-
         }
 
         @Override
         public void afterTextChanged(Editable s) {
-            updateDataFromInput(s.toString(), sectionIndex, itemIndex);
-            android.os.Handler handler = new android.os.Handler();
-            handler.postDelayed(new Runnable() {
-                public void run(){
-                    //change adapter contents
-                    notifySectionItemChanged(sectionIndex, itemIndex);
-                }
-            }, 300);
+            if (!getValue(sectionIndex, itemIndex).toLowerCase().equals(s.toString().toLowerCase())) {
+                updateDataFromInput(s.toString(), sectionIndex, itemIndex);
+            }
         }
     }
 }

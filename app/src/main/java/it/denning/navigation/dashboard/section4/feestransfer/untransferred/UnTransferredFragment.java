@@ -1,40 +1,33 @@
 package it.denning.navigation.dashboard.section4.feestransfer.untransferred;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.SearchView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.quickblox.q_municate_db.utils.ErrorUtils;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import it.denning.App;
 import it.denning.R;
-import it.denning.general.DIConstants;
 import it.denning.general.EndlessRecyclerViewScrollListener;
 import it.denning.model.FeesUnTransferModel;
-import it.denning.model.LeaveRecordModel;
-import it.denning.navigation.add.leaveapplication.LeaveApplicationActivity;
-import it.denning.navigation.add.leaveapplication.leaverecord.LeaveRecordAdapter;
 import it.denning.navigation.dashboard.section4.feestransfer.FeesTransferActivity;
 import it.denning.network.CompositeCompletion;
 import it.denning.network.ErrorHandler;
 import it.denning.network.NetworkManager;
 import it.denning.utils.KeyboardUtils;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by denningit on 2018-01-26.

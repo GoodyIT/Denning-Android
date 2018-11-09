@@ -259,7 +259,7 @@ public class DenningMessage extends BaseLoaderFragment<List<DialogWrapper>> impl
             public boolean onClose() {
                 KeyboardUtils.hideKeyboard(baseActivity);
                 search("");
-                return true;
+                return false;
             }
         });
         searchView.setOnQueryTextListener(new android.support.v7.widget.SearchView.OnQueryTextListener() {
@@ -272,7 +272,7 @@ public class DenningMessage extends BaseLoaderFragment<List<DialogWrapper>> impl
 
             @Override
             public boolean onQueryTextChange(String newText) {
-              //  search(newText);
+                search(newText);
                 return false;
             }
         });

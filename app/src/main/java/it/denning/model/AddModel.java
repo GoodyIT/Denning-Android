@@ -25,12 +25,14 @@ public class AddModel {
             ArrayList<String> addLabels = new ArrayList<>();
             ArrayList<Integer> addImages = new ArrayList<>();
             ArrayList<String> addOpenForms = new ArrayList<>();
-            for (MenuModel item : menuModel.items) {
-                addLabels.add(item.title);
-                addImages.add(App.getInstance().getResources().getIdentifier(item.android_icon, "drawable", App.getInstance().getPackageName()));
-                addOpenForms.add(item.openForm);
+            if (menuModel != null && menuModel.items != null) {
+                for (MenuModel item : menuModel.items) {
+                    addLabels.add(item.title);
+                    addImages.add(App.getInstance().getResources().getIdentifier(item.android_icon, "drawable", App.getInstance().getPackageName()));
+                    addOpenForms.add(item.openForm);
+                }
+                model.items.add(new AddSectionModel(addLabels, addImages, addOpenForms));
             }
-            model.items.add(new AddSectionModel(addLabels, addImages, addOpenForms));
         }
 
 //        model.items.add(new AddSectionModel(DIConstants.second_add_labels, DIConstants.second_add_images));

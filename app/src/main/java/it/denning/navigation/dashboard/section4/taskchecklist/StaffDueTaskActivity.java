@@ -86,6 +86,7 @@ public class StaffDueTaskActivity extends GeneralActivity implements OnItemClick
     }
 
     private void setupSearchView() {
+        searchView.setIconifiedByDefault(false);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

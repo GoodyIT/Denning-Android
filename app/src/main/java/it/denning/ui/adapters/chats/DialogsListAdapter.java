@@ -175,13 +175,13 @@ public class DialogsListAdapter extends BaseListAdapter<DialogWrapper> {
     public void filterItem(String query) {
         this.query = query;
         if (query.trim().length() == 0) {
-            setNewData(new ArrayList<DialogWrapper>(objectsList));
+            setNewData(new ArrayList<DialogWrapper>(copyOfObjectsList));
             return;
         }
         query = query.toLowerCase();
         ArrayList<DialogWrapper> newList = new ArrayList<>();
 
-        for (DialogWrapper dialogWrapper : objectsList) {
+        for (DialogWrapper dialogWrapper : copyOfObjectsList) {
             QBChatDialog dialog = dialogWrapper.getChatDialog();
             if (dialog.getName().toLowerCase().contains(query) || dialogWrapper.getLastMessage().toLowerCase().contains(query)) {
                 newList.add(dialogWrapper);

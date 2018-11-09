@@ -17,6 +17,7 @@ import com.google.gson.JsonObject;
 import com.hbb20.CountryCodePicker;
 import com.quickblox.q_municate_db.utils.ErrorUtils;
 
+import it.denning.general.*;
 import org.zakariya.stickyheaders.SectioningAdapter;
 
 import java.util.Arrays;
@@ -26,10 +27,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import it.denning.R;
-import it.denning.general.DIAlert;
-import it.denning.general.DIConstants;
-import it.denning.general.DIGeneralInterface;
-import it.denning.general.DIHelper;
 import it.denning.model.AddSectionItemModel;
 import it.denning.model.CodeDescription;
 import it.denning.model.Contact;
@@ -517,11 +514,15 @@ public class AddContactAdapter extends BaseSectionAdapter {
                         String month = birth.substring(2, 4);
                         if (Integer.parseInt(month) - 1 < 0) {
                             DIAlert.showSimpleAlert(context, R.string.alert_valid_ID);
+                            DISharedPreferences.isIDDuplicated = true;
+                            notifySectionItemChanged(PERSONAL_INFO, ID_NO);
                             return;
                         }
                         String day = birth.substring(4, 6);
                         if (Integer.parseInt(month) > 12 || Integer.parseInt(day) > 31) {
                             DIAlert.showSimpleAlert(context, R.string.alert_valid_ID);
+                            DISharedPreferences.isIDDuplicated = true;
+                            notifySectionItemChanged(PERSONAL_INFO, ID_NO);
                             return;
                         }
                         final Calendar cal = Calendar.getInstance();
@@ -541,44 +542,14 @@ public class AddContactAdapter extends BaseSectionAdapter {
                 }
 
                 if (!input.equals(contact.IDNo)) {
-                    checkIDValidation(input, itemIndex, R.string.alert_ID_duplicate, new DIGeneralInterface() {
-                        @Override
-                        public void completionBlock() {
-                            ((AddContactActivity) context).isIDDuplicated = false;
-                        }
-                    }, new DIGeneralInterface() {
-                        @Override
-                        public void completionBlock() {
-                            ((AddContactActivity) context).isIDDuplicated = true;
-                        }
-                    });
+                    _checkIDValidation(input);
                 }
             } else  if (itemIndex == OLD_IC) {
                 if (!input.equals(contact.KPLama)) {
-                    checkIDValidation(input, itemIndex, R.string.alert_ID_duplicate, new DIGeneralInterface() {
-                        @Override
-                        public void completionBlock() {
-                            ((AddContactActivity) context).isOldIDDuplicated = false;
-                        }
-                    }, new DIGeneralInterface() {
-                        @Override
-                        public void completionBlock() {
-                            ((AddContactActivity) context).isOldIDDuplicated = true;
-                        }
-                    });
+                    _checkIDValidation(input);
                 }
             } else if (itemIndex == NAME) {
-//                checkIDValidation(input, itemIndex, R.string.alert_Name_duplicate, new DIGeneralInterface() {
-//                    @Override
-//                    public void completionBlock() {
-//                        ((AddContactActivity) context).isNameDuplicated = false;
-//                    }
-//                }, new DIGeneralInterface() {
-//                    @Override
-//                    public void completionBlock() {
-//                        ((AddContactActivity) context).isNameDuplicated = true;
-//                    }
-//                });
+
             } else {
                 input = input.substring(0, 1).toUpperCase() + input.substring(1);
             }
@@ -596,17 +567,15 @@ public class AddContactAdapter extends BaseSectionAdapter {
         model.items.get(sectionIndex).items.get(itemIndex).value = input;
     }
 
-    private void checkIDValidation(final String ID, final int itemIndex, final int resID, final DIGeneralInterface successCallback, final DIGeneralInterface errorCallback) {
+    private void checkIDValidation(final String ID, final DIGeneralInterface successCallback, final DIGeneralInterface errorCallback) {
         ((AddContactActivity)context).showActionBarProgress();
-        ((AddContactActivity)context).isDuplicationChecking = true;
+        DISharedPreferences.isDuplicationChecking = true;
         String url = DIConstants.CONTACT_ID_NAME_DUPLICATE + ID;
         NetworkManager.getInstance().sendPrivateGetRequest(url, new CompositeCompletion() {
             @Override
             public void parseResponse(JsonElement jsonElement) {
                 ((AddContactActivity)context).hideActionBarProgress();
-                ((AddContactActivity)context).isDuplicationChecking = false;
                 if (jsonElement.getAsJsonArray().size() > 0) {
-                    ErrorUtils.showError(context, resID);
                     errorCallback.completionBlock();
                 } else {
                     successCallback.completionBlock();
@@ -616,8 +585,25 @@ public class AddContactAdapter extends BaseSectionAdapter {
             @Override
             public void handleError(String error) {
                 ((AddContactActivity)context).hideActionBarProgress();
-                ((AddContactActivity)context).isDuplicationChecking = false;
                 ErrorUtils.showError(context, error);
+            }
+        });
+    }
+
+    private void _checkIDValidation(final String input) {
+        checkIDValidation(input, new DIGeneralInterface() {
+            @Override
+            public void completionBlock() {
+                DISharedPreferences.isIDDuplicated = false;
+                notifySectionItemChanged(PERSONAL_INFO, ID_NO);
+            }
+        }, new DIGeneralInterface() {
+            @Override
+            public void completionBlock() {
+
+                ErrorUtils.showError(context, R.string.alert_ID_duplicate);
+                DISharedPreferences.isIDDuplicated = true;
+                notifySectionItemChanged(PERSONAL_INFO, ID_NO);
             }
         });
     }

@@ -139,7 +139,7 @@ public class AddBillActivity extends MyBaseActivity implements OnSectionItemClic
                 viewBill();
                 break;
         }
-        findViewById(R.id.search_bank_layout).requestFocus();
+//        findViewById(R.id.search_bank_layout).requestFocus();
     }
 
     private void manageError(String error) {
@@ -224,7 +224,7 @@ public class AddBillActivity extends MyBaseActivity implements OnSectionItemClic
     }
 
     private void saveBill() {
-        findViewById(R.id.search_bank_layout).requestFocus();
+//        findViewById(R.id.search_bank_layout).requestFocus();
 
         if (!isPresetSelected()) {
             return;

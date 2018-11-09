@@ -120,7 +120,7 @@ public class AddReceiptActivity extends MyBaseActivity implements OnSectionItemC
                 break;
         }
 
-        findViewById(R.id.search_bank_layout).requestFocus();
+//        findViewById(R.id.search_bank_layout).requestFocus();
     }
 
     private void manageError(String error) {
@@ -129,7 +129,7 @@ public class AddReceiptActivity extends MyBaseActivity implements OnSectionItemC
     }
 
     private void saveReceipt() {
-        findViewById(R.id.search_bank_layout).requestFocus();
+//        findViewById(R.id.search_bank_layout).requestFocus();
 
         if (isSaved) {
             return;

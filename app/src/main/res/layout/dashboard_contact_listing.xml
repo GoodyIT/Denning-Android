@@ -69,6 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="3dp"
                 android:padding="3dp"
+                android:iconifiedByDefault="false"
                 android:theme="@style/SearchViewTheme"
                 app:queryHint="Search"
                 android:clickable="true" />

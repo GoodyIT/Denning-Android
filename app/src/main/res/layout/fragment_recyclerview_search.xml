@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <android.support.v7.widget.SearchView
+    <SearchView
         android:id="@+id/dashboard_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

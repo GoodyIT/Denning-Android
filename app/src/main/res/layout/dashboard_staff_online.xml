@@ -180,7 +180,7 @@
             android:layout_height="1dp"
             android:background="@color/cardview_shadow_start_color"></LinearLayout>
 
-        <android.support.v7.widget.SearchView
+        <SearchView
             android:id="@+id/dashboard_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

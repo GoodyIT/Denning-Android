@@ -45,6 +45,7 @@
         android:layout_marginRight="3dp"
         android:layout_marginTop="3dp"
         android:background="@drawable/bg_gray_rounded"
+        android:theme="@style/SearchViewTheme"
         android:queryHint="Search" />
 
     <android.support.v7.widget.RecyclerView

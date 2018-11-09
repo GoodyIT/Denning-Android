@@ -1,31 +1,17 @@
 package it.denning.navigation.dashboard.section4.trialbalance;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.view.View;
 import android.widget.TextView;
-
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.quickblox.q_municate_db.utils.ErrorUtils;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.zakariya.stickyheaders.StickyHeaderLayoutManager;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.quickblox.q_municate_db.utils.ErrorUtils;
 import it.denning.R;
-import it.denning.general.DISharedPreferences;
 import it.denning.model.TrialBalance;
 import it.denning.navigation.dashboard.section4.bankandcash.BankCashActivity;
 import it.denning.navigation.dashboard.section4.fileledgers.FileLedgerActivity;
@@ -34,9 +20,11 @@ import it.denning.network.CompositeCompletion;
 import it.denning.network.ErrorHandler;
 import it.denning.network.NetworkManager;
 import it.denning.search.utils.OnItemClickListener;
-import okhttp3.Call;
-import okhttp3.Request;
-import okhttp3.Response;
+import org.zakariya.stickyheaders.StickyHeaderLayoutManager;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by hothongmee on 09/11/2017.

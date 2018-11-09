@@ -135,35 +135,43 @@
         <activity android:name=".search.accounts.AccountsActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTask"
+                  android:windowSoftInputMode="stateHidden|adjustPan"
             android:screenOrientation="portrait"/>
         <activity android:name=".search.accounts.AccountsDetailActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTop"
+                  android:windowSoftInputMode="stateHidden|adjustPan"
             android:screenOrientation="portrait"/>
         <activity android:name=".auth.SignUpActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTask"
+                  android:windowSoftInputMode="stateHidden|adjustPan"
             android:screenOrientation="portrait"/>
         <activity android:name=".auth.LawfirmActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTop"
+                  android:windowSoftInputMode="stateHidden|adjustPan"
             android:screenOrientation="portrait"/>
         <activity android:name=".navigation.dashboard.section1.MyDueTaskActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
+                  android:windowSoftInputMode="stateHidden|adjustPan"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"/>
         <activity android:name=".navigation.dashboard.section1.FileListingActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
+                  android:windowSoftInputMode="stateHidden|adjustPan"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"/>
         <activity android:name=".navigation.dashboard.section2.CollectionActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
+                  android:windowSoftInputMode="stateHidden|adjustPan"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"/>
         <activity
             android:theme="@style/AppTheme.NoActionBar"
             android:name=".navigation.dashboard.section4.bankrecon.BankReconActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"/>
         <activity
@@ -171,60 +179,74 @@
             android:name=".navigation.dashboard.section4.contacts.DashboardContactActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:screenOrientation="portrait"/>
         <activity android:name=".navigation.dashboard.section4.taskchecklist.StaffDueTaskActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:screenOrientation="portrait"/>
         <activity android:name=".navigation.dashboard.section4.profitloss.ProfitLossActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:screenOrientation="portrait"/>
         <activity android:name=".navigation.dashboard.section4.fileledgers.FileLedgerActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"/>
         <activity android:name=".navigation.dashboard.section4.fileledgers.FileLedgerDetailActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:screenOrientation="portrait"/>
         <activity android:name=".navigation.dashboard.section4.taxinvoice.TaxInvoiceActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:screenOrientation="portrait"/>
         <activity android:name=".navigation.dashboard.section4.bankandcash.BankCashActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:screenOrientation="portrait"/>
         <activity android:name=".navigation.dashboard.section4.profitloss.ProfitLossDetailActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:screenOrientation="portrait"/>
         <activity android:name=".navigation.dashboard.section4.staffonline.StaffOnlineActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:screenOrientation="portrait"/>
         <activity android:name=".navigation.dashboard.section4.graph.FeeAndGrowth"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:screenOrientation="portrait"/>
         <activity android:name=".navigation.dashboard.section4.trialbalance.TrialBalanceActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:screenOrientation="portrait"/>
         <activity android:name=".navigation.dashboard.section4.dashboardattendance.DashboardAttendanceActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:screenOrientation="portrait"/>
         <activity android:name=".navigation.dashboard.section4.dashboard_attendance_detail.DashboardAttendanceDetailActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:screenOrientation="portrait"/>
 
         <activity
             android:name="it.denning.ui.activities.call.CallActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:screenOrientation="portrait" />
         <activity
             android:name="it.denning.ui.activities.chats.NewMessageActivity"
@@ -232,20 +254,24 @@
         <activity
             android:name="it.denning.ui.activities.chats.NewGroupDialogActivity"
             android:noHistory="true"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:screenOrientation="portrait" />
         <activity
             android:name="it.denning.ui.activities.chats.CreateGroupDialogActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:screenOrientation="portrait" />
         <activity
             android:name="it.denning.ui.activities.chats.PrivateDialogActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:screenOrientation="portrait" />
         <activity
             android:name="it.denning.ui.activities.chats.GroupDialogActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:screenOrientation="portrait" />
         <activity
             android:name="it.denning.ui.activities.chats.GroupDialogDetailsActivity"
@@ -300,26 +326,40 @@
             android:autoRemoveFromRecents="true"/>
 	    
         <activity android:name=".navigation.home.util.AdsViwerActivity" />
-        <activity android:name=".navigation.home.upload.UploadActivity" />
-        <activity android:name=".search.MatterCode.MatterCodeActivity" />
-        <activity android:name=".navigation.home.calendar.CalendarActivity" />
+        <activity android:name=".navigation.home.upload.UploadActivity"
+                  android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:name=".search.MatterCode.MatterCodeActivity"
+                  android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity
+                android:name=".navigation.home.calendar.CalendarActivity"
+                android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity android:name=".navigation.home.attendance.AttendanceActivity" />
-        <activity android:name=".search.filenote.FileNoteActivity" />
-        <activity android:name=".search.filenote.NewFileNoteActivity" />
-        <activity android:name=".search.paymentrecord.PaymentRecordActivity" />
-        <activity android:name=".search.template.TemplateActivity" />
-        <activity android:name=".search.utils.codedesc.CodeDescActivity" />
-        <activity android:name=".search.utils.generallist.GeneralListActivity" />
-        <activity android:name=".search.utils.desc.GeneralDescActivity" />
+        <activity android:name=".search.filenote.FileNoteActivity"
+                  android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:name=".search.filenote.NewFileNoteActivity"
+                  android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:name=".search.paymentrecord.PaymentRecordActivity"
+                  android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:name=".search.template.TemplateActivity"
+                  android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:name=".search.utils.codedesc.CodeDescActivity"
+                  android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:name=".search.utils.generallist.GeneralListActivity"
+                  android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:name=".search.utils.desc.GeneralDescActivity"
+                  android:windowSoftInputMode="stateHidden|adjustPan"/>
         <activity android:name=".auth.FirmPasswordConfirmActivity" />
-        <activity android:name=".search.document.PersonalDocumentActivity" />
+        <activity android:name=".search.document.PersonalDocumentActivity"
+                  android:windowSoftInputMode="stateHidden|adjustPan"/>
         <activity
             android:name=".navigation.add.quotation.AddQuotationActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="stateHidden|adjustPan"
             android:screenOrientation="portrait"/>
-        <activity android:name=".navigation.add.utils.simplematter.SimpleMatterActivity" />
-        <activity android:name=".navigation.add.utils.listmatter.ListMatterActivity" />
+        <activity android:name=".navigation.add.utils.simplematter.SimpleMatterActivity"
+                  android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:name=".navigation.add.utils.listmatter.ListMatterActivity"
+                  android:windowSoftInputMode="stateHidden|adjustPan"/>
         <activity
             android:name=".navigation.add.bill.AddBillActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -381,8 +421,16 @@
         <activity android:name=".navigation.add.utils.projecthousing.ProjectHousingListActivity" />
         <activity android:name=".navigation.add.utils.mattertitle.MasterTitleListActivity" />
         <activity android:name=".navigation.dashboard.section3.CompletionDateActivity" />
-        <activity android:name=".navigation.dashboard.section4.feestransfer.FeesTransferActivity" />
-        <activity android:name=".navigation.dashboard.section4.dashboardquotation.DashboardQuotationActivity" />
+        <activity
+                android:name=".navigation.dashboard.section4.feestransfer.FeesTransferActivity"
+                android:configChanges="keyboardHidden|orientation|screenSize"
+                android:windowSoftInputMode="stateHidden|adjustPan"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name=".navigation.dashboard.section4.dashboardquotation.DashboardQuotationActivity"
+                android:configChanges="keyboardHidden|orientation|screenSize"
+                android:windowSoftInputMode="stateHidden|adjustPan"
+                android:screenOrientation="portrait"/>
         <activity android:name=".navigation.dashboard.section4.viewquotation.ViewQuotationActivity" />
         <activity android:name=".navigation.dashboard.section4.feestransferreddetail.FeesTransferDetailActivity" />
         <activity android:name=".navigation.dashboard.section4.dashboardcontactfolder.DashboardContactFolderActivity" />
