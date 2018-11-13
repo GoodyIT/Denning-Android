@@ -45,7 +45,7 @@ public class FileLedgerAdapter extends SectioningAdapter {
         return modelArrayList;
     }
 
-    public class ItemViewHolder extends SectioningAdapter.ItemViewHolder  implements View.OnClickListener{
+    public class ItemViewHolder extends SectioningAdapter.ItemViewHolder{
         @BindView(R.id.first_textview)
         TextView firstValue;
         @BindView(R.id.second_textView)
@@ -58,12 +58,6 @@ public class FileLedgerAdapter extends SectioningAdapter {
         public ItemViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
-            cardView.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View v) {
-            clickListener.onClick(itemView, getLayoutPosition());
         }
     }
 
@@ -117,7 +111,7 @@ public class FileLedgerAdapter extends SectioningAdapter {
 
     @SuppressLint("SetTextI18n")
     @Override
-    public void onBindItemViewHolder(SectioningAdapter.ItemViewHolder viewHolder, int sectionIndex, int itemIndex, int itemType) {
+    public void onBindItemViewHolder(SectioningAdapter.ItemViewHolder viewHolder, int sectionIndex, final int itemIndex, int itemType) {
         BankReconModel model = modelArrayList.get(itemIndex);
         ItemViewHolder customViewHolder = (ItemViewHolder) viewHolder;
         customViewHolder.firstValue.setText(model.accountNo);
@@ -131,6 +125,13 @@ public class FileLedgerAdapter extends SectioningAdapter {
             }
             customViewHolder.thirdValue.setText(debit);
         }
+
+        customViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickListener.onClick(v, itemIndex);
+            }
+        });
 
         if (itemIndex > 0 && itemIndex == modelArrayList.size() - 1){
 

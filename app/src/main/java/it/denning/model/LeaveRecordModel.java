@@ -47,7 +47,7 @@ public class LeaveRecordModel {
     }
 
     public String getDecLeaveLength() {
-        return this.decLeaveLength;
+        return this.decLeaveLength.isEmpty() ? "0" : this.decLeaveLength;
     }
 
     public void setIntAL(String intAL) {

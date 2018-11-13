@@ -44,26 +44,26 @@
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/second_textView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="0.4"
-                    android:maxLines="3"
-                    android:text="8 Sep 2017" />
+                        android:id="@+id/second_textView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="0.4"
+                        android:maxLines="3"
+                        android:text="8 Sep 2017" android:textSize="12sp"/>
 
                 <TextView
-                    android:id="@+id/third_textView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="0.2"
-                    android:maxLines="3"
-                    android:paddingLeft="5dp"
-                    android:text="8 Sep 2017" />
+                        android:id="@+id/third_textView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="0.2"
+                        android:maxLines="3"
+                        android:paddingLeft="5dp"
+                        android:text="8 Sep 2017" android:textSize="12sp"/>
 
                 <ImageView
                     android:layout_width="0dp"

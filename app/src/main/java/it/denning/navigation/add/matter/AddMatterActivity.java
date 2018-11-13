@@ -81,6 +81,8 @@ public class AddMatterActivity extends MyBaseActivity implements
     public static void start(Context context, MatterModel model) {
         Intent i = new Intent(context, AddMatterActivity.class);
         i.putExtra("model", model);
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         context.startActivity(i);
     }
 

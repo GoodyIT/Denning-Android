@@ -5,32 +5,32 @@
     android:layout_height="wrap_content">
 
     <RelativeLayout
-        android:id="@+id/forth_item_layout"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@android:color/white"
-        android:orientation="vertical">
+            android:id="@+id/forth_item_layout"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@android:color/white"
+            android:orientation="vertical" android:minHeight="126dp">
 
         <TextView
-            android:id="@+id/title_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:text="> 61"
-            android:textSize="12sp" />
+                android:id="@+id/title_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="> 61"
+                android:textSize="12sp"/>
 
         <com.matrixxun.starry.badgetextview.MaterialBadgeTextView
-            android:id="@+id/value_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="0"
-            android:background="@color/accent"
-            android:textColor="@android:color/white"
-            android:textSize="12sp" />
+                android:id="@+id/value_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="0"
+                android:background="@color/accent"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"/>
     </RelativeLayout>
 
 

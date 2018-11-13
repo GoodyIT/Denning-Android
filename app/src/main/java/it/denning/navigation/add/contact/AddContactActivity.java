@@ -58,6 +58,8 @@ public class AddContactActivity extends MyBaseActivity implements
 
     public static void start(Context context) {
         Intent i = new Intent(context, AddContactActivity.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         context.startActivity(i);
     }
 

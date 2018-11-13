@@ -23,13 +23,15 @@ import it.denning.navigation.home.calculators.incometax.IncomeTaxActivity;
 import it.denning.navigation.home.calculators.legalcost.LegalCostActivity;
 import it.denning.navigation.home.calculators.loanamortisation.LoanAmortisationActivity;
 import it.denning.navigation.home.calculators.realproperty.RealPropertyActivity;
+import it.denning.navigation.home.comingsoon.ComingSoonActivity;
 import it.denning.navigation.home.news.NewsActivity;
 import it.denning.navigation.home.news.NewsAdapter;
 import it.denning.search.utils.OnItemClickListener;
+import it.denning.search.utils.OnSectionItemClickListener;
 import it.denning.ui.activities.base.BaseActivity;
 import it.denning.utils.KeyboardUtils;
 
-public class CalculatorActivity extends BaseActivity implements OnItemClickListener {
+public class CalculatorActivity extends BaseActivity implements OnSectionItemClickListener {
     @BindView(R.id.toolbar_title)
     protected TextView toolbarTitle;
     @BindView(R.id.recycler_list)
@@ -68,7 +70,7 @@ public class CalculatorActivity extends BaseActivity implements OnItemClickListe
     }
 
     private void setupRecyclerView() {
-        adapter = new CalculatorAdapter(Arrays.asList(getResources().getStringArray(R.array.calculators)), this);
+        adapter = new CalculatorAdapter(this);
         linearLayoutManager = new LinearLayoutManager(this, OrientationHelper.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.addItemDecoration(new it.denning.general.DividerItemDecoration(ContextCompat.getDrawable(this, R.drawable.item_decorator)));
@@ -79,19 +81,51 @@ public class CalculatorActivity extends BaseActivity implements OnItemClickListe
     }
 
     @Override
-    public void onClick(View view, int position) {
-        switch (position) {
+    public void onClick(View view, int sectionIndex, int itemIndex, String name) {
+        switch (sectionIndex){
             case 0:
-                LegalCostActivity.start(this);
+                switch (itemIndex) {
+                    case 0:
+                        LegalCostActivity.start(this);
+                        break;
+                    case 1:
+                        IncomeTaxActivity.start(this);
+                        break;
+                    case 2:
+                        RealPropertyActivity.start(this);
+                        break;
+                    case 3:
+                        LoanAmortisationActivity.start(this);
+                        break;
+                }
                 break;
             case 1:
-                IncomeTaxActivity.start(this);
+                switch (itemIndex) {
+                    case 0:
+                        ComingSoonActivity.start(this);
+                        break;
+                }
                 break;
             case 2:
-                RealPropertyActivity.start(this);
+                switch (itemIndex) {
+                    case 0:
+                        ComingSoonActivity.start(this);
+                        break;
+                }
                 break;
             case 3:
-                LoanAmortisationActivity.start(this);
+                switch (itemIndex) {
+                    case 0:
+                        ComingSoonActivity.start(this);
+                        break;
+                }
+                break;
+            case 4:
+                switch (itemIndex) {
+                    case 0:
+                        ComingSoonActivity.start(this);
+                        break;
+                }
                 break;
         }
     }

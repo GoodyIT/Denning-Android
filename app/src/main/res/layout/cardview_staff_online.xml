@@ -39,29 +39,38 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
-                    android:layout_weight="0.5"
+                    android:layout_weight="0.55"
                     android:maxLines="3"
                     android:text="SDN BHD"
                     android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/second_textView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="0.2"
-                    android:gravity="center"
-                    android:maxLines="3"
-                    android:text="PC" />
-
+0
                 <ImageView
-                    android:id="@+id/third_ImageView"
+                        android:id="@+id/exe_ImageView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="0.15"
+                        android:src="@drawable/ic_status_offline" />.
+                 <ImageView
+                    android:id="@+id/web_ImageView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginEnd="5dp"
                     android:layout_marginRight="5dp"
-                    android:layout_weight="0.2"
+                    android:layout_weight="0.15"
+                    android:src="@drawable/ic_status_offline" />
+
+                <ImageView
+                    android:id="@+id/app_ImageView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="0.15"
                     android:src="@drawable/ic_status_offline" />
 
             </LinearLayout>

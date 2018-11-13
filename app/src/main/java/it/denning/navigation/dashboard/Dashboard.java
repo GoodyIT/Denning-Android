@@ -168,7 +168,8 @@ public class Dashboard extends Fragment implements DashboardSecondItemClickListe
     public void setupSecondSection() {
         final DashboardSecondItemFrameAdapter itemAdapter = new DashboardSecondItemFrameAdapter(getContext(), dashboardModel.s1.items);
         ViewGroup.LayoutParams layoutParams = secondGridView.getLayoutParams();
-        layoutParams.height = size.x/3 * (int)(Math.ceil((dashboardModel.s1.items.size()/3.0))); //this is in pixels
+        int height = size.x/3 > 285 ? size.x/3 : 285;
+        layoutParams.height = height * (int)(Math.ceil((dashboardModel.s1.items.size()/3.0))); //this is in pixels
         secondGridView.setLayoutParams(layoutParams);
         secondGridView.setAdapter(itemAdapter);
         secondGridView.setColumnWidth(size.x/3-9);
@@ -196,7 +197,8 @@ public class Dashboard extends Fragment implements DashboardSecondItemClickListe
 
         final DashboardForthItemAdapter itemAdapter = new DashboardForthItemAdapter(getContext(), dashboardModel.s3.items, -1);
         ViewGroup.LayoutParams layoutParams = forthGridView.getLayoutParams();
-        layoutParams.height = (size.x/4-50) * 2; //this is in pixels
+        int height = size.x/4 > 200 ? size.x/4 : 200;
+        layoutParams.height = (height) * 2 + 55; //this is in pixels
         forthGridView.setLayoutParams(layoutParams);
         forthGridView.setAdapter(itemAdapter);
         forthGridView.setColumnWidth(size.x/4-9);

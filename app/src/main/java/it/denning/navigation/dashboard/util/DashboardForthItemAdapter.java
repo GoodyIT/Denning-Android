@@ -79,7 +79,7 @@ public class DashboardForthItemAdapter extends BaseAdapter {
         }
 
         ViewGroup.LayoutParams layoutParams = viewHolder.relativeLayout.getLayoutParams();
-        layoutParams.height = size.x/4 - 50;
+        layoutParams.height = size.x/4 > 200 ? size.x/4 : 200;
         viewHolder.relativeLayout.setLayoutParams(layoutParams);
 
         return convertView;

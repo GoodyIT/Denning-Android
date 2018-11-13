@@ -106,7 +106,7 @@ public class DashboardLeaveAppAdapter extends SectioningAdapter {
     @Override
     public void onBindHeaderViewHolder(SectioningAdapter.HeaderViewHolder viewHolder, int sectionIndex, int headerType) {
         HeaderViewHolder headerViewHolder = (HeaderViewHolder) viewHolder;
-        displayHeader(headerViewHolder, "Staff", "Period", "Type");
+        displayHeader(headerViewHolder, "Staff", "Period (D)", "Type");
     }
 
     @Override
@@ -127,7 +127,7 @@ public class DashboardLeaveAppAdapter extends SectioningAdapter {
         LeaveRecordViewHolder holder = (LeaveRecordViewHolder) viewHolder;
         LeaveRecordModel model = models.get(itemIndex);
         holder.firstTextView.setText(model.getStaffName());
-        holder.secondTextView.setText(model.getDtStartDate() + "\n" + model.getDtEndDate());
+        holder.secondTextView.setText(model.getDecLeaveLength());
         holder.thirdTextView.setText(model.getTypeOfLeaveCode());
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -39,10 +39,12 @@ public class StaffOnlineAdapter extends SectioningAdapter {
     public class ItemViewHolder extends SectioningAdapter.ItemViewHolder implements View.OnClickListener{
         @BindView(R.id.first_textview)
         TextView firstValue;
-        @BindView(R.id.second_textView)
-        TextView secondvalue;
-        @BindView(R.id.third_ImageView)
-        ImageView thirdValue;
+        @BindView(R.id.exe_ImageView)
+        ImageView exeStatus;
+        @BindView(R.id.web_ImageView)
+        ImageView webStatus;
+        @BindView(R.id.app_ImageView)
+        ImageView appStatus;
         @BindView(R.id.dashboard_cardview)
         CardView cardView;
 
@@ -61,10 +63,12 @@ public class StaffOnlineAdapter extends SectioningAdapter {
     public class HeaderViewHolder extends SectioningAdapter.HeaderViewHolder {
         @BindView(R.id.first_textview)
         TextView firstValue;
-        @BindView(R.id.second_textView)
-        TextView secondvalue;
-        @BindView(R.id.third_textView)
-        TextView thirdValue;
+        @BindView(R.id.exe_textView)
+        TextView exetitle;
+        @BindView(R.id.web_textView)
+        TextView webTItle;
+        @BindView(R.id.app_textView)
+        TextView appTitle;
 
         public HeaderViewHolder(View itemView) {
             super(itemView);
@@ -112,11 +116,22 @@ public class StaffOnlineAdapter extends SectioningAdapter {
         StaffOnlineModel model = modelArrayList.get(itemIndex);
         ItemViewHolder itemViewHolder = (ItemViewHolder) viewHolder;
         itemViewHolder.firstValue.setText(model.name);
-        itemViewHolder.secondvalue.setText(model.device);
-        if (model.status.equals("online")) {
-            itemViewHolder.thirdValue.setImageResource(R.drawable.ic_status_green);
+        if (model.onlineWeb) {
+            itemViewHolder.webStatus.setImageResource(R.drawable.ic_status_green);
         } else {
-            itemViewHolder.thirdValue.setImageResource(R.drawable.ic_status_offline);
+            itemViewHolder.webStatus.setImageResource(R.drawable.ic_status_offline);
+        }
+
+        if (model.onlineExe) {
+            itemViewHolder.exeStatus.setImageResource(R.drawable.ic_status_green);
+        } else {
+            itemViewHolder.exeStatus.setImageResource(R.drawable.ic_status_offline);
+        }
+
+        if (model.onlineApp) {
+            itemViewHolder.appStatus.setImageResource(R.drawable.ic_status_green);
+        } else {
+            itemViewHolder.appStatus.setImageResource(R.drawable.ic_status_offline);
         }
     }
 
@@ -125,8 +140,9 @@ public class StaffOnlineAdapter extends SectioningAdapter {
     public void onBindHeaderViewHolder(SectioningAdapter.HeaderViewHolder viewHolder, int sectionIndex, int headerType) {
         HeaderViewHolder headerViewHolder = (HeaderViewHolder)viewHolder;
         headerViewHolder.firstValue.setText("Staff");
-        headerViewHolder.secondvalue.setText("Device");
-        headerViewHolder.thirdValue.setText("Status");
+        headerViewHolder.exetitle.setText("360");
+        headerViewHolder.webTItle.setText("Web");
+        headerViewHolder.appTitle.setText("App");
     }
 
     @Override

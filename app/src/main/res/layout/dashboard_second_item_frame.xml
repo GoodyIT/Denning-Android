@@ -4,56 +4,56 @@
     android:layout_height="wrap_content">
 
     <FrameLayout
-        android:id="@+id/second_item_layout"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:background="@android:color/white"
-        android:orientation="vertical">
+            android:id="@+id/second_item_layout"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:background="@android:color/white"
+            android:orientation="vertical" android:minHeight="230dp">
 
         <TextView
-            android:id="@+id/title_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top|left"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="12dp"
-            android:text="Court Today"
-            android:textSize="14sp" />
+                android:id="@+id/title_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|left"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="12dp"
+                android:text="Court Today"
+                android:textSize="14sp"/>
 
         <com.matrixxun.starry.badgetextview.MaterialBadgeTextView
-            android:id="@+id/footervalue_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:layout_marginBottom="3dp"
-            android:layout_marginEnd="3dp"
-            android:layout_marginRight="3dp"
-            android:background="@color/accent"
-            android:text="1"
-            android:textColor="@android:color/white"
-            android:textSize="12sp" />
+                android:id="@+id/footervalue_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:layout_marginBottom="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginRight="3dp"
+                android:background="@color/accent"
+                android:text="1"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"/>
 
         <TextView
-            android:id="@+id/tomorrow_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginStart="5dp"
-            android:text="Tomorrow"
-            android:textColor="@color/accent"
-            android:layout_gravity="bottom|left"
-            android:textSize="10sp" />
+                android:id="@+id/tomorrow_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:text="Tomorrow"
+                android:textColor="@color/accent"
+                android:layout_gravity="bottom|left"
+                android:textSize="10sp"/>
 
         <TextView
-            android:id="@+id/value_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="0"
-            android:textColor="@color/accent"
-            android:textSize="22sp" />
+                android:id="@+id/value_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="0"
+                android:textColor="@color/accent"
+                android:textSize="22sp"/>
     </FrameLayout>
 
 

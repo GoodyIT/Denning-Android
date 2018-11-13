@@ -73,7 +73,7 @@ public class DashboardSecondItemFrameAdapter extends BaseAdapter {
         viewHolder.value.setTextColor(Color.parseColor(firstItemModel.mainValueColor));
         viewHolder.frameLayout.setBackgroundColor(Color.parseColor(firstItemModel.background));
         ViewGroup.LayoutParams layoutParams = viewHolder.frameLayout.getLayoutParams();
-        layoutParams.height = size.x/3;
+        layoutParams.height = size.x/3 > 285 ? size.x/3 : 285;
         layoutParams.width = size.x/3-9;
         viewHolder.frameLayout.setLayoutParams(layoutParams);
 
