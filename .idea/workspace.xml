@@ -21,14 +21,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5d691f3-9667-4a91-a0a4-05c325d93859" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/model/CalcModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/model/CalcSectionModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/icon_voucher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/icon_voucher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/icon_voucher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/icon_voucher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/icon_voucher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_drawers_SpinnerDatePicker_1_0_6.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Q-municate_db/build/generated/source/buildConfig/debug/com/quickblox/q_municate_db/BuildConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Q-municate_db/build/generated/source/buildConfig/debug/com/quickblox/q_municate_db/BuildConfig.java" afterDir="false" />
@@ -45,30 +38,20 @@
       <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/manifests/full/debug/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/Q-municate_db/build/intermediates/manifests/full/debug/output.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/manifests/full/release/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Q-municate_db/build/intermediates/manifests/full/release/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Q-municate_db/build/intermediates/manifests/full/release/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/Q-municate_db/build/intermediates/manifests/full/release/output.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/model/LeaveRecordModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/model/LeaveRecordModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/model/StaffOnlineModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/model/StaffOnlineModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/general/DIHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/general/DIHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/model/LabelValueDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/model/LabelValueDetail.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/contact/AddContactActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/contact/AddContactActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/matter/AddMatterActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/matter/AddMatterActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/property/AddPropertyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/property/AddPropertyActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/contact/AddContactAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/contact/AddContactAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/property/AddPropertyAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/property/AddPropertyAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/utils/basesectionadapter/BaseSectionAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/utils/basesectionadapter/BaseSectionAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/Dashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/section1/staffleave/leaveapp/DashboardLeaveAppAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/section1/staffleave/leaveapp/DashboardLeaveAppAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/section4/fileledgers/FileLedgerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/section4/fileledgers/FileLedgerAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/section4/staffonline/StaffOnlineAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/section4/staffonline/StaffOnlineAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/util/DashboardForthItemAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/util/DashboardForthItemAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/util/DashboardSecondItemFrameAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/util/DashboardSecondItemFrameAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/calculators/CalculatorActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/calculators/CalculatorActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/calculators/CalculatorAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/calculators/CalculatorAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/cardview_staff_online.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/cardview_staff_online.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/cardview_staff_online_header.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/cardview_staff_online_header.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/cardview_three_column_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/cardview_three_column_detail.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dashboard_forth_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dashboard_forth_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dashboard_second_item_frame.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dashboard_second_item_frame.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/calculators/legalcost/SPAFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/calculators/legalcost/SPAFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_calculate_spa.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_calculate_spa.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/standard/release/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/standard/release/output.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/com/crashlytics/sdk/android/group-index.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/com/crashlytics/sdk/android/group-index.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/com/google/android/gms/group-index.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/com/google/android/gms/group-index.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/com/google/firebase/group-index.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/com/google/firebase/group-index.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/master-index.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/master-index.xml" afterDir="false" />
     </list>
     <ignored path="Android-Denning.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -106,66 +89,118 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="CalculatorActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/calculators/CalculatorActivity.java">
+      <file leaf-file-name="AddContactActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/contact/AddContactActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="104" column="55" selection-start-line="104" selection-start-column="55" selection-end-line="104" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AddAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/AddAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CalculatorAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/calculators/CalculatorAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="109" column="83" selection-start-line="109" selection-start-column="83" selection-end-line="109" selection-end-column="83" />
+            <state relative-caret-position="260">
+              <caret line="398" column="56" selection-start-line="398" selection-start-column="56" selection-end-line="398" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2080#2081#0" expanded="true" />
-                <element signature="e#2149#2150#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cardview_simple_detail.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/cardview_simple_detail.xml">
+      <file leaf-file-name="BaseSectionAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/utils/basesectionadapter/BaseSectionAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="11" column="33" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="33" />
+            <state relative-caret-position="345">
+              <caret line="681" column="5" selection-start-line="681" selection-start-column="5" selection-end-line="681" selection-end-column="5" />
             </state>
-          </provider>
-          <provider editor-type-id="android-designer2">
-            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CalcModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/model/CalcModel.java">
+      <file leaf-file-name="AddPropertyAdapter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/property/AddPropertyAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="37" column="42" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
+            <state relative-caret-position="75">
+              <caret line="107" column="68" selection-start-line="107" selection-start-column="68" selection-end-line="107" selection-end-column="68" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DenningMessage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/message/DenningMessage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="155" column="31" selection-start-line="155" selection-start-column="27" selection-end-line="155" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DialogsListAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/ui/adapters/chats/DialogsListAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="284">
+              <caret line="161" column="41" selection-start-line="161" selection-start-column="41" selection-end-line="161" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LegalCostActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/calculators/legalcost/LegalCostActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SPAFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/calculators/legalcost/SPAFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="325">
+              <caret line="226" column="52" selection-start-line="226" selection-start-column="52" selection-end-line="226" selection-end-column="52" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#2776#2802#0" expanded="true" />
+                <element signature="e#2920#3405#0" expanded="true" />
+                <element signature="e#3404#3405#0" expanded="true" />
+                <element signature="e#3437#3452#0" expanded="true" />
+                <element signature="e#3484#3503#0" expanded="true" />
+                <element signature="e#3675#3700#0" expanded="true" />
+                <element signature="e#3774#3793#0" expanded="true" />
+                <element signature="e#3859#4334#0" expanded="true" />
+                <element signature="e#4333#4334#0" expanded="true" />
+                <element signature="e#4366#4381#0" expanded="true" />
+                <element signature="e#6715#6744#0" expanded="true" />
+                <element signature="e#7025#7054#0" expanded="true" />
+                <element signature="e#7281#7316#0" expanded="true" />
+                <element signature="e#8214#8236#0" expanded="true" />
+                <element signature="e#8238#8268#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fragment_calculate_spa.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_calculate_spa.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="227">
+              <caret line="432" column="57" selection-start-line="432" selection-start-column="57" selection-end-line="432" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseListAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/ui/adapters/base/BaseListAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="124">
+              <caret line="54" column="16" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DIHelper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/general/DIHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="583">
+              <caret line="1333" column="52" selection-start-line="1333" selection-start-column="45" selection-end-line="1333" selection-end-column="52" />
+              <folding>
+                <element signature="e#20107#20108#0" expanded="true" />
+                <element signature="e#20166#20167#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -176,23 +211,16 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="layoutResourceFile" />
         <option value="resourceFile" />
         <option value="Interface" />
         <option value="layoutResourceFile_vertical" />
+        <option value="layoutResourceFile" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mysearch</find>
-      <find>dashboardcontact</find>
-      <find>bankre</find>
-      <find>dashboardcont</find>
-      <find>SearchView</find>
-      <find>requestFocus</find>
-      <find>filelisting</find>
       <find>feestr</find>
       <find>search</find>
       <find>dashboardqu</find>
@@ -216,6 +244,13 @@
       <find>onclick</find>
       <find>cardview_staff_online_header</find>
       <find>new AddAdapter.</find>
+      <find>DatePicker</find>
+      <find>mMode</find>
+      <find>calendar</find>
+      <find>year</find>
+      <find>filter</find>
+      <find>legal fee</find>
+      <find>uppercase</find>
     </findStrings>
     <replaceStrings>
       <replace>BillModel</replace>
@@ -11253,14 +11288,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/section4/feestransfer/untransferred/UnTransferredFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/section4/feestransfer/transferred/TransferredFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_recyclerview_search.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/section4/staffonline/StaffOnlineActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/dashboard_staff_online.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/section4/dashboardattendance/DashboardAttendanceActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/section4/dashboardquotation/DashboardQuotationActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/section1/MyDueTaskActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/quotation/AddQuotationActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/receipt/AddReceiptActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/bill/AddBillActivity.java" />
@@ -11272,11 +11299,8 @@
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/section4/dashboardquotation/DashboardQuotationAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/quotation/AddQuotationAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/general/DIHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/model/AddModel.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/cardview_left_detail_right_input.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/contact/AddContactAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/utils/basesectionadapter/BaseSectionAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/matter/AddMatterAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/section4/dashboardattendance/DashboardAttendanceAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
@@ -11286,8 +11310,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dashboard_second_item_frame.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/util/DashboardForthItemAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/util/DashboardSecondItemFrameAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/Dashboard.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/contact/AddContactActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/matter/AddMatterActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/property/AddPropertyActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" />
@@ -11303,7 +11325,20 @@
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/model/CalcModel.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/calculators/CalculatorActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/calculators/CalculatorAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/model/LabelValueDetail.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/Dashboard.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/contact/AddContactAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/general/DIHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/datepicker.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/general/DIDatePicker.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/contact/AddContactActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_calculate_spa.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/calculators/legalcost/SPAFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/utils/basesectionadapter/BaseSectionAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/property/AddPropertyAdapter.java" />
       </list>
     </option>
   </component>
@@ -11319,20 +11354,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView">
+      <pane id="Scope" />
+      <pane id="PackagesPane">
         <subPane>
           <expand>
             <path>
-              <item name="Denning-Android" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="Denning-Android" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Q-municate_db" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="Denning-Android" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
+              <item name="Denning-Android" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
             </path>
           </expand>
           <select />
@@ -11349,13 +11377,61 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane">
+      <pane id="AndroidView">
         <subPane>
           <expand>
             <path>
-              <item name="Denning-Android" type="58d84e3e:PackageViewProjectNode" />
-              <item name="app" type="616d4139:PackageViewModuleNode" />
+              <item name="Denning-Android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="Denning-Android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="Denning-Android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="denning" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Denning-Android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="denning" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="navigation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Denning-Android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="denning" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="navigation" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Denning-Android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="denning" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="navigation" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+              <item name="calculators" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Denning-Android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="denning" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="navigation" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+              <item name="calculators" type="462c0819:PsiDirectoryNode" />
+              <item name="legalcost" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Denning-Android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
             </path>
           </expand>
           <select />
@@ -11373,7 +11449,7 @@
     <property name="ExportApk.SignV1" value="true" />
     <property name="ExportApk.SignV2" value="true" />
     <property name="SHOW_ALL_PROCESSES" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="addada&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/add/AddAdapter.java&#10;calcm&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/model/CalcModel.java&#10;calcu&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/home/calculators/CalculatorActivity.java&#10;addsec&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/model/AddSectionModel.java&#10;add&#9;PSI&#9;JAVA://it.denning.navigation.add.Add&#10;calcula&#9;PSI&#9;JAVA://it.denning.navigation.home.calculators.CalculatorActivity&#10;staffle&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section1.staffleave.StaffLeaveActivity&#10;stafflea&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section1.staffleave.StaffLeaveActivity&#10;staffonlinea&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section4.staffonline.StaffOnlineActivity&#10;staffonline&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section4.staffonline.StaffOnlineAdapter&#10;staffonl&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/model/StaffOnlineModel.java&#10;home&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/home/Home.java&#10;addquo&#9;PSI&#9;JAVA://it.denning.navigation.add.quotation.AddQuotationActivity&#10;addmatter&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/add/matter/AddMatterActivity.java&#10;addprop&#9;PSI&#9;JAVA://it.denning.navigation.add.property.AddPropertyActivity&#10;addpro&#9;PSI&#9;JAVA://it.denning.navigation.add.property.AddPropertyActivity&#10;addmatt&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/add/matter/AddMatterActivity.java&#10;addcontac&#9;PSI&#9;JAVA://it.denning.navigation.add.contact.AddContactActivity&#10;addcont&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/add/contact/AddContactAdapter.java&#10;document&#9;PSI&#9;JAVA://it.denning.search.document.DocumentActivity&#10;dashboardatt&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/dashboard/section4/dashboardattendance/DashboardAttendanceActivity.java&#10;dashboard&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.Dashboard&#10;fileledger&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section4.fileledgers.FileLedgerActivity&#10;dashboardquo&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/dashboard/section4/dashboardquotation/DashboardQuotationActivity.java&#10;string&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/res/values/strings.xml&#10;dashboardatten&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/dashboard/section4/dashboardattendance/DashboardAttendanceActivity.java&#10;addmatterad&#9;PSI&#9;JAVA://it.denning.navigation.add.matter.AddMatterAdapter&#10;addcontact&#9;PSI&#9;JAVA://it.denning.navigation.add.contact.AddContactAdapter&#10;basese&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/add/utils/basesectionadapter/BaseSectionAdapter.java&#10;basesec&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/add/utils/basesectionadapter/BaseSectionAdapter.java&#10;dashboardqu&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/dashboard/section4/dashboardquotation/DashboardQuotationActivity.java&#10;dashboardat&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/dashboard/section4/dashboardattendance/DashboardAttendanceActivity.java&#10;feest&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/dashboard/section4/feestransfer/FeesTransferActivity.java&#10;comple&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section3.CompletionDateActivity&#10;myd&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/dashboard/section1/MyDueTaskActivity.java&#10;fileli&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section1.FileListingActivity&#10;addbi&#9;PSI&#9;JAVA://it.denning.navigation.add.bill.AddBillActivity&#10;addrece&#9;PSI&#9;JAVA://it.denning.navigation.add.receipt.AddReceiptActivity&#10;quotation&#9;PSI&#9;JAVA://it.denning.navigation.add.quotation.AddQuotationActivity&#10;mydu&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section1.MyDueTaskActivity&#10;staffon&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section4.staffonline.StaffOnlineActivity&#10;fees&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section4.feestransfer.FeesTransferActivity&#10;taxin&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section4.taxinvoice.TaxInvoiceActivity&#10;trialba&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section4.trialbalance.TrialBalanceActivity&#10;tria&#9;PSI&#9;JAVA://it.denning.model.TrialBalance&#10;bankan&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/dashboard/section4/bankandcash&#10;bankre&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/dashboard/section4/bankrecon/BankReconActivity.java&#10;staffdu&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section4.taskchecklist.StaffDueTaskActivity&#10;staff&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/dashboard/section4/taskchecklist/StaffDueTaskActivity.java&#10;dashboardcontact&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section4.contacts.DashboardContactActivity" />
+    <property name="SearchEverywhereHistoryKey" value="addpro&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/add/property/AddPropertyAdapter.java&#10;basese&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/add/utils/basesectionadapter/BaseSectionAdapter.java&#10;legal&#9;PSI&#9;JAVA://it.denning.navigation.home.calculators.legalcost.LegalCostActivity&#10;denningmess&#9;PSI&#9;JAVA://it.denning.navigation.message.DenningMessage&#10;denningshare&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/share/DenningShareActivity.java&#10;style&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/res/values/styles.xml&#10;addco&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/add/contact/AddContactActivity.java&#10;addcon&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/add/contact/AddContactActivity.java&#10;addcontact&#9;PSI&#9;JAVA://it.denning.navigation.add.contact.AddContactActivity&#10;dashboard&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.Dashboard&#10;addada&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/add/AddAdapter.java&#10;calcm&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/model/CalcModel.java&#10;calcu&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/home/calculators/CalculatorActivity.java&#10;addsec&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/model/AddSectionModel.java&#10;add&#9;PSI&#9;JAVA://it.denning.navigation.add.Add&#10;calcula&#9;PSI&#9;JAVA://it.denning.navigation.home.calculators.CalculatorActivity&#10;staffle&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section1.staffleave.StaffLeaveActivity&#10;stafflea&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section1.staffleave.StaffLeaveActivity&#10;staffonlinea&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section4.staffonline.StaffOnlineActivity&#10;staffonline&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section4.staffonline.StaffOnlineAdapter&#10;staffonl&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/model/StaffOnlineModel.java&#10;home&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/home/Home.java&#10;addquo&#9;PSI&#9;JAVA://it.denning.navigation.add.quotation.AddQuotationActivity&#10;addmatter&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/add/matter/AddMatterActivity.java&#10;addprop&#9;PSI&#9;JAVA://it.denning.navigation.add.property.AddPropertyActivity&#10;addmatt&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/add/matter/AddMatterActivity.java&#10;addcontac&#9;PSI&#9;JAVA://it.denning.navigation.add.contact.AddContactActivity&#10;addcont&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/add/contact/AddContactAdapter.java&#10;document&#9;PSI&#9;JAVA://it.denning.search.document.DocumentActivity&#10;dashboardatt&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/dashboard/section4/dashboardattendance/DashboardAttendanceActivity.java&#10;fileledger&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section4.fileledgers.FileLedgerActivity&#10;dashboardquo&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/dashboard/section4/dashboardquotation/DashboardQuotationActivity.java&#10;string&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/res/values/strings.xml&#10;dashboardatten&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/dashboard/section4/dashboardattendance/DashboardAttendanceActivity.java&#10;addmatterad&#9;PSI&#9;JAVA://it.denning.navigation.add.matter.AddMatterAdapter&#10;basesec&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/add/utils/basesectionadapter/BaseSectionAdapter.java&#10;dashboardqu&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/dashboard/section4/dashboardquotation/DashboardQuotationActivity.java&#10;dashboardat&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/dashboard/section4/dashboardattendance/DashboardAttendanceActivity.java&#10;feest&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/dashboard/section4/feestransfer/FeesTransferActivity.java&#10;comple&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section3.CompletionDateActivity&#10;myd&#9;FILE&#9;file:///Users/denningit/MyWork/Denning-Android/app/src/main/java/it/denning/navigation/dashboard/section1/MyDueTaskActivity.java&#10;fileli&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section1.FileListingActivity&#10;addbi&#9;PSI&#9;JAVA://it.denning.navigation.add.bill.AddBillActivity&#10;addrece&#9;PSI&#9;JAVA://it.denning.navigation.add.receipt.AddReceiptActivity&#10;quotation&#9;PSI&#9;JAVA://it.denning.navigation.add.quotation.AddQuotationActivity&#10;mydu&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section1.MyDueTaskActivity&#10;staffon&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section4.staffonline.StaffOnlineActivity&#10;fees&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section4.feestransfer.FeesTransferActivity&#10;taxin&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section4.taxinvoice.TaxInvoiceActivity&#10;trialba&#9;PSI&#9;JAVA://it.denning.navigation.dashboard.section4.trialbalance.TrialBalanceActivity" />
     <property name="VectorAssetImportPath" value="$PROJECT_DIR$/.." />
     <property name="android.profiler.active" value="true" />
     <property name="android.project.structure.last.selected" value="app" />
@@ -11385,7 +11461,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="experimental" />
     <property name="show.do.not.ask.upgrade.gradle.plugin" value="2.3.3" />
-    <property name="sync.plugin.last.upgrade.timestamp" value="1542132144918" />
+    <property name="sync.plugin.last.upgrade.timestamp" value="1542244351313" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
@@ -11759,7 +11835,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" weight="0.32673267" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49713877" weight="0.32462686" />
@@ -11776,8 +11851,8 @@
       <window_info id="Captures" order="3" weight="0.19957082" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48294434" visible="true" weight="0.27737752" />
-      <window_info anchor="bottom" id="Build" order="13" sideWeight="0.48705035" visible="true" weight="0.58457714" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48294434" visible="true" weight="0.24351585" />
+      <window_info anchor="bottom" id="Build" order="13" sideWeight="0.48705035" weight="0.58457714" />
       <window_info anchor="right" id="Gradle" order="9" weight="0.3297568" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24964234" />
       <window_info anchor="right" id="Device File Explorer" order="7" side_tool="true" />
@@ -11791,7 +11866,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="right" id="Coverage" order="12" side_tool="true" weight="0.3297568" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32527205" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32462686" />
       <window_info anchor="right" id="Android Model" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Android Monitor" order="10" sideWeight="0.4914163" weight="0.46526054" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
@@ -11948,7 +12023,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/contact/AddContactAdapter.java</url>
-          <line>787</line>
+          <line>789</line>
           <properties />
           <option name="timeStamp" value="1750" />
         </line-breakpoint>
@@ -12110,7 +12185,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/contact/AddContactAdapter.java</url>
-          <line>675</line>
+          <line>677</line>
           <properties />
           <option name="timeStamp" value="2183" />
         </line-breakpoint>
@@ -12217,12 +12292,6 @@
           <option name="timeStamp" value="2394" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/utils/ChatUtils.java</url>
-          <line>387</line>
-          <properties />
-          <option name="timeStamp" value="2404" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/it/denning/ui/activities/chats/BaseDialogActivity.java</url>
           <line>1309</line>
           <properties />
@@ -12284,7 +12353,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/contact/AddContactActivity.java</url>
-          <line>239</line>
+          <line>237</line>
           <properties />
           <option name="timeStamp" value="2451" />
         </line-breakpoint>
@@ -12296,27 +12365,21 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/it/denning/general/DIHelper.java</url>
-          <line>351</line>
+          <line>358</line>
           <properties />
           <option name="timeStamp" value="2572" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/it/denning/general/DIHelper.java</url>
-          <line>343</line>
+          <line>350</line>
           <properties />
           <option name="timeStamp" value="2575" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/contact/AddContactActivity.java</url>
-          <line>207</line>
+          <line>205</line>
           <properties />
           <option name="timeStamp" value="2604" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/it/denning/share/DenningShareActivity.java</url>
-          <line>522</line>
-          <properties />
-          <option name="timeStamp" value="2659" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/matter/AddMatterActivity.java</url>
@@ -12397,41 +12460,46 @@
           <option name="timeStamp" value="2789" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/contact/AddContactAdapter.java</url>
-          <line>596</line>
-          <properties />
-          <option name="timeStamp" value="2802" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/contact/AddContactAdapter.java</url>
-          <line>603</line>
-          <properties />
-          <option name="timeStamp" value="2803" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/it/denning/ui/activities/base/MySearchBaseActivity.java</url>
           <line>27</line>
           <properties />
           <option name="timeStamp" value="2806" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/contact/AddContactActivity.java</url>
+          <line>389</line>
+          <properties />
+          <option name="timeStamp" value="2831" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/it/denning/ui/adapters/chats/DialogsListAdapter.java</url>
+          <line>156</line>
+          <properties />
+          <option name="timeStamp" value="2833" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="2828" />
+      <option name="time" value="2835" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="app">
-        <watch expression="size.x/3" language="JAVA" />
+        <watch expression="calendar.YEAR" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
       <expression>
-        <expression-string>size.x/3</expression-string>
+        <expression-string>calendar.YEAR</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
         <expression-string>getValue(sectionIndex, itemIndex).toLowerCase()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>size.x/3</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -12470,225 +12538,9 @@
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>response.get(&quot;theCode&quot;).getAsString()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/util/DashboardSecondItemFrameAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="75" column="61" selection-start-line="75" selection-start-column="61" selection-end-line="75" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dashboard_second_item.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-235">
-          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/util/GeneralActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="37" column="38" lean-forward="true" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/section4/dashboardattendance/DashboardAttendanceActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="60" column="17" selection-start-line="60" selection-start-column="17" selection-end-line="60" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-26/android/content/Intent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="5797" column="51" lean-forward="true" selection-start-line="5796" selection-start-column="8" selection-end-line="5797" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/contact/AddContactAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="604" column="58" selection-start-line="604" selection-start-column="58" selection-end-line="604" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/contact/AddContactActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="61" column="51" lean-forward="true" selection-start-line="60" selection-start-column="8" selection-end-line="61" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/property/AddPropertyActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="68" column="51" selection-start-line="68" selection-start-column="51" selection-end-line="68" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/quotation/AddQuotationActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-78">
-          <caret line="58" column="13" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/Home.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="94" column="48" selection-start-line="94" selection-start-column="48" selection-end-line="94" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
-      <provider editor-type-id="text-editor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/matter/AddMatterActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="95" column="5" lean-forward="true" selection-start-line="95" selection-start-column="5" selection-end-line="95" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/search/document/DocumentActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="59" column="30" selection-start-line="59" selection-start-column="30" selection-end-line="59" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dashboard_staff_online.xml">
-      <provider editor-type-id="text-editor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/section4/staffonline/StaffOnlineAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="144" column="49" selection-start-line="144" selection-start-column="49" selection-end-line="144" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/model/StaffOnlineModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/section4/staffonline/StaffOnlineActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="63" column="26" lean-forward="true" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/section1/staffleave/StaffLeavePageAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="32" column="37" lean-forward="true" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/model/LeaveRecordModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="49" column="72" selection-start-line="49" selection-start-column="72" selection-end-line="49" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/section1/staffleave/leaveapp/DashboardLeaveAppAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="129" column="51" lean-forward="true" selection-start-line="129" selection-start-column="51" selection-end-line="129" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/section1/staffleave/leaveapp/DashboardLeaveAppFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="81" column="39" selection-start-line="81" selection-start-column="39" selection-end-line="81" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/section1/staffleave/StaffLeaveActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="590">
-          <caret line="83" column="18" selection-start-line="83" selection-start-column="18" selection-end-line="83" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/cardview_staff_online.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="41" column="47" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/cardview_staff_online_header.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="44" column="43" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_general_customize.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="617" column="24" selection-start-line="617" selection-start-column="24" selection-end-line="617" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/Add.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="103" column="40" selection-start-line="103" selection-start-column="40" selection-end-line="103" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/model/AddModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="17" column="59" lean-forward="true" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/model/AddSectionModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -12700,9 +12552,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -12811,13 +12660,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/model/CalcModel.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/AddAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="42" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="197">
+          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -12828,39 +12674,299 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/calculators/CalculatorAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="109" column="83" selection-start-line="109" selection-start-column="83" selection-end-line="109" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/cardview_simple_detail.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="98">
           <caret line="11" column="33" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="33" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/model/CalcModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="42" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/calculators/CalculatorAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/model/LabelValueDetail.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="109" column="83" selection-start-line="109" selection-start-column="83" selection-end-line="109" selection-end-column="83" />
+        <state relative-caret-position="-520">
+          <caret line="20" column="43" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/model/AddSectionItemModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="20" column="21" lean-forward="true" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/model/AddingModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/dashboard/Dashboard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="193" selection-start-line="193" selection-end-line="193" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2080#2081#0" expanded="true" />
-            <element signature="e#2149#2150#0" expanded="true" />
+            <element signature="e#5377#5860#0" expanded="true" />
+            <element signature="e#5859#5860#0" expanded="true" />
+            <element signature="e#5862#6110#0" expanded="true" />
+            <element signature="e#6109#6110#0" expanded="true" />
+            <element signature="e#7274#7599#0" expanded="true" />
+            <element signature="e#7598#7599#0" expanded="true" />
+            <element signature="e#8941#9266#0" expanded="true" />
+            <element signature="e#9265#9266#0" expanded="true" />
+            <element signature="e#9827#10152#0" expanded="true" />
+            <element signature="e#10151#10152#0" expanded="true" />
+            <element signature="e#10386#10408#0" expanded="true" />
+            <element signature="e#10410#10440#0" expanded="true" />
+            <element signature="e#14002#14350#0" expanded="true" />
+            <element signature="e#14349#14350#0" expanded="true" />
+            <element signature="e#14352#14560#0" expanded="true" />
+            <element signature="e#14559#14560#0" expanded="true" />
+            <element signature="e#14938#15345#0" expanded="true" />
+            <element signature="e#15344#15345#0" expanded="true" />
+            <element signature="e#15347#15555#0" expanded="true" />
+            <element signature="e#15554#15555#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/AddAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/share/DenningShareAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+        <state relative-caret-position="394">
+          <caret line="205" column="27" selection-start-line="205" selection-start-column="20" selection-end-line="205" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/appcompat-v7/27.1.1/21d073509c5f8d25a1bf274067fa729a1fba8d75/appcompat-v7-27.1.1-sources.jar!/android/support/v7/app/ActionBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="201" column="28" selection-start-line="201" selection-start-column="28" selection-end-line="201" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.wdullaer/materialdatetimepicker/3.5.0/24041a60e96515efcdaa3db0c25d0fa0e482b9b0/materialdatetimepicker-3.5.0-sources.jar!/com/wdullaer/materialdatetimepicker/date/DatePickerDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="62" column="13" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-26/android/app/DatePickerDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="131" column="28" lean-forward="true" selection-start-line="131" selection-start-column="28" selection-end-line="131" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-26/android/widget/DatePicker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="159" column="69" selection-start-line="159" selection-start-column="69" selection-end-line="159" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Android/sdk/platforms/android-26/data/res/values/themes_material.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1743">
+          <caret line="1145" column="77" selection-start-line="1145" selection-start-column="77" selection-end-line="1145" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/datepicker.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/general/DIDatePicker.java" />
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="207" column="63" selection-start-line="207" selection-start-column="63" selection-end-line="207" selection-end-column="63" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+        <state relative-caret-position="735">
+          <caret line="49" column="29" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/contact/AddContactAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="46" column="48" selection-start-line="46" selection-start-column="48" selection-end-line="46" selection-end-column="48" />
+          <folding>
+            <element signature="e#3089#3090#0" expanded="true" />
+            <element signature="e#3119#3120#0" expanded="true" />
+            <element signature="e#12057#12058#0" expanded="true" />
+            <element signature="e#12117#12118#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3495">
+          <caret line="233" column="52" selection-start-line="233" selection-start-column="52" selection-end-line="233" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/share/DenningShareActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="530" column="113" selection-start-line="530" selection-start-column="89" selection-end-line="530" selection-end-column="113" />
+          <folding>
+            <element signature="e#6229#6511#0" expanded="true" />
+            <element signature="e#6510#6511#0" expanded="true" />
+            <element signature="e#6513#6757#0" expanded="true" />
+            <element signature="e#6756#6757#0" expanded="true" />
+            <element signature="e#7016#7262#0" expanded="true" />
+            <element signature="e#7261#7262#0" expanded="true" />
+            <element signature="e#7887#7909#0" expanded="true" />
+            <element signature="e#7911#7939#0" expanded="true" />
+            <element signature="e#9765#10411#0" expanded="true" />
+            <element signature="e#10410#10411#0" expanded="true" />
+            <element signature="e#10602#11300#0" expanded="true" />
+            <element signature="e#11299#11300#0" expanded="true" />
+            <element signature="e#11351#11911#0" expanded="true" />
+            <element signature="e#11910#11911#0" expanded="true" />
+            <element signature="e#13505#14507#0" expanded="true" />
+            <element signature="e#14506#14507#0" expanded="true" />
+            <element signature="e#15413#15771#0" expanded="true" />
+            <element signature="e#15770#15771#0" expanded="true" />
+            <element signature="e#15773#15923#0" expanded="true" />
+            <element signature="e#15922#15923#0" expanded="true" />
+            <element signature="e#16802#16992#0" expanded="true" />
+            <element signature="e#16991#16992#0" expanded="true" />
+            <element signature="e#17367#17553#0" expanded="true" />
+            <element signature="e#17552#17553#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-26/java/util/Calendar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-54">
+          <caret line="1856" column="16" selection-start-line="1856" selection-start-column="16" selection-end-line="1856" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Q-municate_core/src/main/java/com/quickblox/q_municate_core/utils/ChatUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="386" column="5" selection-start-line="386" selection-start-column="5" selection-end-line="386" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/contact/AddContactActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="398" column="56" selection-start-line="398" selection-start-column="56" selection-end-line="398" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/message/DenningMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="155" column="31" selection-start-line="155" selection-start-column="27" selection-end-line="155" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/ui/adapters/base/BaseListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="54" column="16" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/ui/adapters/chats/DialogsListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="161" column="41" selection-start-line="161" selection-start-column="41" selection-end-line="161" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/calculators/legalcost/LegalCostActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/general/DIHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="583">
+          <caret line="1333" column="52" selection-start-line="1333" selection-start-column="45" selection-end-line="1333" selection-end-column="52" />
+          <folding>
+            <element signature="e#20107#20108#0" expanded="true" />
+            <element signature="e#20166#20167#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_calculate_spa.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="432" column="57" selection-start-line="432" selection-start-column="57" selection-end-line="432" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/home/calculators/legalcost/SPAFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="226" column="52" selection-start-line="226" selection-start-column="52" selection-end-line="226" selection-end-column="52" />
+          <folding>
+            <element signature="e#2776#2802#0" expanded="true" />
+            <element signature="e#2920#3405#0" expanded="true" />
+            <element signature="e#3404#3405#0" expanded="true" />
+            <element signature="e#3437#3452#0" expanded="true" />
+            <element signature="e#3484#3503#0" expanded="true" />
+            <element signature="e#3675#3700#0" expanded="true" />
+            <element signature="e#3774#3793#0" expanded="true" />
+            <element signature="e#3859#4334#0" expanded="true" />
+            <element signature="e#4333#4334#0" expanded="true" />
+            <element signature="e#4366#4381#0" expanded="true" />
+            <element signature="e#6715#6744#0" expanded="true" />
+            <element signature="e#7025#7054#0" expanded="true" />
+            <element signature="e#7281#7316#0" expanded="true" />
+            <element signature="e#8214#8236#0" expanded="true" />
+            <element signature="e#8238#8268#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/utils/basesectionadapter/BaseSectionAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="681" column="5" selection-start-line="681" selection-start-column="5" selection-end-line="681" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/it/denning/navigation/add/property/AddPropertyAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="107" column="68" selection-start-line="107" selection-start-column="68" selection-end-line="107" selection-end-column="68" />
         </state>
       </provider>
     </entry>

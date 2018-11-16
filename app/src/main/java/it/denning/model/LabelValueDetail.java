@@ -18,6 +18,7 @@ public class LabelValueDetail {
     public boolean hasDetail = true;
     public boolean isInput = true;
     public boolean isInputEnabled = true;
+    public boolean isRealtimeInput = false;
     public boolean isAdd = false;
     public boolean isOneRowAdd = false;
     public boolean isOneRowDetail = false;

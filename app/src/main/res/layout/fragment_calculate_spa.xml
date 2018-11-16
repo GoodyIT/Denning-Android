@@ -352,40 +352,110 @@
                     android:background="@color/white"
                     android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="0dp"
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/white"
+                            android:orientation="horizontal">
+
+                        <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="20dp"
+                                android:layout_weight="1"
+                                android:gravity="left|start"
+                                android:text="Legal Fee"
+                                android:textColor="@color/black"
+                                android:textSize="16sp"/>
+
+                        <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="3"
+                                android:layout_gravity="center"
+                                android:layout_height="44dp"
+                                android:background="@color/white"
+                                android:orientation="horizontal">
+
+                            <TextView
+                                    android:id="@+id/legal_spa_textview"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:gravity="center"/>
+
+                            <TextView
+                                    android:id="@+id/legal_loan_textview"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:gravity="center"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="20dp"
-                        android:layout_weight="1"
-                        android:gravity="left|start"
-                        android:text="Legal Fee"
-                        android:textColor="@color/black"
-                        android:textSize="16sp" />
+                        android:background="@color/white"
+                        android:orientation="horizontal">
 
                     <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="3"
-                        android:layout_gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="12dp"
+                            android:background="@color/light_gray" />
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="44dp"
                         android:background="@color/white"
                         android:orientation="horizontal">
 
-                        <TextView
-                            android:id="@+id/legal_spa_textview"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:gravity="center" />
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/white"
+                            android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/legal_loan_textview"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:gravity="center" />
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="20dp"
+                                android:layout_weight="1"
+                                android:gravity="left|start"
+                                android:text="Legal SST"
+                                android:textColor="@color/black"
+                                android:textSize="16sp"/>
+
+                        <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="3"
+                                android:layout_gravity="center"
+                                android:layout_height="44dp"
+                                android:background="@color/white"
+                                android:orientation="horizontal">
+
+                            <TextView
+                                    android:id="@+id/sst_legal_spa_textview"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:gravity="center"/>
+
+                            <TextView
+                                    android:id="@+id/sst_legal_loan_textview"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:gravity="center"/>
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -472,7 +542,7 @@
                         android:layout_marginLeft="20dp"
                         android:layout_weight="1"
                        android:gravity="left|start"
-                        android:text="Grand Total"
+                        android:text="Grands Total"
                         android:textColor="@color/colorAccent"
                         android:textSize="16sp"
                         android:textStyle="bold" />

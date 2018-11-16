@@ -1,5 +1,6 @@
 package it.denning.navigation.add.contact;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,12 +12,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import android.widget.DatePicker;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.quickblox.q_municate_db.utils.ErrorUtils;
-import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
+import com.tsongkha.spinnerdatepicker.SpinnerDatePickerDialogBuilder;
+import it.denning.MainActivity;
+import it.denning.general.*;
 import org.zakariya.stickyheaders.StickyHeaderLayoutManager;
 
 import java.text.SimpleDateFormat;
@@ -24,11 +28,6 @@ import java.util.Calendar;
 import java.util.Date;
 
 import it.denning.R;
-import it.denning.general.DIAlert;
-import it.denning.general.DIConstants;
-import it.denning.general.DIHelper;
-import it.denning.general.DISharedPreferences;
-import it.denning.general.MyCallbackInterface;
 import it.denning.model.CodeDescription;
 import it.denning.model.Contact;
 import it.denning.navigation.add.utils.simplespinerdialog.SimpleSpinnerDialog;
@@ -47,8 +46,7 @@ import it.denning.ui.activities.base.MyBaseActivity;
  */
 
 public class AddContactActivity extends MyBaseActivity implements
-        OnSectionItemClickListener,
-        DatePickerDialog.OnDateSetListener {
+        OnSectionItemClickListener{
     AddContactAdapter adapter;
     Contact contact;
     public boolean isSaved = false, isIDDuplicated = false, isNameDuplicated = false, isOldIDDuplicated = false;
@@ -388,19 +386,30 @@ public class AddContactActivity extends MyBaseActivity implements
             calendar = Calendar.getInstance();
             calendar.setTime(testDate);
         }
-        dpd = DatePickerDialog.newInstance(
-                this,
-                calendar
-        );
-        dpd.setVersion(DatePickerDialog.Version.VERSION_2);
-        dpd.show(getFragmentManager(), "Datepickerdialog");
+
+        new SpinnerDatePickerDialogBuilder()
+                .context(AddContactActivity.this)
+                .callback(new com.tsongkha.spinnerdatepicker.DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(com.tsongkha.spinnerdatepicker.DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        String date = DIHelper.getBirthday(year, monthOfYear, dayOfMonth);
+                        adapter.updateDataAndRefresh(date, adapter.OTHER_INFO, adapter.DATE_OF_BIRTH);
+                    }
+                })
+                .spinnerTheme(R.style.NumberPickerStyle)
+                .showTitle(true)
+                .showDaySpinner(true)
+                .defaultDate(calendar.get(calendar.YEAR), calendar.get(calendar.MONTH), calendar.get(calendar.DAY_OF_MONTH))
+                .build()
+                .show();
+
     }
 
-    @Override
-    public void onDateSet(DatePickerDialog datePickerDialog, int i, int i1, int i2) {
-        String date = DIHelper.getBirthday(datePickerDialog.getSelectedDay());
-        adapter.updateDataAndRefresh(date, adapter.OTHER_INFO, adapter.DATE_OF_BIRTH);
-    }
+//    @Override
+////    public void onDateSet(DatePickerDialog datePickerDialog, int i, int i1, int i2) {
+//        String date = DIHelper.getBirthday(datePickerDialog.getSelectedDay());
+////        adapter.updateDataAndRefresh(date, adapter.OTHER_INFO, adapter.DATE_OF_BIRTH);
+////    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

@@ -238,6 +238,7 @@
     <orderEntry type="library" name="Gradle: com.timehop.stickyheadersrecyclerview:library-0.4.2" level="project" />
     <orderEntry type="library" name="Gradle: com.hannesdorfmann.smoothprogressbar:library-1.0.0" level="project" />
     <orderEntry type="library" name="Gradle: com.android.databinding:baseLibrary:3.1.4@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.drawers:SpinnerDatePicker-1.0.6" level="project" />
     <orderEntry type="library" name="Gradle: com.j256.ormlite:ormlite-android:5.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: jp.wasabeef:recyclerview-animators-2.2.3" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.lifecycle:common:1.1.0@jar" level="project" />

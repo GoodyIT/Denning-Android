@@ -198,7 +198,7 @@ public class Dashboard extends Fragment implements DashboardSecondItemClickListe
         final DashboardForthItemAdapter itemAdapter = new DashboardForthItemAdapter(getContext(), dashboardModel.s3.items, -1);
         ViewGroup.LayoutParams layoutParams = forthGridView.getLayoutParams();
         int height = size.x/4 > 200 ? size.x/4 : 200;
-        layoutParams.height = (height) * 2 + 55; //this is in pixels
+        layoutParams.height = (height) * 2; //this is in pixels
         forthGridView.setLayoutParams(layoutParams);
         forthGridView.setAdapter(itemAdapter);
         forthGridView.setColumnWidth(size.x/4-9);

@@ -116,12 +116,14 @@ public class AddContactAdapter extends BaseSectionAdapter {
         sectionItemModel.items.add(labelValueDetail);
 
         labelValueDetail = new LabelValueDetail("ID No *", "", DIConstants.INPUT_TYPE);
+        labelValueDetail.isRealtimeInput = true;
         if (contact != null) {
             labelValueDetail.value = contact.IDNo;
         }
         sectionItemModel.items.add(labelValueDetail);
 
         labelValueDetail = new LabelValueDetail("Old IC", "", DIConstants.DISABLE_TYPE);
+        labelValueDetail.isRealtimeInput = true;
         if (contact != null) {
             labelValueDetail.value = contact.KPLama;
         }

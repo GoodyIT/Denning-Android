@@ -226,6 +226,7 @@ dependencies {
     implementation 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
     implementation 'net.danlew:android.joda:2.9.9.4'
 
+    implementation 'com.github.drawers:SpinnerDatePicker:1.0.6'
 
 //    implementation 'se.ansman.kotshi:api:1.0.5'
 

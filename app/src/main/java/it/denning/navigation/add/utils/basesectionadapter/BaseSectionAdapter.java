@@ -72,6 +72,8 @@ public class BaseSectionAdapter extends SectioningAdapter {
     protected List<String> titles = new ArrayList<>();
     protected EditText focusedEditText;
 
+
+
     public BaseSectionAdapter(Context context, OnSectionItemClickListener itemClickListener) {
         this.context = context;
         this.itemClickListener = itemClickListener;
@@ -671,7 +673,12 @@ public class BaseSectionAdapter extends SectioningAdapter {
             return;
         }
         input = input.substring(0, 1).toUpperCase() + input.substring(1);
-        model.items.get(sectionIndex).items.get(itemIndex).value = input;
+        String[] inputArray = input.split(" ");
+        String newInput = "";
+        for(int i = 0; i < inputArray.length; i++) {
+            newInput += inputArray[i].substring(0, 1).toUpperCase() + inputArray[i].substring(1) + " ";
+        }
+        model.items.get(sectionIndex).items.get(itemIndex).value = newInput;
     }
 
     public void updateLeftRightInput(String input, int sectionIndex, int itemIndex, int twoColumn) {
@@ -781,6 +788,10 @@ public class BaseSectionAdapter extends SectioningAdapter {
 
         @Override
         public void afterTextChanged(Editable s) {
+            if (model.items.get(sectionIndex).items.get(itemIndex).isRealtimeInput) {
+                return;
+            }
+
             if (!getValue(sectionIndex, itemIndex).toLowerCase().equals(s.toString().toLowerCase())) {
                 updateDataFromInput(s.toString(), sectionIndex, itemIndex);
             }

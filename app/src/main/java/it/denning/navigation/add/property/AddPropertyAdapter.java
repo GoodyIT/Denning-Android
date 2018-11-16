@@ -105,7 +105,7 @@ public class AddPropertyAdapter extends BaseSectionAdapter {
         }
         sectionItemModel.items.add(labelValueDetail);
 
-        labelValueDetail = new LabelValueDetail("Individual / Sarata Title", "", DIConstants.GENERAL_TYPE);
+        labelValueDetail = new LabelValueDetail("Individual / Strata Title", "", DIConstants.GENERAL_TYPE);
         if (property != null) {
             labelValueDetail.value = property.getTitleIssuedDesc();
             labelValueDetail.code = property.getTitleIssuedCode();

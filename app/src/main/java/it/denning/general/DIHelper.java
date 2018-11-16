@@ -278,6 +278,13 @@ public class DIHelper {
         return sdf.format(calendar.getTime());
     }
 
+    public static String getBirthday(int year, int month, int day) {
+        Calendar calendar= Calendar.getInstance();
+        calendar.set(year, month, day);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
+        return sdf.format(calendar.getTime());
+    }
+
     public static String getTime(int hourOfDay, int minute) {
         Calendar calendar= Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
