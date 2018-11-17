@@ -16,6 +16,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
+import it.denning.model.*;
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
 
@@ -34,18 +35,6 @@ import it.denning.general.DIAlert;
 import it.denning.general.DIConstants;
 import it.denning.general.DIHelper;
 import it.denning.general.MyCallbackInterface;
-import it.denning.model.AddSectionItemModel;
-import it.denning.model.AddingModel;
-import it.denning.model.BankGroup;
-import it.denning.model.CodeDescription;
-import it.denning.model.FormulaModel;
-import it.denning.model.LabelValue;
-import it.denning.model.LabelValueDetail;
-import it.denning.model.MatterModel;
-import it.denning.model.MatterProperty;
-import it.denning.model.PartyGroup;
-import it.denning.model.SolicitorGroup;
-import it.denning.model.StaffModel;
 import it.denning.navigation.add.utils.basesectionadapter.BaseSectionAdapter;
 import it.denning.network.NetworkManager;
 import it.denning.search.utils.OnSectionItemClickListener;
@@ -78,12 +67,13 @@ public class AddMatterAdapter extends BaseSectionAdapter {
     public int PARTNER_IN_CHARGE = 4;
     public int LA_IN_CHARGE = 5;
     public int CLERK_IN_CHARGE = 6;
-    public int MATTER = 7;
-    public int BRANCH = 8;
-    public int FILE_LOCATION = 9;
-    public int POCKET_LOCATION = 10;
-    public int STORAGE_LOCATION = 11;
-    public int UPDATE_BUTTON = 12;
+    public int TEAM = 7;
+    public int MATTER = 8;
+    public int BRANCH = 9;
+    public int FILE_LOCATION = 10;
+    public int POCKET_LOCATION = 11;
+    public int STORAGE_LOCATION = 12;
+    public int UPDATE_BUTTON = 13;
 
     // Remarks
     public int NOTES = 0;
@@ -110,7 +100,7 @@ public class AddMatterAdapter extends BaseSectionAdapter {
         labelValueDetail.hasDetail = false;
         sectionItemModel.items.add(labelValueDetail);
 
-        labelValueDetail = new LabelValueDetail("Ref 2", "", DIConstants.INPUT_TYPE);
+        labelValueDetail = new LabelValueDetail("Ref 2 (if any)", "", DIConstants.INPUT_TYPE);
         sectionItemModel.items.add(labelValueDetail);
 
         labelValueDetail = new LabelValueDetail("Primary Client", "", DIConstants.GENERAL_TYPE);
@@ -126,6 +116,9 @@ public class AddMatterAdapter extends BaseSectionAdapter {
         sectionItemModel.items.add(labelValueDetail);
 
         labelValueDetail = new LabelValueDetail("Clerk-in-Charge", "", DIConstants.GENERAL_TYPE);
+        sectionItemModel.items.add(labelValueDetail);
+
+        labelValueDetail = new LabelValueDetail("Team", "", DIConstants.GENERAL_TYPE);
         sectionItemModel.items.add(labelValueDetail);
 
         labelValueDetail = new LabelValueDetail("Matter", "", DIConstants.GENERAL_TYPE);
@@ -162,6 +155,13 @@ public class AddMatterAdapter extends BaseSectionAdapter {
         }
     }
 
+    private void updateMatterInfoSection(MatterCodeModel matter) {
+        model.items.get(MATTER_INFO).items.get(PARTNER_IN_CHARGE).label = matter.strLabelPartner;
+        model.items.get(MATTER_INFO).items.get(LA_IN_CHARGE).label = matter.strLabelLegalAssistant;
+        model.items.get(MATTER_INFO).items.get(CLERK_IN_CHARGE).label = matter.strLabelClerk;
+        model.items.get(MATTER_INFO).items.get(TEAM).label = matter.strLabelTeam;
+    }
+
     public MatterModel getModel() {
         return matter;
     }
@@ -171,6 +171,8 @@ public class AddMatterAdapter extends BaseSectionAdapter {
         isUpdateMode = true;
         updateTitles();
 
+        updateMatterInfoSection(matter.matter);
+
         updateData(matter.systemNo, MATTER_INFO, FILE_NO);
         updateData("Update", MATTER_INFO, UPDATE_BUTTON);
         updateData(matter.getManualNo(), MATTER_INFO, REF2);
@@ -179,6 +181,7 @@ public class AddMatterAdapter extends BaseSectionAdapter {
         updateCodeDescDataWithoutRefresh(new CodeDescription(matter.getPartnerCode(), matter.getPartnerName()), MATTER_INFO, PARTNER_IN_CHARGE);
         updateCodeDescDataWithoutRefresh(new CodeDescription(matter.getLegalAssistantCode(), matter.getLegalAssistantName()), MATTER_INFO, LA_IN_CHARGE);
         updateCodeDescDataWithoutRefresh(new CodeDescription(matter.getClerkCode(), matter.getClerkName()), MATTER_INFO, CLERK_IN_CHARGE);
+        updateData(matter.team, MATTER_INFO, TEAM);
         updateCodeDescDataWithoutRefresh(new CodeDescription(matter.getMatterFormCode(), matter.getMatterDesc()), MATTER_INFO, MATTER);
         updateCodeDescDataWithoutRefresh(new CodeDescription(matter.getBranchCode(), matter.getBranchName()), MATTER_INFO, BRANCH);
         updateData(matter.locationBox, MATTER_INFO, FILE_LOCATION);
@@ -194,7 +197,7 @@ public class AddMatterAdapter extends BaseSectionAdapter {
         // Case Details
         sectionItemModel = new AddSectionItemModel();
         sectionItemModel.items.add(new LabelValueDetail("Case Type", matter.getCourtCaseNo(), DIConstants.GENERAL_TYPE));
-        sectionItemModel.items.add(new LabelValueDetail("Type No", matter.getCourtTypeNo(), DIConstants.INPUT_TYPE));
+        sectionItemModel.items.add(new LabelValueDetail("Case", matter.getCourtTypeNo(), DIConstants.INPUT_TYPE));
         sectionItemModel.items.add(new LabelValueDetail("Court", matter.getCourtPlace(), DIConstants.GENERAL_TYPE));
         sectionItemModel.items.add(new LabelValueDetail("Place", matter.getCourt(), DIConstants.GENERAL_TYPE));
         sectionItemModel.items.add(new LabelValueDetail("Judge", matter.getCourtJudge(), DIConstants.GENERAL_TYPE));
@@ -237,7 +240,7 @@ public class AddMatterAdapter extends BaseSectionAdapter {
         // Solicitors
         sectionItemModel = new AddSectionItemModel();
         for (SolicitorGroup solicitorGroup : matter.solicitorsGroup) {
-            labelValueDetail = new LabelValueDetail(solicitorGroup.getGroupName(), solicitorGroup.getName(), DIConstants.GENERAL_ADD_TYPE);
+            labelValueDetail = new LabelValueDetail(solicitorGroup.getGroupName(), solicitorGroup.getName().toUpperCase(), DIConstants.GENERAL_ADD_TYPE);
             labelValueDetail.code = solicitorGroup.getCode();
             labelValueDetail.otherValue1 = solicitorGroup.reference;
             labelValueDetail.isAdd = true;
@@ -552,13 +555,18 @@ public class AddMatterAdapter extends BaseSectionAdapter {
             return;
         }
 
-        input = input.substring(0, 1).toUpperCase() + input.substring(1);
+        String[] inputArray = input.split(" ");
+        String newInput = "";
+        for(int i = 0; i < inputArray.length; i++) {
+            newInput += inputArray[i].substring(0, 1).toUpperCase() + inputArray[i].substring(1) + " ";
+        }
+
+        input = newInput;
 
         if (sectionIndex == IMPORTANT_RM) {
             input = DIHelper.addThousandsSeparator(input);
-        } else {
-            input = input.substring(0, 1).toUpperCase() + input.substring(1);
         }
+
         model.items.get(sectionIndex).items.get(itemIndex).value = input;
 
         if (sectionIndex == IMPORTANT_RM) {
@@ -653,6 +661,8 @@ public class AddMatterAdapter extends BaseSectionAdapter {
     }
 
     protected boolean isValidProceed() {
+        clearFocus();
+
         if (getCode(MATTER_INFO, PRIMARY_CLIENT).trim().length() == 0) {
             DIAlert.showSimpleAlert(context, R.string.alert_primary_client);
             return false;
@@ -676,7 +686,7 @@ public class AddMatterAdapter extends BaseSectionAdapter {
     }
 
     public JsonObject _buildSaveParams() {
-        focusedEditText.clearFocus();
+        clearFocus();
 
         JsonObject params = new JsonObject();
 
@@ -720,6 +730,10 @@ public class AddMatterAdapter extends BaseSectionAdapter {
             JsonObject model = new JsonObject();
             model.addProperty("code", matterInfo.get(CLERK_IN_CHARGE).getCode());
             params.add("clerk", model);
+        }
+
+        if (!matterInfo.get(TEAM).value.isEmpty() && !matterInfo.get(TEAM).value.equals(matter.team)) {
+            params.addProperty("team", matterInfo.get(TEAM).value);
         }
 
         if (!matterInfo.get(FILE_STATUS).getCode().isEmpty() && !matterInfo.get(FILE_STATUS).getCode().equals(matter.getFileStatusCode())) {
@@ -794,6 +808,10 @@ public class AddMatterAdapter extends BaseSectionAdapter {
             JsonObject model = new JsonObject();
             model.addProperty("code", matterInfo.get(CLERK_IN_CHARGE).getCode());
             params.add("clerk", model);
+        }
+
+        if (!matterInfo.get(TEAM).value.isEmpty() && !matterInfo.get(TEAM).value.equals(matter.team)) {
+            params.addProperty("team", matterInfo.get(TEAM).value);
         }
 
         if ( !matterInfo.get(FILE_STATUS).getCode().equals(matter.getFileStatusCode())) {

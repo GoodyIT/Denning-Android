@@ -71,6 +71,14 @@ public class AddBillAdapter extends SectioningAdapter {
     public static final int SAVE_VIEW = 5;
     public static final int ISSUE_RECEIPT = 6;
 
+    public EditText focusedText;
+
+    public void clearFocus() {
+        if (focusedText == null) {
+            return;
+        }
+        focusedText.clearFocus();
+    }
 
     public AddBillAdapter(Context context, OnSectionItemClickListener itemClickListener, BillModel billModel, boolean hasCalculate) {
         this.itemClickListener = itemClickListener;
@@ -301,7 +309,20 @@ public class AddBillAdapter extends SectioningAdapter {
         return new GhostHeaderViewHolder(ghostView);
     }
 
-    private void displayInput(final InputTypeViewHolder viewHolder, final int sectionIndex, int itemIndex) {
+    public void deleteItem(final int sectionIndex, final int position) {
+        model.items.get(sectionIndex).items.get(position).value = "";
+
+        android.os.Handler handler = new android.os.Handler();
+        handler.postDelayed(new Runnable() {
+            public void run(){
+                //change adapter contents
+                notifySectionItemChanged(sectionIndex, position);
+                clearFocus();
+            }
+        }, 300);
+    }
+
+    private void displayInput(final InputTypeViewHolder viewHolder, final int sectionIndex,  int itemIndex) {
         if (!isRental.equals("0") && itemIndex > 4 && sectionIndex == 0) {
             itemIndex += 2;
         }
@@ -311,6 +332,14 @@ public class AddBillAdapter extends SectioningAdapter {
         viewHolder.editText.setText(labelValueDetail.value);
         viewHolder.editText.setHint(labelValueDetail.label);
         viewHolder.editText.setFloatingLabelText(labelValueDetail.label);
+
+        final int _itemIndex = itemIndex;
+        viewHolder.editText.setCloseListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteItem(sectionIndex, _itemIndex);
+            }
+        });
     }
 
     private void displayGeneral(final GeneralTypeViewHolder viewHolder, final int sectionIndex, final int itemIndex) {
@@ -407,7 +436,8 @@ public class AddBillAdapter extends SectioningAdapter {
             updateBillTo(issueToName, issueToFirstCode);
         }
 
-        model.items.get(0).items.get(2).value = matterSimple.systemNo; // SystemNo
+        model.items.get(0).items.get(2).value = matterSimple.systemNo + "( " + matterSimple.primaryClient.name + " )"; // SystemNo
+        model.items.get(0).items.get(2).code = matterSimple.systemNo;
         model.items.get(0).items.get(3).value = matterSimple.matter.description;
         model.items.get(0).items.get(3).code = matterSimple.matter.code;
         model.items.get(0).items.get(5).value = matterSimple.presetBill.strDescription;
@@ -493,9 +523,11 @@ public class AddBillAdapter extends SectioningAdapter {
     }
 
     public JsonObject buildSaveParams() {
+        clearFocus();
+
         JsonObject params = new JsonObject();
 
-        params.addProperty("fileNo", model.items.get(0).items.get(2).value);
+        params.addProperty("fileNo", model.items.get(0).items.get(2).code);
         params.addProperty("issueDate", DIHelper.todayWithTime());
         JsonObject issueTo =  new JsonObject();
         issueTo.addProperty("code", issueToFirstCode);
@@ -531,6 +563,7 @@ public class AddBillAdapter extends SectioningAdapter {
         @Override
         public void onFocusChange(View v, final boolean hasFocus) {
             if (hasFocus) {
+                focusedText = (EditText) v;
                 return;
             }
             updateDataFromInput(((EditText)v).getText().toString(), sectionIndex, itemIndex);

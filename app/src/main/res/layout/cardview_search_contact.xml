@@ -78,7 +78,7 @@
                         android:background="@drawable/selector_button_red_oval"
                         android:paddingLeft="3dp"
                         android:paddingRight="3dp"
-                        android:text="Related Matters"
+                        android:text="Matters"
                         android:textColor="@android:color/white" />
 
                     <Button
@@ -93,7 +93,7 @@
                         android:background="@drawable/selector_button_red_oval"
                         android:paddingLeft="3dp"
                         android:paddingRight="3dp"
-                        android:text="Contact Folder"
+                        android:text="Folder"
                         android:textColor="@android:color/white" />
 
                     <Button
@@ -102,8 +102,6 @@
                         android:layout_height="wrap_content"
                         android:layout_alignLeft="@+id/search_description"
                         android:layout_alignStart="@+id/search_description"
-
-                        android:layout_marginTop="8dp"
                         android:layout_weight="0.3"
                         android:background="@drawable/selector_button_red_oval"
                         android:text="Upload"

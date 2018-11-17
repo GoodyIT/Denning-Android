@@ -18,6 +18,10 @@ public class MatterCodeModel implements Serializable{
     public String groupName4;
     public String groupName5;
     public String isRental;
+    public String strLabelClerk;
+    public String strLabelLegalAssistant;
+    public String strLabelPartner;
+    public String strLabelTeam;
     public String turnAround;
 
     public String getCode() {

@@ -91,9 +91,10 @@ public class AddPropertyAdapter extends BaseSectionAdapter {
     public AddPropertyAdapter(Context context, Property property, OnSectionItemClickListener itemClickListener) {
         super(context, itemClickListener);
         this.property = property;
-        titles = Arrays.asList(new String[]{"", "Title Details (if issued)", "More strata title details (if issued)", "Unit / Parcel Details (Per Principal SPA)", "Project"});
+        titles = Arrays.asList(new String[]{"", "Title Details (if issued)", "More strata title details (if issued)", "Unit / Parcel Details (Per SPA)", "Project"});
         buildModel();
     }
+
 
     public void buildModel() {
         AddSectionItemModel sectionItemModel = new AddSectionItemModel();
@@ -229,7 +230,7 @@ public class AddPropertyAdapter extends BaseSectionAdapter {
         sectionItemModel.items.add(labelValueDetail);
         model.items.add(sectionItemModel);
 
-        // More Sarata Title Details
+        // More Strata Title Details
         sectionItemModel = new AddSectionItemModel();
         labelValueDetail = new LabelValueDetail("Parcel No.", "", DIConstants.INPUT_TYPE);
         if (property != null) {
@@ -286,7 +287,7 @@ public class AddPropertyAdapter extends BaseSectionAdapter {
         sectionItemModel = new AddSectionItemModel();
         labelValueDetail = new LabelValueDetail();
         labelValueDetail.viewType = DIConstants.TWO_COLUMN_LEFT_DETAIL_RIGHT_INPUT_TYPE;
-        labelValueDetail.leftView = new LabelValueDetail("Parcel Type", "", true);
+        labelValueDetail.leftView = new LabelValueDetail("Partly Hidden", "", true);
         if (property != null) {
             labelValueDetail.leftView.value = property.getSPAParcelType();
         }
@@ -392,6 +393,14 @@ public class AddPropertyAdapter extends BaseSectionAdapter {
             return;
         }
 
+        String[] inputArray = input.split(" ");
+        String newInput = "";
+        for(int i = 0; i < inputArray.length; i++) {
+            newInput += inputArray[i].substring(0, 1).toUpperCase() + inputArray[i].substring(1) + " ";
+        }
+
+        input = newInput;
+
         if (sectionIndex == TITLE_DETAILS) {
             if (itemIndex == TITLE_TYPE_NO || itemIndex == LOT_TYPE_NO || itemIndex == MUKIM_TYPE_VALUE) {
                 updateLeftRightInput(input, sectionIndex, itemIndex, 1);
@@ -437,6 +446,8 @@ public class AddPropertyAdapter extends BaseSectionAdapter {
     }
 
     public boolean isValidProceed() {
+        focusedEditText.clearFocus();
+
         if (getValue(MAIN_SECTION, PROPERTY_TYPE).trim().length() == 0) {
             DIAlert.showSimpleAlert(context, R.string.alert_property_type);
             return false;
@@ -507,7 +518,6 @@ public class AddPropertyAdapter extends BaseSectionAdapter {
 
     @Override
     protected JsonObject buildSaveParam() {
-        focusedEditText.clearFocus();
         JsonObject params = new JsonObject();
 
         List<LabelValueDetail> main = model.items.get(MAIN_SECTION).items;

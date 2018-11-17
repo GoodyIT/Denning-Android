@@ -167,8 +167,11 @@ public class DiaryActivity extends BaseActivity implements RadioGroup.OnCheckedC
 
     private void saveDiary() {
         if (isSaved) {
+            DIAlert.showSimpleAlert(this, R.string.already_saved);
             return;
         }
+
+
 
         DIAlert.showSimpleAlertWithCompletion(this, R.string.alert_save_diary, new MyCallbackInterface() {
             @Override

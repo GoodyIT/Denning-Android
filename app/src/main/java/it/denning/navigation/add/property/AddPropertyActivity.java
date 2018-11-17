@@ -16,8 +16,10 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.quickblox.q_municate_db.utils.ErrorUtils;
+import com.tsongkha.spinnerdatepicker.SpinnerDatePickerDialogBuilder;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
+import it.denning.navigation.add.contact.AddContactActivity;
 import org.zakariya.stickyheaders.StickyHeaderLayoutManager;
 
 import java.util.Calendar;
@@ -110,7 +112,7 @@ public class AddPropertyActivity extends MyBaseActivity implements
             case "Property Type":
                 gotoCodeDesc(R.string.select_property_type_title, PROPERTY_TYPE_GET_LIST_URL);
                 break;
-            case "Individual / Sarata Title":
+            case "Individual / Strata Title":
                 gotoCodeDesc(R.string.issued_title_of_property_title, DIConstants.PROPERTY_TITLE_ISSUED_GET_URL);
                 break;
             case "Title Type":
@@ -340,15 +342,22 @@ public class AddPropertyActivity extends MyBaseActivity implements
     }
 
     private void showDateOfBirth() {
-        Calendar now = Calendar.getInstance();
-        if (dpd == null) {
-            dpd = DatePickerDialog.newInstance(
-                    this,
-                    now
-            );
-            dpd.setVersion(DatePickerDialog.Version.VERSION_2);
-        }
-        dpd.show(getFragmentManager(), "Datepickerdialog");
+        Calendar calendar = Calendar.getInstance();
+        new SpinnerDatePickerDialogBuilder()
+                .context(AddPropertyActivity.this)
+                .callback(new com.tsongkha.spinnerdatepicker.DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(com.tsongkha.spinnerdatepicker.DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        String date = DIHelper.getBirthday(year, monthOfYear, dayOfMonth);
+                        adapter.updateDataAndRefresh(date, selectedSectionIndex, selectedItemIndex);
+                    }
+                })
+                .spinnerTheme(R.style.NumberPickerStyle)
+                .showTitle(true)
+                .showDaySpinner(true)
+                .defaultDate(calendar.get(calendar.YEAR), calendar.get(calendar.MONTH), calendar.get(calendar.DAY_OF_MONTH))
+                .build()
+                .show();
     }
 
     @Override

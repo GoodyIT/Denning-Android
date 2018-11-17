@@ -302,7 +302,9 @@ public class BaseDiaryFragment extends Fragment implements
     }
 
     public void save(String url) {
-        getActivity().findViewById(R.id.search_bank_layout).requestFocus();
+
+//        getActivity().findViewById(R.id.search_bank_layout).requestFocus();
+        adapter.clearFocus();
 
         ((DiaryActivity)getActivity()).showProgress();
         NetworkManager.getInstance().sendPrivatePostRequest(url, adapter.buildSaveParam(), new CompositeCompletion() {
@@ -319,7 +321,7 @@ public class BaseDiaryFragment extends Fragment implements
     }
 
     public void update(String url) {
-        getActivity().findViewById(R.id.search_bank_layout).requestFocus();
+     //   getActivity().findViewById(R.id.search_bank_layout).requestFocus();
 
         ((DiaryActivity)getActivity()).showProgress();
         NetworkManager.getInstance().sendPrivatePutRequest(url, adapter.buildUpdateParam(), new CompositeCompletion() {

@@ -63,6 +63,15 @@ public class AddReceiptAdapter extends SectioningAdapter {
     public static final int CHEQUE_AMOUNT = 4;
     public static final int REMARKS = 5;
 
+    private EditText focusedText;
+
+    public void clearFocus() {
+        if(focusedText == null) {
+            return;
+        }
+        focusedText.clearFocus();
+    }
+
     public AddReceiptAdapter(Context context, ReceiptModel receiptModel, OnSectionItemClickListener itemClickListener) {
         this.itemClickListener = itemClickListener;
         this.receiptModel = receiptModel;
@@ -214,6 +223,19 @@ public class AddReceiptAdapter extends SectioningAdapter {
         return new GhostHeaderViewHolder(ghostView);
     }
 
+    public void deleteItem(final int sectionIndex, final int position) {
+        model.items.get(sectionIndex).items.get(position).value = "";
+
+        android.os.Handler handler = new android.os.Handler();
+        handler.postDelayed(new Runnable() {
+            public void run(){
+                //change adapter contents
+                notifySectionItemChanged(sectionIndex, position);
+                clearFocus();
+            }
+        }, 300);
+    }
+
     private void displayInput(final InputTypeViewHolder viewHolder, final int sectionIndex, final int itemIndex) {
         viewHolder.myCustomEditTextListener.updatePosition(sectionIndex, itemIndex);
         final LabelValueDetail labelValueDetail = model.items.get(sectionIndex).items.get(itemIndex);
@@ -222,6 +244,13 @@ public class AddReceiptAdapter extends SectioningAdapter {
         viewHolder.editText.setInputType(labelValueDetail.inputType);
         viewHolder.editText.setHint(labelValueDetail.label);
         viewHolder.editText.setFloatingLabelText(labelValueDetail.label);
+
+        viewHolder.editText.setCloseListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteItem(sectionIndex, itemIndex);
+            }
+        });
     }
 
     private void displayGeneral(final GeneralTypeViewHolder viewHolder, final int sectionIndex, final int itemIndex) {
@@ -302,6 +331,8 @@ public class AddReceiptAdapter extends SectioningAdapter {
     }
 
     public boolean isValidProceed() {
+        clearFocus();
+
         if (model.items.get(0).items.get(0).value.trim().length() == 0) {
             DIAlert.showSimpleAlert(context, R.string.alert_file_no_not_select);
             return false;
@@ -347,6 +378,10 @@ public class AddReceiptAdapter extends SectioningAdapter {
 
         @Override
         public void onFocusChange(View v, final boolean hasFocus) {
+            if (hasFocus) {
+                focusedText = (EditText) v;
+                return;
+            }
             updateDataFromInput(((EditText)v).getText().toString(), sectionIndex, itemIndex);
              KeyboardUtils.hideKeyboard(v);
 

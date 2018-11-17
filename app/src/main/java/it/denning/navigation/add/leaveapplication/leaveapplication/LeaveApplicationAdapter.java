@@ -56,6 +56,15 @@ public class LeaveApplicationAdapter extends SectioningAdapter {
     private final int STAFF_REMARKS = 4;
     private final int SUBMITTED_BY = 5;
 
+    private EditText focusedText;
+
+    public void clearFocus() {
+        if (focusedText == null) {
+            return;
+        }
+        focusedText.clearFocus();
+    }
+
     Context context;
     private AddSectionItemModel model = new AddSectionItemModel(DIConstants.leave_app_labels, DIConstants.leave_app_has_details);
     final private OnSectionItemClickListener itemClickListener;
@@ -207,6 +216,19 @@ public class LeaveApplicationAdapter extends SectioningAdapter {
         });
     }
 
+    public void deleteItem(final int sectionIndex, final int position) {
+        model.items.get(position).value = "";
+
+        android.os.Handler handler = new android.os.Handler();
+        handler.postDelayed(new Runnable() {
+            public void run(){
+                //change adapter contents
+                notifySectionItemChanged(sectionIndex, position);
+                clearFocus();
+            }
+        }, 300);
+    }
+
     private void displayInput(final InputTypeViewHolder viewHolder, final int sectionIndex, final int itemIndex) {
         viewHolder.myCustomEditTextListener.updatePosition(sectionIndex, itemIndex);
         final LabelValueDetail labelValueDetail = model.items.get(itemIndex);
@@ -219,6 +241,13 @@ public class LeaveApplicationAdapter extends SectioningAdapter {
             inputType = InputType.TYPE_CLASS_NUMBER;
         }
         viewHolder.editText.setInputType(inputType);
+
+        viewHolder.editText.setCloseListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteItem(sectionIndex, itemIndex);
+            }
+        });
     }
 
     private void displayGeneral(final GeneralTypeViewHolder viewHolder, final int sectionIndex, final int itemIndex) {
@@ -243,7 +272,13 @@ public class LeaveApplicationAdapter extends SectioningAdapter {
         if (input.trim().length() == 0) {
             return;
         }
-        input = input.substring(0, 1).toUpperCase() + input.substring(1);
+        String[] inputArray = input.split(" ");
+        String newInput = "";
+        for(int i = 0; i < inputArray.length; i++) {
+            newInput += inputArray[i].substring(0, 1).toUpperCase() + inputArray[i].substring(1) + " ";
+        }
+
+        input = newInput;
         model.items.get(itemIndex).value = input;
     }
 
@@ -269,6 +304,8 @@ public class LeaveApplicationAdapter extends SectioningAdapter {
     }
 
     public JsonObject buildSaveParams() {
+        clearFocus();
+
         JsonObject jsonObject = new JsonObject();
 
         JsonObject clsLeaveStatus = new JsonObject();
@@ -302,6 +339,10 @@ public class LeaveApplicationAdapter extends SectioningAdapter {
 
         @Override
         public void onFocusChange(View v, final boolean hasFocus) {
+            if (hasFocus) {
+                focusedText = (EditText) v;
+                return;
+            }
             updateDataFromInput(((EditText)v).getText().toString(), sectionIndex, itemIndex);
             KeyboardUtils.hideKeyboard(v);
 

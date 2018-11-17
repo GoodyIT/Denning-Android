@@ -117,7 +117,7 @@ public class CourtDiaryCourtListAdapter extends SectioningAdapter {
     public void onBindHeaderViewHolder(SectioningAdapter.HeaderViewHolder viewHolder, int sectionIndex, int headerType) {
         HeaderViewHolder headerViewHolder = (HeaderViewHolder)viewHolder;
         headerViewHolder.nameTitle.setText("Place");
-        headerViewHolder.idTitle.setText("TypeE");
+        headerViewHolder.idTitle.setText("Court");
     }
 
     @Override

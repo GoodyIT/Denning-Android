@@ -80,6 +80,14 @@ public class BaseSectionAdapter extends SectioningAdapter {
         model = new AddingModel();
     }
 
+    public void clearFocus() {
+        if (focusedEditText == null) {
+            return;
+        }
+        focusedEditText.clearFocus();
+    }
+
+
     public AddingModel getAddingModel() {
         return model;
     }
@@ -142,15 +150,15 @@ public class BaseSectionAdapter extends SectioningAdapter {
         @BindView(R.id.add_cardview)
         CardView cardView;
         public MyCustomEditTextListener myCustomEditTextListener;
-        public MyTextWatcher myTextWatcher;
+//        public MyTextWatcher myTextWatcher;
         public InputTypeViewHolder(View itemView, MyCustomEditTextListener myCustomEditTextListener) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             this.myCustomEditTextListener = myCustomEditTextListener;
-            this.myTextWatcher = new MyTextWatcher();
+//            this.myTextWatcher = new MyTextWatcher();
             editText.setInputType(InputType.TYPE_CLASS_TEXT);
             editText.setOnFocusChangeListener(myCustomEditTextListener);
-            editText.addTextChangedListener(this.myTextWatcher);
+//            editText.addTextChangedListener(this.myTextWatcher);
         }
     }
 
@@ -200,14 +208,14 @@ public class BaseSectionAdapter extends SectioningAdapter {
         @BindView(R.id.right_edittext)
         MyFloatingEditText rightEditText;
         public MyCustomEditTextListener myCustomEditTextListener;
-        public MyTextWatcher myTextWatcher;
+//        public MyTextWatcher myTextWatcher;
         public LeftDetailRightInputViewHolder(View itemView, MyCustomEditTextListener myCustomEditTextListener) {
             super(itemView);
             ButterKnife.bind(this, itemView);
-            this.myTextWatcher = new MyTextWatcher();
+//            this.myTextWatcher = new MyTextWatcher();
             this.myCustomEditTextListener = myCustomEditTextListener;
             rightEditText.setOnFocusChangeListener(myCustomEditTextListener);
-            rightEditText.addTextChangedListener(this.myTextWatcher);
+//            rightEditText.addTextChangedListener(this.myTextWatcher);
         }
     }
 
@@ -217,14 +225,14 @@ public class BaseSectionAdapter extends SectioningAdapter {
         @BindView(R.id.right_edittext)
         MyFloatingEditText rightEditText;
         public MyCustomEditTextListener myCustomEditTextListener;
-        public MyTextWatcher myTextWatcher;
+//        public MyTextWatcher myTextWatcher;
         public LeftInputRightDetailViewHolder(View itemView, MyCustomEditTextListener myCustomEditTextListener) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             this.myCustomEditTextListener = myCustomEditTextListener;
-            this.myTextWatcher = new MyTextWatcher();
+//            this.myTextWatcher = new MyTextWatcher();
             leftEditText.setOnFocusChangeListener(myCustomEditTextListener);
-            leftEditText.addTextChangedListener(this.myTextWatcher);
+//            leftEditText.addTextChangedListener(this.myTextWatcher);
         }
     }
 
@@ -420,7 +428,7 @@ public class BaseSectionAdapter extends SectioningAdapter {
 
     protected void displayLeftDetailRightInput(final LeftDetailRightInputViewHolder viewHolder, final int sectionIndex, final int itemIndex) {
         viewHolder.myCustomEditTextListener.updatePosition(sectionIndex, itemIndex);
-        viewHolder.myTextWatcher.updatePosition(sectionIndex, itemIndex);
+//        viewHolder.myTextWatcher.updatePosition(sectionIndex, itemIndex);
         final LabelValueDetail labelValueDetail = model.items.get(sectionIndex).items.get(itemIndex);
         viewHolder.leftEditText.setText(labelValueDetail.leftView.value);
         viewHolder.leftEditText.setHint(labelValueDetail.leftView.label);
@@ -449,7 +457,7 @@ public class BaseSectionAdapter extends SectioningAdapter {
 
     protected void displayLeftInputRightDetail(final LeftInputRightDetailViewHolder viewHolder, final int sectionIndex, final int itemIndex) {
         viewHolder.myCustomEditTextListener.updatePosition(sectionIndex, itemIndex);
-        viewHolder.myTextWatcher.updatePosition(sectionIndex, itemIndex);
+//        viewHolder.myTextWatcher.updatePosition(sectionIndex, itemIndex);
         final LabelValueDetail labelValueDetail = model.items.get(sectionIndex).items.get(itemIndex);
         viewHolder.leftEditText.setText(labelValueDetail.leftView.value);
         viewHolder.leftEditText.setHint(labelValueDetail.leftView.label);
@@ -538,7 +546,7 @@ public class BaseSectionAdapter extends SectioningAdapter {
     @SuppressLint("NewApi")
     protected void displayInput(final InputTypeViewHolder viewHolder, final int sectionIndex, final int itemIndex) {
         viewHolder.myCustomEditTextListener.updatePosition(sectionIndex, itemIndex);
-        viewHolder.myTextWatcher.updatePosition(sectionIndex, itemIndex);
+//        viewHolder.myTextWatcher.updatePosition(sectionIndex, itemIndex);
         final LabelValueDetail labelValueDetail = model.items.get(sectionIndex).items.get(itemIndex);
         Log.d("Log inputtype", labelValueDetail.label + " -- " + labelValueDetail.value);
 
@@ -724,19 +732,34 @@ public class BaseSectionAdapter extends SectioningAdapter {
         notifySectionDataSetChanged(sectionIndex);
     }
 
-    public void deleteItem(int sectionIndex, int position) {
+    public void deleteItem(final int sectionIndex, final int position) {
         model.items.get(sectionIndex).items.get(position).value = "";
-        notifySectionItemChanged(sectionIndex, position);
-        KeyboardUtils.hideKeyboard((Activity)context);
+
+        android.os.Handler handler = new android.os.Handler();
+        handler.postDelayed(new Runnable() {
+            public void run(){
+                //change adapter contents
+                notifySectionItemChanged(sectionIndex, position);
+                clearFocus();
+            }
+        }, 300);
     }
 
-    public void deleteItemTwoColumn(int sectionIndex, int position, int twoColumn) {
+    public void deleteItemTwoColumn(final int sectionIndex, final int position, int twoColumn) {
         if (twoColumn == 0) {
             model.items.get(sectionIndex).items.get(position).leftView.value = "";
         } else {
             model.items.get(sectionIndex).items.get(position).rightView.value = "";
         }
-        notifySectionItemChanged(sectionIndex, position);
+
+        android.os.Handler handler = new android.os.Handler();
+        handler.postDelayed(new Runnable() {
+            public void run(){
+                //change adapter contents
+                notifySectionItemChanged(sectionIndex, position);
+                clearFocus();
+            }
+        }, 300);
     }
 
     protected class MyCustomEditTextListener implements View.OnFocusChangeListener {
@@ -754,9 +777,9 @@ public class BaseSectionAdapter extends SectioningAdapter {
                 return;
             }
             String value = ((EditText)v).getText().toString();
-            if (getValue(sectionIndex, itemIndex).toLowerCase().equals(value.toLowerCase())) {
-                return;
-            }
+//            if (getValue(sectionIndex, itemIndex).toLowerCase().equals(value.toLowerCase())) {
+//                return;
+//            }
             updateDataFromInput(value, sectionIndex, itemIndex);
             KeyboardUtils.hideKeyboard(v);
 
@@ -770,31 +793,32 @@ public class BaseSectionAdapter extends SectioningAdapter {
         }
     }
 
-    protected class MyTextWatcher implements TextWatcher {
-        protected int sectionIndex, itemIndex;
-
-        public void updatePosition(int sectionIndex, int itemIndex) {
-            this.sectionIndex = sectionIndex;
-            this.itemIndex = itemIndex;
-        }
-
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-        }
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-        }
-
-        @Override
-        public void afterTextChanged(Editable s) {
-            if (model.items.get(sectionIndex).items.get(itemIndex).isRealtimeInput) {
-                return;
-            }
-
-            if (!getValue(sectionIndex, itemIndex).toLowerCase().equals(s.toString().toLowerCase())) {
-                updateDataFromInput(s.toString(), sectionIndex, itemIndex);
-            }
-        }
-    }
+//    protected class MyTextWatcher implements TextWatcher {
+//        protected int sectionIndex, itemIndex;
+//
+//        public void updatePosition(int sectionIndex, int itemIndex) {
+//            this.sectionIndex = sectionIndex;
+//            this.itemIndex = itemIndex;
+//        }
+//
+//        @Override
+//        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//        }
+//
+//        @Override
+//        public void onTextChanged(CharSequence s, int start, int before, int count) {
+//        }
+//
+//        @Override
+//        public void afterTextChanged(Editable s) {
+//            if (model.items.get(sectionIndex).items.get(itemIndex).isRealtimeInput) {
+//                return;
+//            }
+//
+//            if (!getValue(sectionIndex, itemIndex).toLowerCase().equals(s.toString().toLowerCase())) {
+//          //      updateDataFromInput(s.toString(), sectionIndex, itemIndex);
+//          //      focusedEditText.setSelection(s.toString().length());
+//            }
+//        }
+//    }
 }

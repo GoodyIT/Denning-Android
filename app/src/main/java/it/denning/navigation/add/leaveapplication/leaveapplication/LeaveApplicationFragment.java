@@ -111,7 +111,7 @@ public class LeaveApplicationFragment extends Fragment implements
                 break;
         }
 
-        getView().findViewById(R.id.search_bank_layout).requestFocus();
+//        getView().findViewById(R.id.search_bank_layout).requestFocus();
     }
 
     private void submitApplication() {

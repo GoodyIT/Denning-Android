@@ -449,6 +449,7 @@
     <string name="select_LA_title">Select LA</string>
     <string name="select_clerk_title">Select Clerk</string>
     <string name="select_Partner_title">Select Partner</string>
+    <string name="select_team">Select Team</string>
     <string name="select_file_status_title">Select File Status</string>
     <string name="select_bank_branch_title">Select Bank Branch</string>
     <string name="select_solicitor_title">Select Solicitor</string>
@@ -549,6 +550,7 @@
     <string name="alert_save_matter">Do you want to save matter?</string>
     <string name="alert_update_matter">Do you want to update matter?</string>
     <string name="alert_save_diary">Do you want to save diary?</string>
+    <string name="already_saved">You already saved this form.</string>
     <string name="alert_update_diary">Do you want to update diary?</string>
     <string name="alert_property_type">Please Select Property Type.</string>
     <string name="alert_individual_title">Please Select Individual/Strata Title.</string>
@@ -569,6 +571,7 @@
     <string name="alert_role_self_change">You cannot change your own role.</string>
     <string name="alert_role_denning_change">You cannot change the role of Denning users.</string>
     <string name="alert_role_client_change">You cannot change the role of the client.</string>
+    <string name="calculator_note">Legal costs calculated above are estimates only based on the transaction of real property in Kuala Lumpur, the miscellaneous charges especially the MOT registration fees for other states will be much higher</string>
     
     <!-- Calendar -->
     <string-array name="calendar_top_filter_titles">

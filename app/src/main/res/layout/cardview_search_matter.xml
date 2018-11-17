@@ -81,7 +81,7 @@
                                 android:layout_marginRight="12dp"
                                 android:layout_weight="0.3"
                                 android:background="@drawable/badge_circle_red"
-                                android:textColor="@android:color/white" android:text="File Folder"/>
+                                android:textColor="@android:color/white" android:text="Folder"/>
 
                         <Button
                                 android:id="@+id/search_matter_accountsBtn"
@@ -105,48 +105,53 @@
 
                     </LinearLayout>
 
-                    <LinearLayout
+                    <TableLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/linearLayout"
                             android:layout_centerHorizontal="true"
                             android:layout_marginBottom="8dp"
+                            android:stretchColumns="1"
                             android:orientation="horizontal">
+                        <TableRow
+                                android:id="@+id/tableRow1"
+                                android:layout_height="wrap_content" >
+                            <Button
+                                    android:id="@+id/search_matter_paymentRecordBtn"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="12dp"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginRight="12dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/badge_circle_red"
+                                    android:text="Record"
+                                    android:textColor="@android:color/white"/>
 
-                        <Button
-                                android:id="@+id/search_matter_paymentRecordBtn"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="12dp"
-                                android:layout_marginRight="12dp"
-                                android:layout_weight="0.3"
-                                android:background="@drawable/badge_circle_red"
-                                android:text="Payment Record"
-                                android:textColor="@android:color/white" />
+                            <Button
+                                    android:id="@+id/search_matter_uploadBtn"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/badge_circle_red"
+                                    android:text="Upload"
+                                    android:textColor="@android:color/white"/>
 
-                        <Button
-                                android:id="@+id/search_matter_uploadBtn"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="8dp"
-                                android:layout_weight="0.3"
-                                android:background="@drawable/badge_circle_red"
-                                android:text="Upload"
-                                android:textColor="@android:color/white"/>
+                            <Button
+                                    android:id="@+id/search_matter_templateBtn"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="12dp"
+                                    android:layout_marginRight="12dp"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/badge_circle_red"
+                                    android:text="Templates"
+                                    android:textColor="@android:color/white"/>
+                        </TableRow>
 
-                        <Button
-                                android:id="@+id/search_matter_templateBtn"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="12dp"
-                                android:layout_marginRight="12dp"
-                                android:layout_marginTop="8dp"
-                                android:layout_weight="0.3"
-                                android:background="@drawable/badge_circle_red"
-                                android:text="Templates"
-                                android:textColor="@android:color/white" />
-
-                    </LinearLayout>
+                    </TableLayout>
 
 
                 </LinearLayout>

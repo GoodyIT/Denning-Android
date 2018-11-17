@@ -30,8 +30,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp">
+                    android:orientation="horizontal">
 
                     <it.denning.search.utils.myfloatingedittext.MyFloatingEditText
                         android:id="@+id/left_edittext"
@@ -40,7 +39,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/md_transparent"
                         app:met_clearButton="true"
-                        android:layout_marginLeft="12dp"
+                        android:paddingLeft="12dp"
                         android:textSize="15sp"
                         app:met_primaryColor="?colorAccent"
                         app:met_floatingLabel="highlight"
@@ -50,8 +49,6 @@
                     <LinearLayout
                         android:layout_width="1dp"
                         android:layout_height="match_parent"
-                        android:layout_marginBottom="3dp"
-                        android:layout_marginTop="3dp"
                         android:background="@color/gray">
 
                     </LinearLayout>

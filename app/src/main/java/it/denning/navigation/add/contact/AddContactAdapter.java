@@ -234,7 +234,7 @@ public class AddContactAdapter extends BaseSectionAdapter {
 
         // Other Info
         sectionItemModel = new AddSectionItemModel();
-        labelValueDetail = new LabelValueDetail("Citizenship", "", DIConstants.GENERAL_TYPE);
+        labelValueDetail = new LabelValueDetail("Citizenship / Country of Incorp", "", DIConstants.GENERAL_TYPE);
         if (contact != null) {
             labelValueDetail.value = contact.citizenship;
         }
@@ -487,7 +487,13 @@ public class AddContactAdapter extends BaseSectionAdapter {
             return;
         }
 
-        input = input.substring(0, 1).toUpperCase() + input.substring(1);
+        String[] inputArray = input.split(" ");
+        String newInput = "";
+        for(int i = 0; i < inputArray.length; i++) {
+            newInput += inputArray[i].substring(0, 1).toUpperCase() + inputArray[i].substring(1) + " ";
+        }
+
+        input = newInput;
 
         if (sectionIndex == COMPANY_INFO) {
             if (itemIndex == ADDRESS1 || itemIndex == ADDRESS2 || itemIndex == ADDRESS3) {
@@ -637,6 +643,8 @@ public class AddContactAdapter extends BaseSectionAdapter {
     }
 
     public boolean isValidProceed() {
+        focusedEditText.clearFocus();
+
         if (model.items.get(PERSONAL_INFO).items.get(ID_TYPE).code.trim().length() == 0) {
             DIAlert.showSimpleAlert(context, R.string.alert_ID_type_must);
             return false;

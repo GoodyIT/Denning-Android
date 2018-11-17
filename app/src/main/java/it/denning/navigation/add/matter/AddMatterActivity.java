@@ -15,9 +15,12 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.quickblox.q_municate_db.utils.ErrorUtils;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
+import it.denning.navigation.add.utils.simplespinerdialog.SpinnerDialog;
+import it.denning.search.utils.OnSpinerItemClick;
 import org.zakariya.stickyheaders.StickyHeaderLayoutManager;
 
 import java.text.SimpleDateFormat;
@@ -128,6 +131,17 @@ public class AddMatterActivity extends MyBaseActivity implements
     public void onClick(View view, int sectionIndex, int itemIndex, String name) {
         selectedSection = sectionIndex;
         selectedItem = itemIndex;
+        if (sectionIndex == 0) {
+            if (itemIndex == 4) {
+                gotoStaff(R.string.select_clerk_title, DIConstants.STAFF_REQUEST_CODE, "partner");
+            } else if (itemIndex == 5) {
+                gotoStaff(R.string.select_clerk_title, DIConstants.STAFF_REQUEST_CODE, "la");
+            } else if (itemIndex == 6) {
+                gotoStaff(R.string.select_clerk_title, DIConstants.STAFF_REQUEST_CODE, "clerk");
+            } else if (itemIndex == 7) {
+                gotoMatterTeam();
+            }
+        }
         switch (name) {
             case "Save":
             case "Update":
@@ -138,15 +152,6 @@ public class AddMatterActivity extends MyBaseActivity implements
                 break;
             case "File Status":
                 gotoFileStatus();
-                break;
-            case "Partner-in-Charge":
-                gotoStaff(R.string.select_clerk_title, DIConstants.STAFF_REQUEST_CODE, "partner");
-                break;
-            case "LA-in-Charge":
-                gotoStaff(R.string.select_clerk_title, DIConstants.STAFF_REQUEST_CODE, "la");
-                break;
-            case "Clerk-in-Charge":
-                gotoStaff(R.string.select_clerk_title, DIConstants.STAFF_REQUEST_CODE, "clerk");
                 break;
             case "Matter":
                 gotoMatter();
@@ -303,6 +308,22 @@ public class AddMatterActivity extends MyBaseActivity implements
         Intent intent = new Intent(this, ListMatterActivity.class);
         intent.putExtra("title", R.string.select_matter_title);
         startActivityForResult(intent, DIConstants.MATTER_REQUEST_CODE);
+    }
+
+    private void gotoMatterTeam() {
+        SpinnerDialog dialog = new SpinnerDialog(this, DIConstants.TEAM_GET_URL, "code", R.string.select_team);
+        dialog.bindOnSpinerListener(new OnSpinerItemClick() {
+            @Override
+            public void onClick(String item, int position) {
+                adapter.updateDataAndRefresh(item, selectedSection, selectedItem);
+            }
+
+            @Override
+            public void onClick(JsonObject object) {
+            }
+        });
+
+        dialog.showSpinerDialog();
     }
 
     private void gotoFileStatus() {
@@ -490,7 +511,7 @@ public class AddMatterActivity extends MyBaseActivity implements
             if (resultCode == AppCompatActivity.RESULT_OK) {
                 // do something with the result
                 StaffModel model = (StaffModel) data.getSerializableExtra("model");
-                adapter.updateBankOrSolicitor(new LabelValueDetail(model.name, model.code), selectedSection, selectedItem);
+                adapter.updateBankOrSolicitor(new LabelValueDetail(model.name.toUpperCase(), model.code), selectedSection, selectedItem);
             }
         } else if (requestCode == DIConstants.COURT_CASE_TYPE_REQUEST_CODE) {
             if (resultCode == AppCompatActivity.RESULT_OK) {
@@ -508,8 +529,8 @@ public class AddMatterActivity extends MyBaseActivity implements
             if (resultCode == AppCompatActivity.RESULT_OK) {
                 // do something with the result
                 CourtDiaryCourt model = (CourtDiaryCourt) data.getSerializableExtra("model");
-                adapter.updateItem(new LabelValueDetail(model.typeE, model.code), selectedSection, adapter.COURT);
-                adapter.updateItem(new LabelValueDetail(model.place, model.code), selectedSection, adapter.PLACE);
+                adapter.updateItem(new LabelValueDetail("Court", model.typeE, model.code, true), selectedSection, adapter.COURT);
+                adapter.updateItem(new LabelValueDetail("Place", model.place, model.code, true), selectedSection, adapter.PLACE);
             }
         }
     }

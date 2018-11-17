@@ -2,6 +2,7 @@ package it.denning.navigation.add.diary;
 
 import android.content.Context;
 
+import android.widget.EditText;
 import com.google.gson.JsonObject;
 
 import java.util.Arrays;
@@ -25,7 +26,6 @@ public class BaseDiaryAdapter extends BaseSectionAdapter {
     // Sections
     protected final int DETAILS_OF_APPOINTMENT = 0;
     protected final int NEXT_DATE_DETAILS = 1;
-
 
     public BaseDiaryAdapter(Context context, OnSectionItemClickListener itemClickListener) {
         super(context,  itemClickListener);

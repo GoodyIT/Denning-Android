@@ -178,6 +178,8 @@ public class DIConstants {
 
     public static final String STAFF_GET_URL = "v1/Staff?type=";
 
+    public static final String TEAM_GET_URL = "v1/table/StaffTeam?search=";
+
     public static final String MATTER_BRANCH_GET_URL  = "v1/table/ProgramOwner?search=";
 
     public static final String PROPERTY_GET_LIST_URL = "v1/Property?search=";
@@ -398,6 +400,7 @@ public class DIConstants {
     public static final int MASTER_TITLE_REQUEST_CODE = 30;
     public static final int AREA_TYPE_REQUEST_CODE = 31;
     public static final int OCCUPATION_REQUEST_CODE = 32;
+    public static final int MATTER_TEAM_REQUEST = 33;
 
     public static final int PERMISSION_REQUEST_CODE = 1;
 

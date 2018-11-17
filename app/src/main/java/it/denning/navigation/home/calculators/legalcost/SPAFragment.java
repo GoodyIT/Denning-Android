@@ -51,6 +51,10 @@ public class SPAFragment extends Fragment {
     TextView sstStampLoanTextview;
     @BindView(R.id.sst_legal_loan_textview)
     TextView sstLegalSPATextview;
+    @BindView(R.id.misc_spa_textview)
+    TextView miscSPATextview;
+    @BindView(R.id.misc_loan_textview)
+    TextView miscLoanTextview;
     @BindView(R.id.total_spa_textview)
     TextView totalSPATextview;
     @BindView(R.id.total_loan_textview)
@@ -135,6 +139,8 @@ public class SPAFragment extends Fragment {
         priceTextview.setOnFocusChangeListener(new MyCustomEditTextListener());
         loanMarginTextview.setOnFocusChangeListener(new MyCustomEditTextListener());
         loanAmountTextview.setOnFocusChangeListener(new MyCustomEditTextListener());
+        miscLoanTextview.setOnFocusChangeListener(new MyCustomEditTextListener());
+        miscSPATextview.setOnFocusChangeListener(new MyCustomEditTextListener());
     }
 
     @OnClick(R.id.reset_btn)
@@ -143,7 +149,6 @@ public class SPAFragment extends Fragment {
         relationship.setText("");
         loanMarginTextview.setText("");
         loanAmountTextview.setText("");
-        loanTypeTexview.setText("");
         stampSPATextview.setText("");
         stampLoanTextview.setText("");
         legalLoanTextview.setText("");
@@ -178,36 +183,36 @@ public class SPAFragment extends Fragment {
         }
 
 // Calculate the stam Duty
-        float stamDuty = 0;
-        if (priceValue  >= 100000) {
-            stamDuty  += 100000* 0.01;
-        } else {
-            stamDuty  += priceValue * 0.01;
-        }
+//        if (priceValue  >= 100000) {
+//            stamDuty  += 100000* 0.01;
+//        } else {
+//            stamDuty  += priceValue * 0.01;
+//        }
+//
+//        priceValue  -= 100000;
+//
+//        if (priceValue  > 0 && priceValue  < 400000){
+//            stamDuty  += priceValue *0.02;
+//        } else if (priceValue  >= 400000) {
+//            stamDuty  += 400000*0.02;
+//        }
+//
+//        priceValue  -= 400000;
+//
+//        if (priceValue  > 0 && priceValue <= 500000) {
+//            stamDuty  += priceValue *0.03;
+//        }
+//
+//        if (priceValue > 500000) {
+//            stamDuty  += priceValue *0.04;
+//        }
+//
+        float stamDuty = (float) (Math.ceil(priceValue / 1000) * 10);
 
-        priceValue  -= 100000;
-
-        if (priceValue  > 0 && priceValue  < 400000){
-            stamDuty  += priceValue *0.02;
-        } else if (priceValue  >= 400000) {
-            stamDuty  += 400000*0.02;
-        }
-
-        priceValue  -= 400000;
-
-        if (priceValue  > 0 && priceValue <= 500000) {
-            stamDuty  += priceValue *0.03;
-        }
-
-        if (priceValue > 500000) {
-            stamDuty  += priceValue *0.04;
-        }
-
-        priceValue = DIHelper.calcLoanAndLegal(backPrice)[0];
         float legalFee = DIHelper.calcLoanAndLegal(backPrice)[1];
-        if (priceValue > 0) {
-            DIAlert.showSimpleAlert(getActivity(), R.string.warning_title, R.string.alert_legal_negotiate);
-        }
+//        if (priceValue > 0) {
+//            DIAlert.showSimpleAlert(getActivity(), R.string.warning_title, R.string.alert_legal_negotiate);
+//        }
 
         if (relationship_sel == -1) {
             stamDuty += 10;
@@ -215,7 +220,8 @@ public class SPAFragment extends Fragment {
             stamDuty *= relationship_sel;
         }
 
-        float totalSPA = stamDuty + legalFee;
+        float miscSPA = DIHelper.toFloat(miscSPATextview.getText().toString());
+        float totalSPA = stamDuty + legalFee + miscSPA;
         stampSPATextview.setText(DIHelper.addThousandsSeparator(String.format("%.2f", stamDuty)));
         legalSPATextview.setText(DIHelper.addThousandsSeparator(String.format("%.2f", legalFee)));
         totalSPATextview.setText(DIHelper.addThousandsSeparator(String.format("%.2f",totalSPA )));
@@ -223,12 +229,14 @@ public class SPAFragment extends Fragment {
         sstLegalSPATextview.setText(DIHelper.addThousandsSeparator(String.format("%.2f", legalFee*0.06f)));
 
         // Calculate Loan
+        float miscLoan = DIHelper.toFloat(miscLoanTextview.getText().toString());
         float amount = backPrice * loanMargin / 100.0f;
-        float stampLoan = loan_type_sel * backPrice;
-        float totalLoan = (stampLoan+legalFee);
+        legalFee = DIHelper.calcLoanAndLegal(amount)[1];
+        float stampLoan = loan_type_sel * amount;
+        float totalLoan = (stampLoan+legalFee + miscLoan);
         loanAmountTextview.setText(DIHelper.addThousandsSeparator(String.format("%.2f", amount)));
         stampLoanTextview.setText(DIHelper.addThousandsSeparator(String.format("%.2f", stampLoan)));
-        sstStampLoanTextview.setText(DIHelper.addThousandsSeparator(String.format("%.2f", stampLoan*0.06f)));
+        sstStampLoanTextview.setText(DIHelper.addThousandsSeparator(String.format("%.2f", legalFee*0.06f)));
         legalLoanTextview.setText(DIHelper.addThousandsSeparator(String.format("%.2f", legalFee)));
         totalLoanTextview.setText(DIHelper.addThousandsSeparator(String.format("%.2f", totalLoan)));
         grandTotalTextview.setText(DIHelper.addThousandsSeparator(String.format("%.2f", (totalLoan+totalSPA))));
@@ -260,6 +268,12 @@ public class SPAFragment extends Fragment {
                     break;
                 case 3:
                     loanAmountTextview.setText(valueWithComma);
+                    break;
+                case 4:
+                    miscSPATextview.setText(valueWithComma);
+                    break;
+                case 5:
+                    miscLoanTextview.setText(valueWithComma);
                     break;
             }
 

@@ -37,6 +37,7 @@ public abstract class BaseListAdapter<T> extends BaseAdapter {
         currentUser = AppSession.getSession().getUser();
     }
 
+
     @Override
     public int getCount() {
         return objectsList.size();

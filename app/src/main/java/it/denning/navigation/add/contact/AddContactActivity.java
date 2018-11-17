@@ -113,7 +113,7 @@ public class AddContactActivity extends MyBaseActivity implements
             case "Country":
                 gotoCountry();
                 break;
-            case "Citizenship":
+            case "Citizenship / Country of Incorp":
             case "Country of Incorporation":
                 gotoCitizenship();
                 break;

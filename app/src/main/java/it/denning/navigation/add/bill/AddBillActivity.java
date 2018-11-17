@@ -159,6 +159,8 @@ public class AddBillActivity extends MyBaseActivity implements OnSectionItemClic
     }
 
     private boolean isPresetSelected() {
+        adapter.focusedText.clearFocus();
+
         if (!adapter.isPresetSelected()) {
             DIAlert.showSimpleAlert(this, R.string.alert_preset_not_select);
             return false;

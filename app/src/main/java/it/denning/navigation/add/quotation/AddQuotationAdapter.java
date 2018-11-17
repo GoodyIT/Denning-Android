@@ -75,6 +75,15 @@ public class AddQuotationAdapter extends SectioningAdapter {
     private final int CONVERT_TO_TAX = 6;
     private final int ISSUE_RECEIPT = 7;
 
+    private EditText focusedEditText;
+
+    public void clearFocus() {
+        if (focusedEditText == null) {
+            return;
+        }
+        focusedEditText.clearFocus();
+    }
+
     public AddQuotationAdapter(Context context, OnSectionItemClickListener itemClickListener) {
         this.itemClickListener = itemClickListener;
         this.context = context;
@@ -110,15 +119,15 @@ public class AddQuotationAdapter extends SectioningAdapter {
         @BindView(R.id.add_cardview)
         CardView cardView;
         public MyCustomEditTextListener myCustomEditTextListener;
-        public MyTextWatcher myTextWatcher;
+//        public MyTextWatcher myTextWatcher;
         public InputTypeViewHolder(View itemView, MyCustomEditTextListener myCustomEditTextListener) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             this.myCustomEditTextListener = myCustomEditTextListener;
-            this.myTextWatcher = new MyTextWatcher();
+//            this.myTextWatcher = new MyTextWatcher();
             editText.setInputType(InputType.TYPE_CLASS_NUMBER);
             editText.setOnFocusChangeListener(myCustomEditTextListener);
-            editText.addTextChangedListener(this.myTextWatcher);
+//            editText.addTextChangedListener(this.myTextWatcher);
         }
     }
 
@@ -306,17 +315,37 @@ public class AddQuotationAdapter extends SectioningAdapter {
         return new GhostHeaderViewHolder(ghostView);
     }
 
+    public void deleteItem(final int sectionIndex, final int position) {
+        model.items.get(sectionIndex).items.get(position).value = "";
+
+        android.os.Handler handler = new android.os.Handler();
+        handler.postDelayed(new Runnable() {
+            public void run(){
+                //change adapter contents
+                notifySectionItemChanged(sectionIndex, position);
+                clearFocus();
+            }
+        }, 300);
+    }
+
     private void displayInput(final InputTypeViewHolder viewHolder, final int sectionIndex, int itemIndex) {
         if (!isRental.equals("0") && itemIndex > 4 && sectionIndex == 0) {
             itemIndex += 2;
         }
         viewHolder.myCustomEditTextListener.updatePosition(sectionIndex, itemIndex);
-        viewHolder.myTextWatcher.updatePosition(sectionIndex, itemIndex);
+//        viewHolder.myTextWatcher.updatePosition(sectionIndex, itemIndex);
         final LabelValueDetail labelValueDetail = model.items.get(sectionIndex).items.get(itemIndex);
         Log.d("Log inputtype", labelValueDetail.label + " -- " + labelValueDetail.value);
         viewHolder.editText.setText(labelValueDetail.value);
         viewHolder.editText.setHint(labelValueDetail.label);
         viewHolder.editText.setFloatingLabelText(labelValueDetail.label);
+        final int _itemIndex = itemIndex;
+        viewHolder.editText.setCloseListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteItem(sectionIndex, _itemIndex);
+            }
+        });
     }
 
     private void displayGeneral(final GeneralTypeViewHolder viewHolder, final int sectionIndex,final int itemIndex) {
@@ -419,7 +448,8 @@ public class AddQuotationAdapter extends SectioningAdapter {
             updateQuotationTo(issueToName, issueToName);
         }
 
-        model.items.get(0).items.get(1).value = matterSimple.systemNo; // SystemNo
+        model.items.get(0).items.get(1).value = matterSimple.systemNo + "( " + matterSimple.primaryClient.name + " )"; // SystemNo
+        model.items.get(0).items.get(1).code = matterSimple.systemNo;
         model.items.get(0).items.get(2).value = matterSimple.matter.description;
         model.items.get(0).items.get(2).code = matterSimple.matter.code;
         model.items.get(0).items.get(4).value = matterSimple.presetBill.strDescription;
@@ -497,9 +527,11 @@ public class AddQuotationAdapter extends SectioningAdapter {
     }
 
     public JsonObject buildSaveParams() {
+        clearFocus();
+
         JsonObject params = new JsonObject();
 
-        params.addProperty("fileNo", model.items.get(0).items.get(1).value);
+        params.addProperty("fileNo", model.items.get(0).items.get(1).code);
         params.addProperty("issueDate", DIHelper.todayWithTime());
         JsonObject issueTo =  new JsonObject();
         issueTo.addProperty("code", issueToFirstCode);
@@ -529,6 +561,11 @@ public class AddQuotationAdapter extends SectioningAdapter {
 
         @Override
         public void onFocusChange(View v, final boolean hasFocus) {
+            if (hasFocus) {
+                focusedEditText = (EditText)v;
+                return;
+            }
+
             updateDataFromInput(((EditText)v).getText().toString(), sectionIndex, itemIndex);
 //            KeyboardUtils.hideKeyboard(v);
 
@@ -541,37 +578,6 @@ public class AddQuotationAdapter extends SectioningAdapter {
                     }
                 }
             });
-        }
-    }
-
-    protected class MyTextWatcher implements TextWatcher {
-        protected int sectionIndex, itemIndex;
-
-        public void updatePosition(int sectionIndex, int itemIndex) {
-            this.sectionIndex = sectionIndex;
-            this.itemIndex = itemIndex;
-        }
-
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-        }
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-        }
-
-        @Override
-        public void afterTextChanged(Editable s) {
-            updateDataFromInput(s.toString(), sectionIndex, itemIndex);
-            android.os.Handler handler = new android.os.Handler();
-//            handler.postDelayed(new Runnable() {
-////                public void run(){
-////                    //change adapter contents
-////                    notifySectionItemChanged(sectionIndex, itemIndex);
-////                }
-////            }, 300);
         }
     }
 }

@@ -23,6 +23,7 @@ public class MatterModel implements Serializable {
     public String locationPocket;
     public String locationPhysical;
     public String dateClose;
+    public String team;
     private String manualNo;
 
     public MatterCodeModel matter;

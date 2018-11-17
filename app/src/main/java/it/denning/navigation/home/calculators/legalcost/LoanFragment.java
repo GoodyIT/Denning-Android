@@ -99,7 +99,8 @@ public class LoanFragment extends Fragment {
             return;
         }
 
-        float stampDuty = priceValue * loan_type_sel;
+        float stampDuty = (float) (Math.ceil(priceValue / 1000) * 10);
+        stampDuty = stampDuty * loan_type_sel;
         priceValue = DIHelper.calcLoanAndLegal(backPrice)[0];
         float legalFee = DIHelper.calcLoanAndLegal(backPrice)[1];
         if (priceValue > 0) {

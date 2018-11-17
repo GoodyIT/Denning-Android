@@ -152,6 +152,8 @@ public class AddQuotationActivity extends MyBaseActivity implements OnSectionIte
     }
 
     private boolean isPresetSelected() {
+        adapter.clearFocus();
+
         if (!adapter.isPresetSelected()) {
             DIAlert.showSimpleAlert(this, R.string.alert_preset_not_select);
             return false;
@@ -206,6 +208,7 @@ public class AddQuotationActivity extends MyBaseActivity implements OnSectionIte
 //        if (!isFileNoSelected()) {
 //            return;
 //        }
+        adapter.clearFocus();
 
         JsonObject params = adapter.buildCalcParams();
         showProgress();
